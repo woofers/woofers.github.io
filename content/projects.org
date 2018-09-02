@@ -1,5 +1,5 @@
 #+TITLE: Projects
-#+DATE: 2018-09-02
+#+DATE: September 2, 2018
 
 * Woofers 3D
 /Woofers 3D/ is a Java API that attempts to unify the features of Box2D and Bullet Physics into a simple yet capable package that can be run on nearly any device via LibGDX. Supports modern features such as ray tracing, chasing camera, game states and 3D model importing.
