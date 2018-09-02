@@ -1,6 +1,24 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import style from './header.css'
+import { Nav } from './nav'
+
+const siteData = {
+  navLinks: [
+    {
+      name: 'Projects',
+      link: '/projects'
+    },
+    {
+      name: 'Blog',
+      link: '/'
+    },
+    {
+      name: 'About',
+      link: '/about'
+    }
+  ]
+}
 
 const Header = () => (
   <div className={style.container}>
@@ -23,6 +41,7 @@ const Header = () => (
         Jaxson Van Doorn
         </Link>
       </h1>
+    <Nav links={siteData.navLinks} />
     </div>
   </div>
 )
