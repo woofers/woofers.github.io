@@ -17,6 +17,7 @@ const Header = () => (
           style={{
             color: 'gray',
             textDecoration: 'none',
+            fontSize: '1.5em',
           }}
         >
         Jaxson Van Doorn
