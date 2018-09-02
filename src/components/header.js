@@ -20,7 +20,7 @@ const siteData = {
   ]
 }
 
-const Header = () => (
+const Header = p => (
   <div className={style.container}>
     <div
       style={{
@@ -38,7 +38,7 @@ const Header = () => (
             fontSize: '1.5em',
           }}
         >
-        Jaxson Van Doorn
+        {p.name}
         </Link>
       </h1>
     <Nav links={siteData.navLinks} />
