@@ -13,7 +13,8 @@
     "mime": "^2.2.0",
     "react-helmet": "^5.2.0",
     "typography-plugin-code": "^0.16.11",
-    "typography-theme-github": "^0.15.10"
+    "typography-theme-github": "^0.15.10",
+    "typography-theme-lawton": "^0.15.10"
   },
   "keywords": [
     "gatsby"

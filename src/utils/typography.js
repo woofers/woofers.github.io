@@ -1,5 +1,5 @@
 import Typography from 'typography'
-import theme from 'typography-theme-github'
+import theme from 'typography-theme-lawton'
 import CodePlugin from 'typography-plugin-code'
 
 theme.baseFontSize = '14px'
