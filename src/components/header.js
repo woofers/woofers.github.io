@@ -19,7 +19,7 @@ const Header = () => (
             textDecoration: 'none',
           }}
         >
-          Gatsby + Orga
+        Jaxson Van Doorn
         </Link>
       </h1>
     </div>
