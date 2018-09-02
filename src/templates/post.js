@@ -7,7 +7,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <div>
-        <center>
+        <center style={{ marginBottom: '2em' }}>
           <h1>{title}</h1>
           <small>{date}</small>
         </center>
