@@ -35,21 +35,19 @@ const containerStyle = css(`
 
 const linkStyle = css(`
   color: #FFFFFF;
-  text-decoration: none;
   font-size: 1.5em;
-`)
-
-const hStyle = css(`
-  text-decoration: none;
 `)
 
 const Header = p => (
   <div className={containerStyle}>
     <div className={headerStyle}>
-      <h1 className={hStyle}>
+      <h1>
         <Link
           to={p.link}
           className={linkStyle}
+          style={{
+            textDecoration: 'none',
+          }}
         >
         {p.name}
         </Link>
