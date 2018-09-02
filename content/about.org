@@ -1,5 +1,5 @@
 #+TITLE: About Me
-#+DATE: 2018-09-02
+#+DATE: September 2, 2018
 
 * Projects
 ** Woofers 3D
