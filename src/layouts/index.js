@@ -2,12 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
+import { css } from 'emotion'
 import Header from '../components/header'
 import './index.css'
 import 'prismjs/themes/prism-solarizedlight.css'
 
 const name = "Jaxson Van Doorn"
 const home = "/"
+const divStyle = css(`
+  margin: 0px auto;
+  max-width: 720px;
+  padding: 0px 1.0875rem 1.45rem;
+`)
+
 const TemplateWrapper = ({ children }) => (
 
   <div>
@@ -17,15 +24,8 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
       ]}
     />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 720,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0,
-      }}
-    >
       <Header name={name} link={home}/>
+      <div className={divStyle}>
       {children()}
     </div>
   </div>
