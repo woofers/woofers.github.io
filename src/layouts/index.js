@@ -9,7 +9,7 @@ import 'prismjs/themes/prism-solarizedlight.css'
 const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
-      title="Gatsby with Orga"
+      title="Jaxson Van Doorn"
       meta={[
         { name: 'keywords', content: 'gatsbyjs, org-mode, orga' },
       ]}
