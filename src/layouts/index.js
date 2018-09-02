@@ -7,6 +7,7 @@ import './index.css'
 import 'prismjs/themes/prism-solarizedlight.css'
 
 const name = "Jaxson Van Doorn"
+const home = "/"
 const TemplateWrapper = ({ children }) => (
 
   <div>
@@ -16,7 +17,6 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
       ]}
     />
-    <Header name={name}/>
     <div
       style={{
         margin: '0 auto',
@@ -25,6 +25,7 @@ const TemplateWrapper = ({ children }) => (
         paddingTop: 0,
       }}
     >
+      <Header name={name} link={home}/>
       {children()}
     </div>
   </div>
