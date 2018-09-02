@@ -36,6 +36,10 @@ const containerStyle = css(`
 const linkStyle = css(`
   color: #FFFFFF;
   font-size: 1.5em;
+  border: none;
+  &:focus, &:hover, &:visited, &:link, &:active {
+    text-decoration: none;
+  }
 `)
 
 const Header = p => (
@@ -45,9 +49,6 @@ const Header = p => (
         <Link
           to={p.link}
           className={linkStyle}
-          style={{
-            textDecoration: 'none',
-          }}
         >
         {p.name}
         </Link>
