@@ -2,3 +2,15 @@
   content: "[" attr(data-label) "]";
   display: inline-block;
 }
+
+body {
+  background-color: #fb6542;
+}
+
+blockquote, div, p, h1, h2, h3 {
+  color: #ffffff;
+}
+
+a {
+  color: #fff55a;
+}

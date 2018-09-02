@@ -15,7 +15,7 @@ const Header = () => (
         <Link
           to="/"
           style={{
-            color: 'gray',
+            color: '#ffffff',
             textDecoration: 'none',
             fontSize: '1.5em',
           }}
