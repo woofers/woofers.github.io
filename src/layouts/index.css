@@ -1,10 +1,11 @@
+
 .footnote::before {
   content: "[" attr(data-label) "]";
   display: inline-block;
 }
 
 body {
-  background-color: #fb6542;
+  background-color: #463d4e;
 }
 
 blockquote, div, p, h1, h2, h3 {
@@ -16,5 +17,5 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-  color: #fff55a;
+  color: #e68259;
 }
