@@ -18,7 +18,7 @@ export const Nav = p => {
       margin: 0 ${margins.sm}px 0 0
     }
     text-decoration: none;
-    border: ${p.hoverBorder};
+    border-bottom: 1.5px double;
     border-color: rgba(0, 0, 0, 0);
     &:hover {
       border-color: initial;
