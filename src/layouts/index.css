@@ -11,6 +11,10 @@ blockquote, div, p, h1, h2, h3 {
   color: #ffffff;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 1rem;
+}
+
 a {
   color: #fff55a;
 }
