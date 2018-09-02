@@ -6,15 +6,17 @@ import Header from '../components/header'
 import './index.css'
 import 'prismjs/themes/prism-solarizedlight.css'
 
+const name = "Jaxson Van Doorn"
 const TemplateWrapper = ({ children }) => (
+
   <div>
     <Helmet
-      title="Jaxson Van Doorn"
+      title={name}
       meta={[
-        { name: 'keywords', content: 'gatsbyjs, org-mode, orga' },
+        { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
       ]}
     />
-    <Header />
+    <Header name={name}/>
     <div
       style={{
         margin: '0 auto',

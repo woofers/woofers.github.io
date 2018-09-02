@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "",
   "dependencies": {
+    "emotion": "^9.2.8",
     "gatsby": "^1.9.241",
     "gatsby-link": "^1.6.39",
     "gatsby-plugin-react-helmet": "^2.0.8",
