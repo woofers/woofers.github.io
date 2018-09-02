@@ -2,7 +2,8 @@ import Typography from 'typography'
 import theme from 'typography-theme-lawton'
 import CodePlugin from 'typography-plugin-code'
 
-theme.baseFontSize = '14px'
+theme.baseFontSize = '15px'
+theme.bodyFontFamily = ['Open Sans', 'sans-serif']
 theme.baseLineHeight = 1.45
 theme.scaleRatio = 2.25
 theme.plugins = [
