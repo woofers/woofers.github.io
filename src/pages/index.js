@@ -6,7 +6,7 @@ class BlogIndex extends React.Component {
     const posts = this.props.data.allOrga.edges
     const _posts = posts.map ( ({ node }) => {
       const title = node.meta.title || node.fields.slug
-      const date = node.meta.date || 'no date'
+      const date = node.meta.date
       return (
         <div>
           <h3 style={{ marginBottom: '0.2em' }}>
