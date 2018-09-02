@@ -1,0 +1,34 @@
+{
+  "name": "jaxson-site",
+  "description": "",
+  "version": "1.0.0",
+  "author": "",
+  "dependencies": {
+    "gatsby": "^1.9.241",
+    "gatsby-link": "^1.6.39",
+    "gatsby-plugin-react-helmet": "^2.0.8",
+    "gatsby-plugin-typography": "^1.7.18",
+    "gatsby-source-filesystem": "^1.5.27",
+    "gatsby-transformer-orga": "^0.5.1",
+    "mime": "^2.2.0",
+    "react-helmet": "^5.2.0",
+    "typography-plugin-code": "^0.16.11",
+    "typography-theme-github": "^0.15.10"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build --prefix-paths",
+    "dev": "rm -rf .cache && gatsby develop",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "clean": "rm -rf .cache public",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+  },
+  "devDependencies": {
+    "gh-pages": "^1.1.0",
+    "prettier": "^1.11.1"
+  }
+}
