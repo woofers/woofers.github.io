@@ -9,7 +9,7 @@ class BlogPostTemplate extends React.Component {
       <div>
         <center style={{ marginBottom: '2em' }}>
           <h1>{title}</h1>
-          <small>{date}</small>
+          {date ? <small>{date}</small> : null }
         </center>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
