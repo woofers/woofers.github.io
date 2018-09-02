@@ -21,6 +21,9 @@ export const Nav = p => {
     &:hover {
       border-color: initial;
     }
+    &:focus, &:hover, &:visited, &:link, &:active {
+      text-decoration: none;
+    }
   `)
   return (
     <nav className={navStyle}>
