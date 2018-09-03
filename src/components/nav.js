@@ -13,7 +13,7 @@ export const Nav = p => {
   const linkStyle = css(`
     font-size: 1.5em;
     color: #ffffff;
-    padding: 0 ${margins.md}px ${margins.md}px ${margins.md}px;
+    padding: ${margins.md}px ${margins.md}px ${margins.md}px ${margins.md}px;
     &:not(:last-child) {
       margin: 0 ${margins.sm}px 0 0
     }
