@@ -11,7 +11,7 @@ const siteData = {
     },
     {
       name: 'Blog',
-      link: '/'
+      link: '/blog'
     },
     {
       name: 'About',
