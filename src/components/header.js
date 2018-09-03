@@ -23,7 +23,8 @@ const siteData = {
 const headerStyle = css(`
   margin: 0px auto;
   max-width: 960px;
-  padding: 1.45rem 1.0875rem;
+  padding-top: 1.45rem;
+  padding-bottom: 0.3rem;
 `)
 
 const containerStyle = css(`
