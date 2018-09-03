@@ -11,8 +11,8 @@ class BlogIndex extends React.Component {
         <div>
           <h2 style={{ marginBottom: '0.2em' }}>
             <Link to={node.fields.slug}>{title}</Link>
-          <small>{date}</small>
           </h2>
+          {date ? <p>{date}</p> : null }
         </div>
       )
     })
