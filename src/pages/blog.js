@@ -18,8 +18,10 @@ class BlogIndex extends React.Component {
     })
     return (
       <div>
-        <h1>Posts</h1>
-        <p>Here's some stuff I wrote:</p>
+        <center style={{ marginBottom: '2em' }}>
+          <h1>Posts</h1>
+          <p>Here's some stuff I wrote:</p>
+        </center>
         {_posts}
       </div>
     )
