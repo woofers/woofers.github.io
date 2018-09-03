@@ -23,3 +23,7 @@ a {
 blockquote {
   border-color: #e68259
 }
+
+td, th {
+  border-color: hsla(0, 0%, 100%, 0.195);
+}
