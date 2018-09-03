@@ -9,17 +9,19 @@ class BlogIndex extends React.Component {
       const date = node.meta.date
       return (
         <div>
-          <h3 style={{ marginBottom: '0.2em' }}>
+          <h2 style={{ marginBottom: '0.2em' }}>
             <Link to={node.fields.slug}>{title}</Link>
-          </h3>
-          <small>{date}</small>
+          </h2>
+          {date ? <p>{date}</p> : null }
         </div>
       )
     })
     return (
       <div>
-        <h1>Posts</h1>
-        <p>Here's some stuff I wrote:</p>
+        <center style={{ marginBottom: '2em' }}>
+          <h1>Posts</h1>
+          <p>Here's some stuff I wrote:</p>
+        </center>
         {_posts}
       </div>
     )
