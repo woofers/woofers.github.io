@@ -2,7 +2,15 @@ const path = require(`path`)
 const slash = require(`slash`)
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+
+  const { createPage, createRedirect } = boundActionCreators
+
+  createRedirect({
+    fromPath: `/`,
+    isPermanent: true,
+    redirectInBrowser: true,
+    toPath: `/blog`,
+  })
 
   return new Promise((resolve, reject) => {
     const blogPostTemplate = path.resolve(`src/templates/post.js`)
