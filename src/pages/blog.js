@@ -9,10 +9,10 @@ class BlogIndex extends React.Component {
       const date = node.meta.date
       return (
         <div>
-          <h3 style={{ marginBottom: '0.2em' }}>
+          <h2 style={{ marginBottom: '0.2em' }}>
             <Link to={node.fields.slug}>{title}</Link>
-          </h3>
           <small>{date}</small>
+          </h2>
         </div>
       )
     })
