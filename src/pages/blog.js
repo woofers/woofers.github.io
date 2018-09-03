@@ -5,8 +5,11 @@ class BlogIndex extends React.Component {
   render() {
     const posts = this.props.data.allOrga.edges
     const _posts = posts.map ( ({ node }) => {
-      const title = node.meta.title || node.fields.slug
+      const path = node.fields.slug
+      const title = node.meta.title || path
       const date = node.meta.date
+      const include = '/blog/'
+      if (!path || !path.startsWith(include)) return
       return (
         <div>
           <h3 style={{ marginBottom: '0.2em' }}>
