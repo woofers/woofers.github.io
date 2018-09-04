@@ -18,6 +18,7 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: #e68259;
+  transition: 0.3s cubic-bezier(0.7, 0, 0.3, 1);
 }
 
 blockquote {
