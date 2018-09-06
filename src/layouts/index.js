@@ -11,7 +11,7 @@ import 'prism-themes/themes/prism-duotone-space.css'
 const name = "Jaxson Van Doorn"
 const home = "/"
 const divStyle = css(`
-  margin: 2rem auto;
+  margin: 2rem auto 3.5rem;
   max-width: 720px;
   padding: 0px 1.0875rem 1.45rem;
 `)
@@ -29,7 +29,7 @@ const TemplateWrapper = ({ children }) => (
     <div className={divStyle}>
       {children()}
     </div>
-    <Footer><strong>Jaxson Van Doorn, 2018</strong></Footer>
+    <Footer/>
   </div>
 )
 
