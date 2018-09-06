@@ -29,6 +29,15 @@ td, th {
   border-color: hsla(0, 0%, 100%, 0.195);
 }
 
+
+::selection {
+  background: rgba(242, 112, 82, 0.99);
+}
+
+::-moz-selection {
+  background: rgba(242, 112, 82, 0.99);
+}
+
 pre {
     background: #2d2833;
 }
