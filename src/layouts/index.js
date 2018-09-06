@@ -5,7 +5,7 @@ import Helmet from 'react-helmet'
 import { css } from 'emotion'
 import Header from '../components/header'
 import './index.css'
-import 'prismjs/themes/prism-solarizedlight.css'
+import 'prism-themes/themes/prism-duotone-space.css'
 
 const name = "Jaxson Van Doorn"
 const home = "/"
