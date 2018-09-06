@@ -1,4 +1,10 @@
 
+html {
+  position: relative;
+  min-height: 100%;
+  overflow-y: auto;
+}
+
 .footnote::before {
   content: "[" attr(data-label) "]";
   display: inline-block;
