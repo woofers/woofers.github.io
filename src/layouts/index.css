@@ -28,3 +28,12 @@ blockquote {
 td, th {
   border-color: hsla(0, 0%, 100%, 0.195);
 }
+
+pre {
+    background: #2d2833;
+}
+
+code[class*="language-"],
+pre[class*="language-"] {
+  background: #2d2833 !important;
+}
