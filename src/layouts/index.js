@@ -4,13 +4,14 @@ import Helmet from 'react-helmet'
 
 import { css } from 'emotion'
 import Header from '../components/header'
+import Footer from '../components/footer'
 import './index.css'
 import 'prism-themes/themes/prism-duotone-space.css'
 
 const name = "Jaxson Van Doorn"
 const home = "/"
 const divStyle = css(`
-  margin: 0px auto;
+  margin: 2rem auto 3.5rem;
   max-width: 720px;
   padding: 0px 1.0875rem 1.45rem;
 `)
@@ -24,10 +25,11 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
       ]}
     />
-      <Header name={name} link={home}/>
-      <div className={divStyle}>
+    <Header name={name} link={home}/>
+    <div className={divStyle}>
       {children()}
     </div>
+    <Footer/>
   </div>
 )
 
