@@ -12,7 +12,7 @@ const name = "Jaxson Van Doorn"
 const home = "/"
 const divStyle = css(`
   margin: 2rem auto 3.5rem;
-  max-width: 720px;
+  max-width: 960px;
   padding: 0px 1.0875rem 1.45rem;
 `)
 
