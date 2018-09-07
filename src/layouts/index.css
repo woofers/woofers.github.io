@@ -35,6 +35,10 @@ td, th {
   border-color: hsla(0, 0%, 100%, 0.195);
 }
 
+img {
+  margin-top: 20px;
+  border: 5px solid #ffffff;
+}
 
 ::selection {
   background: rgba(242, 112, 82, 0.99);
