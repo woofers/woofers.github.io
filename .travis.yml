@@ -10,6 +10,7 @@ deploy:
   github-token: $GITHUB_TOKEN
   local_dir: public
   keep-history: true
+  target-branch: master
   on:
     branch: live
 before_script:
@@ -17,5 +18,3 @@ before_script:
   - "yarn install"
 script:
   - "npm run test"
-after_success:
-  - "yarn deploy"
