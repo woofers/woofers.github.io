@@ -18,5 +18,3 @@ before_script:
   - "yarn install"
 script:
   - "npm run test"
-after_success:
-  - "yarn deploy"
