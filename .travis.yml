@@ -19,4 +19,4 @@ before_script:
 script:
   - "npm run test"
 after_success:
-  - "yarn deploy"
+  - "yarn build"
