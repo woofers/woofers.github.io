@@ -5,10 +5,12 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.orga
     const { title, date } = post.meta
 
+
+
     return (
       <div>
         <center style={{ marginBottom: '2em' }}>
-          <h1>{title}</h1>
+          {title ? <h1>{title}</h1> : null }
           {date ? <p>{date}</p> : null }
         </center>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />

@@ -25,6 +25,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 fields {
                   slug
                 }
+                meta
               }
             }
           }
@@ -37,11 +38,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       // Create blog posts pages.
       result.data.allOrga.edges.forEach(edge => {
+        const node = edge.node
+        let path = node.meta.slug
+        if (!path) path = node.fields.slug
         createPage({
-          path: edge.node.fields.slug, // required
+          path: path,
           component: slash(blogPostTemplate),
           context: {
-            slug: edge.node.fields.slug,
+            slug:  node.fields.slug,
           },
         })
       })
@@ -59,6 +63,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     const folder = node.relativeDirectory
     const fileName = path.parse(node.absolutePath).name
     const slug = `/${path.join(folder, fileName)}/`
+    console.log(node)
     createNodeField({ node, name: `slug`, value: slug })
   } else if (
     node.internal.type === `Orga` &&
