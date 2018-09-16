@@ -63,7 +63,6 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     const folder = node.relativeDirectory
     const fileName = path.parse(node.absolutePath).name
     const slug = `/${path.join(folder, fileName)}/`
-    console.log(node)
     createNodeField({ node, name: `slug`, value: slug })
   } else if (
     node.internal.type === `Orga` &&
