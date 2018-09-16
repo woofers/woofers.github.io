@@ -10,8 +10,18 @@ class BlogIndex extends React.Component {
     posts.sort(function(a, b) {
       return safeCompare(date(a.node), date(b.node), (a, b) => new Date(a) < new Date(a));
     });
+    let year
+    posts.map (({ node }) => {
+      let current = date(node)
+      let currentDate = new Date(current)
+      if (!year | currentDate.getFullYear() !== year) {
+        year = currentDate.getFullYear()
+        node.year = current ? year : "?"
+      }
+    })
     return posts
   }
+
   render() {
       const _posts = this.sortedPosts().map (({ node }) => {
       const path = node.fields.slug
@@ -22,6 +32,7 @@ class BlogIndex extends React.Component {
       if (!path || !path.startsWith(include)) return
       return (
         <div>
+          {node.year ? <h1>{node.year}</h1> : null }
           <h2 style={{ marginBottom: '0.2em' }}>
             <Link to={node.fields.slug}>{title}</Link>
           </h2>
