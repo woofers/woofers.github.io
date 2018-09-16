@@ -41,11 +41,11 @@ img {
 }
 
 ::selection {
-  background: rgba(242, 112, 82, 0.99);
+  background: rgba(242, 112, 82, 0.99) !important;
 }
 
 ::-moz-selection {
-  background: rgba(242, 112, 82, 0.99);
+  background: rgba(242, 112, 82, 0.99) !important;
 }
 
 pre {
