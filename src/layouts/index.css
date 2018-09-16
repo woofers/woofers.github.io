@@ -40,6 +40,14 @@ img {
   border: 5px solid #ffffff;
 }
 
+img::selection {
+  background: rgba(242, 112, 82, 0.75) !important;
+}
+
+img::-moz-selection {
+  background: rgba(242, 112, 82, 0.75) !important;
+}
+
 ::selection {
   background: rgba(242, 112, 82, 0.99) !important;
 }
