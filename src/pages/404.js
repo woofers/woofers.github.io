@@ -1,5 +1,5 @@
 import React from 'react'
 
-const NotFoundPage = () => window.location = '/'
+const NotFoundPage = () => (<div></div>)
 
 export default NotFoundPage

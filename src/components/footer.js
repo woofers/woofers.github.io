@@ -2,6 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { css } from 'emotion'
 import { Social } from './social'
+import FA from 'react-fontawesome'
+import 'font-awesome/css/font-awesome.min.css';
 
 const footerStyle = css(`
   width: 100%;
