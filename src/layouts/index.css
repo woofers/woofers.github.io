@@ -40,12 +40,28 @@ img {
   border: 5px solid #ffffff;
 }
 
+a::selection {
+  color: #FFFFFF;
+}
+
+a::-moz-selection {
+  color: #FFFFFF;
+}
+
+img::selection {
+  background: rgba(242, 112, 82, 0.75) !important;
+}
+
+img::-moz-selection {
+  background: rgba(242, 112, 82, 0.75) !important;
+}
+
 ::selection {
-  background: rgba(242, 112, 82, 0.99);
+  background: rgba(242, 112, 82, 0.99) !important;
 }
 
 ::-moz-selection {
-  background: rgba(242, 112, 82, 0.99);
+  background: rgba(242, 112, 82, 0.99) !important;
 }
 
 pre {
