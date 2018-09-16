@@ -37,11 +37,9 @@ const social = [
 
 const Footer = p => (
   <footer className={footerStyle}>
-    <div style={{ marginTop: '10px'}}>
-      <center>
-        <Social socialEntries={social} />
-        {p.children}
-      </center>
+    <div style={{ marginTop: '10px', textAlign: 'center' }}>
+      <Social socialEntries={social} />
+      {p.children}
     </div>
   </footer>
 )

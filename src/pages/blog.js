@@ -2,16 +2,37 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 class BlogIndex extends React.Component {
+  sortedPosts() {
+    let posts = this.props.data.allOrga.edges
+    const date = (node) => node.meta ? node.meta.date : ''
+    const safeCompare = (a, b, func) =>
+      (a || b) ? (!a ? 1 : !b ? -1 : func(a, b) ? 1 : -1) : 0;
+    posts.sort(function(a, b) {
+      return safeCompare(date(a.node), date(b.node), (a, b) => new Date(a) < new Date(a));
+    });
+    let year
+    posts.map (({ node }) => {
+      let current = date(node)
+      let currentDate = new Date(current)
+      if (!year | currentDate.getFullYear() !== year) {
+        year = currentDate.getFullYear()
+        node.year = current ? year : "?"
+      }
+    })
+    return posts
+  }
+
   render() {
-    const posts = this.props.data.allOrga.edges
-    const _posts = posts.map ( ({ node }) => {
+      const _posts = this.sortedPosts().map (({ node }) => {
       const path = node.fields.slug
-      const title = node.meta.title || path
-      const date = node.meta.date
+      const meta = node.meta
+      const title = meta.title || path
       const include = '/blog/'
+      const date = meta.date
       if (!path || !path.startsWith(include)) return
       return (
         <div>
+          {node.year ? <h1>{node.year}</h1> : null }
           <h2 style={{ marginBottom: '0.2em' }}>
             <Link to={node.fields.slug}>{title}</Link>
           </h2>
@@ -21,10 +42,10 @@ class BlogIndex extends React.Component {
     })
     return (
       <div>
-        <center style={{ marginBottom: '2em' }}>
+        <div style={{ marginBottom: '2em', textAlign: 'center' }}>
           <h1>Posts</h1>
           <p>Here's some stuff I wrote:</p>
-        </center>
+        </div>
         {_posts}
       </div>
     )
