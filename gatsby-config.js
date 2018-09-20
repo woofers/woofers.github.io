@@ -11,6 +11,10 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-emotion`,
+      options: {},
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
@@ -19,10 +23,7 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-orga`,
-      options: {
-        // if you don't want to have server side prism code highlight
-        // noHighlight: true,
-      },
+      options: {},
     }
   ],
 };
