@@ -26,9 +26,9 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header name={name} link={home}/>
-    <div className={divStyle}>
+    <main role='main' className={divStyle}>
       {children()}
-    </div>
+    </main>
     <Footer/>
   </div>
 )
