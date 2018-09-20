@@ -44,7 +44,7 @@ const linkStyle = css(`
 `)
 
 const Header = p => (
-  <div className={containerStyle}>
+  <header role='banner' className={containerStyle}>
     <div className={headerStyle}>
       <h1>
         <Link
@@ -56,7 +56,7 @@ const Header = p => (
       </h1>
     <Nav links={siteData.navLinks}/>
     </div>
-  </div>
+  </header>
 )
 
 export default Header
