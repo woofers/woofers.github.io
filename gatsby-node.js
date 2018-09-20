@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     fromPath: `/`,
     isPermanent: true,
     redirectInBrowser: true,
-    toPath: `/blog`,
+    toPath: `/projects`,
   })
 
   return new Promise((resolve, reject) => {
