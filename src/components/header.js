@@ -20,18 +20,15 @@ const siteData = {
   ]
 }
 
-const headerStyle = css(`
-  margin: 0px auto;
-  max-width: 960px;
-  padding-top: 1.45rem;
-  padding-bottom: 0.3rem;
+const containerStyle = css(`
+  background-color: #f27052;
+  padding-top: 1.25em;
 `)
 
-const containerStyle = css(`
+const headerStyle = css(`
   display: flex;
-  padding-top: 1.5em;
-  margin-bottom: 2em;
-  background-color: #f27052;
+  margin: 0em 12em;
+  justify-content: space-between;
 `)
 
 const linkStyle = css(`
@@ -54,7 +51,7 @@ const Header = p => (
         {p.name}
         </Link>
       </h1>
-    <Nav links={siteData.navLinks}/>
+      <Nav links={siteData.navLinks}/>
     </div>
   </header>
 )
