@@ -1,4 +1,13 @@
 import React from "react"
+import { css } from 'emotion'
+
+const titleStyle = css(`
+  div:first-child h1 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 0.75em;
+  }
+`)
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -13,7 +22,7 @@ class BlogPostTemplate extends React.Component {
           {title ? <h1>{title}</h1> : null }
           {date ? <p>{date}</p> : null }
         </div>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div className={style} dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     )
   }
