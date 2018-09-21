@@ -1,5 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { css } from 'emotion'
+
+const titleStyle = css(`
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 0.75em;
+`)
 
 class BlogIndex extends React.Component {
   sortedPosts() {
@@ -26,10 +33,10 @@ class BlogIndex extends React.Component {
       const date = meta.date
       if (!path || !path.startsWith(include)) return
       return (
-        <div>
-          <h2 style={{ marginBottom: '0.2em' }}>
+        <div style={{ marginBottom: '2em' }}>
+          <h1 style={{ marginBottom: '0.5em' }}>
             <Link to={node.fields.slug}>{title}</Link>
-          </h2>
+          </h1>
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
           { preview ?
             <div>
@@ -41,9 +48,8 @@ class BlogIndex extends React.Component {
     })
     return (
       <div>
-        <div style={{ marginBottom: '2em', textAlign: 'center' }}>
+        <div className={titleStyle}>
           <h1>Posts</h1>
-          <p>Here's some stuff I wrote:</p>
         </div>
         {_posts}
       </div>
