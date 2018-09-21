@@ -15,6 +15,10 @@ class BlogIndex extends React.Component {
 
   render() {
     const _posts = this.sortedPosts().map (({ node }) => {
+      let content = new DOMParser().parseFromString(node.html, "text/html")
+      let preview = content.getElementsByTagName('body')[0].getElementsByTagName('div')[0]
+      let paragraph = preview ? preview.getElementsByTagName('div') : null
+      if (paragraph && paragraph[0]) preview = paragraph[0]
       const path = node.fields.slug
       const meta = node.meta
       const title = meta.title || path
@@ -26,7 +30,12 @@ class BlogIndex extends React.Component {
           <h2 style={{ marginBottom: '0.2em' }}>
             <Link to={node.fields.slug}>{title}</Link>
           </h2>
-          {date ? <p>{date}</p> : null }
+          {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
+          { preview ?
+            <div>
+              <div style={{ marginTop: '1em', marginBottom: '1em' }} dangerouslySetInnerHTML={{ __html: preview.outerHTML }} />
+              <Link style={{ color: '#FFFFFF'}} to={node.fields.slug}>Continue reading . . . </Link>
+            </div>: null}
         </div>
       )
     })
@@ -58,6 +67,7 @@ export const pageQuery = graphql`
             slug
           }
           meta
+          html
         }
       }
     }
