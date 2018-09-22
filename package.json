@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "author": "",
   "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
     "emotion": "^9.2.9",
     "emotion-server": "^9.2.9",
     "font-awesome": "^4.7.0",
