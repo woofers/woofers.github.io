@@ -27,8 +27,9 @@ const containerStyle = css(`
 
 const headerStyle = css(`
   display: flex;
-  margin: 0em 12em;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 30px;
 `)
 
 const linkStyle = css(`
