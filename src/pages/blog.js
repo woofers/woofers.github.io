@@ -1,5 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { css } from 'emotion'
+
+const titleStyle = css(`
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 0.75em;
+`)
 
 class BlogIndex extends React.Component {
   sortedPosts() {
@@ -10,20 +17,15 @@ class BlogIndex extends React.Component {
     posts.sort(function(a, b) {
       return safeCompare(date(a.node), date(b.node), (a, b) => new Date(a) < new Date(a));
     });
-    let year
-    posts.map (({ node }) => {
-      let current = date(node)
-      let currentDate = new Date(current)
-      if (!year | currentDate.getFullYear() !== year) {
-        year = currentDate.getFullYear()
-        node.year = current ? year : "?"
-      }
-    })
     return posts
   }
 
   render() {
-      const _posts = this.sortedPosts().map (({ node }) => {
+    const _posts = this.sortedPosts().map (({ node }) => {
+      let content = new DOMParser().parseFromString(node.html, "text/html")
+      let preview = content.getElementsByTagName('body')[0].getElementsByTagName('div')[0]
+      let paragraph = preview ? preview.getElementsByTagName('div') : null
+      if (paragraph && paragraph[0]) preview = paragraph[0]
       const path = node.fields.slug
       const meta = node.meta
       const title = meta.title || path
@@ -31,20 +33,23 @@ class BlogIndex extends React.Component {
       const date = meta.date
       if (!path || !path.startsWith(include)) return
       return (
-        <div>
-          {node.year ? <h1>{node.year}</h1> : null }
-          <h2 style={{ marginBottom: '0.2em' }}>
+        <div style={{ marginBottom: '2em' }}>
+          <h1 style={{ marginBottom: '0.5em' }}>
             <Link to={node.fields.slug}>{title}</Link>
-          </h2>
-          {date ? <p>{date}</p> : null }
+          </h1>
+          {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
+          { preview ?
+            <div>
+              <div style={{ marginTop: '1em', marginBottom: '1em' }} dangerouslySetInnerHTML={{ __html: preview.outerHTML }} />
+              <Link style={{ color: '#FFFFFF'}} to={node.fields.slug}>Continue reading . . . </Link>
+            </div>: null}
         </div>
       )
     })
     return (
       <div>
-        <div style={{ marginBottom: '2em', textAlign: 'center' }}>
+        <div className={titleStyle}>
           <h1>Posts</h1>
-          <p>Here's some stuff I wrote:</p>
         </div>
         {_posts}
       </div>
@@ -68,6 +73,7 @@ export const pageQuery = graphql`
             slug
           }
           meta
+          html
         }
       }
     }
