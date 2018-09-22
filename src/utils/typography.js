@@ -4,10 +4,10 @@ import CodePlugin from 'typography-plugin-code'
 
 const myTheme = {
   ...theme,
-  baseFontSize: '15px',
+  baseFontSize: '18px',
   bodyFontFamily: ['Open Sans', 'sans-serif'],
-  baseLineHeight: 1.45,
-  scaleRatio: 2.25,
+  baseLineHeight: 1.75,
+  scaleRatio: 1.85,
   plugins: [new CodePlugin()]
 }
 

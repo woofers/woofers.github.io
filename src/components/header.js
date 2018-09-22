@@ -22,7 +22,7 @@ const siteData = {
 
 const containerStyle = css(`
   background-color: #f27052;
-  padding-top: 1.25em;
+  padding-top: 1em;
 `)
 
 const headerStyle = css(`

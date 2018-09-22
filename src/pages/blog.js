@@ -33,8 +33,8 @@ class BlogIndex extends React.Component {
       const date = meta.date
       if (!path || !path.startsWith(include)) return
       return (
-        <div style={{ marginBottom: '2em' }} key={path}>
-          <h1 style={{ marginBottom: '0.5em' }}>
+        <div style={{ marginBottom: '1.5em' }} key={path}>
+          <h1 style={{ marginBottom: '0.25em' }}>
             <Link to={node.fields.slug}>{title}</Link>
           </h1>
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
@@ -48,9 +48,6 @@ class BlogIndex extends React.Component {
     })
     return (
       <div>
-        <div className={titleStyle}>
-          <h1>Posts</h1>
-        </div>
         {_posts}
       </div>
     )
