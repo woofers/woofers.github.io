@@ -23,6 +23,7 @@ const TemplateWrapper = ({ children }) => (
       title={name}
       meta={[
         { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
+        { name: 'theme-color', content: '#463d4e' },
       ]}
     />
     <Header name={name} link={home}/>
