@@ -23,7 +23,7 @@ const TemplateWrapper = ({ children }) => (
       title={name}
       meta={[
         { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
-        { name: 'theme-color', content: '#463d4e' },
+        { name: 'theme-color', content: '#f27052' },
       ]}>
       <link rel="icon" sizes="192x192" href="favicon-192.png"/>
     </Helmet>
