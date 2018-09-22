@@ -11,7 +11,7 @@ const navStyle = css(`
 
 export const Nav = p => {
   const linkStyle = css(`
-    font-size: 1.5em;
+    font-size: 1.25em;
     color: #ffffff;
     padding: ${margins.md}px ${margins.md}px ${margins.md}px ${margins.md}px;
     &:not(:last-child) {
