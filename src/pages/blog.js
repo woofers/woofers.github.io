@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import { css } from 'emotion'
+import cheerio from 'cheerio'
 
 const titleStyle = css(`
   text-align: center;
@@ -22,10 +23,8 @@ class BlogIndex extends React.Component {
 
   render() {
     const _posts = this.sortedPosts().map (({ node }) => {
-      let content = new DOMParser().parseFromString(node.html, "text/html")
-      let preview = content.getElementsByTagName('body')[0].getElementsByTagName('div')[0]
-      let paragraph = preview ? preview.getElementsByTagName('div') : null
-      if (paragraph && paragraph[0]) preview = paragraph[0]
+      let preview = cheerio.load(node.html)('div', 'body')
+      preview.find('h1').remove()
       const path = node.fields.slug
       const meta = node.meta
       const title = meta.title || path
@@ -38,9 +37,9 @@ class BlogIndex extends React.Component {
             <Link to={node.fields.slug}>{title}</Link>
           </h1>
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
-          { preview ?
+          { preview.length ?
             <div>
-              <div style={{ marginTop: '1em', marginBottom: '1em' }} dangerouslySetInnerHTML={{ __html: preview.outerHTML }} />
+              <div style={{ marginTop: '1em', marginBottom: '1em' }} dangerouslySetInnerHTML={{ __html: preview.html() }} />
               <Link style={{ color: '#FFFFFF'}} to={node.fields.slug}>Continue reading . . . </Link>
             </div>: null}
         </div>
