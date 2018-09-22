@@ -48,9 +48,6 @@ class BlogIndex extends React.Component {
     })
     return (
       <div>
-        <div className={titleStyle}>
-          <h1>Posts</h1>
-        </div>
         {_posts}
       </div>
     )
