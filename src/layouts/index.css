@@ -18,8 +18,18 @@ blockquote, div, p, h1, h2, h3 {
   color: #ffffff;
 }
 
+div {
+  margin-bottom: 1em;
+}
+
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 1rem;
+  margin: 0.75rem 0;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 1.67em;
+  margin-bottom: 0px;
 }
 
 a {
@@ -36,8 +46,12 @@ td {
 }
 
 img {
-  margin-top: 20px;
-  border: 5px solid #ffffff;
+  border-radius: 10px;
+  margin-bottom: 0px;
+}
+
+figure {
+  text-align: center;
 }
 
 a::selection {

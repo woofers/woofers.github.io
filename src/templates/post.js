@@ -3,9 +3,7 @@ import { css } from 'emotion'
 
 const titleStyle = css(`
   div:first-child h1 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 0.75em;
+    display: none;
   }
 `)
 
