@@ -1,0 +1,18 @@
+I'm *Jaxson Van Doorn*, a software developer living in *Victoria, BC*.
+
+Primarily focused in *computer graphics*, *user experience* and *language design*.
+
+When I'm not working on software I can be found playing games, working on my car or relaxing with my dog.
+
+Full-time [[https://www.gnu.org/software/emacs/][Emacs]] and [[https://www.gnu.org/][GNU]] enthusiast (ask me about my [[https://github.com/woofers/dotfiles][Dotfiles]]).
+
+Currently attending full-time /Computer Science courses/ at [[https://uvic.ca][University of Victoria]].
+
+I have created many +small+ *time-consuming* software projects:
+- [[https://github.com/woofers/woofers3d][Woofers 3D]], a 3D and 2D game toolkit for /Java/, with support for [[https://github.com/erincatto/Box2D][Box2D]] and [[https://github.com/bulletphysics/bullet3][Bullet]] physics.
+- [[https://github.com/woofers/whale][Whale]], a nautical mobile arcade game written in /Haxe/.
+- [[https://github.com/woofers/fox-hole][Fox Hole]], an innovative proof-of-concept side-scroller experience.
+
+More projects can be found on my [[https://github.com/woofers][Github]]. My full resume can be found [[https://github.com/woofers/resume/blob/master/examples/latex/resume.pdf][here]].
+
+If you need to get in touch or have any question regarding the content on this site, I can be contacted through [[mailto:jaxson.vandoorn@gmail.com][jaxson.vandoorn@gmail.com]].
