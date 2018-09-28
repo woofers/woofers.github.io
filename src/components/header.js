@@ -44,7 +44,7 @@ const linkStyle = css(`
 const Header = p => (
   <header role='banner' className={containerStyle}>
     <div className={headerStyle}>
-      <h1>
+      <h1 role='button'>
         <Link
           to={p.link}
           className={linkStyle}
