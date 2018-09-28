@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { css } from 'emotion'
 import cheerio from 'cheerio'
+import DocumentTitle from 'react-document-title'
 
 const titleStyle = css(`
   text-align: center;
@@ -45,10 +46,14 @@ class BlogIndex extends React.Component {
         </div>
       )
     })
+    const siteName = this.props.data.site.siteMetadata.title
+    const title = `Posts - ${siteName}`
     return (
-      <div>
-        {_posts}
-      </div>
+      <DocumentTitle title={title}>
+        <div>
+          {_posts}
+        </div>
+      </DocumentTitle>
     )
   }
 }
