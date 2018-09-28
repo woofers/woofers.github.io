@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { Nav } from './nav'
 import { css } from 'emotion'
+import { colours } from './globals'
 
 const siteData = {
   navLinks: [
@@ -21,7 +22,7 @@ const siteData = {
 }
 
 const containerStyle = css(`
-  background-color: #f27052;
+  background-color: ${colours.header};
   padding-top: 1em;
 `)
 
@@ -33,7 +34,7 @@ const headerStyle = css(`
 `)
 
 const linkStyle = css(`
-  color: #FFFFFF;
+  color: ${colours.text};
   font-size: 1.5em;
   border: none;
   &:focus, &:hover, &:visited, &:link, &:active {

@@ -2,13 +2,14 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { css } from 'emotion'
 import { Social } from './social'
+import { colours } from './globals'
 import FA from 'react-fontawesome'
 import 'font-awesome/css/font-awesome.min.css';
 
 const footerStyle = css(`
   width: 100%;
   justify-content: center;
-  background: #2d2833;
+  background: ${colours.codeBackground};
   position: absolute;
   left: 0;
   bottom: 0;
