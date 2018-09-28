@@ -13,13 +13,13 @@ class BlogPostTemplate extends React.Component {
     const { title, date } = post.meta
     const style = (title || date) ? '' : titleStyle
     return (
-      <div>
+      <article>
         <div style={{ marginBottom: '2em', textAlign: 'right' }}>
           {title ? <h1>{title}</h1> : null }
           {date ? <p>{date}</p> : null }
         </div>
         <div className={style} dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
+      </article>
     )
   }
 }

@@ -28,7 +28,7 @@ const TemplateWrapper = ({ children }) => (
       <link rel="icon" sizes="192x192" href="favicon-192.png"/>
     </Helmet>
     <Header name={name} link={home}/>
-    <main role='main' className={divStyle}>
+    <main className={divStyle}>
       {children()}
     </main>
     <Footer/>

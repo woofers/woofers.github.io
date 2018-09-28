@@ -38,7 +38,7 @@ const social = [
 
 
 const Footer = p => (
-  <footer className={footerStyle}>
+  <footer role='contentinfo' className={footerStyle}>
     <div style={{ marginTop: '10px', textAlign: 'center' }}>
       <Social socialEntries={social} />
       {p.children}
