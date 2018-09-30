@@ -1,3 +1,6 @@
+#+TITLE: About
+#+SHOW_TITLE: nil
+
 I'm *Jaxson Van Doorn*, a software developer living in *Victoria, BC*.
 
 Primarily focused in *computer graphics*, *user experience* and *language design*.

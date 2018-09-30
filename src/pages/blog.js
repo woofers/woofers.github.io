@@ -2,11 +2,13 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { css } from 'emotion'
 import cheerio from 'cheerio'
+import DocumentTitle from 'react-document-title'
+import { colours, margins } from '../components/globals'
 
-const titleStyle = css(`
-  text-align: center;
-  font-size: 2.5em;
-  margin-bottom: 0.75em;
+const org = css(`
+  div {
+    margin-bottom: ${margins.small};
+  }
 `)
 
 class BlogIndex extends React.Component {
@@ -32,23 +34,27 @@ class BlogIndex extends React.Component {
       const date = meta.date
       if (!path || !path.startsWith(include)) return
       return (
-        <div style={{ marginBottom: '1.5em' }} key={path}>
-          <h1 style={{ marginBottom: '0.25em' }}>
+        <div style={{ marginBottom: margins.medium }} key={path}>
+          <h1 style={{ marginBottom: margins.superSmall }}>
             <Link to={node.fields.slug}>{title}</Link>
           </h1>
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
           { preview.length ?
             <div>
-              <div style={{ marginTop: '1em', marginBottom: '1em' }} dangerouslySetInnerHTML={{ __html: preview.html() }} />
-              <Link style={{ color: '#FFFFFF'}} to={node.fields.slug}>Continue reading . . . </Link>
+              <div style={{ marginTop: margins.small }} dangerouslySetInnerHTML={{ __html: preview.html() }} />
+              <Link style={{ color: colours.text }} to={node.fields.slug}>Continue reading . . . </Link>
             </div>: null}
         </div>
       )
     })
+    const siteName = this.props.data.site.siteMetadata.title
+    const title = `Posts - ${siteName}`
     return (
-      <div>
-        {_posts}
-      </div>
+      <DocumentTitle title={title}>
+        <div className={org}>
+          {_posts}
+        </div>
+      </DocumentTitle>
     )
   }
 }

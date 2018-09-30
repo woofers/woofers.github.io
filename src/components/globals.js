@@ -1,37 +1,39 @@
+const header = alpha => `rgba(242, 112, 82, ${alpha})`
+
+export const contentWidth = '1280px'
+
 export const colours = {
-  background: '#0484EA',
-  main: '#ffffff'
+  background: '#463d4e',
+  codeBackground: '#2d2833',
+  header: header(1),
+  link: '#e68259',
+  text: '#ffffff',
+  table: header(0)
+}
+
+export const selections = {
+  main: header(0.99),
+  image: header(0.75),
+  link: colours.text
 }
 
 export const margins = {
-  xsm: 6,
   sm: 12,
   md: 28,
-  lg: 50,
-  xl: 75
+  superSmall: '0.25em',
+  extraSmall: '0.75em',
+  small: '1em',
+  medium: '1.5em',
+  large: '2em'
+}
+
+export const fonts = {
+  nav: 1.25,
+  social: 1.35,
+  header: 1.5,
+  large: 1.75
 }
 
 export const transitions = {
-  hover: '0.4s cubic-bezier(0.7, 0, 0.3, 1)'
+  hover: '0.3s cubic-bezier(0.7, 0, 0.3, 1)'
 }
-
-export const radius = {
-  sm: 8
-}
-
-export const fontStack = 'Helvetica Neue,Helvetica,Arial,sans-serif;'
-
-export const breakpoints = [
-  {
-    breakpoint: 850,
-    size: 750
-  },
-  {
-    breakpoint: 992,
-    size: 970
-  },
-  {
-    breakpoint: 1170,
-    size: 1100
-  }
-]

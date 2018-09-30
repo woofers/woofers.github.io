@@ -17,6 +17,7 @@
     "gatsby-transformer-orga": "^0.5.1",
     "mime": "^2.2.0",
     "prism-themes": "^1.0.1",
+    "react-document-title": "^2.0.3",
     "react-emotion": "^9.2.9",
     "react-fontawesome": "^1.6.1",
     "react-helmet": "^5.2.0",
