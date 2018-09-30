@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'emotion'
 import Link from 'gatsby-link'
-import { colours, margins } from './globals'
+import { colours, fonts, margins } from './globals'
 
 const navStyle = css(`
   display: flex;
@@ -11,9 +11,9 @@ const navStyle = css(`
 
 export const Nav = p => {
   const linkStyle = css(`
-    font-size: 1.25em;
+    font-size: ${fonts.nav}em;
     color: ${colours.text};
-    padding: ${margins.md}px ${margins.md}px ${margins.md}px ${margins.md}px;
+    padding: ${margins.md}px;
     &:not(:last-child) {
       margin: 0 ${margins.sm}px 0 0
     }
