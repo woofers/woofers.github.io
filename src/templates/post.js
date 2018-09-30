@@ -1,6 +1,13 @@
 import React from "react"
 import { css } from 'emotion'
 import DocumentTitle from 'react-document-title'
+import { margins } from '../components/globals'
+
+const org = css(`
+  div {
+    margin-bottom: ${margins.small};
+  }
+`)
 
 const titleStyle = css(`
   div:first-child h1 {
@@ -14,7 +21,7 @@ class BlogPostTemplate extends React.Component {
     const siteName = this.props.data.site.siteMetadata.title
     const { title, date } = post.meta
     const showTitle = post.meta.show_title !== 'nil'
-    const style = ((title && showTitle) || date) ? '' : titleStyle
+    const style = ((title && showTitle) || date) ? org : `${org} ${titleStyle}`
     let tab = `${title} - ${siteName}`
     if (!title) tab = siteName
     return (

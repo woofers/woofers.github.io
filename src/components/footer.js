@@ -16,6 +16,8 @@ const footerStyle = css(`
   width: 100%;
   height: 3.5rem;
   overflow: hidden;
+  display: flex;
+  align-items: center;
 `)
 
 const social = [
@@ -37,13 +39,9 @@ const social = [
   }
 ]
 
-
 const Footer = p => (
   <footer role='contentinfo' className={footerStyle}>
-    <div style={{ marginTop: '10px', textAlign: 'center' }}>
-      <Social socialEntries={social} />
-      {p.children}
-    </div>
+    <Social socialEntries={social} />
   </footer>
 )
 

@@ -3,12 +3,12 @@ import Link from 'gatsby-link'
 import { css } from 'emotion'
 import cheerio from 'cheerio'
 import DocumentTitle from 'react-document-title'
-import { colours } from '../components/globals'
+import { colours, margins } from '../components/globals'
 
-const titleStyle = css(`
-  text-align: center;
-  font-size: 2.5em;
-  margin-bottom: 0.75em;
+const org = css(`
+  div {
+    margin-bottom: ${margins.small};
+  }
 `)
 
 class BlogIndex extends React.Component {
@@ -51,7 +51,7 @@ class BlogIndex extends React.Component {
     const title = `Posts - ${siteName}`
     return (
       <DocumentTitle title={title}>
-        <div>
+        <div className={org}>
           {_posts}
         </div>
       </DocumentTitle>

@@ -30,10 +30,6 @@ injectGlobal(`
     color: ${colours.text};
   }
 
-  div {
-    margin-bottom: 1em;
-  }
-
   h1, h2, h3, h4, h5, h6 {
     margin: ${margins.extraSmall} 0;
     color: ${colours.text};
