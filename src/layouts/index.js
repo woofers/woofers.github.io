@@ -6,7 +6,9 @@ import { css, injectGlobal } from 'emotion'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import 'prism-themes/themes/prism-duotone-space.css'
-import { colours, transitions, selections } from '../components/globals'
+import { colours, fonts,
+         margins, transitions,
+         selections, contentWidth } from '../components/globals'
 
 injectGlobal(`
   html {
@@ -33,13 +35,13 @@ injectGlobal(`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    margin: 0.75rem 0;
+    margin: ${margins.extraSmall} 0;
     color: ${colours.text};
   }
 
   h2 {
-    font-size: 1.67em;
-    margin-bottom: 0px;
+    font-size: ${fonts.large}em;
+    margin: 0;
   }
 
   a {
@@ -57,7 +59,7 @@ injectGlobal(`
 
   img {
     border-radius: 10px;
-    margin-bottom: 0px;
+    margin: 0;
   }
 
   figure {
@@ -101,9 +103,9 @@ injectGlobal(`
 const name = "Jaxson Van Doorn"
 const home = "/"
 const divStyle = css(`
-  margin: 2rem auto 3.5rem;
-  max-width: 1280px;
-  padding: 0px 1.0875rem 1.45rem;
+  margin: ${margins.large} auto ${margins.large};
+  max-width: ${contentWidth};
+  padding: 0 ${margins.small} ${margins.medium};
 `)
 
 const TemplateWrapper = ({ children }) => (
