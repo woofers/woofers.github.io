@@ -7,6 +7,93 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import './index.css'
 import 'prism-themes/themes/prism-duotone-space.css'
+import { colours, transitions, selections } from '../components/globals'
+
+injectGlobal(`
+  html {
+    position: relative;
+    min-height: 100%;
+    overflow-y: auto;
+  }
+
+  .footnote::before {
+    content: "[" attr(data-label) "]";
+    display: inline-block;
+  }
+
+  body {
+    background-color: ${colours.background};
+  }
+
+  blockquote, div, p {
+    color: ${colours.text};
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0.75rem 0;
+    color: ${colours.text};
+  }
+
+  h2 {
+    font-size: 1.67em;
+    margin-bottom: 0px;
+  }
+
+  a {
+    color: ${colours.link};
+    transition: ${transitions.hover};
+  }
+
+  blockquote {
+    border-color: ${colours.link};
+  }
+
+  td {
+    border-color: ${colours.table};
+  }
+
+  img {
+    border-radius: 10px;
+    margin-bottom: 0px;
+  }
+
+  figure {
+    text-align: center;
+  }
+
+  a::selection {
+    color: ${selections.link};
+  }
+
+  a::-moz-selection {
+    color: ${selections.link};
+  }
+
+  img::selection {
+    background: ${selections.image} !important;
+  }
+
+  img::-moz-selection {
+    background: ${selections.image} !important;
+  }
+
+  ::selection {
+    background: ${selections.main} !important;
+  }
+
+  ::-moz-selection {
+    background: ${selections.main} !important;
+  }
+
+  pre {
+      background: ${colours.codeBackground};
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    background: ${colours.codeBackground} !important;
+  }
+`)
 
 const name = "Jaxson Van Doorn"
 const home = "/"
