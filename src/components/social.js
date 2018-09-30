@@ -1,12 +1,12 @@
 import React from 'react'
 import { css } from 'emotion'
 import FA from 'react-fontawesome'
-import { margins } from './globals'
+import { margins, fonts } from './globals'
 
 const socialEntryStyle = css(`
     margin: 0 ${margins.sm}px 0 0;
-    border: none;
-    font-size: 24px;
+  border: none;
+  font-size: ${fonts.social}em;
 `)
 
 export const SocialEntry = p => (

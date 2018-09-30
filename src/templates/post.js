@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
     return (
       <DocumentTitle title={tab}>
         <article>
-          <div style={{ marginBottom: '2em', textAlign: 'right' }}>
+          <div style={{ textAlign: 'right' }}>
             {showTitle ? <h1>{title}</h1> : null }
             {date ? <p>{date}</p> : null }
           </div>
