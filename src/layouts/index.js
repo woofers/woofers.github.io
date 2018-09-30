@@ -17,13 +17,45 @@ injectGlobal(`
     overflow-y: auto;
   }
 
+  body {
+    background-color: ${colours.background};
+  }
+
+  a::selection {
+    color: ${selections.link};
+  }
+
+  a::-moz-selection {
+    color: ${selections.link};
+  }
+
+  img::selection {
+    background: ${selections.image} !important;
+  }
+
+  img::-moz-selection {
+    background: ${selections.image} !important;
+  }
+
+  ::selection {
+    background: ${selections.main} !important;
+  }
+
+  ::-moz-selection {
+    background: ${selections.main} !important;
+  }
+
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    background: ${colours.codeBackground} !important;
+  }
+`)
+
+const style = css(`
   .footnote::before {
     content: "[" attr(data-label) "]";
     display: inline-block;
-  }
-
-  body {
-    background-color: ${colours.background};
   }
 
   blockquote, div, p {
@@ -62,37 +94,8 @@ injectGlobal(`
     text-align: center;
   }
 
-  a::selection {
-    color: ${selections.link};
-  }
-
-  a::-moz-selection {
-    color: ${selections.link};
-  }
-
-  img::selection {
-    background: ${selections.image} !important;
-  }
-
-  img::-moz-selection {
-    background: ${selections.image} !important;
-  }
-
-  ::selection {
-    background: ${selections.main} !important;
-  }
-
-  ::-moz-selection {
-    background: ${selections.main} !important;
-  }
-
   pre {
-      background: ${colours.codeBackground};
-  }
-
-  code[class*="language-"],
-  pre[class*="language-"] {
-    background: ${colours.codeBackground} !important;
+    background: ${colours.codeBackground};
   }
 `)
 
@@ -116,10 +119,12 @@ const TemplateWrapper = ({ children }) => (
       <link rel="icon" sizes="192x192" href="favicon-192.png"/>
     </Helmet>
     <Header name={name} link={home}/>
-    <main className={divStyle}>
-      {children()}
-    </main>
-    <Footer/>
+    <div className={style}>
+      <main className={divStyle}>
+        {children()}
+      </main>
+      <Footer/>
+    </div>
   </div>
 )
 
