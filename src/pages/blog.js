@@ -41,8 +41,8 @@ class BlogIndex extends React.Component {
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
           { preview.length ?
             <div>
-              <Link style={{ color: colours.text }} to={node.fields.slug}>Continue reading . . . </Link>
               <div style={{ marginTop: margins.small }} dangerouslySetInnerHTML={{ __html: preview.html() }} />
+              <Link style={{ color: colours.text }} to={node.fields.slug}>Continue reading . . . </Link>
             </div>: null}
         </div>
       )
