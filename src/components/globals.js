@@ -26,18 +26,3 @@ export const margins = {
 export const transitions = {
   hover: '0.3s cubic-bezier(0.7, 0, 0.3, 1)'
 }
-
-export const breakpoints = [
-  {
-    breakpoint: 850,
-    size: 750
-  },
-  {
-    breakpoint: 992,
-    size: 970
-  },
-  {
-    breakpoint: 1170,
-    size: 1100
-  }
-]
