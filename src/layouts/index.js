@@ -54,7 +54,7 @@ injectGlobal(`
   }
 
   img {
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 0;
   }
 
