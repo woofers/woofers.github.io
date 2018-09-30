@@ -103,8 +103,8 @@ injectGlobal(`
 const name = "Jaxson Van Doorn"
 const home = "/"
 const divStyle = css(`
-  max-width: 1280px;
   margin: ${margins.large} auto ${margins.large};
+  max-width: ${contentWidth};
   padding: 0 ${margins.small} ${margins.medium};
 `)
 

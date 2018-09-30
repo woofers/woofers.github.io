@@ -1,5 +1,7 @@
 const header = alpha => `rgba(242, 112, 82, ${alpha})`
 
+export const contentWidth = '1280px'
+
 export const colours = {
   background: '#463d4e',
   codeBackground: '#2d2833',
