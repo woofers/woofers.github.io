@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import { css } from 'emotion'
 import cheerio from 'cheerio'
 import DocumentTitle from 'react-document-title'
+import { colours } from '../components/globals'
 
 const titleStyle = css(`
   text-align: center;
@@ -41,7 +42,7 @@ class BlogIndex extends React.Component {
           { preview.length ?
             <div>
               <div style={{ marginTop: '1em', marginBottom: '1em' }} dangerouslySetInnerHTML={{ __html: preview.html() }} />
-              <Link style={{ color: '#FFFFFF'}} to={node.fields.slug}>Continue reading . . . </Link>
+              <Link style={{ color: colours.text }} to={node.fields.slug}>Continue reading . . . </Link>
             </div>: null}
         </div>
       )
