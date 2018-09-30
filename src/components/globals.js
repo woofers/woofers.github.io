@@ -16,11 +16,20 @@ export const selections = {
 }
 
 export const margins = {
-  xsm: 6,
   sm: 12,
   md: 28,
-  lg: 50,
-  xl: 75
+  superSmall: '0.25em',
+  extraSmall: '0.75em',
+  small: '1em',
+  medium: '1.5em',
+  large: '2em'
+}
+
+export const fonts = {
+  nav: 1.25,
+  social: 1.35,
+  header: 1.5,
+  large: 1.75
 }
 
 export const transitions = {
