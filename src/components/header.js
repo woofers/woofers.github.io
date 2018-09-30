@@ -45,14 +45,16 @@ const linkStyle = css(`
 const Header = p => (
   <header role='banner' className={containerStyle}>
     <div className={headerStyle}>
-      <h1 role='button'>
-        <Link
-          to={p.link}
-          className={linkStyle}
-        >
-        {p.name}
-        </Link>
-      </h1>
+      <div style={{marginTop: margins.small}}>
+        <h1 role='button'>
+          <Link
+            to={p.link}
+            className={linkStyle}
+          >
+          {p.name}
+          </Link>
+        </h1>
+      </div>
       <Nav links={siteData.navLinks}/>
     </div>
   </header>
