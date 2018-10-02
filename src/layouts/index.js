@@ -74,7 +74,6 @@ const style = css(`
 
   a {
     color: ${colours.link};
-    transition: ${transitions.hover};
   }
 
   blockquote {
