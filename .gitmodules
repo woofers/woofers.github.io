@@ -4,3 +4,6 @@
 [submodule "games/whale"]
 	path = games/whale
 	url = https://github.com/woofers/whale
+[submodule "games/fox-hole"]
+	path = games/fox-hole
+	url = https://github.com/woofers/fox-hole
