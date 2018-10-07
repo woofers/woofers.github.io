@@ -21,6 +21,7 @@ const titleStyle = css(`
 const grid = css(`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(405px, 1fr));
+  grid-template-rows: 960px;
   grid-column-gap: 50px;
   grid-row-gap: 6px;
 `)
@@ -52,7 +53,7 @@ class GameTemplate extends Component {
                       {date ? <p>{date}</p> : null }
                   </div>
                   <div className={grid}>
-                      <div style={{ textAlign: 'center', margin: `${margins.small} 0` }} className={style} dangerouslySetInnerHTML={{ __html: game.toString() }} />
+                      <div style={{ textAlign: 'center', margin: `${margins.small} 0`, position: 'relative', 'paddingTop': '56.25%' }} className={style} dangerouslySetInnerHTML={{ __html: game.toString() }} />
                       <div style={{ textAlign: 'left' }} className={style} dangerouslySetInnerHTML={{ __html: info.toString() }} />
                   </div>
 
