@@ -90,10 +90,6 @@ const style = css(`
     border-width: 0;
   }
 
-  iframe {
-    margin-bottom: ${margins.small};
-  }
-
   figure {
     text-align: center;
   }

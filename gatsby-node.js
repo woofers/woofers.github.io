@@ -14,6 +14,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
   return new Promise((resolve, reject) => {
     const blogPostTemplate = path.resolve(`src/templates/post.js`)
+    const gameTemplate = path.resolve(`src/templates/game.js`)
     graphql(
       `
         {
@@ -40,10 +41,13 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       result.data.allOrga.edges.forEach(edge => {
         const node = edge.node
         let path = node.meta.slug
+        const template = (type) => {
+          return slash(type === 'game' ? gameTemplate : blogPostTemplate)
+        }
         if (!path) path = node.fields.slug
         createPage({
           path: path,
-          component: slash(blogPostTemplate),
+          component: template(node.meta.type),
           context: {
             slug:  node.fields.slug,
           },
