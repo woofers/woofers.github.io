@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import { css } from 'emotion'
 import DocumentTitle from 'react-document-title'
 import { margins } from '../components/globals'
@@ -15,7 +15,7 @@ const titleStyle = css(`
   }
 `)
 
-class BlogPostTemplate extends React.Component {
+class BlogPostTemplate extends Component {
   render() {
     const post = this.props.data.orga
     const siteName = this.props.data.site.siteMetadata.title
