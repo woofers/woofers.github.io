@@ -62,20 +62,12 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query IndexQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query BlogIndex {
+    ...Title
     allOrga {
       edges {
         node {
-          fields {
-            slug
-          }
-          meta
-          html
+          ...Content
         }
       }
     }
