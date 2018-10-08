@@ -2,6 +2,7 @@
 #+ICON: game/assets/images/icon.png
 #+ICON_MODE: auto
 #+TYPE: game
+#+LANDSCAPE: nil
 
 ** Instructions
 Dodge eels and crabs to obtain a high-score.

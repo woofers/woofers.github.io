@@ -28,12 +28,24 @@ const grid = css(`
 
 
 class GameTemplate extends Component {
-  render() {
+  page(post) {
+    const divStyle = post.meta.landscape === 'nil' ? grid : ''
+    const content = cheerio.load(post.html)
+    const game = content('iframe', 'body')
+    const info = content('body')
+    info.find('iframe').remove()
+    return (
+      <div className={divStyle}>
+        <div style={{ textAlign: 'center', margin: `${margins.small} 0`, position: 'relative', 'paddingTop': '56.25%' }}
+          dangerouslySetInnerHTML={{ __html: game.toString() }} />
+        <div style={{ textAlign: 'left' }}
+          dangerouslySetInnerHTML={{ __html: info.toString() }} />
+      </div>
+    )
+  }
+
+    render() {
       const post = this.props.data.orga
-      const content = cheerio.load(post.html)
-      const game = content('iframe', 'body')
-      const info = content('body')
-      info.find('iframe').remove()
       const { title, icon, date } = post.meta
       const iconMode = post.meta.icon_mode
       const showTitle = post.meta.show_title !== 'nil'
@@ -41,24 +53,20 @@ class GameTemplate extends Component {
       const tab = makeTitle(title, this.props.data.site.siteMetadata.title)
       const _page = this.page(post)
       return (
-          <DocumentTitle title={tab}>
-              <article>
-                  <div style={{ textAlign: 'right' }}>
-                      {showTitle ?
-                       <div>
-                           <h1 style={{ display: 'inline' }} >{title}</h1>
-                           <img style={{ marginLeft: '10px', imageRendering: iconMode }} width="55px" height="55px" src={icon} />
-                       </div>
-                       : null }
-                      {date ? <p>{date}</p> : null }
-                  </div>
-                  <div className={grid}>
-                      <div style={{ textAlign: 'center', margin: `${margins.small} 0`, position: 'relative', 'paddingTop': '56.25%' }} className={style} dangerouslySetInnerHTML={{ __html: game.toString() }} />
-                      <div style={{ textAlign: 'left' }} className={style} dangerouslySetInnerHTML={{ __html: info.toString() }} />
-                  </div>
-
-              </article>
-          </DocumentTitle>
+        <DocumentTitle title={tab}>
+          <article>
+            <div style={{ textAlign: 'right' }}>
+              {showTitle ?
+                <div>
+                  <h1 style={{ display: 'inline' }} >{title}</h1>
+                  <img style={{ marginLeft: '10px', imageRendering: iconMode }} width="55px" height="55px" src={icon} />
+                </div>
+                : null }
+              {date ? <p>{date}</p> : null }
+            </div>
+            {_page}
+          </article>
+        </DocumentTitle>
       )
   }
 }
