@@ -25,14 +25,14 @@ class BlogIndex extends React.Component {
 
   render() {
     const _posts = this.sortedPosts().map (({ node }) => {
-      let preview = cheerio.load(node.html)('div', 'body')
-      preview.find('h1').remove()
       const path = node.fields.slug
       const meta = node.meta
       const title = meta.title || path
       const include = '/blog/'
       const date = meta.date
       if (!path || !path.startsWith(include)) return
+      let preview = cheerio.load(node.html)('div', 'body')
+      preview.find('h1').remove()
       return (
         <div style={{ marginBottom: margins.medium }} key={path}>
           <h1 style={{ marginBottom: margins.superSmall }}>
