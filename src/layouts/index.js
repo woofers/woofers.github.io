@@ -85,13 +85,12 @@ const style = css(`
   }
 
   img, iframe {
-    border-radius: 20px;
     margin: 0;
     border-width: 0;
   }
 
-  iframe {
-    margin-bottom: ${margins.small};
+  img {
+    border-radius: 20px;
   }
 
   figure {
