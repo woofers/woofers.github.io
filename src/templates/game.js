@@ -26,48 +26,58 @@ const grid = css(`
   grid-row-gap: 6px;
 `)
 
+const iframeContainer = css(`
+  text-align: center;
+  margin: ${margins.small} 0;
+  position: relative;
+  padding-top: 56.25%;
+`)
+
+const iframe = css(`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+`)
 
 class GameTemplate extends Component {
   page(post) {
     const divStyle = post.meta.landscape === 'nil' ? grid : ''
-    const content = cheerio.load(post.html)
-    const game = content('iframe', 'body')
-    const info = content('body')
-    info.find('iframe').remove()
     return (
       <div className={divStyle}>
-        <div style={{ textAlign: 'center', margin: `${margins.small} 0`, position: 'relative', 'paddingTop': '56.25%' }}
-          dangerouslySetInnerHTML={{ __html: game.toString() }} />
-        <div style={{ textAlign: 'left' }}
-          dangerouslySetInnerHTML={{ __html: info.toString() }} />
+        <div className={iframeContainer}>
+          <iframe src={post.meta.game} className={iframe} frameBorder="0" allowFullScreen />
+        </div>
+        <div style={{ textAlign: 'left' }} dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
     )
   }
 
-    render() {
-      const post = this.props.data.orga
-      const { title, icon, date } = post.meta
-      const iconMode = post.meta.icon_mode
-      const showTitle = post.meta.show_title !== 'nil'
-      const style = ((title && showTitle) || date) ? org : `${org} ${titleStyle}`
-      const tab = makeTitle(title, this.props.data.site.siteMetadata.title)
-      const _page = this.page(post)
-      return (
-        <DocumentTitle title={tab}>
-          <article>
-            <div style={{ textAlign: 'right' }}>
-              {showTitle ?
-                <div>
-                  <h1 style={{ display: 'inline' }} >{title}</h1>
-                  <img style={{ marginLeft: '10px', imageRendering: iconMode }} width="55px" height="55px" src={icon} />
-                </div>
-                : null }
-              {date ? <p>{date}</p> : null }
-            </div>
-            {_page}
-          </article>
-        </DocumentTitle>
-      )
+  render() {
+    const post = this.props.data.orga
+    const { title, icon, date } = post.meta
+    const iconMode = post.meta.icon_mode
+    const showTitle = post.meta.show_title !== 'nil'
+    const style = ((title && showTitle) || date) ? org : `${org} ${titleStyle}`
+    const tab = makeTitle(title, this.props.data.site.siteMetadata.title)
+    const _page = this.page(post)
+    return (
+      <DocumentTitle title={tab}>
+        <article>
+          <div style={{ textAlign: 'right' }}>
+            {showTitle ?
+              <div>
+                <h1 style={{ display: 'inline' }} >{title}</h1>
+                <img style={{ marginLeft: '10px', imageRendering: iconMode }} width="55px" height="55px" src={icon} />
+              </div>
+              : null }
+            {date ? <p>{date}</p> : null }
+          </div>
+          {_page}
+        </article>
+      </DocumentTitle>
+    )
   }
 }
 
