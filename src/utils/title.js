@@ -1,6 +1,6 @@
 
 const makeTitle = (page, site) => {
-  if (!page) return stie
+  if (!page) return site
   return `${page} - ${site}`
 }
 
