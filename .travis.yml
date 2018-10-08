@@ -13,6 +13,15 @@ deploy:
   target-branch: master
   on:
     branch: live
+before_install:
+  - sudo add-apt-repository ppa:haxe/releases -y
+  - sudo apt-get update
+  - sudo apt-get install haxe -y
+  - mkdir ~/haxelib && haxelib -notimeout setup ~/haxelib
+  - haxelib -notimeout install lime > /dev/null
+  - haxelib -notimeout install openfl
+  - haxelib -notimeout install flixel
+  - haxelib -notimeout run lime setup flixel > /dev/null
 before_script:
   - "yarn global add gatsby"
   - "yarn install"
