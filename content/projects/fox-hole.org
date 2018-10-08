@@ -1,0 +1,32 @@
+#+TITLE: Fox Hole
+#+ICON: game/assets/images/favico.png
+#+ICON_MODE: pixelated
+#+TYPE: game
+
+** Instructions
+Play as a fox who has /super digging abilities/ and dig through a world invaded by robot crocodiles to reach the end of the level.
+
+*** Hints
+
+- Totem poles will save your progress.
+- Rock tiles will block your fox from digging.
+- Digging up on un-suspecting enemies will /disable them/ however tread lightly as they may start following you.
+
+*** Controls
+#+BEGIN_EXPORT html
+<ul>
+  <li><strong>A</strong> and <strong>D</strong> to move <strong>left</strong> and <strong>right</strong> respectivly.</li>
+  <li><strong>W</strong> and <strong>S</strong> to dig <strong>up</strong> and <strong>down</strong> respectivly.</li>
+  <li><strong>R</strong> to perform a kick-flip attack.</li>
+  <li><strong>Space</strong> to jump.</li>
+  <li><i class="fa fa-arrow-up"></i>
+      <i class="fa fa-arrow-left"></i>
+      <i class="fa fa-arrow-down"></i>
+      <i class="fa fa-arrow-right"></i> to navigate menus.</li>
+
+  <li><strong>Escape</strong> <i class="fa fa-times-circle-o"></i> to pause or return to the previous menu page.</li>
+  <li><strong>Enter</strong> <i class="fa fa-check-circle-o"></i> to select the active menu item.</li>
+</ul>
+
+<iframe src="game/index.html" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+#+END_EXPORT

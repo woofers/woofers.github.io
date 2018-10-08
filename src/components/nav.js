@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'emotion'
 import Link from 'gatsby-link'
-import { colours, fonts, margins } from './globals'
+import { colours, fonts, margins, transitions } from './globals'
 
 const navStyle = css(`
   display: flex;
@@ -19,6 +19,7 @@ export const Nav = p => {
     }
     text-decoration: none;
     border-bottom: 1.5px double;
+    transition: ${transitions.hover};
     border-color: rgba(0, 0, 0, 0);
     &:hover {
       border-color: initial;

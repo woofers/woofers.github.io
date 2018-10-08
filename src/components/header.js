@@ -8,15 +8,15 @@ const siteData = {
   navLinks: [
     {
       name: 'Projects',
-      link: '/projects'
+      link: '/projects/'
     },
     {
       name: 'Blog',
-      link: '/blog'
+      link: '/blog/'
     },
     {
       name: 'About',
-      link: '/about'
+      link: '/about/'
     }
   ]
 }

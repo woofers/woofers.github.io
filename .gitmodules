@@ -1,3 +1,9 @@
 [submodule "content/resume"]
 	path = content/resume
 	url = https://github.com/woofers/resume
+[submodule "games/whale"]
+	path = games/whale
+	url = https://github.com/woofers/whale
+[submodule "games/fox-hole"]
+	path = games/fox-hole
+	url = https://github.com/woofers/fox-hole

@@ -1,0 +1,21 @@
+#+TITLE: Whale
+#+ICON: game/assets/images/icon.png
+#+ICON_MODE: auto
+#+TYPE: game
+#+LANDSCAPE: nil
+
+** Instructions
+Dodge eels and crabs to obtain a high-score.
+
+*** Scoring
+- Crabs are worth *7 points*.
+- Eeels count towards *5 points*.
+
+*** Controls
+#+BEGIN_EXPORT html
+<ul>
+  <li><strong>A</strong> and <strong>D</strong> or <i class="fa fa-arrow-left"></i> and <i class="fa fa-arrow-right"></i> to dodge enemies.</li>
+</ul>
+
+<iframe src="game/index.html" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+#+END_EXPORT

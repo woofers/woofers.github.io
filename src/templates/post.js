@@ -1,7 +1,8 @@
-import React from "react"
+import React, { Component } from "react"
 import { css } from 'emotion'
 import DocumentTitle from 'react-document-title'
 import { margins } from '../components/globals'
+import makeTitle from '../utils/title'
 
 const org = css(`
   div {
@@ -15,15 +16,13 @@ const titleStyle = css(`
   }
 `)
 
-class BlogPostTemplate extends React.Component {
+class BlogPostTemplate extends Component {
   render() {
     const post = this.props.data.orga
-    const siteName = this.props.data.site.siteMetadata.title
     const { title, date } = post.meta
     const showTitle = post.meta.show_title !== 'nil'
     const style = ((title && showTitle) || date) ? org : `${org} ${titleStyle}`
-    let tab = `${title} - ${siteName}`
-    if (!title) tab = siteName
+    const tab = makeTitle(title, this.props.data.site.siteMetadata.title)
     return (
       <DocumentTitle title={tab}>
         <article>
@@ -41,15 +40,7 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-    orga(fields: { slug: { eq: $slug }}) {
-      html
-      meta
-    }
+  query Blog($slug: String!) {
+    ...Post
   }
 `
