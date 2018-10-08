@@ -137,3 +137,32 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
+
+export const contentFragment = graphql`
+  fragment Content on Orga {
+    html
+    meta
+    fields {
+      slug
+    }
+  }
+`
+
+export const titleFragment = graphql`
+  fragment Title on RootQueryType {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`
+
+export const postFragment = graphql`
+  fragment Post on RootQueryType {
+    ...Title
+    orga(fields: {slug: {eq: $slug}}) {
+      ...Content
+    }
+  }
+`
