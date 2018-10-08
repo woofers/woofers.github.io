@@ -1,5 +1,5 @@
 #+TITLE: Fox Hole
-#+ICON: game/assets/images/favico.png
+#+ICON: game/assets/images/favicon.png
 #+ICON_MODE: pixelated
 #+TYPE: game
 
