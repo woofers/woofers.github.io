@@ -13,7 +13,9 @@ Dodge eels and crabs to obtain a high-score.
 
 *** Controls
 #+BEGIN_EXPORT html
-<li>Use the <strong>A</strong> and <strong>D</strong> keys or <i class="fa fa-arrow-left"></i> and <i class="fa fa-arrow-right"></i> to navigate.</li>
+<ul>
+  <li><strong>A</strong> and <strong>D</strong> or <i class="fa fa-arrow-left"></i> and <i class="fa fa-arrow-right"></i> to dodge enemies.</li>
+</ul>
 
 <iframe src="game/index.html" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
 #+END_EXPORT
