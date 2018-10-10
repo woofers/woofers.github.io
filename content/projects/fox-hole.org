@@ -2,6 +2,7 @@
 #+ICON: game/assets/images/favicon.png
 #+ICON_MODE: pixelated
 #+TYPE: game
+#+GAME: game/index.html
 
 ** Instructions
 Play as a fox who has /super digging abilities/ and dig through a world invaded by robot crocodiles to reach the end of the level.
@@ -27,6 +28,4 @@ Play as a fox who has /super digging abilities/ and dig through a world invaded 
   <li><strong>Escape</strong> <i class="fa fa-times-circle-o"></i> to pause or return to the previous menu page.</li>
   <li><strong>Enter</strong> <i class="fa fa-check-circle-o"></i> to select the active menu item.</li>
 </ul>
-
-<iframe src="game/index.html" frameborder="0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
 #+END_EXPORT
