@@ -1,10 +1,11 @@
 import React, { Component } from "react"
 import { css } from 'emotion'
 import DocumentTitle from 'react-document-title'
-import cheerio from 'cheerio'
 import { margins } from '../components/globals'
+import { Breadcrumb } from '../components/breadcrumb'
 import 'font-awesome/css/font-awesome.min.css';
 import makeTitle from '../utils/title'
+import FA from 'react-fontawesome'
 
 const org = css(`
   div {
@@ -56,15 +57,19 @@ class GameTemplate extends Component {
 
   render() {
     const post = this.props.data.orga
+    const slug = post.fields.slug
     const { title, icon, date } = post.meta
     const iconMode = post.meta.icon_mode
     const showTitle = post.meta.show_title !== 'nil'
     const style = ((title && showTitle) || date) ? org : `${org} ${titleStyle}`
     const tab = makeTitle(title, this.props.data.site.siteMetadata.title)
     const _page = this.page(post)
+    const links = [{ name: 'Projects', link: '/projects/'},
+                   { name: `${title}`, link: slug }]
     return (
       <DocumentTitle title={tab}>
         <article>
+          <Breadcrumb links={links} />
           <div style={{ textAlign: 'right' }}>
             {showTitle ?
               <div>
