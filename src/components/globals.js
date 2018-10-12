@@ -1,14 +1,19 @@
 const header = alpha => `rgba(242, 112, 82, ${alpha})`
+const code = alpha => `rgba(45, 40, 51, ${alpha})`
 
 export const contentWidth = '1280px'
 
 export const colours = {
   background: '#463d4e',
-  codeBackground: '#2d2833',
+  codeBackground: code(1),
   header: header(1),
   link: '#e68259',
   text: '#ffffff',
-  table: header(0)
+  table: header(0),
+  rgba: {
+    header: header,
+    codeBackground: code
+  }
 }
 
 export const selections = {
@@ -23,11 +28,13 @@ export const margins = {
   superSmall: '0.25em',
   extraSmall: '0.75em',
   small: '1em',
+  normal: '1.25em',
   medium: '1.5em',
   large: '2em'
 }
 
 export const fonts = {
+  button: 0.6,
   nav: 1.25,
   social: 1.35,
   header: 1.5,
