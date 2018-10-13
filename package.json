@@ -26,7 +26,9 @@
     "typography-theme-lawton": "^0.15.10"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "org-mode",
+    "jaxson"
   ],
   "license": "MIT",
   "main": "n/a",
