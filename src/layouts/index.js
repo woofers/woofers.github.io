@@ -84,7 +84,7 @@ const style = css(`
     border-color: ${colours.table};
   }
 
-  img, iframe {
+  figure, table, img, iframe {
     margin: 0;
     border-width: 0;
   }
