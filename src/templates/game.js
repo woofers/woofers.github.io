@@ -1,10 +1,9 @@
 import React, { Component } from "react"
 import { css } from 'emotion'
-import DocumentTitle from 'react-document-title'
+import { Title } from '../components/title'
 import { margins } from '../components/globals'
 import { Breadcrumb } from '../components/breadcrumb'
 import 'font-awesome/css/font-awesome.min.css';
-import makeTitle from '../utils/title'
 import FA from 'react-fontawesome'
 
 const org = css(`
@@ -71,12 +70,12 @@ class GameTemplate extends Component {
     const iconMode = post.meta.icon_mode
     const showTitle = post.meta.show_title !== 'nil'
     const style = ((title && showTitle) || date) ? org : `${org} ${titleStyle}`
-    const tab = makeTitle(title, this.props.data.site.siteMetadata.title)
+    const site = this.props.data.site.siteMetadata.title
     const _page = this.page(post)
     const links = [{ name: 'Projects', link: '/projects/'},
                    { name: `${title}` }]
     return (
-      <DocumentTitle title={tab}>
+      <Title title={title} site={site}>
         <article>
           <Breadcrumb links={links} />
           <div style={{ textAlign: 'right' }}>
@@ -90,7 +89,7 @@ class GameTemplate extends Component {
           </div>
           {_page}
         </article>
-      </DocumentTitle>
+      </Title>
     )
   }
 }

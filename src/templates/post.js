@@ -1,8 +1,7 @@
 import React, { Component } from "react"
 import { css } from 'emotion'
-import DocumentTitle from 'react-document-title'
+import { Title } from '../components/title'
 import { margins } from '../components/globals'
-import makeTitle from '../utils/title'
 import { Breadcrumb } from '../components/breadcrumb'
 
 const org = css(`
@@ -24,7 +23,7 @@ class BlogPostTemplate extends Component {
     const slug = post.fields.slug
     const showTitle = post.meta.show_title !== 'nil'
     const style = ((title && showTitle) || date) ? org : `${org} ${titleStyle}`
-    const tab = makeTitle(title, this.props.data.site.siteMetadata.title)
+    const site = this.props.data.site.siteMetadata.title
     const include = '/blog/'
     let links
     if (slug && slug.startsWith(include)) {
@@ -32,7 +31,7 @@ class BlogPostTemplate extends Component {
                { name: `${title}` }]
     }
     return (
-      <DocumentTitle title={tab}>
+      <Title title={title} site={site}>
         <article>
           {links ? <Breadcrumb links={links} /> : null}
           <div style={{ textAlign: 'right' }}>
@@ -41,7 +40,7 @@ class BlogPostTemplate extends Component {
           </div>
           <div className={style} dangerouslySetInnerHTML={{ __html: post.html }} />
         </article>
-      </DocumentTitle>
+      </Title>
     )
   }
 }
