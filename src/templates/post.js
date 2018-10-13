@@ -29,7 +29,7 @@ class BlogPostTemplate extends Component {
     let links
     if (slug && slug.startsWith(include)) {
       links = [{ name: 'Blog', link: '/blog/'},
-              { name: `${title}`, link: slug }]
+               { name: `${title}` }]
     }
     return (
       <DocumentTitle title={tab}>

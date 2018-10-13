@@ -65,7 +65,7 @@ class GameTemplate extends Component {
     const tab = makeTitle(title, this.props.data.site.siteMetadata.title)
     const _page = this.page(post)
     const links = [{ name: 'Projects', link: '/projects/'},
-                   { name: `${title}`, link: slug }]
+                   { name: `${title}` }]
     return (
       <DocumentTitle title={tab}>
         <article>
