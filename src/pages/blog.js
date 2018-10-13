@@ -2,8 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { css } from 'emotion'
 import cheerio from 'cheerio'
-import DocumentTitle from 'react-document-title'
 import { colours, margins } from '../components/globals'
+import { Title } from '../components/title'
 
 const org = css(`
   div {
@@ -47,14 +47,13 @@ class BlogIndex extends React.Component {
         </div>
       )
     })
-    const siteName = this.props.data.site.siteMetadata.title
-    const title = `Posts - ${siteName}`
+    const site = this.props.data.site.siteMetadata.title
     return (
-      <DocumentTitle title={title}>
+      <Title title='Posts' site={site}>
         <div className={org}>
           {_posts}
         </div>
-      </DocumentTitle>
+      </Title>
     )
   }
 }
