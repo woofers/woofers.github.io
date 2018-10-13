@@ -6,7 +6,6 @@ cache:
   - node_modules
 branches:
   only:
-    - development
     - /^v\d+\.\d+(\.\d+)?(-\S*)?$/
 deploy:
   provider: pages
