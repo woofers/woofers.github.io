@@ -12,8 +12,9 @@ deploy:
   keep-history: true
   target-branch: master
   on:
+    tags: true
+    all_branches: true
     condition: $TRAVIS_TAG =~ ^v[0-9]+\.[0-9]+\.[0-9]+
-    branch: development
 before_install:
   - sudo add-apt-repository ppa:haxe/releases -y
   - sudo apt-get update
