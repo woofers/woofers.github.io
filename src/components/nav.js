@@ -37,6 +37,7 @@ export const Nav = p => {
               to={link}
               key={link}
               activeStyle={{ borderColor: 'initial' }}
+              role='tab'
             >
               {name}
             </Link>
