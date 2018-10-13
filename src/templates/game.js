@@ -3,6 +3,7 @@ import { css } from 'emotion'
 import { Title } from '../components/title'
 import { margins } from '../components/globals'
 import { Breadcrumb } from '../components/breadcrumb'
+import { Button } from '../components/button'
 import 'font-awesome/css/font-awesome.min.css';
 import FA from 'react-fontawesome'
 

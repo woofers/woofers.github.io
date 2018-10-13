@@ -15,7 +15,6 @@ export const SocialEntry = p => (
     target="_blank"
     rel="noopener noreferrer"
     className={socialEntryStyle}
-    role="button"
   >
     <FA name={p.iconName} size={p.size} />
     {p.children || null}
