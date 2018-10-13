@@ -27,6 +27,15 @@ const grid = css(`
   grid-row-gap: 6px;
 `)
 
+const noHighlight = css(`
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+`)
+
 const iframeContainer = css(`
   text-align: center;
   margin: ${margins.small} 0;
@@ -47,7 +56,7 @@ class GameTemplate extends Component {
     const divStyle = post.meta.landscape === 'nil' ? grid : ''
     return (
       <div className={divStyle}>
-        <div className={iframeContainer}>
+        <div className={`${iframeContainer} ${noHighlight}`}>
           <iframe src={post.meta.game} className={iframe} frameBorder="0" allowFullScreen />
         </div>
         <div style={{ textAlign: 'left' }} dangerouslySetInnerHTML={{ __html: post.html }} />
