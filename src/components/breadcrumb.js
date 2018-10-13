@@ -1,26 +1,40 @@
 import React from 'react'
+import Link from 'gatsby-link'
 import FA from 'react-fontawesome'
 import { css } from 'emotion'
 import { colours } from './globals'
-import { Breadcrumbs, Breadcrumb as BreadcrumbElement } from 'react-breadcrumbs';
 import 'font-awesome/css/font-awesome.min.css';
 
-const crumb = css(`
-  span:last-of-type {
-    a {
-      color: ${colours.text};
-      text-decoration: none;
-    }
-  }
+const active = css(`
+  font-weight: bold;
 `)
 
+const font = css(`
+  color: ${colours.text};
+`)
+
+export const Separator = p => (
+  <FA style={{ margin: '0 7px 5px' }} name={p.icon ? p.icon : 'chevron-right'} />
+)
+
 export const Breadcrumb = p => {
+  const depth = p.links.length
   return (
-    <Breadcrumbs className={crumb} separator={<FA style={{ margin: '0 7px 5px' }} name="chevron-right" />}>
+    <nav className={font}>
       {p.links
-        ? p.links.map(({ name, link }) => (
-          <BreadcrumbElement key={link} data={{ title: name, pathname: link }} />))
-          : null}
-    </Breadcrumbs>
+        ? p.links.map(({ name, link }, i) => {
+          if (depth <= i + 1) {
+            return (
+              <span className={active} key={i} aria-current='true'>{name}</span>
+            )
+          }
+          return (
+            <span key={i}>
+              <Link to={link}>{name}</Link>
+              <Separator icon={p.separator}/>
+            </span>
+          )
+        }) : null}
+    </nav>
   )
 }
