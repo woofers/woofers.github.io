@@ -4,6 +4,9 @@ node_js:
 cache:
   directories:
   - node_modules
+branches:
+  only:
+    - development
 deploy:
   provider: pages
   skip-cleanup: true
