@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { css } from 'emotion'
 import { Title } from '../components/title'
+import { Button } from '../components/button'
 import { margins } from '../components/globals'
 import { Breadcrumb } from '../components/breadcrumb'
 
