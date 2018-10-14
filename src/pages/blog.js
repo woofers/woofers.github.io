@@ -18,7 +18,7 @@ class BlogIndex extends React.Component {
     const safeCompare = (a, b, func) =>
       (a || b) ? (!a ? 1 : !b ? -1 : func(a, b) ? 1 : -1) : 0;
     posts.sort(function(a, b) {
-      return safeCompare(date(a.node), date(b.node), (a, b) => new Date(a) < new Date(a));
+      return safeCompare(date(a.node), date(b.node), (a, b) => new Date(a) < new Date(b));
     });
     return posts
   }
