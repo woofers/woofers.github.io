@@ -39,7 +39,6 @@ injectGlobal(`
     color: ${selections.link};
   }
 
-
   code[class*="language-"],
   pre[class*="language-"] {
     background: ${colours.codeBackground} !important;
@@ -63,7 +62,6 @@ const style = css(`
 
   h2 {
     font-size: ${fonts.large}em;
-    margin: 0;
   }
 
   a {
