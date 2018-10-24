@@ -21,14 +21,6 @@ injectGlobal(`
     background-color: ${colours.background};
   }
 
-  a::selection {
-    color: ${selections.link};
-  }
-
-  a::-moz-selection {
-    color: ${selections.link};
-  }
-
   img::selection {
     background: ${selections.image} !important;
   }
@@ -39,12 +31,13 @@ injectGlobal(`
 
   ::selection {
     background: ${selections.main} !important;
+    color: ${selections.link};
   }
 
   ::-moz-selection {
     background: ${selections.main} !important;
+    color: ${selections.link};
   }
-
 
   code[class*="language-"],
   pre[class*="language-"] {
@@ -69,7 +62,6 @@ const style = css(`
 
   h2 {
     font-size: ${fonts.large}em;
-    margin: 0;
   }
 
   a {
