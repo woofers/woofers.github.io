@@ -35,6 +35,7 @@ export const margins = {
 
 export const fonts = {
   button: 0.6,
+  code: 0.95,
   nav: 1.25,
   social: 1.35,
   header: 1.5,
