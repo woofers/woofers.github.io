@@ -4,8 +4,8 @@ import FA from 'react-fontawesome'
 import { margins, fonts } from './globals'
 
 const socialEntryStyle = css(`
-    margin: 0 ${margins.sm}px 0 0;
-  border: none;
+  margin: 0 ${margins.sm}px 0 0;
+  border: none !important;
   font-size: ${fonts.social}em;
 `)
 

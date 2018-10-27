@@ -11,9 +11,9 @@ injectGlobal(`
     font-weight: bold;
     font-family: 'Raleway',sans-serif;
     display: inline-block;
-    padding: ${margins.normal};
+    padding: ${margins.normal} !important;
     margin: ${margins.extraSmall};
-    border: 1px solid ${colours.link};
+    border: 1px solid ${colours.link} !important;
     color: ${colours.link};
     background: ${colours.rgba.codeBackground(0.15)};
     border-radius: ${slant} ${topRight} ${slant} ${bottomLeft};
