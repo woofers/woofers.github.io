@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import { css } from 'emotion'
 import cheerio from 'cheerio'
-import { colours, margins } from '../components/globals'
+import { colours, fonts, margins } from '../components/globals'
 import { Title } from '../components/title'
 
 const org = css(`
@@ -36,7 +36,7 @@ class BlogIndex extends React.Component {
       return (
         <div style={{ marginBottom: margins.medium }} key={path}>
           <h1 style={{ marginBottom: margins.superSmall }}>
-            <Link to={node.fields.slug}>{title}</Link>
+            <Link style={{ lineHeight: fonts.large }} to={node.fields.slug}>{title}</Link>
           </h1>
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
           { preview.length ?

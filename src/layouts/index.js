@@ -6,7 +6,8 @@ import { css, injectGlobal } from 'emotion'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import 'prism-themes/themes/prism-duotone-space.css'
-import { colours, fonts,
+import { animations,
+         colours, fonts,
          margins, transitions,
          selections, contentWidth } from '../components/globals'
 
@@ -67,6 +68,14 @@ const style = css(`
 
   a {
     color: ${colours.link};
+    text-decoration: none;
+    border-bottom: ${margins.line} solid transparent;
+    transition: ${transitions.hover}
+  }
+
+  a:hover {
+    padding-bottom: ${animations.link};
+    border-color: currentColor;
   }
 
   blockquote {

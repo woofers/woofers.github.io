@@ -25,6 +25,7 @@ export const selections = {
 export const margins = {
   sm: 12,
   md: 28,
+  line: '0.085em',
   superSmall: '0.25em',
   extraSmall: '0.75em',
   small: '1em',
@@ -44,4 +45,8 @@ export const fonts = {
 
 export const transitions = {
   hover: '0.3s cubic-bezier(0.7, 0, 0.3, 1)'
+}
+
+export const animations = {
+  link: '0.2em'
 }
