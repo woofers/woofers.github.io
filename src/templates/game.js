@@ -22,7 +22,7 @@ const titleStyle = css(`
 const grid = css(`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(405px, 1fr));
-  grid-template-rows: 960px;
+  grid-template-rows: 860px;
   grid-column-gap: 50px;
   grid-row-gap: 6px;
 `)
