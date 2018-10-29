@@ -1,6 +1,0 @@
-#+TITLE: A Post
-#+DATE: September 22, 2018
-
-This will be a *blog post* /(at some point)/.
-
-For now this is a ~placeholder~.
