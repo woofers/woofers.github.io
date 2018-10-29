@@ -1,7 +1,7 @@
 {
   "name": "jaxson-site",
   "description": "",
-  "version": "1.0.3",
+  "version": "1.1.0",
   "author": "Jaxson Van Doorn",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
