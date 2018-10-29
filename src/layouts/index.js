@@ -68,7 +68,6 @@ const style = css(`
 
   a {
     color: ${colours.link};
-    text-decoration: none;
     border-bottom: ${margins.line} solid transparent;
     transition: ${transitions.hover}
   }
@@ -76,6 +75,10 @@ const style = css(`
   a:hover {
     padding-bottom: ${animations.link};
     border-color: currentColor;
+  }
+
+  a:focus, a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
   }
 
   blockquote {
