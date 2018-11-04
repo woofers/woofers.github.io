@@ -1,5 +1,5 @@
 #+TITLE: About
-#+SHOW_TITLE: nil
+#+TYPE: page
 
 I'm *Jaxson Van Doorn*, a software developer living in *Victoria, BC*.
 

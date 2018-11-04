@@ -16,6 +16,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     const templatesFolder = 'src/templates'
     const templates = {
       blog: path.resolve(`${templatesFolder}/post.js`),
+      page: path.resolve(`${templatesFolder}/page.js`),
       game: path.resolve(`${templatesFolder}/game.js`)
     }
     graphql(
