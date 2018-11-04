@@ -43,7 +43,7 @@ injectGlobal(`
   code[class*="language-"],
   pre[class*="language-"] {
     background: ${colours.codeBackground} !important;
-    font-size: ${fonts.code}em;
+    font-size: ${fonts.code}em !important;
   }
 `)
 
