@@ -13,8 +13,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 
   return new Promise((resolve, reject) => {
-    const blogPostTemplate = path.resolve(`src/templates/post.js`)
-    const gameTemplate = path.resolve(`src/templates/game.js`)
+    const templatesFolder = 'src/templates'
+    const templates = {
+      blog: path.resolve(`${templatesFolder}/post.js`),
+      page: path.resolve(`${templatesFolder}/page.js`),
+      game: path.resolve(`${templatesFolder}/game.js`)
+    }
     graphql(
       `
         {
@@ -42,7 +46,8 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         const node = edge.node
         let path = node.meta.slug
         const template = (type) => {
-          return slash(type === 'game' ? gameTemplate : blogPostTemplate)
+          if (!type) type = 'blog'
+          return slash(templates[type])
         }
         if (!path) path = node.fields.slug
         createPage({
