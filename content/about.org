@@ -11,7 +11,7 @@ Full-time [[https://www.gnu.org/software/emacs/][Emacs]] and [[https://www.gnu.o
 
 Currently attending full-time /Computer Science courses/ at [[https://uvic.ca][University of Victoria]].
 
-I have created many +small+ *time-consuming* software projects:
+Here are some open source software projects I have authored:
 - [[https://github.com/woofers/woofers3d][Woofers 3D]], a 3D and 2D game toolkit for /Java/, with support for [[https://github.com/erincatto/Box2D][Box2D]] and [[https://github.com/bulletphysics/bullet3][Bullet]] physics.
 - [[https://github.com/woofers/whale][Whale]], a nautical mobile arcade game written in /Haxe/.
 - [[https://github.com/woofers/fox-hole][Fox Hole]], an innovative proof-of-concept side-scroller experience.
