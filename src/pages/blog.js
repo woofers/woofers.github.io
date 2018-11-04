@@ -4,6 +4,7 @@ import { css } from 'emotion'
 import cheerio from 'cheerio'
 import { colours, fonts, margins } from '../components/globals'
 import { Title } from '../components/title'
+import { Content } from '../components/content'
 
 const org = css(`
   div {
@@ -41,7 +42,7 @@ class BlogIndex extends React.Component {
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
           { preview.length ?
             <div>
-              <div style={{ marginTop: margins.small }} dangerouslySetInnerHTML={{ __html: preview.html() }} />
+              <Content html={preview.html()} />
               <Link style={{ color: colours.text }} to={node.fields.slug}>Continue reading . . . </Link>
             </div>: null}
         </div>
