@@ -9,8 +9,8 @@
 Dodge eels and crabs to obtain a high-score.
 
 *** Scoring
-- Crabs are worth *7 points*.
 - Eeels count towards *5 points*.
+- Lobsters are worth *7 points*.
 
 *** Controls
 #+BEGIN_EXPORT html
