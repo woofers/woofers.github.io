@@ -8,7 +8,8 @@ import { Page } from '../components/page'
 class GameTemplate extends Component {
   render() {
     const post = this.props.data.orga
-    const { title, date, icon, iconMode } = post.meta
+    const { title, date, icon } = post.meta
+    const iconMode = post.meta.icon_mode
     const showTitle = post.meta.show_title !== 'nil'
     const links = [{ name: 'Projects', link: '/projects/'},
                    { name: `${title}` }]
