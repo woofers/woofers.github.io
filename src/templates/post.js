@@ -3,6 +3,7 @@ import { Breadcrumb } from '../components/breadcrumb'
 import { BlogTitle } from '../components/blog-title'
 import { Content } from '../components/content'
 import { Page } from '../components/page'
+import { comments } from '../utils/comments'
 
 class PostTemplate extends Component {
   render() {
@@ -20,7 +21,7 @@ class PostTemplate extends Component {
   }
 }
 
-export default PostTemplate
+export default comments(PostTemplate)
 
 export const pageQuery = graphql`
   query Blog($slug: String!) {
