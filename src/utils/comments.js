@@ -1,4 +1,3 @@
-import React from 'react'
 import { injectGlobal } from 'emotion'
 import withUtterances from 'with-utterances'
 
