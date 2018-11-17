@@ -31,7 +31,8 @@ export const margins = {
   small: '1em',
   normal: '1.25em',
   medium: '1.5em',
-  large: '2em'
+  large: '2em',
+  profile: '265px'
 }
 
 export const fonts = {

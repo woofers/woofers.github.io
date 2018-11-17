@@ -90,7 +90,7 @@ const style = css(`
   }
 
   figure, table, img, iframe {
-    margin: 0;
+    margin-bottom: 0;
     border-width: 0;
   }
 
