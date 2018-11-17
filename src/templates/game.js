@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { css } from 'emotion'
 import { BlogTitle } from '../components/blog-title'
 import { Breadcrumb } from '../components/breadcrumb'
 import { Game } from '../components/game'
