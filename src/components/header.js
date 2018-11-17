@@ -21,19 +21,19 @@ const siteData = {
   ]
 }
 
-const containerStyle = css(`
+const header = css(`
   background-color: ${colours.header};
   padding-top: ${margins.small};
 `)
 
-const headerStyle = css(`
+const container = css(`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 0 ${margins.large};
 `)
 
-const linkStyle = css(`
+const link = css(`
   color: ${colours.text};
   font-size: ${fonts.header}em;
   border: none;
@@ -43,13 +43,13 @@ const linkStyle = css(`
 `)
 
 const Header = p => (
-  <header role='banner' className={containerStyle}>
-    <div className={headerStyle}>
+  <header role='banner' className={header}>
+    <div className={container}>
       <div style={{marginTop: margins.small}}>
         <h1 role='button'>
           <Link
             to={p.link}
-            className={linkStyle}
+            className={link}
           >
           {p.name}
           </Link>
