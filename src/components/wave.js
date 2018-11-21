@@ -16,14 +16,14 @@ export const Wave = p => (
                             begin="0s"
                             dur="6s"
                             type="translate"
-                            from="0,2"
-                            to="40,2"
+                            from="0,2.5"
+                            to="40,2.5"
                             repeatCount="indefinite" />
         </path>
       </pattern>
     </defs>
-    <text textAnchor="middle" x="50" y="15" fontSize="17" fill="#f27052" fillOpacity="1">{p.children}</text>
-    <text textAnchor="middle" x="50" y="15" fontSize="17" fill="url(#wave)"  fillOpacity="1">{p.children}</text>
+    <text textAnchor="middle" x="50" y="13" fontSize="13" fill="#f27052" fillOpacity="1">{p.children}</text>
+    <text textAnchor="middle" x="50" y="13" fontSize="13" fill="url(#wave)"  fillOpacity="1">{p.children}</text>
     <rect fill="url(#wave)" width="200px"></rect>
   </svg>
 )
