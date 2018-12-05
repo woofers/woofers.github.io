@@ -19,7 +19,7 @@
     "mime": "^2.2.0",
     "prism-themes": "^1.0.1",
     "react-emotion": "^9.2.9",
-    "react-fontawesome": "^1.6.1",
+    "react-fontawesome": "https://github.com/danawoodman/react-fontawesome#527762426931cdfc689ff211dc2ebd7055970f8f",
     "react-helmet": "^5.2.0",
     "typography-plugin-code": "^0.16.11",
     "typography-theme-github": "^0.15.10",
