@@ -20,12 +20,12 @@ export const Separator = p => (
 export const Breadcrumb = p => {
   const depth = p.links.length
   return (
-    <nav className={font}>
+    <nav aria-label="breadcrumbs" className={font}>
       {p.links
         ? p.links.map(({ name, link }, i) => {
           if (depth <= i + 1) {
             return (
-              <span className={active} key={i} aria-current='true'>{name}</span>
+              <span className={active} key={i} aria-current='page'>{name}</span>
             )
           }
           return (
