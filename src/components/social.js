@@ -15,16 +15,17 @@ export const SocialEntry = p => (
     target="_blank"
     rel="noopener noreferrer"
     className={socialEntryStyle}
+    title={p.title}
   >
-    <FA name={p.iconName} size={p.size} />
+    <FA name={p.iconName} size={p.size} ariaLabel={p.title} />
     {p.children || null}
   </a>
 )
 
 export const Social = p => (
   <div>
-    {p.socialEntries.map(({ link, name }) => (
-      <SocialEntry href={link} iconName={name} key={name} />
+    {p.socialEntries.map(({ link, icon, name }) => (
+      <SocialEntry href={link} iconName={icon} key={icon} title={name} />
     ))}
   </div>
 )

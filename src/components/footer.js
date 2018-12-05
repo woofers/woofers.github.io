@@ -23,19 +23,23 @@ const footerStyle = css(`
 const social = [
   {
     link: '//github.com/woofers',
-    name: 'github'
+    name: 'GitHub',
+    icon: 'github'
   },
   {
     link: '//www.linkedin.com/in/jaxson-van-doorn/',
-    name: 'linkedin'
+    name: 'LinkedIn',
+    icon: 'linkedin'
   },
   {
     link: '//twitter.com/jaxsonvandoorn',
-    name: 'twitter'
+    name: 'Twitter',
+    icon: 'twitter',
   },
   {
     link: 'mailto:jaxson.vandoorn@gmail.com',
-    name: 'envelope'
+    name: 'Email',
+    icon: 'envelope'
   }
 ]
 
