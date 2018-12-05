@@ -15,7 +15,7 @@ export const Profile = p => {
   `)
   return (
     <div>
-      <img className={photo} src={p.img} />
+      <img className={photo} src={p.img} alt={p.alt} />
     </div>
   )
 }

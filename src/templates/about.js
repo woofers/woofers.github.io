@@ -9,9 +9,10 @@ class AboutTemplate extends Component {
   render() {
     const post = this.props.data.orga
     const { profile } = post.meta
+    const alt = post.meta.profile_alt
     return (
       <Page post={post} site={this.props.data.site.siteMetadata.title}>
-        <Profile width={margins.profile} height={margins.profile} img={profile} />
+        <Profile width={margins.profile} height={margins.profile} img={profile} alt={alt} />
         <Content html={post.html} hideTitle={true} />
       </Page>
     )

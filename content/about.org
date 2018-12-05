@@ -1,6 +1,7 @@
 #+TITLE: About
 #+TYPE: about
 #+PROFILE: https://avatars3.githubusercontent.com/u/7284672?s=460&v=4
+#+PROFILE_ALT: Profile picture of Jaxson Van Doorn
 
 I'm *Jaxson Van Doorn*, a software developer living in *Victoria, BC*.
 
