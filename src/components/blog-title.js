@@ -9,7 +9,7 @@ export const BlogTitle = p => (
                      margin: `${margins.extraSmall} 0` }}>{p.title}</h1>
         {p.icon ?
          <img style={{ marginLeft: '10px', imageRendering: p.icon.mode }}
-              width="55px" height="55px" src={p.icon.image} /> :
+              width="55px" height="55px" src={p.icon.image} aria-hidden="true" /> :
        null}
       </div>
     : null}
