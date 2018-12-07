@@ -25,6 +25,7 @@ class BlogIndex extends React.Component {
   }
 
   render() {
+    const continueReading = 'Continue reading'
     const _posts = this.sortedPosts().map (({ node }) => {
       const path = node.fields.slug
       const meta = node.meta
@@ -43,7 +44,10 @@ class BlogIndex extends React.Component {
           { preview.length ?
             <div>
               <Content html={preview.html()} />
-              <Link style={{ color: colours.text }} to={node.fields.slug}>Continue reading . . . </Link>
+              <Link style={{ color: colours.text }} to={node.fields.slug}
+                    aria-label={`${continueReading} ${title}`}>
+                  {continueReading} . . .
+              </Link>
             </div>: null}
         </div>
       )
