@@ -120,6 +120,7 @@ const TemplateWrapper = ({ children }) => (
   <div>
     <Helmet
       title={name}
+      htmlAttributes={{ lang: 'en' }}
       meta={[
         { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
         { name: 'theme-color', content: colours.header },
