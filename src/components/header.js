@@ -46,7 +46,7 @@ const Header = p => (
   <header role='banner' className={header}>
     <div className={container}>
       <div style={{marginTop: margins.small}}>
-        <h1 role='button'>
+        <h1>
           <Link
             to={p.link}
             className={link}
