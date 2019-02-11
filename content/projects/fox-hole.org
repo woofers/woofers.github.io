@@ -20,12 +20,12 @@ Play as a fox who has /super digging abilities/ and dig through a world invaded 
   <li><strong>W</strong> and <strong>S</strong> to dig <strong>up</strong> and <strong>down</strong> respectivly.</li>
   <li><strong>R</strong> to perform a kick-flip attack.</li>
   <li><strong>Space</strong> to jump.</li>
-  <li><i class="fa fa-arrow-up"></i>
-      <i class="fa fa-arrow-left"></i>
-      <i class="fa fa-arrow-down"></i>
-      <i class="fa fa-arrow-right"></i> to navigate menus.</li>
+  <li><i class="fas fa-arrow-up"></i>
+      <i class="fas fa-arrow-left"></i>
+      <i class="fas fa-arrow-down"></i>
+      <i class="fas fa-arrow-right"></i> to navigate menus.</li>
 
-  <li><strong>Escape</strong> <i class="fa fa-times-circle-o"></i> to pause or return to the previous menu page.</li>
-  <li><strong>Enter</strong> <i class="fa fa-check-circle-o"></i> to select the active menu item.</li>
+  <li><strong>Escape</strong> <i class="far fa-times-circle"></i> to pause or return to the previous menu page.</li>
+  <li><strong>Enter</strong> <i class="far fa-check-circle"></i> to select the active menu item.</li>
 </ul>
 #+END_EXPORT

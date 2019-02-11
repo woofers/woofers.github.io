@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from 'emotion'
-import FA from 'react-fontawesome'
 import { margins, fonts } from './globals'
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
 const socialEntryStyle = css(`
   margin: 0 ${margins.sm}px 0 0;
@@ -17,7 +17,7 @@ export const SocialEntry = p => (
     className={socialEntryStyle}
     title={p.title}
   >
-    <FA name={p.iconName} size={p.size} ariaLabel={p.title} />
+    <Icon icon={p.iconName} size={p.size} aria-label={p.title} aria-hidden="false" />
     {p.children || null}
   </a>
 )
@@ -25,7 +25,7 @@ export const SocialEntry = p => (
 export const Social = p => (
   <div>
     {p.socialEntries.map(({ link, icon, name }) => (
-      <SocialEntry href={link} iconName={icon} key={icon} title={name} />
+      <SocialEntry href={link} iconName={icon} key={`${name}-${icon}`} title={name} />
     ))}
   </div>
 )

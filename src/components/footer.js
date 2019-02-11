@@ -3,8 +3,10 @@ import Link from 'gatsby-link'
 import { css } from 'emotion'
 import { Social } from './social'
 import { colours } from './globals'
-import FA from 'react-fontawesome'
-import 'font-awesome/css/font-awesome.min.css';
+import { faGithub,
+         faLinkedinIn as faLinkedin,
+         faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 const footerStyle = css(`
   width: 100%;
@@ -24,22 +26,22 @@ const social = [
   {
     link: '//github.com/woofers',
     name: 'GitHub',
-    icon: 'github'
+    icon: faGithub,
   },
   {
     link: '//www.linkedin.com/in/jaxson-van-doorn/',
     name: 'LinkedIn',
-    icon: 'linkedin'
+    icon: faLinkedin,
   },
   {
     link: '//twitter.com/jaxsonvandoorn',
     name: 'Twitter',
-    icon: 'twitter',
+    icon: faTwitter,
   },
   {
     link: 'mailto:jaxson.vandoorn@gmail.com',
     name: 'Email',
-    icon: 'envelope'
+    icon: faEnvelope,
   }
 ]
 
