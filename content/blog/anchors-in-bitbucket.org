@@ -41,7 +41,7 @@ This renders great in [[https://github.com/woofers/battle-snake-2018/blob/master
 
 ** This Should Work in Bitbucket Cloud Right?
 #+BEGIN_EXPORT html
-<h4 style='padding-left: 35px'><i class="fa fa-exclamation-triangle"></i> You would be wrong</h4>
+<h4 style='padding-left: 35px'><i class="fas fa-exclamation-triangle"></i> You would be wrong</h4>
 #+END_EXPORT
 
 Bitbucket Cloud very closely follows [[https://daringfireball.net/projects/markdown/syntax][John Gruber]]'s original Markdown specification with the exception of /HTML/ tags.  Attempting to use /HTML/ anchors will simply display the escaped /HTML/ along with broken links.

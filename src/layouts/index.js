@@ -10,6 +10,7 @@ import { animations,
          colours, fonts,
          margins, transitions,
          selections, contentWidth } from '../components/globals'
+import { icons } from '../utils/icons'
 
 injectGlobal(`
   html {
@@ -136,6 +137,8 @@ const TemplateWrapper = ({ children }) => (
     </div>
   </div>
 )
+
+icons.watch()
 
 TemplateWrapper.propTypes = {
   children: PropTypes.func,
