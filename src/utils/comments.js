@@ -9,6 +9,6 @@ injectGlobal(`
 
 export const comments = (template) => {
   return withUtterances(
-    template, 'woofers/woofers.github.io', 'github-dark', 'og:title'
+    template, 'woofers/woofers.github.io', 'github-dark-orange', 'og:title'
   )
 }
