@@ -3,6 +3,7 @@ import Link from 'gatsby-link'
 import { Nav } from './nav'
 import { css } from 'emotion'
 import { colours, fonts, margins } from './globals'
+import Wave from 'react-wavify'
 
 const siteData = {
   navLinks: [
@@ -31,6 +32,7 @@ const container = css(`
   justify-content: space-around;
   flex-wrap: wrap;
   padding: 0 ${margins.large};
+  z-index: -2;
 `)
 
 const link = css(`
@@ -40,6 +42,15 @@ const link = css(`
   &:focus, &:hover, &:visited, &:link, &:active {
     text-decoration: none;
   }
+`)
+
+const wave = css(`
+  margin-top: -20px;
+  height: 145px;
+  width: 100%;
+  position: absolute;
+  background: ${colours.header};
+  z-index: -1;
 `)
 
 const Header = p => (
@@ -56,6 +67,9 @@ const Header = p => (
         </h1>
       </div>
       <Nav links={siteData.navLinks}/>
+    </div>
+    <div className={wave}>
+      <Wave fill={colours.background}/>
     </div>
   </header>
 )
