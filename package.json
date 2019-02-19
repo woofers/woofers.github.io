@@ -1,7 +1,7 @@
 {
   "name": "jaxson-site",
   "description": "",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "author": "Jaxson Van Doorn",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.14",
