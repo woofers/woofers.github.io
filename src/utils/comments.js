@@ -1,9 +1,11 @@
 import { injectGlobal } from 'emotion'
 import withUtterances from 'with-utterances'
+import noHighlight from './no-highlight'
 
 injectGlobal(`
   .utterances {
      max-width: none;
+     ${noHighlight}
    }
 `)
 
