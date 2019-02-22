@@ -1,21 +1,14 @@
 import React from 'react'
 import { css } from 'emotion'
 import { margins } from '../components/globals'
-
-const noHighlight = css(`
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-`)
+import noHighlight from '../utils/no-highlight'
 
 const container = css(`
   text-align: center;
   margin: ${margins.small} 0;
   position: relative;
   padding-top: 56.25%;
+  ${noHighlight}
 `)
 
 const iframe = css(`
@@ -27,7 +20,7 @@ const iframe = css(`
 `)
 
 export const Frame = p => (
-  <div className={`${container} ${noHighlight}`}>
+  <div className={`${container}`}>
     <iframe src={p.src} className={iframe} frameBorder="0" allowFullScreen />
   </div>
 )
