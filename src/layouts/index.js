@@ -163,6 +163,7 @@ export const contentFragment = graphql`
     }
     fields {
       slug
+      path
     }
   }
 `

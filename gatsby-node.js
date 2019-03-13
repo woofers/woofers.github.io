@@ -22,6 +22,7 @@ exports.createPages = ({ graphql, actions }) => {
               node {
                 fields {
                   slug
+                  path
                 }
                 meta {
                   slug
@@ -45,7 +46,7 @@ exports.createPages = ({ graphql, actions }) => {
           if (!type) type = 'blog'
           return slash(templates[type])
         }
-        if (!path) path = node.fields.slug
+        if (!path) path = node.fields.path
         createPage({
           path: path,
           component: template(node.meta.type),
@@ -58,4 +59,27 @@ exports.createPages = ({ graphql, actions }) => {
       resolve()
     })
   })
+}
+
+// Add custom url pathname for blog posts.
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+
+  if (node.internal.type === `File`) {
+    const folder = node.relativeDirectory
+    const fileName = node.name
+    const slug = `/${path.join(folder, fileName)}/`
+    createNodeField({ node, name: `slug`, value: slug })
+  } else if (
+    node.internal.type === `OrgContent` &&
+      typeof node.slug === `undefined`
+  ) {
+    let fileNode = getNode(node.parent)
+    fileNode = getNode(fileNode.parent)
+    createNodeField({
+      node,
+      name: `path`,
+      value: fileNode.fields.slug,
+    })
+  }
 }
