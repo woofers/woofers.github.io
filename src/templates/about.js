@@ -4,10 +4,11 @@ import { Content } from '../components/content'
 import { Page } from '../components/page'
 import { Profile } from '../components/profile'
 import { margins } from '../components/globals'
+import { graphql } from 'gatsby'
 
 class AboutTemplate extends Component {
   render() {
-    const post = this.props.data.orga
+    const post = this.props.data.orgContent
     const { profile } = post.meta
     const alt = post.meta.profile_alt
     return (
@@ -22,7 +23,10 @@ class AboutTemplate extends Component {
 export default AboutTemplate
 
 export const pageQuery = graphql`
-  query About($slug: String!) {
-    ...Post
+  query($slug: String!) {
+    ...Title
+    orgContent(fields: {slug: {eq: $slug}}) {
+      ...Content
+    }
   }
 `

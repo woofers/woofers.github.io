@@ -5,6 +5,7 @@ import cheerio from 'cheerio'
 import { colours, fonts, margins } from '../components/globals'
 import { Title } from '../components/title'
 import { Content } from '../components/content'
+import { graphql } from 'gatsby'
 
 const org = css(`
   div {
@@ -14,7 +15,7 @@ const org = css(`
 
 class BlogIndex extends React.Component {
   sortedPosts() {
-    let posts = this.props.data.allOrga.edges
+    let posts = this.props.data.allOrgContent.edges
     const date = (node) => node.meta ? node.meta.date : ''
     const safeCompare = (a, b, func) =>
       (a || b) ? (!a ? 1 : !b ? -1 : func(a, b) ? 1 : -1) : 0;
@@ -66,9 +67,9 @@ class BlogIndex extends React.Component {
 export default BlogIndex
 
 export const pageQuery = graphql`
-  query BlogIndex {
+  {
     ...Title
-    allOrga {
+    allOrgContent {
       edges {
         node {
           ...Content

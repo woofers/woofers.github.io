@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-
+import { graphql } from 'gatsby'
 import { css, injectGlobal } from 'emotion'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -147,9 +147,20 @@ TemplateWrapper.propTypes = {
 export default TemplateWrapper
 
 export const contentFragment = graphql`
-  fragment Content on Orga {
+  fragment Content on OrgContent {
     html
-    meta
+    meta {
+      title
+      date
+      slug
+      icon
+      type
+      icon_mode
+      game
+      landscape
+      profile_alt
+      profile
+    }
     fields {
       slug
     }
@@ -157,20 +168,11 @@ export const contentFragment = graphql`
 `
 
 export const titleFragment = graphql`
-  fragment Title on RootQueryType {
+  fragment Title on Query {
     site {
       siteMetadata {
         title
       }
-    }
-  }
-`
-
-export const postFragment = graphql`
-  fragment Post on RootQueryType {
-    ...Title
-    orga(fields: {slug: {eq: $slug}}) {
-      ...Content
     }
   }
 `

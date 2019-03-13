@@ -1,9 +1,8 @@
 const path = require(`path`)
 const slash = require(`slash`)
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
     const templatesFolder = 'src/templates'
@@ -16,7 +15,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     graphql(
       `
         {
-          allOrga(
+          allOrgContent(
             limit: 1000
           ) {
             edges {
@@ -24,7 +23,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                 fields {
                   slug
                 }
-                meta
+                meta {
+                  slug
+                  type
+                }
               }
             }
           }
@@ -36,7 +38,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       }
 
       // Create blog posts pages.
-      result.data.allOrga.edges.forEach(edge => {
+      result.data.allOrgContent.edges.forEach(edge => {
         const node = edge.node
         let path = node.meta.slug
         const template = (type) => {
@@ -56,27 +58,4 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       resolve()
     })
   })
-}
-
-// Add custom url pathname for blog posts.
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
-
-  if (node.internal.type === `File`) {
-    const folder = node.relativeDirectory
-    const fileName = path.parse(node.absolutePath).name
-    const slug = `/${path.join(folder, fileName)}/`
-    createNodeField({ node, name: `slug`, value: slug })
-  } else if (
-    node.internal.type === `Orga` &&
-      typeof node.slug === `undefined`
-  ) {
-    const fileNode = getNode(node.parent)
-    createNodeField({
-      node,
-      name: `slug`,
-      value: fileNode.fields.slug,
-    })
-
-  }
 }
