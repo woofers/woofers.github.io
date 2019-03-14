@@ -33,6 +33,10 @@
     "typography-theme-lawton": "^0.16.19",
     "with-utterances": "^1.4.1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woofers/woofers.github.io.git"
+  },
   "keywords": [
     "gatsby",
     "org-mode",
