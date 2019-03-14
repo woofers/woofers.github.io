@@ -117,7 +117,6 @@ const divStyle = css(`
 `)
 
 const TemplateWrapper = ({ children }) => (
-
   <div>
     <Helmet
       title={name}
@@ -131,7 +130,7 @@ const TemplateWrapper = ({ children }) => (
     <Header name={name} link={home}/>
     <div className={style}>
       <main className={divStyle}>
-        {children()}
+        {children}
       </main>
       <Footer/>
     </div>
@@ -139,10 +138,6 @@ const TemplateWrapper = ({ children }) => (
 )
 
 icons.watch()
-
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
-}
 
 export default TemplateWrapper
 
