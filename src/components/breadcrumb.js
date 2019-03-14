@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import { css } from 'emotion'
 import { colours } from './globals'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'

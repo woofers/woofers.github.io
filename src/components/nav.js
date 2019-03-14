@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from 'emotion'
-import Link from 'gatsby-link'
+import { Link } from 'gatsby'
 import { colours, fonts, margins, transitions } from './globals'
 
 const navStyle = css(`
