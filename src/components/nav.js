@@ -19,7 +19,7 @@ export const Nav = p => {
     }
     text-decoration: none;
     border-bottom: 1.5px double;
-    transition: ${transitions.hover};
+    transition: border-bottom ${transitions.hover};
     border-color: rgba(0, 0, 0, 0);
     &:hover {
       border-color: initial;

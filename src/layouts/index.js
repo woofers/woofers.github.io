@@ -70,7 +70,7 @@ const style = css(`
   a {
     color: ${colours.link};
     border-bottom: ${margins.line} solid transparent;
-    transition: ${transitions.hover}
+    transition: border-bottom ${transitions.hover}
   }
 
   a:hover {
