@@ -21,6 +21,6 @@ const iframe = css(`
 
 export const Frame = p => (
   <div className={`${container}`}>
-    <iframe src={p.src} className={iframe} frameBorder="0" allowFullScreen />
+    <iframe title={p.title} src={p.src} className={iframe} frameBorder="0" allowFullScreen />
   </div>
 )

@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import { css } from 'emotion'
 import { Social } from './social'
 import { colours } from './globals'

@@ -1,7 +1,6 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-
+import { graphql } from 'gatsby'
 import { css, injectGlobal } from 'emotion'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -70,7 +69,7 @@ const style = css(`
   a {
     color: ${colours.link};
     border-bottom: ${margins.line} solid transparent;
-    transition: ${transitions.hover}
+    transition: border-bottom ${transitions.hover}
   }
 
   a:hover {
@@ -117,7 +116,6 @@ const divStyle = css(`
 `)
 
 const TemplateWrapper = ({ children }) => (
-
   <div>
     <Helmet
       title={name}
@@ -131,7 +129,7 @@ const TemplateWrapper = ({ children }) => (
     <Header name={name} link={home}/>
     <div className={style}>
       <main className={divStyle}>
-        {children()}
+        {children}
       </main>
       <Footer/>
     </div>
@@ -140,37 +138,36 @@ const TemplateWrapper = ({ children }) => (
 
 icons.watch()
 
-TemplateWrapper.propTypes = {
-  children: PropTypes.func,
-}
-
 export default TemplateWrapper
 
 export const contentFragment = graphql`
-  fragment Content on Orga {
+  fragment Content on OrgContent {
     html
-    meta
+    meta {
+      title
+      date
+      slug
+      icon
+      type
+      icon_mode
+      game
+      landscape
+      profile_alt
+      profile
+    }
     fields {
       slug
+      path
     }
   }
 `
 
 export const titleFragment = graphql`
-  fragment Title on RootQueryType {
+  fragment Title on Query {
     site {
       siteMetadata {
         title
       }
-    }
-  }
-`
-
-export const postFragment = graphql`
-  fragment Post on RootQueryType {
-    ...Title
-    orga(fields: {slug: {eq: $slug}}) {
-      ...Content
     }
   }
 `

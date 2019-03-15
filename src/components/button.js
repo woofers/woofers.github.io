@@ -1,6 +1,6 @@
 import React from 'react'
 import { injectGlobal } from 'emotion'
-import { transitions, fonts, colours, margins } from './globals'
+import { transitions, colours, margins } from './globals'
 
 const slant = '30px'
 const topRight = '11px'

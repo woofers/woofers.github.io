@@ -1,9 +1,15 @@
 const path = require(`path`)
 const slash = require(`slash`)
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage, createRedirect } = actions
 
-  const { createPage } = boundActionCreators
+  createRedirect({
+    fromPath: `/`,
+    isPermanent: true,
+    redirectInBrowser: false,
+    toPath: `/blog`,
+  })
 
   return new Promise((resolve, reject) => {
     const templatesFolder = 'src/templates'
@@ -16,15 +22,19 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     graphql(
       `
         {
-          allOrga(
+          allOrgContent(
             limit: 1000
           ) {
             edges {
               node {
                 fields {
                   slug
+                  path
                 }
-                meta
+                meta {
+                  slug
+                  type
+                }
               }
             }
           }
@@ -36,14 +46,14 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       }
 
       // Create blog posts pages.
-      result.data.allOrga.edges.forEach(edge => {
+      result.data.allOrgContent.edges.forEach(edge => {
         const node = edge.node
         let path = node.meta.slug
         const template = (type) => {
           if (!type) type = 'blog'
           return slash(templates[type])
         }
-        if (!path) path = node.fields.slug
+        if (!path) path = node.fields.path
         createPage({
           path: path,
           component: template(node.meta.type),
@@ -59,24 +69,24 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 }
 
 // Add custom url pathname for blog posts.
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `File`) {
     const folder = node.relativeDirectory
-    const fileName = path.parse(node.absolutePath).name
+    const fileName = node.name
     const slug = `/${path.join(folder, fileName)}/`
     createNodeField({ node, name: `slug`, value: slug })
   } else if (
-    node.internal.type === `Orga` &&
+    node.internal.type === `OrgContent` &&
       typeof node.slug === `undefined`
   ) {
-    const fileNode = getNode(node.parent)
+    let fileNode = getNode(node.parent)
+    fileNode = getNode(fileNode.parent)
     createNodeField({
       node,
-      name: `slug`,
+      name: `path`,
       value: fileNode.fields.slug,
     })
-
   }
 }
