@@ -1,5 +1,4 @@
 import React, { Component } from "react"
-import { BlogTitle } from '../components/blog-title'
 import { Content } from '../components/content'
 import { Page } from '../components/page'
 import { graphql } from 'gatsby'

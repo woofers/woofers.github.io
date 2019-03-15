@@ -33,7 +33,7 @@ class BlogIndex extends React.Component {
       const title = meta.title || path
       const include = '/blog/'
       const date = meta.date
-      if (!path || !path.startsWith(include)) return
+      if (!path || !path.startsWith(include)) return null
       let preview = cheerio.load(node.html)('p', 'body')
       preview.find('h1').remove()
       return (

@@ -1,5 +1,4 @@
 import React from 'react'
-import { margins } from '../components/globals'
 import { css } from 'emotion'
 import { Content } from '../components/content'
 import { Frame } from '../components/frame'
@@ -14,7 +13,7 @@ const grid = css(`
 
 export const Game = p => (
   <div className={p.portrait ? grid : null}>
-    <Frame src={p.src} />
+    <Frame title={p.title} src={p.src} />
     <Content html={p.instruction} />
   </div>
 )
