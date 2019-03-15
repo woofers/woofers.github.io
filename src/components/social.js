@@ -1,20 +1,20 @@
 import React from 'react'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 import { margins, fonts } from './globals'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
-const socialEntryStyle = css(`
+const socialEntryStyle = css`
   margin: 0 ${margins.sm}px 0 0;
   border: none !important;
   font-size: ${fonts.social}em;
-`)
+`
 
 export const SocialEntry = p => (
   <a
     href={p.href}
     target="_blank"
     rel="noopener noreferrer"
-    className={socialEntryStyle}
+    css={socialEntryStyle}
     title={p.title}
   >
     <Icon icon={p.iconName} size={p.size} aria-label={p.title} aria-hidden="false" />

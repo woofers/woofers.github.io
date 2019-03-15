@@ -1,17 +1,16 @@
 import React from 'react'
-import { Link } from 'gatsby'
-import { css } from 'emotion'
+import { Link, graphql } from 'gatsby'
+import { css } from '@emotion/core'
 import cheerio from 'cheerio'
 import { colours, fonts, margins } from '../components/globals'
 import { Title } from '../components/title'
 import { Content } from '../components/content'
-import { graphql } from 'gatsby'
 
-const org = css(`
+const org = css`
   div {
     margin-bottom: ${margins.small};
   }
-`)
+`
 
 class BlogIndex extends React.Component {
   sortedPosts() {
@@ -56,7 +55,7 @@ class BlogIndex extends React.Component {
     const site = this.props.data.site.siteMetadata.title
     return (
       <Title title='Posts' site={site}>
-        <div className={org}>
+        <div css={org}>
           {_posts}
         </div>
       </Title>

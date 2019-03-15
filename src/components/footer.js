@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 import { Social } from './social'
 import { colours } from './globals'
 import { faGithub,
@@ -7,7 +7,7 @@ import { faGithub,
          faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-const footerStyle = css(`
+const footerStyle = css`
   width: 100%;
   justify-content: center;
   background: ${colours.codeBackground};
@@ -19,7 +19,7 @@ const footerStyle = css(`
   overflow: hidden;
   display: flex;
   align-items: center;
-`)
+`
 
 const social = [
   {
@@ -45,7 +45,7 @@ const social = [
 ]
 
 const Footer = p => (
-  <footer role='contentinfo' className={footerStyle}>
+  <footer role='contentinfo' css={footerStyle}>
     <Social socialEntries={social} />
   </footer>
 )

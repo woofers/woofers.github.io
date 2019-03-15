@@ -1,4 +1,3 @@
-import { injectGlobal } from 'emotion'
 import { dom } from '@fortawesome/fontawesome-svg-core'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-regular-svg-icons'
@@ -15,12 +14,6 @@ import { faGithub,
          faLinkedinIn as faLinkedin,
          faTwitter,
          faGoogle } from '@fortawesome/free-brands-svg-icons'
-
-injectGlobal(`
-  .svg-inline--fa {
-    max-height: 50px;
-  }
-`)
 
 library.add(faArrowCircleDown,
             faGithub,

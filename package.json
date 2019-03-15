@@ -11,7 +11,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "cheerio": "^1.0.0-rc.2",
-    "emotion": "^10.0.9",
     "emotion-server": "^10.0.9",
     "gatsby": "^2.1.33",
     "gatsby-plugin-catch-links": "^2.0.13",
