@@ -1,16 +1,16 @@
 import React from 'react'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 import { Link } from 'gatsby'
 import { colours, fonts, margins, transitions } from './globals'
 
-const navStyle = css(`
+const navStyle = css`
   display: flex;
   align-items: center;
   margin: 0 0 ${margins.md}px 0;
-`)
+`
 
 export const Nav = p => {
-  const linkStyle = css(`
+  const linkStyle = css`
     font-size: ${fonts.nav}em;
     color: ${colours.text};
     padding: ${margins.md}px;
@@ -27,13 +27,13 @@ export const Nav = p => {
     &:focus, &:hover, &:visited, &:link, &:active {
       text-decoration: none;
     }
-  `)
+  `
   return (
-    <nav className={navStyle}>
+    <nav css={navStyle}>
       {p.links
         ? p.links.map(({ name, link }) => (
             <Link
-              className={linkStyle}
+              css={linkStyle}
               to={link}
               key={link}
               activeStyle={{ borderColor: 'initial' }}

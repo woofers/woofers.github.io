@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { css } from 'emotion'
+import { css } from '@emotion/core'
 import { colours } from './globals'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
-const active = css(`
+const active = css`
   font-weight: bold;
-`)
+`
 
-const font = css(`
+const font = css`
   color: ${colours.text};
-`)
+`
 
 export const Separator = p => (
   <Icon style={{ margin: '0 7px' }} icon={p.icon ? p.icon : faChevronRight} />
@@ -20,12 +20,12 @@ export const Separator = p => (
 export const Breadcrumb = p => {
   const depth = p.links.length
   return (
-    <nav aria-label="breadcrumbs" className={font}>
+    <nav aria-label="breadcrumbs" css={font}>
       {p.links
         ? p.links.map(({ name, link }, i) => {
           if (depth <= i + 1) {
             return (
-              <span className={active} key={i} aria-current='page'>{name}</span>
+              <span css={active} key={i} aria-current='page'>{name}</span>
             )
           }
           return (

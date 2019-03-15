@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
-import { css, injectGlobal } from 'emotion'
+import { css, Global } from '@emotion/core'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import 'prism-themes/themes/prism-duotone-space.css'
@@ -11,7 +11,7 @@ import { animations,
          selections, contentWidth } from '../components/globals'
 import { icons } from '../utils/icons'
 
-injectGlobal(`
+const global = css`
   html {
     position: relative;
     min-height: 100%;
@@ -45,9 +45,9 @@ injectGlobal(`
     background: ${colours.codeBackground} !important;
     font-size: ${fonts.code}em !important;
   }
-`)
+`
 
-const style = css(`
+const style = css`
   .footnote::before {
     content: "[" attr(data-label) "]";
     display: inline-block;
@@ -69,7 +69,7 @@ const style = css(`
   a {
     color: ${colours.link};
     border-bottom: ${margins.line} solid transparent;
-    transition: border-bottom ${transitions.hover}
+    transition: ${transitions.hover}
   }
 
   a:hover {
@@ -105,15 +105,14 @@ const style = css(`
   pre {
     background: ${colours.codeBackground};
   }
-`)
-
+`
 const name = "Jaxson Van Doorn"
 const home = "/"
-const divStyle = css(`
+const divStyle = css`
   margin: ${margins.large} auto ${margins.large};
   max-width: ${contentWidth};
   padding: 0 ${margins.small} ${margins.medium};
-`)
+`
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -121,14 +120,15 @@ const TemplateWrapper = ({ children }) => (
       title={name}
       htmlAttributes={{ lang: 'en' }}
       meta={[
-        { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
-        { name: 'theme-color', content: colours.header },
+          { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
+          { name: 'theme-color', content: colours.header },
       ]}>
       <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
     </Helmet>
     <Header name={name} link={home}/>
-    <div className={style}>
-      <main className={divStyle}>
+    <Global styles={global} />
+    <div css={style}>
+      <main css={divStyle}>
         {children}
       </main>
       <Footer/>

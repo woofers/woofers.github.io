@@ -1,12 +1,12 @@
 import React from 'react'
-import { injectGlobal } from 'emotion'
+import { css, Global } from '@emotion/core'
 import { transitions, colours, margins } from './globals'
 
 const slant = '30px'
 const topRight = '11px'
 const bottomLeft = '12px'
 
-injectGlobal(`
+const style = css`
   a[role=button] {
     font-weight: bold;
     font-family: 'Raleway',sans-serif;
@@ -17,8 +17,8 @@ injectGlobal(`
     color: ${colours.link};
     background: ${colours.rgba.codeBackground(0.15)};
     border-radius: ${slant} ${topRight} ${slant} ${bottomLeft};
-    transition: ${transitions.hover};
-    transition-duration: 0.425s;
+    transition: ${transitions.hover} !important;
+    transition-duration: 0.425s !important;
     &:hover {
       color: ${colours.background};
       background: ${colours.header};
@@ -28,10 +28,13 @@ injectGlobal(`
       text-decoration: none;
     }
   }
-`)
+`
 
 const Button = p => (
-  <a href={p.href} role='button'>{p.children}</a>
+  <span>
+    <Global styles={style} />
+    <a style={{...p.style}} href={p.href} role='button'>{p.children}</a>
+  </span>
 )
 
 export default Button

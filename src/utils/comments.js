@@ -1,16 +1,31 @@
-import { injectGlobal } from 'emotion'
+import { css, Global } from '@emotion/core'
 import withUtterances from 'with-utterances'
 import noHighlight from './no-highlight'
+import React, { Component } from "react"
 
-injectGlobal(`
+const style = css`
   .utterances {
-     max-width: none;
-     ${noHighlight}
-   }
-`)
+    max-width: none;
+    ${noHighlight}
+  }
+`
 
-export const comments = (template) => {
+const utterances = (Page) => {
   return withUtterances(
-    template, 'woofers/woofers.github.io', 'github-dark-orange', 'og:title'
+    Page, 'woofers/woofers.github.io', 'github-dark-orange', 'og:title'
   )
+}
+
+export const comments = (Page) => {
+  return class extends Component {
+    render() {
+      const Comments = utterances(Page)
+      return (
+        <div>
+          <Global styles={style} />
+          <Comments {...this.props} />
+        </div>
+      )
+    }
+  }
 }
