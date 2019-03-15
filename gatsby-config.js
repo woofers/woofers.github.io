@@ -5,6 +5,7 @@ module.exports = {
   plugins: [
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-layout`,
+    `gatsby-plugin-catch-links`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
