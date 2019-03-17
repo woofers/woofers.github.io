@@ -1,4 +1,6 @@
-const noHighlight = `
+import { css } from '@emotion/core'
+
+const noHighlight = css`
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

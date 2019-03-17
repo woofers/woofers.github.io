@@ -6,7 +6,7 @@ const slant = '30px'
 const topRight = '11px'
 const bottomLeft = '12px'
 
-const style = css`
+export const style = css`
   a[role=button] {
     font-weight: bold;
     font-family: 'Raleway',sans-serif;
