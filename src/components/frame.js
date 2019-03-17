@@ -8,7 +8,6 @@ const container = css`
   margin: ${margins.small} 0;
   position: relative;
   padding-top: 56.25%;
-  ${noHighlight}
 `
 
 const iframe = css`
@@ -20,7 +19,7 @@ const iframe = css`
 `
 
 export const Frame = p => (
-  <div css={container}>
+  <div css={[container, noHighlight]}>
     <iframe title={p.title} src={p.src} css={iframe} frameBorder="0" allowFullScreen />
   </div>
 )

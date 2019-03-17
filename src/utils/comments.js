@@ -1,12 +1,12 @@
-import { css, Global } from '@emotion/core'
+import { css } from '@emotion/core'
 import withUtterances from 'with-utterances'
 import noHighlight from './no-highlight'
 import React, { Component } from "react"
 
 const style = css`
   .utterances {
-    max-width: none;
-    ${noHighlight}
+    max-width: none !important;
+    ${noHighlight};
   }
 `
 
@@ -21,8 +21,7 @@ export const comments = (Page) => {
     render() {
       const Comments = utterances(Page)
       return (
-        <div>
-          <Global styles={style} />
+        <div css={style}>
           <Comments {...this.props} />
         </div>
       )
