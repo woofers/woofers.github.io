@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import { css, Global } from '@emotion/core'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import { style as buttonStyle } from '../components/button'
 import 'prism-themes/themes/prism-duotone-space.css'
 import { animations,
          colours, fonts,
@@ -126,7 +127,7 @@ const TemplateWrapper = ({ children }) => (
       <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
     </Helmet>
     <Header name={name} link={home}/>
-    <Global styles={global} />
+    <Global styles={[global, buttonStyle]} />
     <div css={style}>
       <main css={divStyle}>
         {children}
