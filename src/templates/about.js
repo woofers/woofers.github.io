@@ -11,7 +11,7 @@ class AboutTemplate extends Component {
     const { profile } = post.meta
     const alt = post.meta.profile_alt
     return (
-      <Page post={post} site={this.props.data.site.siteMetadata.title}>
+      <Page title={post.meta.title} site={this.props.data.site.siteMetadata.title}>
         <Profile width={margins.profile} height={margins.profile} img={profile} alt={alt} />
         <Content html={post.html} hideTitle={true} />
       </Page>

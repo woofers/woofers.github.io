@@ -3,7 +3,7 @@ import { Link, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import cheerio from 'cheerio'
 import { colours, fonts, margins } from '../components/globals'
-import { Title } from '../components/title'
+import { Page } from '../components/page'
 import { Content } from '../components/content'
 
 const org = css`
@@ -54,11 +54,11 @@ class BlogIndex extends React.Component {
     })
     const site = this.props.data.site.siteMetadata.title
     return (
-      <Title title='Posts' site={site}>
+      <Page title='Posts' site={site}>
         <div css={org}>
           {_posts}
         </div>
-      </Title>
+      </Page>
     )
   }
 }
