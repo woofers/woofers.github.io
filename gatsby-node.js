@@ -7,8 +7,8 @@ exports.createPages = ({ graphql, actions }) => {
   createRedirect({
     fromPath: `/`,
     isPermanent: true,
-    redirectInBrowser: false,
-    toPath: `/blog`,
+    redirectInBrowser: true,
+    toPath: `/projects/`,
   })
 
   return new Promise((resolve, reject) => {
