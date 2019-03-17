@@ -13,7 +13,7 @@ class GameTemplate extends Component {
     const links = [{ name: 'Projects', link: '/projects/'},
                    { name: `${title}` }]
     return (
-      <Page post={post}
+      <Page title={post.meta.title}
             site={this.props.data.site.siteMetadata.title}>
         <Breadcrumb links={links} />
         <BlogTitle title={title} date={date}

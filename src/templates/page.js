@@ -7,7 +7,7 @@ class PageTemplate extends Component {
   render() {
     const post = this.props.data.orgContent
     return (
-      <Page post={post} site={this.props.data.site.siteMetadata.title}>
+      <Page title={post.meta.title} site={this.props.data.site.siteMetadata.title}>
         <Content html={post.html} hideTitle={true} />
       </Page>
     )

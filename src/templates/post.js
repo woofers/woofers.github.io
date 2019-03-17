@@ -13,7 +13,7 @@ class PostTemplate extends Component {
     const links = [{ name: 'Blog', link: '/blog/'},
                    { name: `${title}` }]
     return (
-      <Page post={post} site={this.props.data.site.siteMetadata.title}>
+      <Page title={post.meta.title} site={this.props.data.site.siteMetadata.title}>
         <Breadcrumb links={links} />
         <BlogTitle title={title} date={date} />
         <Content html={post.html} />
