@@ -45,7 +45,8 @@ export const fonts = {
 }
 
 export const transitions = {
-  hover: '0.3s cubic-bezier(0.7, 0, 0.3, 1)'
+  hover: '0.3s cubic-bezier(0.7, 0, 0.3, 1)',
+  cursor: '1.5s cubic-bezier(0.68, 0.01, 0.01, 0.99)'
 }
 
 export const animations = {

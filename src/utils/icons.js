@@ -9,7 +9,8 @@ import { faArrowCircleDown,
          faArrowUp,
          faArrowLeft,
          faArrowDown,
-         faArrowRight } from '@fortawesome/free-solid-svg-icons'
+         faArrowRight,
+         faUser } from '@fortawesome/free-solid-svg-icons'
 import { faGithub,
          faLinkedinIn as faLinkedin,
          faTwitter,
