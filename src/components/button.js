@@ -1,5 +1,6 @@
 import React from 'react'
 import { css, Global } from '@emotion/core'
+import { Link } from 'gatsby'
 import { transitions, colours, margins } from './globals'
 
 const slant = '30px'
@@ -33,7 +34,7 @@ export const style = css`
 const Button = p => (
   <span>
     <Global styles={style} />
-    <a style={{...p.style}} href={p.href} role='button'>{p.children}</a>
+    <Link style={{...p.style}} to={p.href} role='button'>{p.children}</Link>
   </span>
 )
 

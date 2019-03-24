@@ -2,14 +2,7 @@ const path = require(`path`)
 const slash = require(`slash`)
 
 exports.createPages = ({ graphql, actions }) => {
-  const { createPage, createRedirect } = actions
-
-  createRedirect({
-    fromPath: `/`,
-    isPermanent: true,
-    redirectInBrowser: true,
-    toPath: `/projects/`,
-  })
+  const { createPage } = actions
 
   return new Promise((resolve, reject) => {
     const templatesFolder = 'src/templates'
