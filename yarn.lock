@@ -1178,6 +1178,10 @@
   resolved "https://registry.yarnpkg.com/@xtuc/long/-/long-4.2.1.tgz#5c85d662f76fa1d34575766c5dcd6615abcd30d8"
   integrity sha512-FZdkNBDqBRHKQ2MEbSC17xnPFOhZxeJ2YGSfr2BKf3sujG49Qe3bB+rGCwQfIaA7WHnGeGkSijX4FuBCdrzW/g==
 
+"Phaser@https://github.com/photonstorm/phaser/#2.0.5":
+  version "2.0.5"
+  resolved "https://github.com/photonstorm/phaser/#560a44f06e89e44a2c1a9b97995262ecd64a4dbf"
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
@@ -4185,6 +4189,14 @@ forwarded@~0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.1.2.tgz#98c23dab1175657b8c0573e8ceccd91b0ff18c84"
   integrity sha1-mMI9qxF1ZXuMBXPozszZGw/xjIQ=
+
+fox-hole@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/fox-hole/-/fox-hole-1.3.0.tgz#d5249bd4bbdac27f70acf780ff5efb375da8a365"
+  integrity sha512-MhhUVTu4QOXfzfuj9mmHezEhd17YUbfQ4OQKoq0xXp8oBck2PzTMKZaOrYgasYLZxSDwVXzHg+TiR9UeiHjTAw==
+  dependencies:
+    Phaser "https://github.com/photonstorm/phaser/#2.0.5"
+    storejs "^1.0.2"
 
 fragment-cache@^0.2.1:
   version "0.2.1"
@@ -8987,6 +8999,11 @@ statuses@~1.4.0:
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.4.0.tgz#bb73d446da2796106efcc1b601a253d6c46bd087"
   integrity sha512-zhSCtt8v2NDrRlPQpCNtw/heZLtfUDqxBM1udqikb/Hbk52LK4nQSwr10u77iopCW5LsyHpuXS0GnEc48mLeew==
 
+storejs@^1.0.2:
+  version "1.0.25"
+  resolved "https://registry.yarnpkg.com/storejs/-/storejs-1.0.25.tgz#fc70d25b4df7866976a62b46b6dc6727761306ce"
+  integrity sha512-UPHetMA+eg1il3GZI1Lnu5/uVszkEkozgnekbjyEFrRHmkjYygbTGJcdKz65Fae6myA+/VnVoes9835E6WS0zw==
+
 stream-browserify@^2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.2.tgz#87521d38a44aa7ee91ce1cd2a47df0cb49dd660b"
@@ -10000,6 +10017,11 @@ websocket-extensions@>=0.1.1:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.3.tgz#5d2ff22977003ec687a4b87073dfbbac146ccf29"
   integrity sha512-nqHUnMXmBzT0w570r2JpJxfiSD1IzoI+HGVdd3aZ0yNi3ngvQ4jv1dtHt5VGxfI2yj5yqImPhOK4vmIh2xMbGg==
+
+whale-dive@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/whale-dive/-/whale-dive-1.1.1.tgz#a4b7d4d8788829426f7554ffaa1b7245912b2d4f"
+  integrity sha512-Cc2w0wl7Z7gSvh/AbXplQZFJ6CeK9RVYLPK54EyiMdl5Ap320MfW43CLL0MlJb2L4YKt+MvCafbHNFj/rmxuDg==
 
 whatwg-fetch@2.0.4:
   version "2.0.4"
