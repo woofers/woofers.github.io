@@ -34,6 +34,7 @@
     "typography": "^0.16.19",
     "typography-plugin-code": "^0.16.19",
     "typography-theme-lawton": "^0.16.19",
+    "whale-dive": "^1.1.1",
     "with-utterances": "^1.4.1"
   },
   "repository": {
@@ -48,7 +49,7 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "build": "yarn clean && ./build-games.sh && gatsby build --prefix-paths",
+    "build": "yarn clean && ./dist-games.sh && gatsby build --prefix-paths",
     "dev": "rm -rf .cache && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "clean": "rm -rf .cache public",
