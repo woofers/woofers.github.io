@@ -34,5 +34,8 @@ action "Deploy" {
     COMMIT_EMAIL = "woofers1tt@gmail.com"
     COMMIT_NAME = "Jaxson Van Doorn"
   }
-  secrets = ["GITHUB_TOKEN"]
+  secrets = [
+    "GITHUB_TOKEN",
+    "ACCESS_TOKEN",
+  ]
 }
