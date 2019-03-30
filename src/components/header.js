@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Nav } from './nav'
 import { css } from '@emotion/core'
-import { colours, fonts, margins } from './globals'
+import { colours, fonts, margins, selections } from './globals'
 import Wave from 'react-wavify'
 
 const siteData = {
@@ -25,6 +25,12 @@ const siteData = {
 const header = css`
   background-color: ${colours.header};
   padding-top: ${margins.small};
+
+  * {
+    ::selection {
+      background: ${selections.header} !important;
+    }
+  }
 `
 
 const container = css`
