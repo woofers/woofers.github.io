@@ -1,6 +1,6 @@
 workflow "Build, Test and Deploy" {
   on = "push"
-  resolves = ["nuxt/actions-yarn@master"]
+  resolves = ["Deploy"]
 }
 
 action "Install" {
@@ -20,16 +20,15 @@ action "Test" {
   args = "test"
 }
 
-# Filter for a new tag
 action "Tag" {
   needs = "Test"
   uses = "actions/bin/filter@master"
   args = "tag v*"
 }
 
-action "nuxt/actions-yarn@master" {
+action "Deploy" {
   uses = "nuxt/actions-yarn@master"
   needs = ["Tag"]
-  args = "run gh-pages -d public -b master -u 'Jaxson Van Doorn <woofers1tt@gmail.com>'"
+  args = "deploy"
   secrets = ["GITHUB_TOKEN"]
 }
