@@ -53,7 +53,8 @@
     "dev": "rm -rf .cache && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "clean": "rm -rf .cache public",
-    "deploy": "yarn build && gh-pages -d public -b master"
+    "deploy": "yarn build && gh-pages -d public -b master",
+    "test": "echo 'No tests'"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1",
