@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<TextureAtlas imagePath="fox.png">
+	
+	<!--Jaxson C. Van Doorn, 2014-->
+
+	<!--Idle-->
+		<SubTexture name="foxIdle0000" x="0" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0001" x="67" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0002" x="134" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0003" x="201" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0004" x="268" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0005" x="335" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0006" x="402" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0007" x="469" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0008" x="536" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0009" x="603" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0010" x="670" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0011" x="737" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0012" x="804" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0013" x="871" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0014" x="938" y="0" width="67" height="55"/>
+		<SubTexture name="foxIdle0015" x="1005" y="0" width="67" height="55"/>
+
+	<!--Running-->
+		<SubTexture name="foxRunning0000" x="0" y="55" width="67" height="55"/>
+		<SubTexture name="foxRunning0001" x="67" y="55" width="67" height="55"/>
+		<SubTexture name="foxRunning0002" x="134" y="55" width="67" height="55"/>
+		<SubTexture name="foxRunning0003" x="201" y="55" width="67" height="55"/>
+		<SubTexture name="foxRunning0004" x="268" y="55" width="67" height="55"/>
+		<SubTexture name="foxRunning0005" x="335" y="55" width="67" height="55"/>
+		<SubTexture name="foxRunning0006" x="402" y="55" width="67" height="55"/>
+
+	<!--Crawl-->
+		<SubTexture name="foxCrawl0000" x="0" y="110" width="67" height="55"/>
+		<SubTexture name="foxCrawl0001" x="67" y="110" width="67" height="55"/>
+		<SubTexture name="foxCrawl0002" x="134" y="110" width="67" height="55"/>
+		<SubTexture name="foxCrawl0003" x="201" y="110" width="67" height="55"/>
+
+	<!--Dig-->
+		<SubTexture name="foxDig0000" x="0" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0001" x="67" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0002" x="134" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0003" x="201" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0004" x="268" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0005" x="335" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0006" x="402" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0007" x="469" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0008" x="536" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0009" x="603" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0010" x="670" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0011" x="737" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0012" x="804" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0013" x="871" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0014" x="938" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0015" x="1005" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0016" x="1072" y="165" width="67" height="55"/>
+		<SubTexture name="foxDig0017" x="1139" y="165" width="67" height="55"/>
+
+	<!--Dig Compressed-->
+		<SubTexture name="foxDigSmall0000" x="0" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0001" x="67" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0002" x="134" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0003" x="201" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0004" x="268" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0005" x="335" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0006" x="402" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0007" x="469" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0008" x="536" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0009" x="603" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0010" x="670" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0011" x="737" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0012" x="804" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0013" x="871" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0014" x="938" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0015" x="1005" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0016" x="1072" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0017" x="1139" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0018" x="1206" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0019" x="1273" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0020" x="1340" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0021" x="1407" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0022" x="1474" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0023" x="1541" y="220" width="67" height="55"/>
+		<SubTexture name="foxDigSmall0024" x="1608" y="220" width="67" height="55"/>
+
+	<!--Tail Whip-->
+		<SubTexture name="foxTail0000" x="0" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0001" x="67" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0002" x="134" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0003" x="201" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0004" x="268" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0005" x="335" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0006" x="402" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0007" x="469" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0008" x="536" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0009" x="603" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0010" x="670" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0011" x="737" y="275" width="67" height="55"/>
+		<SubTexture name="foxTail0012" x="804" y="275" width="67" height="55"/>
+	
+	<!--Flip-->
+		<SubTexture name="foxFlip0000" x="0" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0001" x="67" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0002" x="134" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0003" x="201" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0004" x="268" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0005" x="335" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0006" x="402" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0007" x="469" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0008" x="536" y="330" width="67" height="55"/>
+		<SubTexture name="foxFlip0009" x="603" y="330" width="67" height="55"/>
+
+	<!--Dig Up-->
+
+		<!--Underground-->
+			<SubTexture name="foxDigUp0000" x="0" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUp0001" x="67" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUp0002" x="134" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUp0003" x="201" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUp0004" x="268" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUp0005" x="335" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUp0006" x="402" y="385" width="67" height="55"/>
+		
+		<!--Above Ground-->	
+			<SubTexture name="foxDigUpAbove0000" x="469" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0001" x="536" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0002" x="603" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0003" x="670" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0004" x="737" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0005" x="804" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0006" x="871" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0007" x="938" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0008" x="1005" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0009" x="1072" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0010" x="1139" y="385" width="67" height="55"/>
+			<SubTexture name="foxDigUpAbove0011" x="1206" y="385" width="67" height="55"/>
+
+</TextureAtlas>

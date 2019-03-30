@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-16"?>
+<TextureAtlas imagePath="croc1.png">
+	
+	<!--Jaxson C. Van Doorn, 2014-->
+
+	<!--Idle-->
+		<SubTexture name="croc1Idle0000" x="0" y="0" width="53" height="54"/>
+		<SubTexture name="croc1Idle0001" x="53" y="0" width="53" height="54"/>
+
+	<!--Walk-->
+		<SubTexture name="croc1Walk0000" x="0" y="54" width="53" height="54"/>
+		<SubTexture name="croc1Walk0001" x="53" y="54" width="53" height="54"/>
+
+</TextureAtlas>

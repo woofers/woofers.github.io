@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <!--Jaxson C. Van Doorn, 2014-->
+
+    <!--Meta-->
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <script>
+      window.addEventListener("keydown", function(e) {
+          // space and arrow keys
+          if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+              e.preventDefault();
+          }
+      }, false);
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        overflow:hidden;
+        border-radius: 20px;
+      }
+      canvas {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+      }
+    </style>
+    <!--Import Phaser and Store.js-->
+    <script type="text/javascript" src="lib/phaser.min.js"></script>
+    <script type="text/javascript" src="lib/store.js"></script>
+  </head>
+  <body oncontextmenu ="return false;">
+    <!--Game Cavas-->
+    <div id = "canvasdiv">
+      <script type="text/javascript" src="game.js"></script>
+    </div>
+  </body>
+</html>

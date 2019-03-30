@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="eel.png">
+    <SubTexture name="Swim0000" x="2" y="322" width="738" height="158" frameX="-6" frameY="-7" frameWidth="750" frameHeight="170"/>
+    <SubTexture name="Swim0001" x="2" y="162" width="740" height="158" frameX="-4" frameY="-7" frameWidth="750" frameHeight="170"/>
+    <SubTexture name="Swim0002" x="2" y="2" width="744" height="158" frameX="0" frameY="-7" frameWidth="750" frameHeight="170"/>
+    <SubTexture name="Swim0003" x="2" y="162" width="740" height="158" frameX="-4" frameY="-7" frameWidth="750" frameHeight="170"/>
+</TextureAtlas>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="lobster.png">
+    <SubTexture name="Grab0000" x="2" y="596" width="409" height="196" frameX="-1" frameY="-3" frameWidth="411" frameHeight="200"/>
+    <SubTexture name="Grab0001" x="2" y="398" width="409" height="196" frameX="-1" frameY="-3" frameWidth="411" frameHeight="200"/>
+    <SubTexture name="Grab0002" x="2" y="200" width="409" height="196" frameX="-1" frameY="-3" frameWidth="411" frameHeight="200"/>
+    <SubTexture name="Grab0003" x="2" y="2" width="409" height="196" frameX="-1" frameY="-3" frameWidth="411" frameHeight="200"/>
+    <SubTexture name="Grab0004" x="2" y="200" width="409" height="196" frameX="-1" frameY="-3" frameWidth="411" frameHeight="200"/>
+    <SubTexture name="Grab0005" x="2" y="398" width="409" height="196" frameX="-1" frameY="-3" frameWidth="411" frameHeight="200"/>
+</TextureAtlas>
