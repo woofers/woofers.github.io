@@ -1,6 +1,6 @@
 workflow "Build, Test and Deploy" {
   on = "push"
-  resolves = ["Deploy"]
+  resolves = ["nuxt/actions-yarn@master"]
 }
 
 action "Install" {
@@ -27,21 +27,9 @@ action "Tag" {
   args = "tag v*"
 }
 
-action "Deploy" {
-  uses = "JamesIves/github-pages-deploy-action@master"
+action "nuxt/actions-yarn@master" {
+  uses = "nuxt/actions-yarn@master"
   needs = ["Tag"]
-  args = "deploy"
-  env = {
-    BRANCH = "master"
-    BASE_BRANCH = "development"
-    BUILD_SCRIPT = "echo 'Deploying...'"
-    FOLDER = "public"
-    CNAME = "jaxson.vandoorn.ca"
-    COMMIT_EMAIL = "woofers1tt@gmail.com"
-    COMMIT_NAME = "Jaxson Van Doorn"
-  }
-  secrets = [
-    "GITHUB_TOKEN",
-    "ACCESS_TOKEN",
-  ]
+  args = "run gh-pages -d public -b master -u 'Jaxson Van Doorn <woofers1tt@gmail.com>'"
+  secrets = ["GITHUB_TOKEN"]
 }
