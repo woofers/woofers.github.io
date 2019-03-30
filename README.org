@@ -4,12 +4,9 @@
 #+OPTIONS:  num:nil toc:nil
 * [[https://jaxson.vandoorn.ca][jaxson.vandoorn.ca]]
 
-#+ATTR_HTML: :alt Build Status :align right
-[[https://travis-ci.com/woofers/woofers.github.io][https://travis-ci.com/woofers/woofers.github.io.svg?branch=development]]
-
 A [[https://www.gatsbyjs.org/][Gatsby]] based site built using static [[https://orgmode.org/][Org Mode]] content with [[https://github.com/xiaoxinghu/orgajs][Orga]].
 
-Automated deploy to [[https://pages.github.com/][Github Pages]] is configured using [[https://travis-ci.org][Travis CI]].
+Automated deploy to [[https://pages.github.com/][Github Pages]] is configured using [[https://github.com/features/actions][GitHub Actions]].
 
 * Goals
 1) Be easy to update and maintain content.  Ideally with simple [[https://orgmode.org/][Org Mode]] markup.
