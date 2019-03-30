@@ -9,13 +9,22 @@ import { faNewspaper } from '@fortawesome/free-regular-svg-icons'
 
 class Splash extends Component {
     render() {
+      const speed = 65
+      const deleteSpeed = speed - 10
+      const stop = 3000
+      const emptyStop = 500
       return (
         <div>
           <span>
             <h1 style={{fontSize: `${fonts.large * 2}em`}}>Hey I'm{' '}<Link to='/about/'>Jaxson Van Doorn</Link></h1>
             <h1>
               I{' '}
-              <RotatingText items={['build games 🎮', 'design apps 🖌', 'craft tools 🔧']} />
+              <RotatingText items={['build games 🎮', 'design apps 🖌', 'craft tools 🔧']}
+                typingInterval={speed}
+                deletingInterval={deleteSpeed}
+                emptyPause={emptyStop}
+                pause={stop}
+              />
               {' '}for the modern world
             </h1>
           </span>
