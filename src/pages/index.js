@@ -30,7 +30,7 @@ class Splash extends Component {
           </span>
 
           <Button href="/projects/"><Icon icon={faNewspaper}/> Check out my work</Button>
-          <Button href="/blog/"><Icon icon={faPencilAlt}/> Read some of my thoughts</Button>
+          <Button href="/blog/"><Icon icon={faPencilAlt}/> Read some of my ideas</Button>
           <Button href="/about/"><Icon icon={faUser}/> Get to know me</Button>
         </div>
       )
