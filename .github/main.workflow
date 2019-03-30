@@ -1,6 +1,6 @@
-workflow "Build and Test" {
+workflow "Build, Test and Deploy" {
   on = "push"
-  resolves = ["Tag"]
+  resolves = ["nuxt/actions-yarn@master"]
 }
 
 action "Build" {
@@ -19,4 +19,11 @@ action "Tag" {
   needs = "Test"
   uses = "actions/bin/filter@master"
   args = "tag v*"
+}
+
+action "nuxt/actions-yarn@master" {
+  uses = "nuxt/actions-yarn@master"
+  needs = ["Tag"]
+  args = "deploy"
+  secrets = ["GITHUB_TOKEN"]
 }
