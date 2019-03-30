@@ -3,9 +3,15 @@ workflow "Build, Test and Deploy" {
   resolves = ["Deploy"]
 }
 
-action "Build" {
+action "Install" {
   uses = "nuxt/actions-yarn@master"
   args = "install"
+}
+
+action "Build" {
+  needs = "Install"
+  uses = "nuxt/actions-yarn@master"
+  args = "build"
 }
 
 action "Test" {
