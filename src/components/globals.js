@@ -19,7 +19,8 @@ export const colours = {
 export const selections = {
   main: header(0.99),
   image: header(0.75),
-  link: colours.text
+  link: colours.text,
+  header: code(0.45)
 }
 
 export const margins = {
