@@ -53,11 +53,12 @@
     "dev": "rm -rf .cache && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "clean": "rm -rf .cache public",
-    "deploy": "gh-pages -d public -b master -u 'Jaxson Van Doorn <woofers1tt@gmail.com>'",
+    "deploy": "gh-pages-with-token -d public -b master",
     "test": "echo 'No tests'"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1",
+    "gh-pages-with-token": "^1.0.0",
     "prettier": "^1.16.4"
   }
 }
