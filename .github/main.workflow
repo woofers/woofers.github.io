@@ -29,6 +29,6 @@ action "Tag" {
 action "Deploy" {
   uses = "nuxt/actions-yarn@master"
   needs = ["Tag"]
-  args = "deploy"
+  args = "deploy-ident"
   secrets = ["GH_TOKEN"]
 }

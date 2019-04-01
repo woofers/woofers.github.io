@@ -53,6 +53,7 @@
     "dev": "rm -rf .cache && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
     "clean": "rm -rf .cache public",
+    "deploy-ident": "git config --global user.email 'woofers1tt@gmail.com' && yarn deploy",
     "deploy": "gh-pages-with-token -d public -b master",
     "test": "echo 'No tests'"
   },
