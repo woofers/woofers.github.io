@@ -30,5 +30,5 @@ action "Deploy" {
   uses = "nuxt/actions-yarn@master"
   needs = ["Tag"]
   args = "deploy"
-  secrets = ["GITHUB_TOKEN"]
+  secrets = ["GH_TOKEN"]
 }
