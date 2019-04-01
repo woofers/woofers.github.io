@@ -20,7 +20,7 @@ export const selections = {
   main: header(0.99),
   image: header(0.75),
   link: colours.text,
-  header: code(0.45)
+  header: code(0.33)
 }
 
 export const margins = {
