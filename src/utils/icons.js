@@ -1,3 +1,4 @@
+import { css } from '@emotion/core'
 import { dom } from '@fortawesome/fontawesome-svg-core'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faCheckCircle, faTimesCircle } from '@fortawesome/free-regular-svg-icons'
@@ -33,5 +34,10 @@ library.add(faArrowCircleDown,
             faArrowRight
 )
 
+export const style = css`
+  .svg-inline--fa {
+    max-height: 26px;
+  }
+`
 
 export const icons = { watch: dom.watch }

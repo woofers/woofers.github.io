@@ -10,7 +10,7 @@ import { animations,
          colours, fonts,
          margins, transitions,
          selections, contentWidth } from '../components/globals'
-import { icons } from '../utils/icons'
+import { icons, style as iconsStyle } from '../utils/icons'
 
 const global = css`
   html {
@@ -127,7 +127,7 @@ const TemplateWrapper = ({ children }) => (
       <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
     </Helmet>
     <Header name={name} link={home}/>
-    <Global styles={[global, buttonStyle]} />
+    <Global styles={[global, buttonStyle, iconsStyle]} />
     <div css={style}>
       <main css={divStyle}>
         {children}
