@@ -28,14 +28,17 @@ export const style = css`
     &:focus, &:hover, &:visited, &:link, &:active {
       text-decoration: none;
     }
+    * {
+      margin-right: ${margins.superSmall};
+    }
   }
 `
 
 const Button = p => (
-  <span>
-    <Global styles={style} />
-    <Link style={{...p.style}} to={p.href} role='button'>{p.children}</Link>
-  </span>
+    <span>
+      <Global styles={style} />
+      <Link style={{...p.style}} to={p.href} role='button'>{p.children}</Link>
+    </span>
 )
 
 export default Button
