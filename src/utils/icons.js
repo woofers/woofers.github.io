@@ -37,6 +37,9 @@ export const style = css`
   .svg-inline--fa {
     max-height: 26px;
   }
+  .fa-exclamation-triangle {
+    max-height: 306px;
+  }
 `
 
 export const icons = { watch: dom.watch }
