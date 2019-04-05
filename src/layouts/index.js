@@ -123,6 +123,7 @@ const theme = {
   colors: {
     header: colours.header,
     text: colours.text,
+    headerText: '#FFF',
     link: colours.link,
     codeBackground: colours.codeBackground,
     table: colours.table

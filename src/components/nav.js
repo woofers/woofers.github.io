@@ -12,7 +12,7 @@ const navStyle = css`
 export const Nav = p => {
   const linkStyle = theme => css`
     font-size: ${fonts.nav}em;
-    color: ${theme.colors.text};
+    color: ${theme.colors.headerText};
     padding: ${margins.md}px;
     &:not(:last-child) {
       margin: 0 ${margins.sm}px 0 0

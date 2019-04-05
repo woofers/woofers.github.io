@@ -42,7 +42,7 @@ const container = css`
 `
 
 const link = theme => css`
-  color: ${theme.colors.text};
+  color: ${theme.colors.headerText};
   font-size: ${fonts.header}em;
   border: none;
   &:focus, &:hover, &:visited, &:link, &:active {
