@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Nav } from './nav'
 import { css } from '@emotion/core'
-import { colours, fonts, margins, selections } from './globals'
+import { colours, fonts, margins } from './globals'
 import Wave from 'react-wavify'
 
 const siteData = {
@@ -22,13 +22,13 @@ const siteData = {
   ]
 }
 
-const header = css`
-  background-color: ${colours.header};
+const header = theme => css`
+  background-color: ${theme.colors.header};
   padding-top: ${margins.small};
 
   * {
     ::selection {
-      background: ${selections.header} !important;
+      background: ${theme.selections.header} !important;
     }
   }
 `
@@ -41,8 +41,8 @@ const container = css`
   z-index: -2;
 `
 
-const link = css`
-  color: ${colours.text};
+const link = theme => css`
+  color: ${theme.colors.text};
   font-size: ${fonts.header}em;
   border: none;
   &:focus, &:hover, &:visited, &:link, &:active {
@@ -50,12 +50,12 @@ const link = css`
   }
 `
 
-const wave = css`
+const wave = theme => css`
   margin-top: -20px;
   height: 145px;
   width: 100%;
   position: absolute;
-  background: ${colours.header};
+  background: ${theme.colors.header};
   z-index: -1;
 `
 

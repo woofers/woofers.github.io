@@ -11,6 +11,7 @@ import { animations,
          margins, transitions,
          selections, contentWidth } from '../components/globals'
 import { icons, style as iconsStyle } from '../utils/icons'
+import { ThemeProvider } from 'emotion-theming'
 
 const global = css`
   html {
@@ -22,45 +23,42 @@ const global = css`
   body {
     background-color: ${colours.background};
   }
+`
 
-  img::selection {
-    background: ${selections.image} !important;
+// !important is needed to override the Prism selection
+const outer = theme => css`
+  * img::selection {
+    background: ${theme.selections.image} !important;
   }
 
-  img::-moz-selection {
-    background: ${selections.image} !important;
+  * img::-moz-selection {
+    background: ${theme.selections.image} !important;
   }
 
-  ::selection {
-    background: ${selections.main} !important;
-    color: ${selections.link};
+  * ::selection {
+    background: ${theme.selections.main} !important;
+    color: ${theme.selections.link};
   }
 
-  ::-moz-selection {
-    background: ${selections.main} !important;
-    color: ${selections.link};
-  }
-
-  code[class*="language-"],
-  pre[class*="language-"] {
-    background: ${colours.codeBackground} !important;
-    font-size: ${fonts.code}em !important;
+  * ::-moz-selection {
+    background: ${theme.selections.main} !important;
+    color: ${theme.selections.link};
   }
 `
 
-const style = css`
+const style = theme => css`
   .footnote::before {
     content: "[" attr(data-label) "]";
     display: inline-block;
   }
 
   blockquote, div, p {
-    color: ${colours.text};
+    color: ${theme.colors.text};
   }
 
   h1, h2, h3, h4, h5, h6 {
     margin: ${margins.extraSmall} 0;
-    color: ${colours.text};
+    color: ${theme.colors.text};
   }
 
   h2 {
@@ -68,13 +66,13 @@ const style = css`
   }
 
   a {
-    color: ${colours.link};
+    color: ${theme.colors.link};
     border-bottom: ${margins.line} solid transparent;
-    transition: ${transitions.hover}
+    transition: ${theme.transitions.hover}
   }
 
   a:hover {
-    padding-bottom: ${animations.link};
+    padding-bottom: ${theme.animations.link};
     border-color: currentColor;
   }
 
@@ -83,11 +81,11 @@ const style = css`
   }
 
   blockquote {
-    border-color: ${colours.link};
+    border-color: ${theme.colors.link};
   }
 
   td {
-    border-color: ${colours.table};
+    border-color: ${theme.colors.table};
   }
 
   figure, table, img, iframe {
@@ -104,7 +102,13 @@ const style = css`
   }
 
   pre {
-    background: ${colours.codeBackground};
+    background: ${theme.colors.codeBackground};
+  }
+
+  code[class*="language-"],
+  pre[class*="language-"] {
+    background: ${colours.codeBackground} !important;
+    font-size: ${fonts.code}em !important;
   }
 `
 const name = "Jaxson Van Doorn"
@@ -115,26 +119,51 @@ const divStyle = css`
   padding: 0 ${margins.small} ${margins.medium};
 `
 
+const theme = {
+  colors: {
+    header: colours.header,
+    text: colours.text,
+    link: colours.link,
+    codeBackground: colours.codeBackground,
+    table: colours.table
+  },
+  selections: {
+    header: selections.header,
+    main: selections.main,
+    image: selections.image,
+    link: selections.link
+  },
+  transitions: {
+    hover: transitions.hover,
+    cursor: transitions.cursor
+  },
+  animations: {
+    link: animations.link
+  }
+}
+
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <ThemeProvider theme={theme}>
     <Helmet
       title={name}
       htmlAttributes={{ lang: 'en' }}
       meta={[
           { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
-          { name: 'theme-color', content: colours.header },
+          { name: 'theme-color', content: theme.colors.header },
       ]}>
       <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
     </Helmet>
-    <Header name={name} link={home}/>
-    <Global styles={[global, buttonStyle, iconsStyle]} />
-    <div css={style}>
-      <main css={divStyle}>
-        {children}
-      </main>
-      <Footer/>
+    <div css={outer}>
+      <Header name={name} link={home}/>
+      <Global styles={[global, buttonStyle, iconsStyle]} />
+      <div css={style}>
+        <main css={divStyle}>
+          {children}
+        </main>
+        <Footer/>
+      </div>
     </div>
-  </div>
+  </ThemeProvider>
 )
 
 icons.watch()

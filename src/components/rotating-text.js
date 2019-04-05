@@ -1,14 +1,14 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { colours, transitions } from './globals'
+import { colours } from './globals'
 import ReactRotatingText from 'react-rotating-text'
 
 const RotatingText = p => {
   const color = p.color || colours.link
   const cursorColor = p.cursorColor || color
-  const blink = css`
+  const blink = theme => css`
     .react-rotating-text-cursor {
-      animation: blinking-cursor ${transitions.cursor} 0s infinite;
+      animation: blinking-cursor ${theme.transitions.cursor} 0s infinite;
       margin-left: 5px;
       color: ${cursorColor};
     }

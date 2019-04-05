@@ -44,7 +44,7 @@ class BlogIndex extends React.Component {
           { preview.length ?
             <div>
               <Content html={preview.html()} />
-              <Link style={{ color: colours.text }} to={node.fields.path}
+              <Link css={ theme => ({ color: `${theme.colors.text} !important` }) } to={node.fields.path}
                     aria-label={`${continueReading} ${title}`}>
                   {continueReading} . . .
               </Link>

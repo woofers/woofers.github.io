@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/core'
-import { colours } from './globals'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,8 +8,8 @@ const active = css`
   font-weight: bold;
 `
 
-const font = css`
-  color: ${colours.text};
+const font = theme => css`
+  color: ${theme.colors.text};
 `
 
 export const Separator = p => (

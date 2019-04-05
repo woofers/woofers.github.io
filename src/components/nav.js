@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
-import { colours, fonts, margins, transitions } from './globals'
+import { fonts, margins } from './globals'
 
 const navStyle = css`
   display: flex;
@@ -10,16 +10,16 @@ const navStyle = css`
 `
 
 export const Nav = p => {
-  const linkStyle = css`
+  const linkStyle = theme => css`
     font-size: ${fonts.nav}em;
-    color: ${colours.text};
+    color: ${theme.colors.text};
     padding: ${margins.md}px;
     &:not(:last-child) {
       margin: 0 ${margins.sm}px 0 0
     }
     text-decoration: none;
     border-bottom: 1.5px double;
-    transition: border-bottom ${transitions.hover};
+    transition: border-bottom ${theme.transitions.hover};
     border-color: rgba(0, 0, 0, 0);
     &:hover {
       border-color: initial;

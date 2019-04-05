@@ -1,17 +1,16 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { Social } from './social'
-import { colours } from './globals'
 import { faGithub,
          faLinkedinIn as faLinkedin,
          faStackOverflow,
          faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-const footerStyle = css`
+const footer = theme => css`
   width: 100%;
   justify-content: center;
-  background: ${colours.codeBackground};
+  background: ${theme.colors.codeBackground};
   position: absolute;
   left: 0;
   bottom: 0;
@@ -51,7 +50,7 @@ const social = [
 ]
 
 const Footer = p => (
-  <footer role='contentinfo' css={footerStyle}>
+  <footer role='contentinfo' css={footer}>
     <Social socialEntries={social} />
   </footer>
 )
