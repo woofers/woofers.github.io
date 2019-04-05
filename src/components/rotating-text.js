@@ -2,9 +2,10 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { colours } from './globals'
 import ReactRotatingText from 'react-rotating-text'
+import { withTheme } from 'emotion-theming'
 
 const RotatingText = p => {
-  const color = p.color || colours.link
+  const color = p.color || p.theme.colors.link
   const cursorColor = p.cursorColor || color
   const blink = theme => css`
     .react-rotating-text-cursor {
@@ -32,4 +33,4 @@ const RotatingText = p => {
   )
 }
 
-export default RotatingText
+export default withTheme(RotatingText)

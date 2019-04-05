@@ -4,6 +4,7 @@ import { Nav } from './nav'
 import { css } from '@emotion/core'
 import { colours, fonts, margins } from './globals'
 import Wave from 'react-wavify'
+import { withTheme } from 'emotion-theming'
 
 const siteData = {
   navLinks: [
@@ -75,9 +76,9 @@ const Header = p => (
       <Nav links={siteData.navLinks}/>
     </div>
     <div css={wave}>
-      <Wave fill={colours.background}/>
+      <Wave fill={p.theme.colors.background}/>
     </div>
   </header>
 )
 
-export default Header
+export default withTheme(Header)

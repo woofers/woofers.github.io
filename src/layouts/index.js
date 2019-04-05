@@ -11,19 +11,8 @@ import { animations,
          margins, transitions,
          selections, contentWidth } from '../components/globals'
 import { icons, style as iconsStyle } from '../utils/icons'
-import { ThemeProvider } from 'emotion-theming'
+import { ThemeProvider, withTheme } from 'emotion-theming'
 
-const global = css`
-  html {
-    position: relative;
-    min-height: 100%;
-    overflow-y: auto;
-  }
-
-  body {
-    background-color: ${colours.background};
-  }
-`
 
 // !important is needed to override the Prism selection
 const outer = theme => css`
@@ -113,11 +102,6 @@ const style = theme => css`
 `
 const name = "Jaxson Van Doorn"
 const home = "/"
-const divStyle = css`
-  margin: ${margins.large} auto ${margins.large};
-  max-width: ${contentWidth};
-  padding: 0 ${margins.small} ${margins.medium};
-`
 
 const theme = {
   colors: {
@@ -125,6 +109,7 @@ const theme = {
     text: colours.text,
     headerText: '#FFF',
     link: colours.link,
+    background: colours.background,
     codeBackground: colours.codeBackground,
     table: colours.table
   },
@@ -143,6 +128,37 @@ const theme = {
   }
 }
 
+const Site = withTheme(p => {
+  const divStyle = css`
+    margin: ${margins.large} auto ${margins.large};
+    max-width: ${contentWidth};
+    padding: 0 ${margins.small} ${margins.medium};
+  `
+  const global = css`
+    html {
+      position: relative;
+      min-height: 100%;
+      overflow-y: auto;
+    }
+
+    body {
+      background-color: ${p.theme.colors.background};
+    }
+  `
+  return (
+    <div css={outer}>
+      <Header name={name} link={home}/>
+      <Global styles={[global, buttonStyle, iconsStyle]} />
+      <div css={style}>
+        <main css={divStyle}>
+          {p.children}
+        </main>
+        <Footer/>
+      </div>
+    </div>
+  )
+})
+
 const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
     <Helmet
@@ -154,16 +170,7 @@ const TemplateWrapper = ({ children }) => (
       ]}>
       <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
     </Helmet>
-    <div css={outer}>
-      <Header name={name} link={home}/>
-      <Global styles={[global, buttonStyle, iconsStyle]} />
-      <div css={style}>
-        <main css={divStyle}>
-          {children}
-        </main>
-        <Footer/>
-      </div>
-    </div>
+    <Site children={children} />
   </ThemeProvider>
 )
 

@@ -2,6 +2,7 @@ import { css } from '@emotion/core'
 import withUtterances from 'with-utterances'
 import noHighlight from './no-highlight'
 import React, { Component } from "react"
+import { withTheme } from 'emotion-theming'
 
 const style = css`
   .utterances {
@@ -10,21 +11,22 @@ const style = css`
   }
 `
 
-const utterances = (Page) => {
+const utterances = (Page, theme) => {
   return withUtterances(
-    Page, 'woofers/woofers.github.io', 'github-dark-orange', 'og:title'
+    Page, 'woofers/woofers.github.io', theme || 'github-light', 'og:title'
   )
 }
 
 export const comments = (Page) => {
-  return class extends Component {
+  return withTheme(class extends Component {
     render() {
-      const Comments = utterances(Page)
+      const { theme } = this.props
+      const Comments = utterances(Page, theme.comments)
       return (
         <div css={style}>
           <Comments {...this.props} />
         </div>
       )
     }
-  }
+  })
 }
