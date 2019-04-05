@@ -1,12 +1,11 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { margins, fonts } from './globals'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 
-const socialEntryStyle = css`
-  margin: 0 ${margins.sm}px 0 0;
+const socialEntryStyle = theme => css`
+  margin: 0 ${theme.margins.items} 0 0;
   border: none !important;
-  font-size: ${fonts.social}em;
+  font-size: ${theme.fonts.social};
 `
 
 export const SocialEntry = p => (

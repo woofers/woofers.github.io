@@ -1,21 +1,20 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
-import { fonts, margins } from './globals'
 
-const navStyle = css`
+const navStyle = theme => css`
   display: flex;
   align-items: center;
-  margin: 0 0 ${margins.md}px 0;
+  margin: 0 0 ${theme.margins.nav.overhang} 0;
 `
 
 export const Nav = p => {
   const linkStyle = theme => css`
-    font-size: ${fonts.nav}em;
+    font-size: ${theme.fonts.nav};
     color: ${theme.colors.headerText};
-    padding: ${margins.md}px;
+    padding: ${theme.margins.nav.buttonSize};
     &:not(:last-child) {
-      margin: 0 ${margins.sm}px 0 0
+      margin: 0 ${theme.margins.items} 0 0
     }
     text-decoration: none;
     border-bottom: 1.5px double;

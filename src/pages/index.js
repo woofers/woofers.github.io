@@ -2,10 +2,14 @@ import React, { Component } from "react"
 import Button from '../components/button'
 import RotatingText from '../components/rotating-text'
 import { Link } from 'gatsby'
-import { fonts } from '../components/globals'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faUser, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons'
+import { css } from '@emotion/core'
+
+const text = theme => css`
+  font-size: ${theme.fonts.splash}
+`
 
 class Splash extends Component {
     render() {
@@ -16,7 +20,7 @@ class Splash extends Component {
       return (
         <div>
           <span>
-            <h1 style={{fontSize: `${fonts.large * 2}em`}}>Hey I'm{' '}<Link to='/about/'>Jaxson Van Doorn</Link></h1>
+            <h1 css={text}>Hey I'm{' '}<Link to='/about/'>Jaxson Van Doorn</Link></h1>
             <h1>
               I{' '}
               <RotatingText items={['build games 🎮', 'design apps 🖌', 'craft tools 🔧']}

@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import { Nav } from './nav'
 import { css } from '@emotion/core'
-import { colours, fonts, margins } from './globals'
 import Wave from 'react-wavify'
 import { withTheme } from 'emotion-theming'
 
@@ -25,7 +24,7 @@ const siteData = {
 
 const header = theme => css`
   background-color: ${theme.colors.header};
-  padding-top: ${margins.small};
+  padding-top: ${theme.margins.small};
 
   * {
     ::selection {
@@ -34,17 +33,17 @@ const header = theme => css`
   }
 `
 
-const container = css`
+const container = theme => css`
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  padding: 0 ${margins.large};
+  padding: 0 ${theme.margins.large};
   z-index: -2;
 `
 
 const link = theme => css`
   color: ${theme.colors.headerText};
-  font-size: ${fonts.header}em;
+  font-size: ${theme.fonts.header};
   border: none;
   &:focus, &:hover, &:visited, &:link, &:active {
     text-decoration: none;
@@ -60,10 +59,14 @@ const wave = theme => css`
   z-index: -1;
 `
 
+const space = theme => css`
+  margin-top: ${theme.margins.small};
+`
+
 const Header = p => (
   <header role='banner' css={header}>
     <div css={container}>
-      <div style={{marginTop: margins.small}}>
+      <div css={space}>
         <h1>
           <Link
             to={p.link}

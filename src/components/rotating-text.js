@@ -1,6 +1,5 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { colours } from './globals'
 import ReactRotatingText from 'react-rotating-text'
 import { withTheme } from 'emotion-theming'
 

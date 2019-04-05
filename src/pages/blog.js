@@ -2,13 +2,12 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import cheerio from 'cheerio'
-import { colours, fonts, margins } from '../components/globals'
 import { Page } from '../components/page'
 import { Content } from '../components/content'
 
-const org = css`
+const org = theme => css`
   div {
-    margin-bottom: ${margins.small};
+    margin-bottom: ${theme.margins.small};
   }
 `
 
@@ -36,9 +35,9 @@ class BlogIndex extends React.Component {
       let preview = cheerio.load(node.html)('p', 'body')
       preview.find('h1').remove()
       return (
-        <div style={{ marginBottom: margins.medium }} key={path}>
-          <h1 style={{ marginBottom: margins.superSmall }}>
-            <Link style={{ lineHeight: fonts.large }} to={node.fields.path}>{title}</Link>
+        <div css={ theme => ({ marginBottom: theme.margins.medium }) } key={path}>
+          <h1 css={ theme => ({ marginBottom: theme.margins.superSmall }) }>
+            <Link css={ theme => ({ lineHeight: theme.fonts.large }) } to={node.fields.path}>{title}</Link>
           </h1>
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
           { preview.length ?

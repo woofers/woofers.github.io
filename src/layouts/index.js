@@ -125,14 +125,33 @@ const theme = {
   },
   animations: {
     link: animations.link
-  }
+  },
+  margins: {
+    extraSmall: margins.extraSmall,
+    small: margins.small,
+    normal: margins.normal,
+    large: margins.large,
+    nav: {
+      overhang: '28px',
+      buttonSize: '28px',
+    },
+    items: '12px',
+    profile: margins.profile
+  },
+  fonts: {
+    header: `${fonts.header}em`,
+    social: `${fonts.social}em`,
+    nav: `${fonts.nav}em`,
+    splash: `${fonts.large * 2}em`
+  },
+  contentWIdth: '1280px'
 }
 
 const Site = withTheme(p => {
-  const divStyle = css`
-    margin: ${margins.large} auto ${margins.large};
-    max-width: ${contentWidth};
-    padding: 0 ${margins.small} ${margins.medium};
+  const divStyle = theme => css`
+    margin: ${margins.large} auto ${theme.margins.large};
+    max-width: ${theme.contentWidth};
+    padding: 0 ${theme.margins.small} ${theme.margins.medium};
   `
   const global = css`
     html {

@@ -1,21 +1,21 @@
 import React from 'react'
-import { margins } from '../components/globals'
 import { css } from '@emotion/core'
 
-const hide = css`
-  div:first-child h1 {
-    display: none;
-  }
-`
-
-const org = css`
-  div {
-    margin-bottom: ${margins.small};
-    text-align: 'left';
-  }
-`
-
-export const Content = p => (
-  <div css={p.hideTitle ? [org, hide] : org}
+export const Content = p => {
+  const hide = css`
+    div:first-of-type h1 {
+      display: none;
+    }
+  `
+  const org = theme => css`
+    ${p.hideTitle ? hide : ''}
+    div {
+      margin-bottom: ${theme.margins.small};
+      text-align: 'left';
+    }
+  `
+  return (
+    <div css={org}
        dangerouslySetInnerHTML={{ __html: p.html }} />
-)
+  )
+}
