@@ -6,10 +6,6 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import { style as buttonStyle } from '../components/button'
 import 'prism-themes/themes/prism-duotone-space.css'
-import { animations,
-         colours, fonts,
-         margins, transitions,
-         selections, contentWidth } from '../components/globals'
 import { icons, style as iconsStyle } from '../utils/icons'
 import { ThemeProvider, withTheme } from 'emotion-theming'
 
@@ -46,17 +42,17 @@ const style = theme => css`
   }
 
   h1, h2, h3, h4, h5, h6 {
-    margin: ${margins.extraSmall} 0;
+    margin: ${theme.margins.extraSmall} 0;
     color: ${theme.colors.text};
   }
 
   h2 {
-    font-size: ${fonts.large}em;
+    font-size: ${theme.fonts.large}em;
   }
 
   a {
     color: ${theme.colors.link};
-    border-bottom: ${margins.line} solid transparent;
+    border-bottom: ${theme.margins.line} solid transparent;
     transition: ${theme.transitions.hover}
   }
 
@@ -96,60 +92,64 @@ const style = theme => css`
 
   code[class*="language-"],
   pre[class*="language-"] {
-    background: ${colours.codeBackground} !important;
-    font-size: ${fonts.code}em !important;
+    background: ${theme.colors.codeBackground} !important;
+    font-size: ${theme.fonts.code} !important;
   }
 `
 const name = "Jaxson Van Doorn"
 const home = "/"
-
+const header = alpha => `rgba(242, 112, 82, ${alpha})`
+const code = alpha => `rgba(45, 40, 51, ${alpha})`
+const text = '#1e1d1f'
 const theme = {
   colors: {
-    header: colours.header,
-    text: colours.text,
+    header: header(1),
     headerText: '#FFF',
-    link: colours.link,
-    background: colours.background,
-    codeBackground: colours.codeBackground,
-    table: colours.table
+    text: text,
+    link: '#ff7757',
+    background: '#f6f8fa',
+    codeBackground: code(1),
+    table: header(0)
   },
   selections: {
-    header: selections.header,
-    main: selections.main,
-    image: selections.image,
-    link: selections.link
+    main: header(0.8),
+    image: header(0.75),
+    link: text,
+    header: code(0.33)
   },
   transitions: {
-    hover: transitions.hover,
-    cursor: transitions.cursor
+    hover: '0.3s cubic-bezier(0.7, 0, 0.3, 1)',
+    cursor: '1.5s cubic-bezier(0.68, 0.01, 0.01, 0.99)'
   },
   animations: {
-    link: animations.link
+    link: '0.2em'
   },
   margins: {
-    extraSmall: margins.extraSmall,
-    small: margins.small,
-    normal: margins.normal,
-    large: margins.large,
+    extraSmall: '0.75em',
+    small: '1em',
+    normal: '1.25em',
+    large: '2em',
+    line: '0.085em',
     nav: {
       overhang: '28px',
       buttonSize: '28px',
     },
     items: '12px',
-    profile: margins.profile
+    profile: '265px'
   },
   fonts: {
-    header: `${fonts.header}em`,
-    social: `${fonts.social}em`,
-    nav: `${fonts.nav}em`,
-    splash: `${fonts.large * 2}em`
+    header: '1.5em',
+    social: '1.35em',
+    nav: '1.25em',
+    code: '0.95em',
+    splash: '3.5em'
   },
-  contentWIdth: '1280px'
+  contentWidth: '1280px'
 }
 
 const Site = withTheme(p => {
   const divStyle = theme => css`
-    margin: ${margins.large} auto ${theme.margins.large};
+    margin: ${theme.margins.large} auto ${theme.margins.large};
     max-width: ${theme.contentWidth};
     padding: 0 ${theme.margins.small} ${theme.margins.medium};
   `
