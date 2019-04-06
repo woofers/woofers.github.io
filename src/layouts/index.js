@@ -109,7 +109,8 @@ const theme = {
     link: '#ff7757',
     background: '#f6f8fa',
     codeBackground: code(1),
-    table: header(0)
+    table: header(0),
+    button: code(0.015)
   },
   selections: {
     main: header(0.8),
@@ -167,7 +168,7 @@ const Site = withTheme(p => {
   return (
     <div css={outer}>
       <Header name={name} link={home}/>
-      <Global styles={[global, buttonStyle, iconsStyle]} />
+      <Global styles={[global, buttonStyle(p.theme), iconsStyle]} />
       <div css={style}>
         <main css={divStyle}>
           {p.children}
