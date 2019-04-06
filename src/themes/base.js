@@ -59,6 +59,7 @@ const fonts = {
 }
 
 const contentWidth = '1280px'
+const comments = 'github-dark-orange'
 
 export const theme = {
   margins,
@@ -67,5 +68,6 @@ export const theme = {
   transitions,
   animations,
   fonts,
-  contentWidth
+  contentWidth,
+  comments
 }

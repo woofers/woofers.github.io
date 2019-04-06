@@ -23,6 +23,8 @@
     "gatsby-source-filesystem": "^2.0.26",
     "gatsby-transformer-orga": "^1.1.0",
     "graphql": "14.1.1",
+    "lodash.clonedeep": "^4.5.0",
+    "lodash.merge": "^4.6.1",
     "mime": "^2.4.0",
     "prism-themes": "^1.0.1",
     "react": "^16.8.4",
