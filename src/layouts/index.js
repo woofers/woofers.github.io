@@ -4,14 +4,14 @@ import { graphql } from 'gatsby'
 import { css, Global } from '@emotion/core'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import theme from '../themes/dark'
 import { style as buttonStyle } from '../components/button'
 import 'prism-themes/themes/prism-duotone-space.css'
 import { icons, style as iconsStyle } from '../utils/icons'
 import { ThemeProvider, withTheme } from 'emotion-theming'
 
-
 // !important is needed to override the Prism selection
-const outer = theme => css`
+const style = theme => css`
   * img::selection {
     background: ${theme.selections.image} !important;
   }
@@ -22,16 +22,14 @@ const outer = theme => css`
 
   * ::selection {
     background: ${theme.selections.main} !important;
-    color: ${theme.selections.link};
+    color: ${theme.colors.text};
   }
 
   * ::-moz-selection {
     background: ${theme.selections.main} !important;
-    color: ${theme.selections.link};
+    color: ${theme.colors.text};
   }
-`
 
-const style = theme => css`
   .footnote::before {
     content: "[" attr(data-label) "]";
     display: inline-block;
@@ -47,7 +45,7 @@ const style = theme => css`
   }
 
   h2 {
-    font-size: ${theme.fonts.large}em;
+    font-size: ${theme.fonts.large};
   }
 
   a {
@@ -98,55 +96,6 @@ const style = theme => css`
 `
 const name = "Jaxson Van Doorn"
 const home = "/"
-const header = alpha => `rgba(242, 112, 82, ${alpha})`
-const code = alpha => `rgba(45, 40, 51, ${alpha})`
-const text = '#1e1d1f'
-const theme = {
-  colors: {
-    header: header(1),
-    headerText: '#FFF',
-    text: text,
-    link: '#ff7757',
-    background: '#f6f8fa',
-    codeBackground: code(1),
-    table: header(0),
-    button: code(0.015)
-  },
-  selections: {
-    main: header(0.8),
-    image: header(0.75),
-    link: text,
-    header: code(0.33)
-  },
-  transitions: {
-    hover: '0.3s cubic-bezier(0.7, 0, 0.3, 1)',
-    cursor: '1.5s cubic-bezier(0.68, 0.01, 0.01, 0.99)'
-  },
-  animations: {
-    link: '0.2em'
-  },
-  margins: {
-    extraSmall: '0.75em',
-    small: '1em',
-    normal: '1.25em',
-    large: '2em',
-    line: '0.085em',
-    nav: {
-      overhang: '28px',
-      buttonSize: '28px',
-    },
-    items: '12px',
-    profile: '265px'
-  },
-  fonts: {
-    header: '1.5em',
-    social: '1.35em',
-    nav: '1.25em',
-    code: '0.95em',
-    splash: '3.5em'
-  },
-  contentWidth: '1280px'
-}
 
 const Site = withTheme(p => {
   const divStyle = theme => css`
@@ -166,7 +115,16 @@ const Site = withTheme(p => {
     }
   `
   return (
-    <div css={outer}>
+    <div>
+      <Helmet
+        title={name}
+        htmlAttributes={{ lang: 'en' }}
+        meta={[
+            { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
+            { name: 'theme-color', content: p.theme.colors.header },
+        ]}>
+        <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
+      </Helmet>
       <Header name={name} link={home}/>
       <Global styles={[global, buttonStyle(p.theme), iconsStyle]} />
       <div css={style}>
@@ -181,15 +139,6 @@ const Site = withTheme(p => {
 
 const TemplateWrapper = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <Helmet
-      title={name}
-      htmlAttributes={{ lang: 'en' }}
-      meta={[
-          { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
-          { name: 'theme-color', content: theme.colors.header },
-      ]}>
-      <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
-    </Helmet>
     <Site children={children} />
   </ThemeProvider>
 )
