@@ -8,25 +8,30 @@ const navStyle = theme => css`
   margin: 0 0 ${theme.margins.nav.overhang} 0;
 `
 
-export const Nav = p => {
-  const linkStyle = theme => css`
-    font-size: ${theme.fonts.nav};
-    color: ${theme.colors.headerText};
-    padding: ${theme.margins.nav.buttonSize};
-    &:not(:last-child) {
-      margin: 0 ${theme.margins.items} 0 0
-    }
+const linkStyle = theme => css`
+  font-size: ${theme.fonts.nav};
+  color: ${theme.colors.headerText};
+  padding: ${theme.margins.nav.buttonSize};
+  &:not(:last-child) {
+    margin: 0 ${theme.margins.items} 0 0
+  }
+  text-decoration: none;
+  border-bottom: 1.5px double;
+  transition: border-bottom ${theme.transitions.hover};
+  border-color: rgba(0, 0, 0, 0);
+  &:hover {
+    border-color: initial;
+  }
+  &:focus, &:hover, &:visited, &:link, &:active {
     text-decoration: none;
-    border-bottom: 1.5px double;
-    transition: border-bottom ${theme.transitions.hover};
-    border-color: rgba(0, 0, 0, 0);
-    &:hover {
-      border-color: initial;
-    }
-    &:focus, &:hover, &:visited, &:link, &:active {
-      text-decoration: none;
-    }
-  `
+  }
+`
+
+const space = theme => css`
+  margin-left: ${theme.margins.small};
+`
+
+export const Nav = p => {
   return (
     <nav css={navStyle}>
       {p.links
@@ -41,6 +46,9 @@ export const Nav = p => {
             </Link>
           ))
         : null}
+        <span css={space}>
+          {p.children}
+        </span>
     </nav>
   )
 }

@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { css, Global } from '@emotion/core'
+import Switch from '../components/switch'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import theme from '../themes/dark'
+import { Social } from '../components/social'
+import light from '../themes/light'
+import dark from '../themes/dark'
+import { Nav } from '../components/nav'
 import { style as buttonStyle } from '../components/button'
 import 'prism-themes/themes/prism-duotone-space.css'
 import { icons, style as iconsStyle } from '../utils/icons'
 import { ThemeProvider, withTheme } from 'emotion-theming'
+import { faGithub,
+         faLinkedinIn as faLinkedin,
+         faStackOverflow,
+         faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+
 
 // !important is needed to override the Prism selection
 const style = theme => css`
@@ -96,6 +106,52 @@ const style = theme => css`
 `
 const name = "Jaxson Van Doorn"
 const home = "/"
+const siteData = {
+  navLinks: [
+    {
+      name: 'Projects',
+      link: '/projects/'
+    },
+    {
+      name: 'Blog',
+      link: '/blog/'
+    },
+    {
+      name: 'About',
+      link: '/about/'
+    }
+  ]
+}
+
+const social = [
+  {
+    link: '//github.com/woofers',
+    name: 'GitHub',
+    icon: faGithub,
+  },
+  {
+    link: '//stackoverflow.com/users/9129020/jvandoorn',
+    name: 'Stack Overflow',
+    icon: faStackOverflow,
+  },
+  {
+    link: '//twitter.com/jaxsonvandoorn',
+    name: 'Twitter',
+    icon: faTwitter,
+  },
+  {
+    link: '//www.linkedin.com/in/jaxson-van-doorn/',
+    name: 'LinkedIn',
+    icon: faLinkedin,
+  },
+  {
+    link: 'mailto:jaxson.vandoorn@gmail.com',
+    name: 'Email',
+    icon: faEnvelope,
+  }
+]
+
+
 
 const Site = withTheme(p => {
   const divStyle = theme => css`
@@ -125,27 +181,51 @@ const Site = withTheme(p => {
         ]}>
         <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
       </Helmet>
-      <Header name={name} link={home}/>
+      <Header name={name} link={home}>
+        <Nav links={siteData.navLinks}>
+          <Switch
+            checked={p.theme.name === 'dark'}
+            onChange={p.toggleTheme}
+          />
+        </Nav>
+      </Header>
       <Global styles={[global, buttonStyle(p.theme), iconsStyle]} />
       <div css={style}>
         <main css={divStyle}>
           {p.children}
         </main>
-        <Footer/>
+        <Footer>
+          <Social socialEntries={social} />
+        </Footer>
       </div>
     </div>
   )
 })
 
-const TemplateWrapper = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <Site children={children} />
-  </ThemeProvider>
-)
+class Template extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { theme: dark }
+    this.toggleTheme = this.toggleTheme.bind(this)
+  }
+
+  toggleTheme() {
+    this.setState({ theme: this.state.theme.name === 'dark' ? light : dark })
+  }
+
+  render() {
+    return (
+      <ThemeProvider theme={this.state.theme}>
+        <Site children={this.props.children}
+              toggleTheme={this.toggleTheme} />
+      </ThemeProvider>
+    )
+  }
+}
 
 icons.watch()
 
-export default TemplateWrapper
+export default Template
 
 export const contentFragment = graphql`
   fragment Content on OrgContent {

@@ -37,7 +37,8 @@ const colors = {
   background: '#463d4e',
   codeBackground: rgba.code(),
   table: rgba.header(0),
-  button: rgba.code(0.15)
+  button: rgba.code(0.15),
+  switchBackground: "#4d4950"
 }
 
 const transitions ={

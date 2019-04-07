@@ -1,26 +1,8 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { Nav } from './nav'
 import { css } from '@emotion/core'
 import Wave from 'react-wavify'
 import { withTheme } from 'emotion-theming'
-
-const siteData = {
-  navLinks: [
-    {
-      name: 'Projects',
-      link: '/projects/'
-    },
-    {
-      name: 'Blog',
-      link: '/blog/'
-    },
-    {
-      name: 'About',
-      link: '/about/'
-    }
-  ]
-}
 
 const header = theme => css`
   background-color: ${theme.colors.header};
@@ -76,7 +58,7 @@ const Header = p => (
           </Link>
         </h1>
       </div>
-      <Nav links={siteData.navLinks}/>
+      {p.children}
     </div>
     <div css={wave}>
       <Wave fill={p.theme.colors.background}/>

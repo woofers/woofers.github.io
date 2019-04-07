@@ -8,11 +8,13 @@ const light = {
     background: '#f6f8fa',
     link: '#ff7757',
     text: '#1e1d1f',
+    switchBackground: "#e6cbcb"
   },
   selections: {
     main: rgba.header(0.8)
   },
-  comments: 'github-light'
+  comments: 'github-light',
+  name: 'light'
 }
 
 export default merge(cloneDeep(base), light)
