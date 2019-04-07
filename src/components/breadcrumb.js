@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import { css } from '@emotion/core'
-import { colours } from './globals'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
@@ -9,12 +8,16 @@ const active = css`
   font-weight: bold;
 `
 
-const font = css`
-  color: ${colours.text};
+const font = theme => css`
+  color: ${theme.colors.text};
+`
+
+const separator = theme => css`
+  margin: 0 7px;
 `
 
 export const Separator = p => (
-  <Icon style={{ margin: '0 7px' }} icon={p.icon ? p.icon : faChevronRight} />
+  <Icon css={separator} icon={p.icon ? p.icon : faChevronRight} />
 )
 
 export const Breadcrumb = p => {

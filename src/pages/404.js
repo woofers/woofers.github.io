@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby'
 import { Page } from '../components/page'
-import { margins } from '../components/globals'
 import { css } from '@emotion/core'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
@@ -34,12 +33,12 @@ class NotFound extends Component {
           </p>
           <ul css={inline}>
             <li>
-              <h3 style={{ marginTop: margins.normal }}>
+              <h3 css={ theme => css`margin-top: ${theme.margins.normal} !important;` }>
                 You just hit a route that does not exist . . .
               </h3>
             </li>
             <li>
-              <h2 style={{ marginLeft: margins.extraSmall }}>
+              <h2 css={ theme => css`margin-left: ${theme.margins.extraSmall} !important;` }>
                 <Link to="/">Go home?</Link>
               </h2>
             </li>

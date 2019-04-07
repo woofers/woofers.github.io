@@ -10,8 +10,7 @@ import { faArrowCircleDown,
          faArrowUp,
          faArrowLeft,
          faArrowDown,
-         faArrowRight,
-         faUser } from '@fortawesome/free-solid-svg-icons'
+         faArrowRight } from '@fortawesome/free-solid-svg-icons'
 import { faGithub,
          faLinkedinIn as faLinkedin,
          faTwitter,
@@ -37,6 +36,9 @@ library.add(faArrowCircleDown,
 export const style = css`
   .svg-inline--fa {
     max-height: 26px;
+  }
+  .fa-exclamation-triangle {
+    max-height: 306px;
   }
 `
 

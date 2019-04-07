@@ -1,17 +1,10 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { Social } from './social'
-import { colours } from './globals'
-import { faGithub,
-         faLinkedinIn as faLinkedin,
-         faStackOverflow,
-         faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
-const footerStyle = css`
+const footer = theme => css`
   width: 100%;
   justify-content: center;
-  background: ${colours.codeBackground};
+  background: ${theme.colors.codeBackground};
   position: absolute;
   left: 0;
   bottom: 0;
@@ -22,37 +15,9 @@ const footerStyle = css`
   align-items: center;
 `
 
-const social = [
-  {
-    link: '//github.com/woofers',
-    name: 'GitHub',
-    icon: faGithub,
-  },
-  {
-    link: '//stackoverflow.com/users/9129020/jvandoorn',
-    name: 'Stack Overflow',
-    icon: faStackOverflow,
-  },
-  {
-    link: '//twitter.com/jaxsonvandoorn',
-    name: 'Twitter',
-    icon: faTwitter,
-  },
-  {
-    link: '//www.linkedin.com/in/jaxson-van-doorn/',
-    name: 'LinkedIn',
-    icon: faLinkedin,
-  },
-  {
-    link: 'mailto:jaxson.vandoorn@gmail.com',
-    name: 'Email',
-    icon: faEnvelope,
-  }
-]
-
 const Footer = p => (
-  <footer role='contentinfo' css={footerStyle}>
-    <Social socialEntries={social} />
+  <footer role='contentinfo' css={footer}>
+    {p.children}
   </footer>
 )
 
