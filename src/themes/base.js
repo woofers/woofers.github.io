@@ -29,16 +29,19 @@ const selections = {
   header: rgba.code(0.33)
 }
 
+const link = '#e68259'
+
 const colors = {
   header: rgba.header(1),
   headerText: '#ffffff',
   text: rgba.text(),
-  link: '#e68259',
+  link,
   background: '#463d4e',
   codeBackground: rgba.code(),
   table: rgba.header(0),
   button: rgba.code(0.15),
-  switchBackground: "#4d4950"
+  switchBackground: "#4d4950",
+  footerElements: link
 }
 
 const transitions ={

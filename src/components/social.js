@@ -6,6 +6,7 @@ const socialEntryStyle = theme => css`
   margin: 0 ${theme.margins.items} 0 0;
   border: none !important;
   font-size: ${theme.fonts.social};
+  color: ${theme.colors.footerElements} !important;
 `
 
 export const SocialEntry = p => (
