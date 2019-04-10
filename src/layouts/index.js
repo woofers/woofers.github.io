@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Helmet from 'react-helmet'
 import { graphql, useStaticQuery } from 'gatsby'
 import { css, Global } from '@emotion/core'
@@ -13,7 +13,7 @@ import 'prism-themes/themes/prism-duotone-space.css'
 import { icons, style as iconsStyle } from '../utils/icons'
 import { ThemeProvider, withTheme } from 'emotion-theming'
 import config from '../../package.json'
-
+import { CookiesProvider, useCookies } from 'react-cookie'
 
 // !important is needed to override the Prism selection
 const style = theme => css`
@@ -171,15 +171,27 @@ const Site = withTheme(p => {
 })
 
 const Template = ({ children }) => {
-  const [theme, setTheme] = useState(dark)
+  const themes = { light, dark }
+  const defaultTheme = dark
+  const cookieName = 'theme'
+  const [cookies, setCookie] = useCookies([cookieName]);
+  const setThemeCookie = (value) => setCookie(cookieName, value)
+  const themeCookie = cookies[cookieName]
+  const [theme, setTheme] = useState(defaultTheme)
   const toggleTheme = () => {
-    setTheme(theme.name === 'dark' ? light : dark)
+    const nextThemes = Object.values(themes).filter(t => t.name !== theme.name)
+    const newTheme = nextThemes[0] ? nextThemes[0] : defaultTheme;
+    setTheme(newTheme)
+    setThemeCookie(newTheme.name)
   }
+  useEffect(() => setTheme(themeCookie ? themes[themeCookie] : defaultTheme), [])
   return (
-    <ThemeProvider theme={theme}>
-      <Site children={children}
-            toggleTheme={toggleTheme} />
-    </ThemeProvider>
+    <CookiesProvider>
+      <ThemeProvider theme={theme}>
+        <Site children={children}
+              toggleTheme={toggleTheme} />
+      </ThemeProvider>
+    </CookiesProvider>
   )
 }
 
