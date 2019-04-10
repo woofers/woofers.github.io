@@ -6,6 +6,4 @@ const theme = {
   name: 'dark'
 }
 
-theme.name = 'dark'
-
 export default theme
