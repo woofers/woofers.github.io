@@ -175,7 +175,7 @@ const Template = ({ children }) => {
   const defaultTheme = dark
   const cookieName = 'theme'
   const [cookies, setCookie] = useCookies([cookieName]);
-  const setThemeCookie = (value) => setCookie(cookieName, value)
+  const setThemeCookie = (value) => setCookie(cookieName, value, { path: '/' })
   const themeCookie = cookies[cookieName]
   const [theme, setTheme] = useState(defaultTheme)
   const toggleTheme = () => {
