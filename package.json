@@ -28,6 +28,7 @@
     "mime": "^2.4.0",
     "prism-themes": "^1.0.1",
     "react": "^16.8.4",
+    "react-chameleon-theme-color": "^0.1.0",
     "react-dom": "^16.8.4",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.0",

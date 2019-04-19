@@ -8177,6 +8177,13 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-chameleon-theme-color@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-chameleon-theme-color/-/react-chameleon-theme-color-0.1.0.tgz#eef265f6ef40636c88e731ac6a875773788c38c8"
+  integrity sha512-AHocXHIB2jdbCeXbyWcAcToDtQgXS2gUfmbx1nR/7Wf56HWxrP1E6bH4AlF2PlOvxFNkba0ffiZC4WDnUYyS2A==
+  dependencies:
+    react-helmet "^5.2.0"
+
 react-dev-utils@^4.2.1:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-4.2.3.tgz#5b42d9ea58d5e9e017a2f57a40a8af408a3a46fb"
