@@ -177,7 +177,6 @@ const Site = withTheme(p => {
         htmlAttributes={{ lang: 'en' }}
         meta={[
             { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
-            { name: 'theme-color', content: p.theme.colors.header },
         ]}>
         <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
       </Helmet>
