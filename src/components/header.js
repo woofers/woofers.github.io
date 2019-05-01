@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import Wave from 'react-wavify'
 import { withTheme } from 'emotion-theming'
-import Chameleon from 'react-chameleon-theme-color'
+import { ChameleonThemeColor as Chameleon } from 'react-chameleon-theme-color'
 
 const header = theme => css`
   background: ${theme.colors.header};

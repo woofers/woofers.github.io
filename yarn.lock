@@ -2506,6 +2506,11 @@ chownr@^1.1.1:
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.1.1.tgz#54726b8b8fff4df053c42187e801fb4412df1494"
   integrity sha512-j38EvO5+LHX84jlo6h4UzmOwi0UgW61WRyPtJz4qaadK5eY3BTS5TY/S1Stc3Uk2lIM6TPevAlULiEJwie860g==
 
+chroma-js@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/chroma-js/-/chroma-js-2.0.3.tgz#2521d4f80c4e786e00064c4a62824e38ff6557c4"
+  integrity sha512-2kTvZZOFSV1O81/rm99t9vmkh9jQxsHqsRRoZevDVz/VCC3yKMyPuMK8M5yHG+UMg2tV6cRoqtZtgcD92udcBw==
+
 chrome-trace-event@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/chrome-trace-event/-/chrome-trace-event-1.0.0.tgz#45a91bd2c20c9411f0963b5aaeb9a1b95e09cc48"
@@ -8592,12 +8597,13 @@ rc@^1.0.1, rc@^1.1.6, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-chameleon-theme-color@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/react-chameleon-theme-color/-/react-chameleon-theme-color-0.1.0.tgz#eef265f6ef40636c88e731ac6a875773788c38c8"
-  integrity sha512-AHocXHIB2jdbCeXbyWcAcToDtQgXS2gUfmbx1nR/7Wf56HWxrP1E6bH4AlF2PlOvxFNkba0ffiZC4WDnUYyS2A==
+react-chameleon-theme-color@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-chameleon-theme-color/-/react-chameleon-theme-color-1.0.0.tgz#b21e32a7ac16a398b43e19833ac54737cb805b28"
+  integrity sha512-QulnoIk3ZNQCyHgzMYJZBrAyv2uQAyN5jCX6VD4JtnulQDKnE7CNMI2ypjvFZ6RTef0NBGt9S6nuI2uLQyx+ZA==
   dependencies:
-    react-helmet "^5.2.0"
+    chroma-js "^2.0.3"
+    react-helmet "^5.2.1"
 
 react-dev-utils@^4.2.1:
   version "4.2.3"
@@ -8648,7 +8654,7 @@ react-fast-compare@^2.0.2:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-2.0.4.tgz#e84b4d455b0fec113e0402c329352715196f81f9"
   integrity sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==
 
-react-helmet@^5.2.0, react-helmet@^5.2.1:
+react-helmet@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/react-helmet/-/react-helmet-5.2.1.tgz#16a7192fdd09951f8e0fe22ffccbf9bb3e591ffa"
   integrity sha512-CnwD822LU8NDBnjCpZ4ySh8L6HYyngViTZLfBBb3NjtrpN8m49clH8hidHouq20I51Y6TpCTISCBbqiY5GamwA==
@@ -8689,8 +8695,8 @@ react-lifecycles-compat@^3.0.4:
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
 "react-rotating-text@https://github.com/woofers/react-rotating-text":
-  version "1.4.0"
-  resolved "https://github.com/woofers/react-rotating-text#a077b48d02601ba8dd915d95ad8ad0d24e6aa251"
+  version "1.4.1"
+  resolved "https://github.com/woofers/react-rotating-text#8a1dd3a708f0cedf5c09a22ab837db5996e538f8"
   dependencies:
     classnames "^2.1.2"
     lodash.toarray "^4.4.0"
