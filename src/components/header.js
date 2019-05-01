@@ -3,9 +3,10 @@ import { Link } from 'gatsby'
 import { css } from '@emotion/core'
 import Wave from 'react-wavify'
 import { withTheme } from 'emotion-theming'
+import Chameleon from 'react-chameleon-theme-color'
 
 const header = theme => css`
-  background-color: ${theme.colors.header};
+  background: ${theme.colors.header};
   padding-top: ${theme.margins.small};
 
   * {
@@ -47,6 +48,7 @@ const space = theme => css`
 
 const Header = p => (
   <header role='banner' css={header}>
+    <Chameleon />
     <div css={container}>
       <div css={space}>
         <h1>
