@@ -1,7 +1,7 @@
 {
   "name": "jaxson-site",
   "description": "",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "author": "Jaxson Van Doorn",
   "dependencies": {
     "@emotion/core": "^10.0.9",
