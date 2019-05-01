@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import { css, Global } from '@emotion/core'
@@ -201,25 +201,17 @@ const Site = withTheme(p => {
   )
 })
 
-class Template extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { theme: dark }
-    this.toggleTheme = this.toggleTheme.bind(this)
+const Template = ({ children }) => {
+  const [theme, setTheme] = useState(dark)
+  const toggleTheme = () => {
+    setTheme(theme.name === 'dark' ? light : dark)
   }
-
-  toggleTheme() {
-    this.setState({ theme: this.state.theme.name === 'dark' ? light : dark })
-  }
-
-  render() {
-    return (
-      <ThemeProvider theme={this.state.theme}>
-        <Site children={this.props.children}
-              toggleTheme={this.toggleTheme} />
-      </ThemeProvider>
-    )
-  }
+  return (
+    <ThemeProvider theme={theme}>
+      <Site children={children}
+            toggleTheme={toggleTheme} />
+    </ThemeProvider>
+  )
 }
 
 icons.watch()
