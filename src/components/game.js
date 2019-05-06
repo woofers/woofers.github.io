@@ -2,6 +2,7 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { Content } from '../components/content'
 import { Frame } from '../components/frame'
+import Pico8 from '../components/pico-8'
 
 const grid = css`
   display: grid;
@@ -12,8 +13,11 @@ const grid = css`
 `
 
 export const Game = p => (
-  <div css={p.portrait ? grid : null}>
-    <Frame title={p.title} src={p.src} />
-    <Content html={p.instruction} />
-  </div>
+    <div css={p.portrait && p.lang !== "pico" ? grid : ''}>
+      { p.lang === 'pico'
+        ? <Pico8 src={p.src}/>
+        : <Frame title={p.title} src={p.src} />
+      }
+      <Content html={p.instruction} />
+    </div>
 )

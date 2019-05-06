@@ -4,6 +4,7 @@
 #+TYPE: game
 #+LANDSCAPE: nil
 #+GAME: game/index.html
+#+LANG: frame
 
 ** Instructions
 Dodge eels and crabs to obtain a high-score.

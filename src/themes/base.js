@@ -20,7 +20,8 @@ const margins = {
     buttonSize: '28px',
   },
   items: '12px',
-  profile: '265px'
+  profile: '265px',
+  image: '20px'
 }
 
 const selections = {
@@ -41,7 +42,8 @@ const colors = {
   table: rgba.header(0),
   button: rgba.code(0.15),
   switchBackground: "#4d4950",
-  footerElements: link
+  footerElements: link,
+  pico: '#7d737c'
 }
 
 const transitions ={
