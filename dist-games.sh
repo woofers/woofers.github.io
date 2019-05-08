@@ -15,3 +15,4 @@ cp -r node_modules/fox-hole/dist/. static/projects/fox-hole/game
 mkdir -p static/projects/alien-expansion/game
 cp -r node_modules/alien-expansion/dist/. static/projects/alien-expansion/game
 cp -r node_modules/alien-expansion/favicon.png static/projects/alien-expansion/game/.
+cp -r node_modules/alien-expansion/placeholder.png static/projects/alien-expansion/game/.

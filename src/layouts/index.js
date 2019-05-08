@@ -229,6 +229,7 @@ export const contentFragment = graphql`
       type
       icon_mode
       icon_type
+      placeholder
       game
       landscape
       profile_alt

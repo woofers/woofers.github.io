@@ -34,6 +34,7 @@ const Pico8 = p => (
       hideCursor={false}
       blockKeys={false}
       center={true}
+      placeholder={p.placeholder}
       css={pico}
   />
 )

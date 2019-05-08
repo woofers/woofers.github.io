@@ -10,7 +10,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.7.2",
     "@fortawesome/free-solid-svg-icons": "^5.7.2",
     "@fortawesome/react-fontawesome": "^0.1.4",
-    "alien-expansion": "^1.1.0",
+    "alien-expansion": "^1.1.2",
     "cheerio": "^1.0.0-rc.2",
     "emotion-server": "^10.0.9",
     "emotion-theming": "^10.0.10",

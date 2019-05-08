@@ -1457,10 +1457,10 @@ ajv@^6.1.0, ajv@^6.5.5, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alien-expansion@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/alien-expansion/-/alien-expansion-1.1.0.tgz#068186eea5eac7e425950788de0810d8ac32ae66"
-  integrity sha512-yuVNvwTdOuGieQ2KigGA2ZUTB+uV7uAjWY40Poq0+xbTZ0BlJwxlhTd3kNQrgcnPJOXe0kBp8TKDupUjPcz04g==
+alien-expansion@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/alien-expansion/-/alien-expansion-1.1.2.tgz#a326f36523e6c97ea6a4c5041f8c737ab8ed1d38"
+  integrity sha512-uBXbVdiDlEmD6nc7710iUrr/iSsLl4VtjFzJ6/oicr16YWMmxKKiyBcMwCuo967I1Fu9V+++vhvob8wLYjBkrw==
   dependencies:
     luamin "^1.0.4"
     p8 "0.0.6"

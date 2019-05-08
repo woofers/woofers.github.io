@@ -15,7 +15,7 @@ const grid = css`
 export const Game = p => (
     <div css={p.portrait && p.lang !== "pico" ? grid : ''}>
       { p.lang === 'pico'
-        ? <Pico8 src={p.src}/>
+        ? <Pico8 src={p.src} placeholder={p.placeholder} />
         : <Frame title={p.title} src={p.src} />
       }
       <Content html={p.instruction} />

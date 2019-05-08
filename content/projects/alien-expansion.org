@@ -4,6 +4,7 @@
 #+ICON_TYPE: normal
 #+TYPE: game
 #+LANG: pico
+#+PLACEHOLDER: game/placeholder.png
 #+LANDSCAPE: nil
 #+GAME: game/index.js
 
