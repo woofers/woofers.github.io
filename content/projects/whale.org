@@ -1,6 +1,7 @@
 #+TITLE: Whale
 #+ICON: game/assets/images/icon.png
 #+ICON_MODE: auto
+#+ICON_TYPE: rounded
 #+TYPE: game
 #+LANDSCAPE: nil
 #+GAME: game/index.html

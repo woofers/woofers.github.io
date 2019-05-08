@@ -10,6 +10,7 @@ class GameTemplate extends Component {
     const post = this.props.data.orgContent
     const { title, date, icon, landscape, lang, game } = post.meta
     const iconMode = post.meta.icon_mode
+    const iconType = post.meta.icon_type
     const links = [{ name: 'Projects', link: '/projects/'},
                    { name: `${title}` }]
     return (
@@ -17,7 +18,7 @@ class GameTemplate extends Component {
             site={this.props.data.site.siteMetadata.title}>
         <Breadcrumb links={links} />
         <BlogTitle title={title} date={date}
-                   icon={{ image: icon, mode: iconMode }} />
+                   icon={{ image: icon, mode: iconMode, type: iconType }} />
         <Game title={title} src={game}
               portrait={landscape === 'nil'}
               instruction={post.html}

@@ -1,6 +1,7 @@
 #+TITLE: ALIEN, e x p a n s i o n .
 #+ICON: game/favicon.png
 #+ICON_MODE: pixelated
+#+ICON_TYPE: normal
 #+TYPE: game
 #+LANG: pico
 #+LANDSCAPE: nil
