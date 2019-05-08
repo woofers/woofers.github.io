@@ -1,8 +1,10 @@
 #+TITLE: Fox Hole
 #+ICON: game/assets/images/favicon.png
 #+ICON_MODE: pixelated
+#+ICON_TYPE: rounded
 #+TYPE: game
 #+GAME: game/index.html
+#+LANG: frame
 
 ** Instructions
 Play as a fox who has /super digging abilities/ and dig through a world invaded by robot crocodiles to reach the end of the level.

@@ -6,7 +6,12 @@ export const BlogTitle = p => {
     display: ${p.icon ? 'inline' : 'block'};
     margin: ${theme.margins.extraSmall} 0;
   `
+  const noRounded = css`
+    border-radius: 0 !important;
+    margin
+  `
   const icon = theme => css`
+    ${p.icon.type === 'normal' ? noRounded : ''}
     margin-left: 10px;
     image-rendering: ${p.icon.mode};
   `
@@ -16,7 +21,8 @@ export const BlogTitle = p => {
         <div>
           <h1 css={title}>{p.title}</h1>
           {p.icon ?
-           <img css={icon} width="55px" height="55px"
+           <img css={icon}
+                width="55px" height="55px"
                 src={p.icon.image} aria-hidden="true" alt="" /> :
          null}
         </div>

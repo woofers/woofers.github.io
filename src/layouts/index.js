@@ -86,8 +86,8 @@ const style = theme => css`
     border-width: 0;
   }
 
-  img {
-    border-radius: 20px;
+  img, canvas {
+    border-radius: ${theme.margins.image};
   }
 
   figure {
@@ -228,10 +228,13 @@ export const contentFragment = graphql`
       icon
       type
       icon_mode
+      icon_type
+      placeholder
       game
       landscape
       profile_alt
       profile
+      lang
     }
     fields {
       slug
