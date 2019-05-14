@@ -8,6 +8,8 @@ A [[https://www.gatsbyjs.org/][Gatsby]] based site built using static [[https://
 
 Automated deploy to [[https://pages.github.com/][Github Pages]] is configured using [[https://github.com/features/actions][GitHub Actions]].
 
+[[https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/woofers/woofers.github.io?branch=development][https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/woofers/woofers.github.io?branch=development]]
+
 * Goals
 1) Be easy to update and maintain content.  Ideally with simple [[https://orgmode.org/][Org Mode]] markup.
 2) Take full-advantage of wide screen sizes while still scaling to a wide-variety of screen sizes.
