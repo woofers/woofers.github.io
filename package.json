@@ -1,7 +1,7 @@
 {
   "name": "jaxson-site",
   "description": "",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "author": "Jaxson Van Doorn",
   "dependencies": {
     "@emotion/core": "^10.0.9",
@@ -35,7 +35,7 @@
     "react-helmet": "^5.2.1",
     "react-pico-8": "^2.2.0",
     "react-rotating-text": "https://github.com/woofers/react-rotating-text",
-    "react-switch": "^5.0.0",
+    "react-switch": "woofers/react-switch#dist",
     "react-typography": "^0.16.19",
     "react-wavify": "^1.1.2",
     "typography": "^0.16.19",

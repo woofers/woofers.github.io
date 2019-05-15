@@ -13,7 +13,10 @@ const linkStyle = theme => css`
   color: ${theme.colors.headerText};
   padding: ${theme.margins.nav.buttonSize};
   &:not(:last-child) {
-    margin: 0 ${theme.margins.items} 0 0
+    @media only screen and (min-width: 545px) {
+      margin: 0 ${theme.margins.items} 0 0
+    }
+    margin: 0 ${theme.margins.itemsSmall} 0 0
   }
   text-decoration: none;
   border-bottom: 1.5px double;
@@ -25,10 +28,6 @@ const linkStyle = theme => css`
   &:focus, &:hover, &:visited, &:link, &:active {
     text-decoration: none;
   }
-`
-
-const space = theme => css`
-  margin-left: ${theme.margins.small};
 `
 
 export const Nav = p => {
@@ -46,7 +45,7 @@ export const Nav = p => {
             </Link>
           ))
         : null}
-        <span css={space}>
+        <span>
           {p.children}
         </span>
     </nav>

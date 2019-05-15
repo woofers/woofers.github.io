@@ -8853,10 +8853,9 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-switch@^5.0.0:
+react-switch@woofers/react-switch#dist:
   version "5.0.0"
-  resolved "https://registry.yarnpkg.com/react-switch/-/react-switch-5.0.0.tgz#ecbb666f8789cb8138b3ba1160bc3745390ab502"
-  integrity sha512-+zxY9xj9dMc8Y4gv/kkqQrirfEiIQ+SlQfJDW1Wi81L3xoh1fcbBYyJyh0TnhM/U/b6HxuBmkmU4Ooxgtuoavw==
+  resolved "https://codeload.github.com/woofers/react-switch/tar.gz/994a5ddfc9d690f6c40ef0dbce32c0fa033cd871"
   dependencies:
     prop-types "^15.6.2"
 
