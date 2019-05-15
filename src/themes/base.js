@@ -20,6 +20,7 @@ const margins = {
     buttonSize: '28px',
   },
   items: '12px',
+  itemsSmall: '6px',
   profile: '265px',
   image: '20px'
 }
