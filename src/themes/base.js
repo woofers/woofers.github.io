@@ -42,6 +42,7 @@ const colors = {
   table: rgba.header(0),
   button: rgba.code(0.15),
   switchBackground: "#4d4950",
+  footer: rgba.code(),
   footerElements: link,
   pico: '#7d737c'
 }

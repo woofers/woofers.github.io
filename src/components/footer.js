@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 const footer = theme => css`
   width: 100%;
   justify-content: center;
-  background: ${theme.colors.codeBackground};
+  background: ${theme.colors.footer};
   position: absolute;
   left: 0;
   bottom: 0;
