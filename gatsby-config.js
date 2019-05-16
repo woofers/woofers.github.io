@@ -1,14 +1,17 @@
 
-const name = 'Jaxson Van Doorn'
+const json = require('./package.json')
+const name = json.author
 
 module.exports = {
   siteMetadata: {
-    title: name
+    title: name,
+    siteUrl: json.homepage
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     `gatsby-plugin-layout`,
     `gatsby-plugin-catch-links`,
+    `gatsby-plugin-robots-txt`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
