@@ -13,6 +13,12 @@ module.exports = {
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-robots-txt`,
     {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: ['/resume/**'],
+      },
+    },
+    {
       resolve: `gatsby-plugin-typography`,
       options: {
         pathToConfigModule: `src/utils/typography.js`,
