@@ -1,6 +1,9 @@
+
+const name = 'Jaxson Van Doorn'
+
 module.exports = {
   siteMetadata: {
-    title: 'Jaxson Van Doorn',
+    title: name
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -26,6 +29,19 @@ module.exports = {
     {
       resolve: `gatsby-transformer-orga`,
       options: {},
-    }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name,
+        short_name: name,
+        start_url: '/',
+        background_color: '#463d4e',
+        theme_color: '#f27052',
+        display: `standalone`,
+        icon: 'static/favicon.png',
+        theme_color_in_head: false,
+      },
+    },
   ],
 };

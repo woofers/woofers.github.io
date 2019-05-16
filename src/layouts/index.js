@@ -178,7 +178,6 @@ const Site = withTheme(p => {
         meta={[
             { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
         ]}>
-        <link rel="icon" sizes="192x192" href="/favicon-192.png"/>
       </Helmet>
       <Header name={name} link={home}>
         <Nav links={siteData.navLinks}>
