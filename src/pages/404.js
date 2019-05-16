@@ -23,11 +23,12 @@ const inline = css`
 
 class NotFound extends Component {
   render() {
-    const title = 'Page Not Found'
+    const page = 'Page Not Found'
+    const { title, home } = this.props.data.site.siteMetadata
     return (
-      <Page title={title} site={this.props.data.site.siteMetadata.title}>
+      <Page title={page} site={title}>
         <div css={style}>
-          <h1>{title}</h1>
+          <h1>{page}</h1>
           <p style={{ fontSize: '17em' }}>
             <Icon icon={faExclamationTriangle} />
           </p>
@@ -39,7 +40,7 @@ class NotFound extends Component {
             </li>
             <li>
               <h2 css={ theme => css`margin-left: ${theme.margins.extraSmall} !important;` }>
-                <Link to="/">Go home?</Link>
+                <Link to={home}>Go home?</Link>
               </h2>
             </li>
           </ul>
@@ -52,6 +53,6 @@ export default NotFound
 
 export const pageQuery = graphql`
   {
-    ...Title
+    ...Template
   }
 `

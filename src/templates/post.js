@@ -9,8 +9,9 @@ import { graphql } from 'gatsby'
 class PostTemplate extends Component {
   render() {
     const post = this.props.data.orgContent
+    const { blog } = this.props.data.site.siteMetadata.nav
     const { title, date } = post.meta
-    const links = [{ name: 'Blog', link: '/blog/'},
+    const links = [{ name: 'Blog', link: blog},
                    { name: `${title}` }]
     return (
       <Page title={post.meta.title} site={this.props.data.site.siteMetadata.title}>
@@ -27,6 +28,7 @@ export default comments(PostTemplate)
 export const pageQuery = graphql`
   query($slug: String!) {
     ...Title
+    ...Nav
     orgContent(fields: {slug: {eq: $slug}}) {
       ...Content
     }

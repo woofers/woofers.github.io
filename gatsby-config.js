@@ -5,7 +5,40 @@ const name = json.author
 module.exports = {
   siteMetadata: {
     title: name,
-    siteUrl: json.homepage
+    siteUrl: json.homepage,
+    author: name,
+    description: json.description,
+    repo: 'woofers/woofers.github.io',
+    social: {
+      github: {
+        name: 'GitHub',
+        link: '//github.com/woofers',
+        handle: 'woofers',
+      },
+      stackoverflow: {
+        name: 'Stack Overflow',
+        link: '//stackoverflow.com/users/9129020/jvandoorn',
+      },
+      twitter: {
+        name: 'Twitter',
+        link: '//twitter.com/jaxsonvandoorn',
+        handle: '@jaxsonvandoorn',
+      },
+      linkedin: {
+        name: 'LinkedIn',
+        link: '//www.linkedin.com/in/jaxson-van-doorn/',
+      },
+      email: {
+        name: 'Email',
+        link: 'mailto:jaxson.vandoorn@gmail.com',
+      },
+    },
+    home: '/',
+    nav: {
+      projects: '/projects/',
+      blog: '/blog/',
+      about: '/about/',
+    },
   },
   plugins: [
     'gatsby-plugin-react-helmet',
