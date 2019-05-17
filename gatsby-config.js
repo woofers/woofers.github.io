@@ -85,5 +85,13 @@ module.exports = {
         theme_color_in_head: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-140419508-1',
+        head: true,
+        anonymize: true,
+      },
+    },
   ],
 };

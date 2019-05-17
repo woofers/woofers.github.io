@@ -7,6 +7,7 @@ import { faGithub,
          faStackOverflow,
          faTwitter } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 const socialEntryStyle = theme => css`
   margin: 0 ${theme.margins.items} 0 0;
@@ -24,7 +25,7 @@ const icons = {
 }
 
 export const SocialEntry = p => (
-  <a
+  <OutboundLink
     href={p.href}
     target="_blank"
     rel="noopener noreferrer"
@@ -33,7 +34,7 @@ export const SocialEntry = p => (
   >
     <Icon icon={p.iconName} size={p.size} aria-label={p.title} aria-hidden="false" />
     {p.children || null}
-  </a>
+  </OutboundLink>
 )
 
 export const Social = p => {
