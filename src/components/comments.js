@@ -1,7 +1,7 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import { css } from '@emotion/core'
 import withUtterances from 'with-utterances'
-import noHighlight from '../utils/no-highlight'
+import noHighlight from '../styles/no-highlight'
 import React from "react"
 import { withTheme } from 'emotion-theming'
 
