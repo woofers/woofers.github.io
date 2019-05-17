@@ -1,6 +1,7 @@
 
 const json = require('./package.json')
 const name = json.author
+const home = '/'
 
 module.exports = {
   siteMetadata: {
@@ -8,7 +9,7 @@ module.exports = {
     siteUrl: json.homepage,
     author: name,
     description: json.description,
-    repo: 'woofers/woofers.github.io',
+    repo: json.repo,
     social: {
       github: {
         name: 'GitHub',
@@ -33,7 +34,7 @@ module.exports = {
         link: 'mailto:jaxson.vandoorn@gmail.com',
       },
     },
-    home: '/',
+    home,
     nav: {
       projects: '/projects/',
       blog: '/blog/',
@@ -77,7 +78,7 @@ module.exports = {
       options: {
         name,
         short_name: name,
-        start_url: '/',
+        start_url: home,
         background_color: '#463d4e',
         theme_color: '#f27052',
         display: `standalone`,
