@@ -8,7 +8,6 @@ export const BlogTitle = p => {
   `
   const noRounded = css`
     border-radius: 0 !important;
-    margin
   `
   const icon = theme => css`
     ${p.icon.type === 'normal' ? noRounded : ''}
