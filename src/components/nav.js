@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { Link } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 
 const navStyle = theme => css`
   display: flex;
@@ -31,10 +31,12 @@ const linkStyle = theme => css`
 `
 
 export const Nav = p => {
+  const { nav } = useStaticQuery(graphql`{ ...Nav }`).site.siteMetadata
   return (
     <nav css={navStyle}>
-      {p.links
-        ? p.links.map(({ name, link }) => (
+      { Object.keys(nav).map(name => {
+          const link = nav[name]
+          return (
             <Link
               css={linkStyle}
               to={link}
@@ -43,11 +45,10 @@ export const Nav = p => {
             >
               {name}
             </Link>
-          ))
-        : null}
-        <span>
-          {p.children}
-        </span>
+          )
+        })
+      }
+      <span>{p.children}</span>
     </nav>
   )
 }

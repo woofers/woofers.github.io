@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { css, Global } from '@emotion/core'
 import Switch from '../components/switch'
 import Header from '../components/header'
@@ -13,11 +13,6 @@ import { style as buttonStyle } from '../components/button'
 import 'prism-themes/themes/prism-duotone-space.css'
 import { icons, style as iconsStyle } from '../utils/icons'
 import { ThemeProvider, withTheme } from 'emotion-theming'
-import { faGithub,
-         faLinkedinIn as faLinkedin,
-         faStackOverflow,
-         faTwitter } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 
 // !important is needed to override the Prism selection
@@ -104,56 +99,9 @@ const style = theme => css`
     font-size: ${theme.fonts.code} !important;
   }
 `
-const name = "Jaxson Van Doorn"
-const home = "/"
-const siteData = {
-  navLinks: [
-    {
-      name: 'Projects',
-      link: '/projects/'
-    },
-    {
-      name: 'Blog',
-      link: '/blog/'
-    },
-    {
-      name: 'About',
-      link: '/about/'
-    }
-  ]
-}
-
-const social = [
-  {
-    link: '//github.com/woofers',
-    name: 'GitHub',
-    icon: faGithub,
-  },
-  {
-    link: '//stackoverflow.com/users/9129020/jvandoorn',
-    name: 'Stack Overflow',
-    icon: faStackOverflow,
-  },
-  {
-    link: '//twitter.com/jaxsonvandoorn',
-    name: 'Twitter',
-    icon: faTwitter,
-  },
-  {
-    link: '//www.linkedin.com/in/jaxson-van-doorn/',
-    name: 'LinkedIn',
-    icon: faLinkedin,
-  },
-  {
-    link: 'mailto:jaxson.vandoorn@gmail.com',
-    name: 'Email',
-    icon: faEnvelope,
-  }
-]
-
-
 
 const Site = withTheme(p => {
+  const { title, home } = useStaticQuery(graphql`{ ...Template }`).site.siteMetadata
   const divStyle = theme => css`
     margin: ${theme.margins.large} auto ${theme.margins.large};
     max-width: ${theme.contentWidth};
@@ -173,14 +121,14 @@ const Site = withTheme(p => {
   return (
     <div>
       <Helmet
-        title={name}
+        title={title}
         htmlAttributes={{ lang: 'en' }}
         meta={[
             { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
         ]}>
       </Helmet>
-      <Header name={name} link={home}>
-        <Nav links={siteData.navLinks}>
+      <Header name={title} link={home}>
+        <Nav>
           <Switch
             checked={p.theme.name === 'dark'}
             onChange={p.toggleTheme}
@@ -193,7 +141,7 @@ const Site = withTheme(p => {
           {p.children}
         </main>
         <Footer>
-          <Social socialEntries={social} />
+          <Social/>
         </Footer>
       </div>
     </div>
@@ -216,38 +164,3 @@ const Template = ({ children }) => {
 icons.watch()
 
 export default Template
-
-export const contentFragment = graphql`
-  fragment Content on OrgContent {
-    html
-    meta {
-      title
-      date
-      slug
-      icon
-      type
-      icon_mode
-      icon_type
-      placeholder
-      game
-      landscape
-      profile_alt
-      profile
-      lang
-    }
-    fields {
-      slug
-      path
-    }
-  }
-`
-
-export const titleFragment = graphql`
-  fragment Title on Query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-  }
-`

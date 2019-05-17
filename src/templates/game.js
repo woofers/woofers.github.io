@@ -9,9 +9,10 @@ class GameTemplate extends Component {
   render() {
     const post = this.props.data.orgContent
     const { title, date, icon, landscape, lang, game, placeholder } = post.meta
+    const { projects } = this.props.data.site.siteMetadata.nav
     const iconMode = post.meta.icon_mode
     const iconType = post.meta.icon_type
-    const links = [{ name: 'Projects', link: '/projects/'},
+    const links = [{ name: 'Projects', link: projects},
                    { name: `${title}` }]
     return (
       <Page title={title}
@@ -34,6 +35,7 @@ export default GameTemplate
 export const pageQuery = graphql`
   query($slug: String!) {
     ...Title
+    ...Nav
     orgContent(fields: {slug: {eq: $slug}}) {
       ...Content
     }

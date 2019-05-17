@@ -25,11 +25,14 @@ class BlogIndex extends React.Component {
 
   render() {
     const continueReading = 'Continue reading'
+    const siteMeta = this.props.data.site.siteMetadata
+    const site = siteMeta.title
+    const nav = siteMeta.nav
     const _posts = this.sortedPosts().map (({ node }) => {
       const path = node.fields.path
       const meta = node.meta
       const title = meta.title || path
-      const include = '/blog/'
+      const include = nav.blog
       const date = meta.date
       if (!path || !path.startsWith(include)) return null
       let preview = cheerio.load(node.html)('p', 'body')
@@ -51,7 +54,6 @@ class BlogIndex extends React.Component {
         </div>
       )
     })
-    const site = this.props.data.site.siteMetadata.title
     return (
       <Page title='Posts' site={site}>
         <div css={org}>
@@ -67,6 +69,7 @@ export default BlogIndex
 export const pageQuery = graphql`
   {
     ...Title
+    ...Nav
     allOrgContent {
       edges {
         node {
