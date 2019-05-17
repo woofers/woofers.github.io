@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import noHighlight from '../utils/no-highlight'
+import noHighlight from '../styles/no-highlight'
 
 const iframe = css`
   position: absolute;

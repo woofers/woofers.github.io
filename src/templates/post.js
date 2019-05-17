@@ -3,7 +3,7 @@ import { Breadcrumb } from '../components/breadcrumb'
 import { BlogTitle } from '../components/blog-title'
 import { Content } from '../components/content'
 import { Page } from '../components/page'
-import { comments } from '../utils/comments'
+import { comments } from '../components/comments'
 import { graphql } from 'gatsby'
 
 class PostTemplate extends Component {
