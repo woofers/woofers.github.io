@@ -6,13 +6,13 @@ import Switch from '../components/switch'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import { Social } from '../components/social'
-import light from '../themes/light'
-import dark from '../themes/dark'
+import { light, dark } from '../themes'
 import { Nav } from '../components/nav'
 import { style as buttonStyle } from '../components/button'
 import 'prism-themes/themes/prism-duotone-space.css'
 import { icons, style as iconsStyle } from '../utils/icons'
 import { ThemeProvider, withTheme } from 'emotion-theming'
+import config from '../../package.json'
 
 
 // !important is needed to override the Prism selection
@@ -124,7 +124,7 @@ const Site = withTheme(p => {
         title={title}
         htmlAttributes={{ lang: 'en' }}
         meta={[
-            { name: 'keywords', content: 'gatsbyjs, org-mode, jaxson' },
+            { name: 'keywords', content: config.keywords.join(', ') },
         ]}>
       </Helmet>
       <Header name={title} link={home}>

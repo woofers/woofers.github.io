@@ -13,7 +13,7 @@ class GameTemplate extends Component {
     const iconMode = post.meta.icon_mode
     const iconType = post.meta.icon_type
     const links = [{ name: 'Projects', link: projects},
-                   { name: `${title}` }]
+                   { name: title }]
     return (
       <Page title={title}
             site={this.props.data.site.siteMetadata.title}>
