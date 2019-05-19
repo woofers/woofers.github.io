@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ReactSwitch from "react-switch"
-import light from '../themes/light'
-import dark from '../themes/dark'
+import { light, dark } from '../themes'
 
 const Switch = p => {
   const value = () => (typeof window !== 'undefined' && window.innerWidth > 545) ? 1 : 0.875
