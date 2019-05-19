@@ -38,7 +38,7 @@ export const SocialEntry = p => (
 )
 
 export const Social = p => {
-  let { social } = useStaticQuery(graphql`{ ...Social }`).site.siteMetadata
+  const { social } = useStaticQuery(graphql`{ ...Social }`).site.siteMetadata
   for (const key in social) {
     social[key].icon = icons[key]
   }

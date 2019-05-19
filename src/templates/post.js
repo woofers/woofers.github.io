@@ -11,8 +11,8 @@ class PostTemplate extends Component {
     const post = this.props.data.orgContent
     const { blog } = this.props.data.site.siteMetadata.nav
     const { title, date } = post.meta
-    const links = [{ name: 'Blog', link: blog},
-                   { name: `${title}` }]
+    const links = [{ name: 'Blog', link: blog },
+                   { name: title }]
     return (
       <Page title={post.meta.title} site={this.props.data.site.siteMetadata.title}>
         <Breadcrumb links={links} />
