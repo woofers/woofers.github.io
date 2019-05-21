@@ -8,6 +8,8 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Link from '../components/smart-link'
 import Description from '../components/description'
+import remark from 'remark'
+import remark2react from 'remark-react'
 
 const ProjectButton = p => {
   if (p.type === 'game') return (<Button href={p.url}><Icon icon={faPlayCircle}/> Play</Button>)
@@ -53,6 +55,7 @@ class Projects extends Component {
       const stars = repo.stargazers.totalCount
       const url = repo.homepageUrl
       const gitUrl = repo.url
+      const md = repo.object ? repo.object.text : ''
       const name = replace(repo.name)
       if (!name) return null
       return (
@@ -64,6 +67,11 @@ class Projects extends Component {
           {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
           {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
           {url ? <ProjectButton url={url} type={type(repo)} /> : null}
+          {
+            remark()
+              .use(remark2react)
+              .processSync(md).contents
+          }
           <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
         </div>
       )

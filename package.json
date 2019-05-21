@@ -48,6 +48,8 @@
     "react-switch": "woofers/react-switch#dist",
     "react-typography": "^0.16.19",
     "react-wavify": "^1.1.4",
+    "remark": "^10.0.1",
+    "remark-react": "^5.0.1",
     "typography": "^0.16.19",
     "typography-plugin-code": "^0.16.19",
     "typography-theme-lawton": "^0.16.19",

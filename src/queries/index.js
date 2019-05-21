@@ -149,6 +149,9 @@ export const github = graphql`
                     }
                   }
                 }
+                object {
+                  text
+                }
               }
             }
           }

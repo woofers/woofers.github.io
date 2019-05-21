@@ -139,6 +139,11 @@ module.exports = {
                       }
                     }
                   }
+                  object(expression: "master:README.md") {
+                    ... on Blob {
+                      text
+                    }
+                  }
                 }
               }
             }
