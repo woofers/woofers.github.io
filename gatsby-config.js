@@ -40,6 +40,17 @@ module.exports = {
       blog: '/blog/',
       about: '/about/',
     },
+    exclude: [
+      ['woofers.github.io', 'jaxson.vandoorn.ca'],
+      ['woofers3d', 'Woofers 3D'],
+      ['ludum-dare-44', 'ALIEN, e x p a n s i o n .'],
+      ['libgdx-tools-installer', 'LibGDX Tools Installer'],
+      ['react-pico-8', 'React PICO-8'],
+      ['chess'],
+      ['java-formatter'],
+      ['battlesnake-2018'],
+      ['battlesnake-java-template'],
+    ]
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -92,6 +103,55 @@ module.exports = {
         trackingId: 'UA-140419508-1',
         head: true,
         anonymize: true,
+      },
+    },
+    {
+      resolve: `gatsby-source-github-gql`,
+      options: {
+        auth: process.env.GH_TOKEN,
+        query: `
+          {
+            user(login: "woofers") {
+              repositories(
+                first: 100,
+                isFork: false,
+                privacy: PUBLIC,
+                isLocked: false,
+                ownerAffiliations: OWNER,
+                orderBy: {field: CREATED_AT, direction: DESC}
+              ) {
+                edges {
+                  node {
+                    id
+                    name
+                    description
+                    url
+                    shortDescriptionHTML
+                    homepageUrl
+                    stargazers {
+                      totalCount
+                    }
+                    licenseInfo {
+                      name
+                    }
+                    topics: repositoryTopics(first: 100) {
+                      nodes {
+                        topic {
+                          name
+                        }
+                      }
+                    }
+                    readme: object(expression: "master:README.md") {
+                      ... on Blob {
+                        text
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        `,
       },
     },
   ],
