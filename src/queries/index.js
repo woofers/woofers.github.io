@@ -6,7 +6,6 @@ export const content = graphql`
     meta {
       title
       date
-      slug
       icon
       type
       icon_mode
@@ -24,12 +23,31 @@ export const content = graphql`
     }
   }
 `
+export const url = graphql`
+  fragment Url on Query {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`
 
 export const title = graphql`
   fragment Title on Query {
     site {
       siteMetadata {
         title
+      }
+    }
+  }
+`
+
+export const pages = graphql`
+  fragment Pages on Query {
+    allSitePage {
+      nodes {
+        path
       }
     }
   }
@@ -94,6 +112,45 @@ export const social = graphql`
           email {
             name
             link
+          }
+        }
+      }
+    }
+  }
+`
+export const github = graphql`
+  fragment GitHub on Query {
+    site {
+      siteMetadata {
+        exclude
+      }
+    }
+    allGithubData {
+      nodes {
+        data {
+          user {
+            repositories {
+              nodes {
+                name
+                description
+                url
+                shortDescriptionHTML
+                homepageUrl
+                stargazers {
+                  totalCount
+                }
+                licenseInfo {
+                  name
+                }
+                repositoryTopics {
+                  nodes {
+                    topic {
+                      name
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

@@ -8,7 +8,6 @@ exports.createPages = ({ graphql, actions }) => {
     const templatesFolder = 'src/templates'
     const templates = {
       blog: path.resolve(`${templatesFolder}/post.js`),
-      page: path.resolve(`${templatesFolder}/page.js`),
       game: path.resolve(`${templatesFolder}/game.js`),
       about: path.resolve(`${templatesFolder}/about.js`)
     }
@@ -25,7 +24,6 @@ exports.createPages = ({ graphql, actions }) => {
                   path
                 }
                 meta {
-                  slug
                   type
                 }
               }

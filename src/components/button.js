@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { Link } from 'gatsby'
+import Link from './smart-link'
 
 const slant = '30px'
 const topRight = '11px'
