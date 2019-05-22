@@ -38,7 +38,7 @@ class Projects extends Component {
       return changeCase(name)
     }
     const { title } = this.props.data.site.siteMetadata
-    const repos = this.props.data.allGithubData.nodes[0].data.user.repositories.nodes
+    const repos = this.props.data.allGithubData.edges[0].node.data.user.repositories.edges
     const type = repo => {
       let labels = repo.repositoryTopics
       if (labels) {
@@ -50,7 +50,8 @@ class Projects extends Component {
       }
       return 'no type'
     }
-    const Repos = repos.map(repo => {
+    const Repos = repos.map(({ node }) => {
+      const repo = node
       const license = repo.licenseInfo ? repo.licenseInfo.name : ''
       const stars = repo.stargazers.totalCount
       const url = repo.homepageUrl

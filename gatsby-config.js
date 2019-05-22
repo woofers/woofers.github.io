@@ -110,7 +110,7 @@ module.exports = {
       options: {
         token: process.env.GH_TOKEN,
         graphQLQuery: `
-          query {
+          {
             user(login: woofers) {
               repositories(
                 first: 100,
@@ -118,30 +118,32 @@ module.exports = {
                 privacy: PUBLIC,
                 isLocked: false,
                 ownerAffiliations: OWNER,
-                orderBy: { field: PUSHED_AT, direction: DESC }
+                orderBy: {field: PUSHED_AT, direction: DESC}
               ) {
-                nodes {
-                  name
-                  description
-                  url
-                  shortDescriptionHTML
-                  homepageUrl
-                  stargazers {
-                    totalCount
-                  }
-                  licenseInfo {
+                edges {
+                  node {
                     name
-                  }
-                  repositoryTopics (first: 100) {
-                    nodes {
-                      topic {
-                        name
+                    description
+                    url
+                    shortDescriptionHTML
+                    homepageUrl
+                    stargazers {
+                      totalCount
+                    }
+                    licenseInfo {
+                      name
+                    }
+                    repositoryTopics(first: 100) {
+                      nodes {
+                        topic {
+                          name
+                        }
                       }
                     }
-                  }
-                  object(expression: "master:README.md") {
-                    ... on Blob {
-                      text
+                    object(expression: "master:README.md") {
+                      ... on Blob {
+                        text
+                      }
                     }
                   }
                 }
