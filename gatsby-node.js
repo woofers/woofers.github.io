@@ -70,8 +70,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
 
       // Create blog posts pages.
-      result.data.allOrgContent.edges.forEach(edge => {
-        const node = edge.node
+      result.data.allOrgContent.edges.forEach(({ node }) => {
         let path = node.meta.slug
         if (!path) path = node.fields.path
         createPage({
@@ -85,7 +84,6 @@ exports.createPages = ({ graphql, actions }) => {
 
       result.data.allRepositories.edges.forEach(({ node }) => {
         const repo = node
-        console.log(repo.name)
         createPage({
           path: `/github/${repo.name}`,
           component: template('github'),
