@@ -38,7 +38,7 @@ class Projects extends Component {
       return changeCase(name)
     }
     const { title } = this.props.data.site.siteMetadata
-    const repos = this.props.data.allGithubData.edges[0].node.data.user.repositories.edges
+    const repos = this.props.data.allRepositories.edges
     const type = repo => {
       let labels = repo.topics
       if (labels) {

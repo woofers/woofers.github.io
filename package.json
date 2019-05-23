@@ -31,6 +31,7 @@
     "gatsby-plugin-typography": "^2.2.13",
     "gatsby-source-filesystem": "^2.0.35",
     "gatsby-source-github-api": "^0.1.0",
+    "gatsby-source-github-gql": "^0.1.0",
     "gatsby-transformer-orga": "woofers/orgajs#dist",
     "graphql": "14.1.1",
     "lodash.clonedeep": "^4.5.0",

@@ -106,10 +106,10 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-github-api`,
+      resolve: `gatsby-source-github-gql`,
       options: {
-        token: process.env.GH_TOKEN,
-        graphQLQuery: `
+        auth: process.env.GH_TOKEN,
+        query: `
           {
             user(login: "woofers") {
               repositories(
@@ -122,6 +122,7 @@ module.exports = {
               ) {
                 edges {
                   node {
+                    id
                     name
                     description
                     url

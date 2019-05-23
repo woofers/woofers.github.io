@@ -125,39 +125,29 @@ export const github = graphql`
         exclude
       }
     }
-    allGithubData {
+    allRepositories {
       edges {
         node {
-          data {
-            user {
-              repositories {
-                edges {
-                  node {
-                    name
-                    description
-                    url
-                    shortDescriptionHTML
-                    homepageUrl
-                    stargazers {
-                      totalCount
-                    }
-                    licenseInfo {
-                      name
-                    }
-                    topics {
-                      nodes {
-                        topic {
-                          name
-                        }
-                      }
-                    }
-                    readme {
-                      text
-                    }
-                  }
-                }
+          name
+          description
+          url
+          shortDescriptionHTML
+          homepageUrl
+          stargazers {
+            totalCount
+          }
+          licenseInfo {
+            name
+          }
+          topics {
+            nodes {
+              topic {
+                name
               }
             }
+          }
+          readme {
+            text
           }
         }
       }
