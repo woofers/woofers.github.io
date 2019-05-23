@@ -4,9 +4,8 @@ import { BlogTitle } from '../components/blog-title'
 import { Content } from '../components/content'
 import { Page } from '../components/page'
 import { comments } from '../components/comments'
+import Markdown from '../components/markdown'
 import { graphql } from 'gatsby'
-import remark from 'remark'
-import remark2react from 'remark-react'
 
 class GitHubTemplate extends Component {
   render() {
@@ -20,11 +19,7 @@ class GitHubTemplate extends Component {
       <Page title={repo.name} site={this.props.data.site.siteMetadata.title}>
         <Breadcrumb links={links} />
         <BlogTitle title={repo.name} />
-        {
-          remark()
-            .use(remark2react)
-            .processSync(md).contents
-        }
+        <Markdown content={md} repo={repo.name} />
       </Page>
     )
   }

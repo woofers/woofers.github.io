@@ -54,6 +54,7 @@
     "typography": "^0.16.19",
     "typography-plugin-code": "^0.16.19",
     "typography-theme-lawton": "^0.16.19",
+    "unist-util-visit": "^1.4.1",
     "whale-dive": "^1.1.1",
     "with-utterances": "^1.4.1"
   },
