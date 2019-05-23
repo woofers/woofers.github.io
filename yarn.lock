@@ -4765,6 +4765,11 @@ flat@^4.0.0:
   dependencies:
     is-buffer "~2.0.3"
 
+flatmap@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/flatmap/-/flatmap-0.0.3.tgz#1f18a4d938152d495965f9c958d923ab2dd669b4"
+  integrity sha1-Hxik2TgVLUlZZfnJWNkjqy3WabQ=
+
 flatted@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.0.tgz#55122b6536ea496b4b44893ee2608141d10d9916"
@@ -11284,6 +11289,14 @@ unist-builder@^1.0.2, unist-builder@^1.0.3:
   integrity sha512-/KB8GEaoeHRyIqClL+Kam+Y5NWJ6yEiPsAfv1M+O1p+aKGgjR89WwoEHKTyOj17L6kAlqtKpAgv2nWvdbQDEig==
   dependencies:
     object-assign "^4.1.0"
+
+unist-util-filter@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/unist-util-filter/-/unist-util-filter-1.0.1.tgz#ae6b1d5ba7c7d5374ffe1a13026e5fe0184b4971"
+  integrity sha512-T74OYQNKA3Ppld/JBbSn81AyvyHByK0twpzM3J6IeLSNVrAA56RpuLLd7YVGbcdDHXFrglkljOcj0x6yo4GRuA==
+  dependencies:
+    flatmap "0.0.3"
+    unist-util-is "^2.0.0"
 
 unist-util-generated@^1.1.0:
   version "1.1.3"
