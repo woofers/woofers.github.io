@@ -8,14 +8,12 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Link from '../components/smart-link'
 import Description from '../components/description'
-import remark from 'remark'
-import remark2react from 'remark-react'
 
 const ProjectButton = p => {
   if (p.type === 'game') return (<Button href={p.url}><Icon icon={faPlayCircle}/> Play</Button>)
   else if (p.type === 'react') return (<Button href={p.url}><Icon icon={faPlayCircle}/> View Demo</Button>)
   else if (p.type === 'resume') return (<Button href={p.url}><Icon icon={faScroll}/> View Resume</Button>)
-  else return (<Button href={p.url}><Icon icon={faPlayCircle}/> More Info</Button>)
+  else return (<Button href={p.url}><Icon icon={faPlayCircle}/> View Site</Button>)
 }
 
 const icon = css`
@@ -69,11 +67,7 @@ class Projects extends Component {
           {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
           {url ? <ProjectButton url={url} type={type(repo)} /> : null}
           <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
-          {
-            remark()
-              .use(remark2react)
-              .processSync(md).contents
-          }
+          <Button href={`/github/${repo.name}`}><Icon icon={faPlayCircle}/> More Info</Button>
         </div>
       )
     })

@@ -30,6 +30,33 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
+          allRepositories {
+            edges {
+              node {
+                name
+                description
+                url
+                shortDescriptionHTML
+                homepageUrl
+                stargazers {
+                  totalCount
+                }
+                licenseInfo {
+                  name
+                }
+                topics {
+                  nodes {
+                    topic {
+                      name
+                    }
+                  }
+                }
+                readme {
+                  text
+                }
+              }
+            }
+          }
         }
       `
     ).then(result => {
@@ -37,14 +64,15 @@ exports.createPages = ({ graphql, actions }) => {
         console.log(result.errors)
       }
 
+      const template = (type) => {
+        if (!type) type = 'blog'
+        return slash(templates[type])
+      }
+
       // Create blog posts pages.
       result.data.allOrgContent.edges.forEach(edge => {
         const node = edge.node
         let path = node.meta.slug
-        const template = (type) => {
-          if (!type) type = 'blog'
-          return slash(templates[type])
-        }
         if (!path) path = node.fields.path
         createPage({
           path: path,
@@ -55,16 +83,17 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
 
-      //result.data.allGithubData.nodes[0].data.user.repositories.nodes.forEach(repo => {
-      //  console.log(repo.name)
-      //  createPage({
-      //    path: path,
-      //    component: template(node.meta.type),
-      //    context: {
-      //      slug:  node.fields.slug,
-      //    },
-      //  })
-      //})
+      result.data.allRepositories.edges.forEach(({ node }) => {
+        const repo = node
+        console.log(repo.name)
+        createPage({
+          path: `/github/${repo.name}`,
+          component: template('github'),
+          context: {
+            repo: repo.name,
+          },
+        })
+      })
 
       resolve()
     })
