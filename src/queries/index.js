@@ -144,14 +144,14 @@ export const github = graphql`
                     licenseInfo {
                       name
                     }
-                    repositoryTopics {
+                    topics {
                       nodes {
                         topic {
                           name
                         }
                       }
                     }
-                    object {
+                    readme {
                       text
                     }
                   }

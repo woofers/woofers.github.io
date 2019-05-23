@@ -111,7 +111,7 @@ module.exports = {
         token: process.env.GH_TOKEN,
         graphQLQuery: `
           {
-            user(login: woofers) {
+            user(login: "woofers") {
               repositories(
                 first: 100,
                 isFork: false,
@@ -133,14 +133,14 @@ module.exports = {
                     licenseInfo {
                       name
                     }
-                    repositoryTopics(first: 100) {
+                    topics: repositoryTopics(first: 100) {
                       nodes {
                         topic {
                           name
                         }
                       }
                     }
-                    object(expression: "master:README.md") {
+                    readme: object(expression: "master:README.md") {
                       ... on Blob {
                         text
                       }

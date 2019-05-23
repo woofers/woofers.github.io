@@ -8,6 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
     const templatesFolder = 'src/templates'
     const templates = {
       blog: path.resolve(`${templatesFolder}/post.js`),
+      github: path.resolve(`${templatesFolder}/github.js`),
       game: path.resolve(`${templatesFolder}/game.js`),
       about: path.resolve(`${templatesFolder}/about.js`)
     }
@@ -53,6 +54,17 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
       })
+
+      //result.data.allGithubData.nodes[0].data.user.repositories.nodes.forEach(repo => {
+      //  console.log(repo.name)
+      //  createPage({
+      //    path: path,
+      //    component: template(node.meta.type),
+      //    context: {
+      //      slug:  node.fields.slug,
+      //    },
+      //  })
+      //})
 
       resolve()
     })

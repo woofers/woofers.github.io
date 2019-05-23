@@ -40,7 +40,7 @@ class Projects extends Component {
     const { title } = this.props.data.site.siteMetadata
     const repos = this.props.data.allGithubData.edges[0].node.data.user.repositories.edges
     const type = repo => {
-      let labels = repo.repositoryTopics
+      let labels = repo.topics
       if (labels) {
         labels = labels.nodes
         labels = labels.map(label => label.topic.name)
@@ -56,7 +56,7 @@ class Projects extends Component {
       const stars = repo.stargazers.totalCount
       const url = repo.homepageUrl
       const gitUrl = repo.url
-      const md = repo.object ? repo.object.text : ''
+      const md = repo.readme ? repo.readme.text : ''
       const name = replace(repo.name)
       if (!name) return null
       return (
@@ -68,12 +68,12 @@ class Projects extends Component {
           {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
           {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
           {url ? <ProjectButton url={url} type={type(repo)} /> : null}
+          <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
           {
             remark()
               .use(remark2react)
               .processSync(md).contents
           }
-          <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
         </div>
       )
     })
