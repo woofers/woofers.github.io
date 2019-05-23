@@ -8,6 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Link from '../components/smart-link'
 import Description from '../components/description'
+import { firstImage, Markdown } from '../components/markdown'
 
 const ProjectButton = p => {
   if (p.type === 'game') return (<Button href={p.url}><Icon icon={faPlayCircle}/> Play</Button>)
@@ -19,6 +20,23 @@ const ProjectButton = p => {
 const icon = css`
   .img {
     border-radius: 0 !important;
+  }
+`
+
+const container = css`
+  display: flex;
+  justify-content: space-between;
+`
+
+const start = css`
+  align-content: flex-start;
+`
+
+const end = css`
+  align-content: flex-end;
+  img {
+    max-width: 500px;
+    max-height: 500px;
   }
 `
 
@@ -58,16 +76,20 @@ class Projects extends Component {
       const name = replace(repo.name)
       if (!name) return null
       return (
-        <div key={repo.name}>
+        <div key={repo.name} css={container}>
           <Global styles={[icon]} />
-          <h2><Link to={url ? url : gitUrl}>{name}</Link></h2>
-
-          <Description text={repo.description} />
-          {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
-          {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
-          {url ? <ProjectButton url={url} type={type(repo)} /> : null}
-          <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
-          <Button href={`/github/${repo.name}`}><Icon icon={faPlayCircle}/> More Info</Button>
+          <div css={start}>
+            <h2><Link to={url ? url : gitUrl}>{name}</Link></h2>
+            <Description text={repo.description} />
+            {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
+            {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
+            {url ? <ProjectButton url={url} type={type(repo)} /> : null}
+            <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
+            <Button href={`/github/${repo.name}/`}><Icon icon={faPlayCircle}/> More Info</Button>
+          </div>
+          <div css={end}>
+            <Markdown content={md} repo={repo.name} filters={[firstImage]} />
+          </div>
         </div>
       )
     })

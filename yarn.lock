@@ -11271,7 +11271,7 @@ unique-string@^1.0.0:
   dependencies:
     crypto-random-string "^1.0.0"
 
-unist-builder@^1.0.1:
+unist-builder@^1.0.1, unist-builder@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/unist-builder/-/unist-builder-1.0.4.tgz#e1808aed30bd72adc3607f25afecebef4dd59e17"
   integrity sha512-v6xbUPP7ILrT15fHGrNyHc1Xda8H3xVhP7/HAIotHOhVPjH5dCXA097C3Rry1Q2O+HbOLCao4hfPB+EYEjHgVg==
@@ -11314,6 +11314,17 @@ unist-util-select@^2.0.0:
   dependencies:
     css-selector-parser "^1.1.0"
     debug "^3.1.0"
+    not "^0.1.0"
+    nth-check "^1.0.1"
+    unist-util-is "^2.1.2"
+    zwitch "^1.0.3"
+
+unist-util-select@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/unist-util-select/-/unist-util-select-2.0.1.tgz#7b6393e4409aa57a3508bb195101701397ecbf43"
+  integrity sha512-iQG0bI9p6konLnTnYBt4ZFKOwQ3JhBeYEh5xhAJkBdOxsAn1KSOVQD8nBgn2hW4cUXgcnCeIK0hzEx2iN+/ofQ==
+  dependencies:
+    css-selector-parser "^1.1.0"
     not "^0.1.0"
     nth-check "^1.0.1"
     unist-util-is "^2.1.2"

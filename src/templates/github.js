@@ -4,12 +4,11 @@ import { BlogTitle } from '../components/blog-title'
 import { Content } from '../components/content'
 import { Page } from '../components/page'
 import { comments } from '../components/comments'
-import Markdown from '../components/markdown'
+import { Markdown } from '../components/markdown'
 import { graphql } from 'gatsby'
 
 class GitHubTemplate extends Component {
   render() {
-    console.log(this.props.data)
     const repo = this.props.data.repositories
     const md = repo.readme ? repo.readme.text : ''
     const { projects } = this.props.data.site.siteMetadata.nav
