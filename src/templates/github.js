@@ -4,7 +4,7 @@ import { BlogTitle } from '../components/blog-title'
 import { Content } from '../components/content'
 import { Page } from '../components/page'
 import { comments } from '../components/comments'
-import { Markdown } from '../components/markdown'
+import { Markdown, removeBadges } from '../components/markdown'
 import { graphql } from 'gatsby'
 
 class GitHubTemplate extends Component {
@@ -18,7 +18,7 @@ class GitHubTemplate extends Component {
       <Page title={repo.name} site={this.props.data.site.siteMetadata.title}>
         <Breadcrumb links={links} />
         <BlogTitle title={repo.name} />
-        <Markdown content={md} repo={repo.name} />
+        <Markdown content={md} repo={repo.name} filters={[removeBadges]} />
       </Page>
     )
   }

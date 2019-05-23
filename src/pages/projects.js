@@ -8,7 +8,7 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Link from '../components/smart-link'
 import Description from '../components/description'
-import { firstImage, Markdown } from '../components/markdown'
+import { firstImage, removeBadges, Markdown } from '../components/markdown'
 
 const ProjectButton = p => {
   if (p.type === 'game') return (<Button href={p.url}><Icon icon={faPlayCircle}/> Play</Button>)
@@ -88,7 +88,7 @@ class Projects extends Component {
             <Button href={`/github/${repo.name}`}><Icon icon={faPlayCircle}/> More Info</Button>
           </div>
           <div css={end}>
-            <Markdown content={md} repo={repo.name} filters={[firstImage]} />
+            <Markdown content={md} repo={repo.name} filters={[removeBadges, firstImage]} />
           </div>
         </div>
       )
