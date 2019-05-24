@@ -9,6 +9,7 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Link from '../components/smart-link'
 import Description from '../components/description'
 import { firstImage, removeBadges, Markdown } from '../components/markdown'
+import { mutateRepoNames } from '../utils/repo'
 
 const ProjectButton = p => {
   if (p.type === 'game') return (<Button href={p.url}><Icon icon={faPlayCircle}/> Play</Button>)
@@ -42,19 +43,10 @@ const end = css`
 
 class Projects extends Component {
   render() {
-    let { exclude } = this.props.data.site.siteMetadata
-    const excluded = {}
-    for (const key of exclude) {
-      excluded[key[0]] = key[1]
-    }
-    const changeCase = string => string.replace(/(^.|-(.))/g, g =>  g.replace(/-/g, ' ').toUpperCase())
-    const replace = name => {
-      if (excluded[name]) return excluded[name]
-      if (excluded.hasOwnProperty(name)) return ''
-      return changeCase(name)
-    }
+    const { exclude } = this.props.data.site.siteMetadata
     const { title } = this.props.data.site.siteMetadata
     const repos = this.props.data.allRepositories.edges
+    mutateRepoNames(repos, exclude)
     const type = repo => {
       let labels = repo.topics
       if (labels) {
@@ -73,12 +65,12 @@ class Projects extends Component {
       const url = repo.homepageUrl
       const gitUrl = repo.url
       const md = repo.readme ? repo.readme.text : ''
-      const name = replace(repo.name)
+      const name = repo.fullName
       if (!name) return null
       return (
-        <div key={repo.name} css={container}>
+        <div key={name} css={container}>
           <Global styles={[icon]} />
-          <div css={start}>
+          <div key={`${name}-info`} css={start}>
             <h2><Link to={url ? url : gitUrl}>{name}</Link></h2>
             <Description text={repo.description} />
             {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
@@ -87,8 +79,8 @@ class Projects extends Component {
             <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
             <Button href={`/github/${repo.name}/`}><Icon icon={faPlayCircle}/> More Info</Button>
           </div>
-          <div css={end}>
-            <Markdown content={md} repo={repo.name} filters={[removeBadges, firstImage]} />
+          <div key={`${name}-image`} css={end}>
+            <Markdown content={md} repo={repo} filters={[removeBadges, firstImage]} />
           </div>
         </div>
       )
