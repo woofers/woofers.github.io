@@ -8,6 +8,7 @@ const Description = ({ text }) => {
   let match
   let lastMatch
   let i = 0;
+  // eslint-disable-next-line
   while (match = regexp.exec(text)) {
     if (lastMatch) {
       i = lastMatch.index + lastMatch[0].length

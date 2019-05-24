@@ -118,13 +118,20 @@ export const social = graphql`
     }
   }
 `
-export const github = graphql`
-  fragment GitHub on Query {
+
+export const repoExclude = graphql`
+  fragment RepoExclude on Query {
     site {
       siteMetadata {
         exclude
       }
     }
+  }
+`
+
+export const github = graphql`
+  fragment GitHub on Query {
+    ...RepoExclude
     allRepositories {
       edges {
         node {
