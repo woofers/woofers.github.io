@@ -13,15 +13,15 @@ const Description = ({ text }) => {
     if (lastMatch) {
       i = lastMatch.index + lastMatch[0].length
       const segment = text.substring(i + 1, match.index)
-      desc.push(<span key={`${text}-${i}`}>{segment}</span>)
+      desc.push(<span key={`${segment}-${i}-${lastMatch[0]}-text-${text}`}>{segment}</span>)
     }
     const emoji = match[0]
-    desc.push(<span><Emoji key={`${text}-${emoji.index}`} emoji={emoji} /> </span>)
+    desc.push(<span key={`${text}-${match[0]}-${match.index}`} ><Emoji emoji={emoji} /> </span>)
     i = match.index + emoji.length
     lastMatch = match
   }
   const last = text.substring(i + 1, text.length)
-  desc.push(<span key={`${text}-last`}>{last}</span>)
+  desc.push(<span key={`${last}-last-${text}`}>{last}</span>)
   return (<div>{desc}</div>)
 }
 

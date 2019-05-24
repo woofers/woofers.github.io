@@ -70,7 +70,7 @@ class Projects extends Component {
       return (
         <div key={name} css={container}>
           <Global styles={[icon]} />
-          <div css={start}>
+          <div key={`${name}-info`} css={start}>
             <h2><Link to={url ? url : gitUrl}>{name}</Link></h2>
             <Description text={repo.description} />
             {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
@@ -79,7 +79,7 @@ class Projects extends Component {
             <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
             <Button href={`/github/${repo.name}`}><Icon icon={faPlayCircle}/> More Info</Button>
           </div>
-          <div css={end}>
+          <div key={`${name}-image`} css={end}>
             <Markdown content={md} repo={repo} filters={[removeBadges, firstImage]} />
           </div>
         </div>
