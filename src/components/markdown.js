@@ -40,6 +40,9 @@ export const Markdown = p => {
       if (githubLink.test(node.url)) {
         node.url = node.url.replace(githubLink, `//raw.githubusercontent.com/woofers/${p.repo}/master/`)
       }
+      if (node.type === 'image') {
+        node.title = `${p.repo} ${node.title}`
+      }
     }
     return (tree) => visit(tree, ['image', 'link', 'linkReference'], visitor)
 
