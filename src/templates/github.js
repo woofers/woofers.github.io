@@ -3,15 +3,18 @@ import { Breadcrumb } from '../components/breadcrumb'
 import { BlogTitle } from '../components/blog-title'
 import { Page } from '../components/page'
 import { Markdown, removeBadges } from '../components/markdown'
+import Org from '../components/org'
 import { graphql } from 'gatsby'
-import { mutateRepoNames } from '../utils/repo'
+import { mutateRepoNames, readme } from '../utils/repo'
 
 class GitHubTemplate extends Component {
   render() {
     const repo = this.props.data.repositories
     const { exclude } = this.props.data.site.siteMetadata
     mutateRepoNames([{node: repo}], exclude)
-    const md = repo.readme ? repo.readme.text : ''
+    let md = readme(repo.readme)
+    if (!md) md = readme(repo.readmeDev)
+    const org = readme(repo.readmeOrg)
     const { projects } = this.props.data.site.siteMetadata.nav
     const links = [{ name: 'Projects', link: projects },
                    { name: repo.fullName }]
@@ -19,7 +22,10 @@ class GitHubTemplate extends Component {
       <Page title={repo.fullName} site={this.props.data.site.siteMetadata.title}>
         <Breadcrumb links={links} />
         <BlogTitle title={repo.fullName} />
-        <Markdown content={md} repo={repo} filters={[removeBadges]} />
+        { org && !md ?
+            <Org content={org} repo={repo} />
+          : <Markdown content={md} repo={repo} filters={[removeBadges]} />
+        }
       </Page>
     )
   }
@@ -35,6 +41,12 @@ export const pageQuery = graphql`
     repositories(name: {eq: $repo}) {
       name
       readme {
+        text
+      }
+      readmeOrg {
+        text
+      }
+      readmeDev {
         text
       }
     }

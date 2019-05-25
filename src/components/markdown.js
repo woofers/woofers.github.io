@@ -6,6 +6,7 @@ import unist from 'unist-builder'
 import visit from 'unist-util-visit'
 import filter from 'unist-util-filter'
 import { selectAll, select } from 'unist-util-select'
+import { toGitHubLink } from '../utils/link'
 
 const edge = css`
   h1:first-of-type {
@@ -38,7 +39,7 @@ export const Markdown = p => {
     const visitor = node => {
       const githubLink = /^\.\//g
       if (githubLink.test(node.url)) {
-        node.url = node.url.replace(githubLink, `//raw.githubusercontent.com/woofers/${p.repo.name}/master/`)
+        node.url = toGitHubLink(node.url, p.repo.name)
       }
       if (node.title && node.type === 'image') {
         node.title = `${p.repo.fullName} ${node.title}`

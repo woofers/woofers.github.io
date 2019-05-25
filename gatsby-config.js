@@ -146,6 +146,16 @@ module.exports = {
                         text
                       }
                     }
+                    readmeDev: object(expression: "development:README.md") {
+                      ... on Blob {
+                        text
+                      }
+                    }
+                    readmeOrg: object(expression: "master:README.org") {
+                      ... on Blob {
+                        text
+                      }
+                    }
                   }
                 }
               }
