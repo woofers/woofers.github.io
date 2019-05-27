@@ -77,7 +77,7 @@ class Projects extends Component {
             {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
             {url ? <ProjectButton url={url} type={type(repo)} /> : null}
             <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
-            <Button href={`/github/${repo.name}`}><Icon icon={faPlayCircle}/> More Info</Button>
+            <Button href={`/github/${repo.name}/`}><Icon icon={faPlayCircle}/> More Info</Button>
           </div>
           <div key={`${name}-image`} css={end}>
             <Markdown content={md} repo={repo} filters={[removeBadges, firstImage]} />
