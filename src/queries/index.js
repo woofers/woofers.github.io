@@ -138,12 +138,11 @@ export const github = graphql`
           name
           description
           url
-          shortDescriptionHTML
-          homepageUrl
-          stargazers {
+          homepage
+          stars {
             totalCount
           }
-          licenseInfo {
+          license {
             name
           }
           topics {
