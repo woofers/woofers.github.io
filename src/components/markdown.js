@@ -8,9 +8,12 @@ import filter from 'unist-util-filter'
 import { selectAll, select } from 'unist-util-select'
 import { toGitHubLink } from '../utils/link'
 
-const edge = css`
+const edge = theme => css`
   h1:first-of-type {
     display: none;
+  }
+  p img:not(:last-child) {
+    margin-right: ${theme.margins.large};
   }
 `
 
