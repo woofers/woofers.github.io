@@ -60,9 +60,9 @@ class Projects extends Component {
     }
     const Repos = repos.map(({ node }) => {
       const repo = node
-      const license = repo.licenseInfo ? repo.licenseInfo.name : ''
-      const stars = repo.stargazers.totalCount
-      const url = repo.homepageUrl
+      const license = repo.license ? repo.license.name : ''
+      const stars = repo.stars.totalCount
+      const url = repo.homepage
       const gitUrl = repo.url
       const md = repo.readme ? repo.readme.text : ''
       const name = repo.fullName

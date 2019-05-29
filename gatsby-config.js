@@ -126,12 +126,11 @@ module.exports = {
                     name
                     description
                     url
-                    shortDescriptionHTML
-                    homepageUrl
-                    stargazers {
+                    homepage: homepageUrl
+                    stars: stargazers {
                       totalCount
                     }
-                    licenseInfo {
+                    license: licenseInfo {
                       name
                     }
                     topics: repositoryTopics(first: 100) {
