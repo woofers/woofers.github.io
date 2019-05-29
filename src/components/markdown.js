@@ -7,15 +7,7 @@ import visit from 'unist-util-visit'
 import filter from 'unist-util-filter'
 import { selectAll, select } from 'unist-util-select'
 import { toGitHubLink } from '../utils/link'
-
-const edge = theme => css`
-  h1:first-of-type {
-    display: none;
-  }
-  p img:not(:last-child) {
-    margin-right: ${theme.margins.large};
-  }
-`
+import { image } from '../styles/center'
 
 export const onlyImages = () => {
   return (tree) => unist('paragraph', selectAll('image', tree))
@@ -58,13 +50,34 @@ export const Markdown = p => {
     }
     return md.processSync(p.content).contents
   }
+
+  const centerImage = css`
+    img:last-child {
+      ${image};
+    }
+    img ~ img {
+      display: inline !important;
+    }
+  `
+
+  const style = theme => css`
+    h1:first-of-type {
+      display: none;
+    }
+    p img {
+      margin-right: ${theme.margins.large};
+      margin-bottom: ${theme.margins.normal};
+    }
+    ${p.centerImages ? centerImage : ''}
+  `
   return (
-    <div css={edge}>
+    <div css={style}>
       {content()}
     </div>
   )
 }
 
 Markdown.defaultProps = {
-  filters: []
+  filters: [],
+  centerImages: true
 }

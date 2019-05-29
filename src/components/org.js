@@ -5,6 +5,14 @@ import { parse as orga } from 'orga'
 import { Content } from './content'
 import { toGitHubLink } from '../utils/link'
 import u from 'unist-builder'
+import { css } from '@emotion/core'
+import { image as center } from '../styles/center'
+
+const image = css`
+  img {
+    ${center};
+  }
+`
 
 const Org = p => {
   const parse = content => {
@@ -22,7 +30,9 @@ const Org = p => {
     return hastToHtml(hast, { allowDangerousHTML: true })
   }
   return (
-    <Content html={parse(p.content)} />
+    <div css={image}>
+      <Content html={parse(p.content)} />
+    </div>
   )
 }
 
