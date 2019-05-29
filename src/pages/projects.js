@@ -26,19 +26,25 @@ const icon = css`
 `
 
 const container = css`
+  margin-bottom: 10px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
 `
 
 const start = css`
   align-content: flex-start;
+  align-self: center;
+  max-width: 650px;
 `
 
 const end = css`
   align-content: flex-end;
+  align-self: center;
   img {
+    margin: 10px 0;
     max-width: 500px;
-    max-height: 500px;
+    max-height: 400px;
   }
 `
 
