@@ -118,7 +118,7 @@ module.exports = {
                 privacy: PUBLIC,
                 isLocked: false,
                 ownerAffiliations: OWNER,
-                orderBy: {field: PUSHED_AT, direction: DESC}
+                orderBy: {field: CREATED_AT, direction: DESC}
               ) {
                 edges {
                   node {
