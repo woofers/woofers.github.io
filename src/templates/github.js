@@ -12,8 +12,7 @@ class GitHubTemplate extends Component {
     const repo = this.props.data.repositories
     const { exclude } = this.props.data.site.siteMetadata
     mutateRepoNames([{node: repo}], exclude)
-    let md = readme(repo.readme)
-    if (!md) md = readme(repo.readmeDev)
+    const md = readme(repo.readme)
     const org = readme(repo.readmeOrg)
     const { projects } = this.props.data.site.siteMetadata.nav
     const links = [{ name: 'Projects', link: projects },
@@ -40,15 +39,7 @@ export const pageQuery = graphql`
     ...RepoExclude
     repositories(name: {eq: $repo}) {
       name
-      readme {
-        text
-      }
-      readmeOrg {
-        text
-      }
-      readmeDev {
-        text
-      }
+      ...Readme
     }
   }
 `

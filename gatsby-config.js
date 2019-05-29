@@ -141,17 +141,12 @@ module.exports = {
                         }
                       }
                     }
-                    readme: object(expression: "master:README.md") {
+                    readme: object(expression: "HEAD:README.md") {
                       ... on Blob {
                         text
                       }
                     }
-                    readmeDev: object(expression: "development:README.md") {
-                      ... on Blob {
-                        text
-                      }
-                    }
-                    readmeOrg: object(expression: "master:README.org") {
+                    readmeOrg: object(expression: "HEAD:README.org") {
                       ... on Blob {
                         text
                       }

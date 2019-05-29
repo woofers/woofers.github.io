@@ -161,3 +161,14 @@ export const github = graphql`
     }
   }
 `
+
+export const readme = graphql`
+  fragment Readme on repositories {
+    readme {
+      text
+    }
+    readmeOrg {
+      text
+    }
+  }
+`
