@@ -5,15 +5,16 @@ import { Page } from '../components/page'
 import { Markdown, removeBadges } from '../components/markdown'
 import Org from '../components/org'
 import { graphql } from 'gatsby'
-import { mutateRepoNames, readme } from '../utils/repo'
+import { mutateRepoNames } from '../utils/repo'
+import dlv from 'dlv'
 
 class GitHubTemplate extends Component {
   render() {
     const repo = this.props.data.repositories
     const { exclude } = this.props.data.site.siteMetadata
     mutateRepoNames([{node: repo}], exclude)
-    const md = readme(repo.readme)
-    const org = readme(repo.readmeOrg)
+    const md = dlv(repo.readme, 'text')
+    const org = dlv(repo.readmeOrg, 'text')
     const { projects } = this.props.data.site.siteMetadata.nav
     const links = [{ name: 'Projects', link: projects },
                    { name: repo.fullName }]

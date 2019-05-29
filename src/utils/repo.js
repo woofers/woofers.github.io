@@ -15,5 +15,3 @@ export const mutateRepoNames = (repos, exclude) => {
     repo.fullName = replace(repo.name)
   }
 }
-
-export const readme = node => node ? node.text : ''

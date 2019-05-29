@@ -10,6 +10,7 @@ import Link from '../components/smart-link'
 import Description from '../components/description'
 import { firstImage, removeBadges, Markdown } from '../components/markdown'
 import { mutateRepoNames } from '../utils/repo'
+import dlv from 'dlv'
 
 const ProjectButton = p => {
   if (p.type === 'game') return (<Button href={p.url}><Icon icon={faPlayCircle}/> Play</Button>)
@@ -60,11 +61,11 @@ class Projects extends Component {
     }
     const Repos = repos.map(({ node }) => {
       const repo = node
-      const license = repo.license ? repo.license.name : ''
+      const license = dlv(repo.license, 'name')
       const stars = repo.stars.totalCount
       const url = repo.homepage
       const gitUrl = repo.url
-      const md = repo.readme ? repo.readme.text : ''
+      const md = dlv(repo.readme, 'text')
       const name = repo.fullName
       if (!name) return null
       return (
