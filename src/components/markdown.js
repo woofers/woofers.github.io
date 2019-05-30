@@ -7,7 +7,11 @@ import visit from 'unist-util-visit'
 import filter from 'unist-util-filter'
 import { selectAll, select } from 'unist-util-select'
 import { toGitHubLink } from '../utils/link'
+import CodeBlock from './code-block'
 import { image } from '../styles/center'
+import github from 'hast-util-sanitize/lib/github'
+import merge from 'lodash.merge'
+const schema = merge(github, { attributes: { '*': ['className', 'type'] } })
 
 export const onlyImages = () => {
   return (tree) => unist('paragraph', selectAll('image', tree))
@@ -41,10 +45,13 @@ export const Markdown = p => {
       }
     }
     return (tree) => visit(tree, ['image', 'link', 'linkReference'], visitor)
-
   }
   const content = () => {
-    let md = remark().use(remark2react).use(links)
+    let md = remark().use(remark2react, {
+      remarkReactComponents: { pre: CodeBlock },
+      sanitize: schema
+    })
+    md = md.use(links)
     for (const filter of p.filters) {
       md = md.use(filter)
     }

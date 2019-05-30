@@ -91,6 +91,7 @@ const style = theme => css`
 
   pre {
     background: ${theme.colors.codeBackground};
+    color: ${theme.colors.headerText};
   }
 
   code[class*="language-"],
