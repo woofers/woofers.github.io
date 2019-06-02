@@ -60,7 +60,7 @@ class Projects extends Component {
         <div key={name} css={container}>
           <Global styles={[icon]} />
           <div key={`${name}-info`} css={start}>
-            <h2><Link to={url ? url : gitUrl}>{name}</Link></h2>
+            <h2><Link to={`/github/${repo.name}`}>{name}</Link></h2>
             <Description text={repo.description} />
             {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
             {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
