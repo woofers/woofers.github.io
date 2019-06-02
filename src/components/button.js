@@ -34,9 +34,9 @@ export const style = theme => css`
 `
 
 const Button = p => (
-    <span css={style}>
-      <Link style={{...p.style}} to={p.href} role='button'>{p.children}</Link>
-    </span>
+  <span css={style}>
+    <Link style={p.style} to={p.href} role='button'>{p.children}</Link>
+  </span>
 )
 
 export default Button

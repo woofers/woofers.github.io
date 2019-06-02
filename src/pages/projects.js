@@ -1,23 +1,16 @@
-import React, { Component }from 'react'
+import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import { Global, css } from '@emotion/core'
 import { Page } from '../components/page'
 import Button from '../components/button'
-import { faStar, faPlayCircle, faBalanceScale, faScroll } from '@fortawesome/free-solid-svg-icons'
-import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faStar, faBalanceScale, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Link from '../components/smart-link'
 import Description from '../components/description'
+import ProjectButton from '../components/project-button'
 import { firstImage, removeBadges, Markdown } from '../components/markdown'
-import { mutateRepoNames } from '../utils/repo'
+import { type, mutateRepoNames } from '../utils/repo'
 import dlv from 'dlv'
-
-const ProjectButton = p => {
-  if (p.type === 'game') return (<Button href={p.url}><Icon icon={faPlayCircle}/> Play</Button>)
-  else if (p.type === 'react') return (<Button href={p.url}><Icon icon={faPlayCircle}/> View Demo</Button>)
-  else if (p.type === 'resume') return (<Button href={p.url}><Icon icon={faScroll}/> View Resume</Button>)
-  else return (<Button href={p.url}><Icon icon={faPlayCircle}/> View Site</Button>)
-}
 
 const icon = css`
   .img {
@@ -54,17 +47,6 @@ class Projects extends Component {
     const { title } = this.props.data.site.siteMetadata
     const repos = this.props.data.allRepositories.edges
     mutateRepoNames(repos, exclude)
-    const type = repo => {
-      let labels = repo.topics
-      if (labels) {
-        labels = labels.nodes
-        labels = labels.map(label => label.topic.name)
-        if (labels.includes('game')) return 'game'
-        else if (labels.includes('react')) return 'react'
-        else if (labels.includes('resume')) return 'resume'
-      }
-      return 'no type'
-    }
     const Repos = repos.map(({ node }) => {
       const repo = node
       const license = dlv(repo.license, 'name')
@@ -82,9 +64,8 @@ class Projects extends Component {
             <Description text={repo.description} />
             {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
             {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
-            {url ? <ProjectButton url={url} type={type(repo)} /> : null}
-            <Button href={gitUrl}><Icon icon={faGithub}/> View on GitHub</Button>
-            <Button href={`/github/${repo.name}/`}><Icon icon={faPlayCircle}/> More Info</Button>
+            {url ? <ProjectButton href={url} type={type(repo)} /> : null}
+            <Button href={`/github/${repo.name}/`}><Icon icon={faInfoCircle}/> More Info</Button>
           </div>
           <div key={`${name}-image`} css={end}>
             <Markdown alt={name} content={md} repo={repo} centerImages={false} filters={[removeBadges, firstImage]} />
