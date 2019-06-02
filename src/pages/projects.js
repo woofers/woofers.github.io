@@ -87,7 +87,7 @@ class Projects extends Component {
             <Button href={`/github/${repo.name}/`}><Icon icon={faPlayCircle}/> More Info</Button>
           </div>
           <div key={`${name}-image`} css={end}>
-            <Markdown content={md} repo={repo} centerImages={false} filters={[removeBadges, firstImage]} />
+            <Markdown alt={name} content={md} repo={repo} centerImages={false} filters={[removeBadges, firstImage]} />
           </div>
         </div>
       )
