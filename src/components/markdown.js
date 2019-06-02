@@ -35,13 +35,21 @@ export const removeBadges = () => {
 
 export const Markdown = p => {
   const links = options => {
+    options = options || {}
     const visitor = node => {
       const githubLink = /^\.\//g
+      const setAlt = alt => {
+        node.title = alt
+        node.alt = alt
+      }
       if (githubLink.test(node.url)) {
         node.url = toGitHubLink(node.url, p.repo.name)
       }
-      if (node.title && node.type === 'image') {
-        node.title = `${p.repo.fullName} ${node.title}`
+      if (options.alt) {
+        setAlt(options.alt)
+      }
+      else if (node.title && node.type === 'image') {
+        setAlt(`${p.repo.fullName} ${node.title}`)
       }
     }
     return (tree) => visit(tree, ['image', 'link', 'linkReference'], visitor)
@@ -51,7 +59,7 @@ export const Markdown = p => {
       remarkReactComponents: { pre: CodeBlock },
       sanitize: schema
     })
-    md = md.use(links)
+    md = md.use(() => links({ alt: p.alt }))
     for (const filter of p.filters) {
       md = md.use(filter)
     }
