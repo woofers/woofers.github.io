@@ -12,6 +12,7 @@ action "Build" {
   needs = "Install"
   uses = "nuxt/actions-yarn@master"
   args = "build"
+  secrets = ["GH_TOKEN"]
 }
 
 action "Test" {
