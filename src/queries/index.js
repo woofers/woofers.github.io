@@ -135,28 +135,34 @@ export const github = graphql`
     allRepositories {
       edges {
         node {
-          name
-          description
-          url
-          homepage
-          stars {
-            totalCount
-          }
-          license {
-            name
-          }
-          topics {
-            nodes {
-              topic {
-                name
-              }
-            }
-          }
-          readme {
-            text
-          }
+          ...RepoContent
         }
       }
+    }
+  }
+`
+
+export const repoContent = graphql`
+  fragment RepoContent on repositories {
+    name
+    description
+    url
+    homepage
+    stars {
+      totalCount
+    }
+    license {
+      name
+    }
+    topics {
+      nodes {
+        topic {
+          name
+        }
+      }
+    }
+    readme {
+      text
     }
   }
 `
