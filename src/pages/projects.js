@@ -52,7 +52,6 @@ class Projects extends Component {
       const license = dlv(repo.license, 'name')
       const stars = repo.stars.totalCount
       const url = repo.homepage
-      const gitUrl = repo.url
       const md = dlv(repo.readme, 'text')
       const name = repo.fullName
       if (!name) return null
@@ -60,12 +59,12 @@ class Projects extends Component {
         <div key={name} css={container}>
           <Global styles={[icon]} />
           <div key={`${name}-info`} css={start}>
-            <h2><Link to={`/github/${repo.name}`}>{name}</Link></h2>
+            <h2><Link to={`/projects/${repo.name}`}>{name}</Link></h2>
             <Description text={repo.description} />
             {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
             {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
             {url ? <ProjectButton href={url} type={type(repo)} /> : null}
-            <Button href={`/github/${repo.name}/`}><Icon icon={faInfoCircle}/> More Info</Button>
+            <Button href={`/projects/${repo.name}/`}><Icon icon={faInfoCircle}/> More Info</Button>
           </div>
           <div key={`${name}-image`} css={end}>
             <Markdown alt={name} content={md} repo={repo} centerImages={false} filters={[removeBadges, firstImage]} />
