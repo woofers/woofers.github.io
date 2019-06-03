@@ -53,6 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allOrgContent.edges.forEach(({ node }) => {
         let path = node.meta.slug
         if (!path) path = node.fields.path
+        if (path.startsWith('/projects/')) path += 'play/'
         createPage({
           path: path,
           component: template(node.meta.type),
@@ -65,7 +66,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allRepositories.edges.forEach(({ node }) => {
         const repo = node
         createPage({
-          path: `/github/${repo.name}`,
+          path: `/projects/${repo.name}`,
           component: template('github'),
           context: {
             repo: repo.name,
