@@ -1,16 +1,13 @@
 const path = require(`path`)
 const slash = require(`slash`)
 
+// Create pages from Org and GitHub content
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
-
   return new Promise((resolve, reject) => {
-    const templatesFolder = 'src/templates'
-    const templates = {
-      blog: path.resolve(`${templatesFolder}/post.js`),
-      github: path.resolve(`${templatesFolder}/github.js`),
-      game: path.resolve(`${templatesFolder}/game.js`),
-      about: path.resolve(`${templatesFolder}/about.js`)
+    if (!process.env.GH_TOKEN) {
+      const error = 'GitHub API token is not set.  Set it with `export GH_TOKEN=mytoken`'
+      return reject(error)
     }
     graphql(
       `
@@ -40,36 +37,34 @@ exports.createPages = ({ graphql, actions }) => {
         }
       `
     ).then(result => {
-      if (result.errors) {
-        console.log(result.errors)
-      }
 
-      const template = (type) => {
-        if (!type) type = 'blog'
-        return slash(templates[type])
-      }
+      // Reject any GraphQL errors
+      if (result.errors) return reject(result.errors)
 
-      // Create blog posts pages.
+      // Resolve component based on type
+      const template = type => slash(path.resolve(`src/templates/${type || 'post'}.js`))
+
+      // Create pages from Org content
       result.data.allOrgContent.edges.forEach(({ node }) => {
-        let path = node.meta.slug
-        if (!path) path = node.fields.path
+        let path = node.meta.slug || node.fields.path
         if (path.startsWith('/projects/')) path += 'play/'
         createPage({
           path: path,
           component: template(node.meta.type),
           context: {
-            slug:  node.fields.slug,
+            slug:  node.fields.slug
           },
         })
       })
 
+      // Create pages from GitHub content
       result.data.allRepositories.edges.forEach(({ node }) => {
-        const repo = node
+        const { name } = node
         createPage({
-          path: `/projects/${repo.name}`,
+          path: `/projects/${name}/`,
           component: template('github'),
           context: {
-            repo: repo.name,
+            repo: name
           },
         })
       })
@@ -79,10 +74,9 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
-// Add custom url pathname for blog posts.
+// Set page URL for Org content based on file path
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions
-
   if (node.internal.type === `File`) {
     const folder = node.relativeDirectory
     const fileName = node.name
@@ -97,7 +91,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     createNodeField({
       node,
       name: `path`,
-      value: fileNode.fields.slug,
+      value: fileNode.fields.slug
     })
   }
 }
