@@ -53,7 +53,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allOrgContent.edges.forEach(({ node }) => {
         let path = node.meta.slug
         if (!path) path = node.fields.path
-        if (path.startsWith('/projects/')) path += 'play'
+        if (path.startsWith('/projects/')) path += 'play/'
         createPage({
           path: path,
           component: template(node.meta.type),
