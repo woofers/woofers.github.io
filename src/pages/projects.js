@@ -66,7 +66,7 @@ class Projects extends Component {
           <div key={`${name}-info`} css={start}>
             <h2><Link to={`/projects/${repo.name}/`}>{name}</Link></h2>
             <Description text={repo.description} />
-            {license ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
+            {license && license !== 'Other' ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
             {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
             {url ? <ProjectButton href={url} type={type(repo)} /> : null}
             <Button href={`/projects/${repo.name}/`}><Icon icon={faInfoCircle}/> More Info</Button>
