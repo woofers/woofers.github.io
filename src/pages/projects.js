@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
-import { Global, css } from '@emotion/core'
+import { css } from '@emotion/core'
 import { Page } from '../components/page'
 import Button from '../components/button'
 import { faStar, faBalanceScale, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
@@ -11,12 +11,6 @@ import ProjectButton from '../components/project-button'
 import { firstImage, removeBadges, Markdown } from '../components/markdown'
 import { type, mutateRepoNames } from '../utils/repo'
 import dlv from 'dlv'
-
-const icon = css`
-  .img {
-    border-radius: 0 !important;
-  }
-`
 
 const container = css`
   margin-bottom: 10px;
@@ -57,7 +51,6 @@ class Projects extends Component {
       if (!name) return null
       return (
         <div key={name} css={container}>
-          <Global styles={[icon]} />
           <div key={`${name}-info`} css={start}>
             <h2><Link to={`/projects/${repo.name}`}>{name}</Link></h2>
             <Description text={repo.description} />
