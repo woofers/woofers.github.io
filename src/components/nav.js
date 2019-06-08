@@ -1,6 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { useStaticQuery, graphql, Link } from 'gatsby'
+import { camelCaseToPascalCase } from '../utils/case'
 
 const navStyle = theme => css`
   display: flex;
@@ -43,7 +44,7 @@ export const Nav = p => {
               key={link}
               activeStyle={{ borderColor: 'initial' }}
             >
-              {name}
+              {camelCaseToPascalCase(name)}
             </Link>
           )
         })
