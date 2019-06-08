@@ -1,6 +1,8 @@
 
 const json = require('./package.json')
 const name = json.author
+const remote = /(\/\/github.com\/)(.*)(\.git$)/g
+const repo = remote.exec(json.repository.url)[2]
 const home = '/'
 
 module.exports = {
@@ -9,7 +11,7 @@ module.exports = {
     siteUrl: json.homepage,
     author: name,
     description: json.description,
-    repo: json.repo,
+    repo,
     social: {
       github: {
         name: 'GitHub',
