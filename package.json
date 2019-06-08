@@ -4,7 +4,6 @@
   "version": "3.0.0",
   "author": "Jaxson Van Doorn",
   "homepage": "https://jaxson.vandoorn.ca",
-  "repo": "woofers/woofers.github.io",
   "dependencies": {
     "@babel/core": "^7.4.5",
     "@emotion/core": "^10.0.9",
