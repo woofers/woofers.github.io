@@ -12,6 +12,10 @@ import { firstImage, removeBadges, Markdown } from '../components/markdown'
 import { type, mutateRepoNames } from '../utils/repo'
 import dlv from 'dlv'
 
+const push = theme => css`
+  padding-top: ${theme.margins.small};
+`
+
 const container = css`
   margin-bottom: 10px;
   display: flex;
@@ -66,9 +70,11 @@ class Projects extends Component {
       )
     })
     return (
-      <Page title='Projects' site={title}>
-        {Repos}
-      </Page>
+      <div css={push}>
+        <Page title='Projects' site={title}>
+          {Repos}
+        </Page>
+      </div>
     )
   }
 }
