@@ -32,10 +32,18 @@ const start = css`
 const end = css`
   align-content: flex-end;
   align-self: center;
+  @media screen and (max-width: 1000px) {
+    margin-right: auto;
+    margin-left: auto;
+  }
   img {
-    margin: 10px 0;
-    max-width: 500px;
-    max-height: 400px;
+    margin: 10px auto;
+    max-height: 600px
+    display: block;
+    @media screen and (min-width: 1000px) {
+      max-width: 500px;
+      max-height: 400px;
+    }
   }
 `
 
