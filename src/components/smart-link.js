@@ -8,15 +8,19 @@ import { OutboundLink } from 'gatsby-plugin-google-analytics'
 // Adapted from: https://www.gatsbyjs.org/docs/gatsby-link/
 const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   const data = useStaticQuery(graphql`{ ...Url, ...Pages }`)
-  const { siteUrl } = data.site.siteMetadata
-  const paths = data.allSitePage.nodes.map(node => node.path)
-  const urlNoHttps = siteUrl.replace('https://', '')
-  const urlHttp = siteUrl.replace('https://', 'http://')
+  let link = to
 
-  let link = to.replace(siteUrl, '').replace(urlHttp, '').replace(urlNoHttps, '')
+  // Use relative links for jaxson.vandoorn.ca for local development
+  if (process.env.NODE_ENV !== 'production') {
+    const { siteUrl } = data.site.siteMetadata
+    const paths = data.allSitePage.nodes.map(node => node.path)
+    const urlNoHttps = siteUrl.replace('https://', '')
+    const urlHttp = siteUrl.replace('https://', 'http://')
 
-  if (!link) link = '/'
-  if (!paths.includes(link)) link = to
+    let link = to.replace(siteUrl, '').replace(urlHttp, '').replace(urlNoHttps, '')
+    if (!link) link = '/'
+    if (!paths.includes(link)) link = to
+  }
 
   // Tailor the following test to your environment.
   // This example assumes that any internal link (intended for Gatsby)
