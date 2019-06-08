@@ -1,4 +1,4 @@
-const changeCase = string => string.replace(/(^.|-(.))/g, g =>  g.replace(/-/g, ' ').toUpperCase())
+import { camelCaseToPascalCase } from './case'
 
 export const mutateRepoNames = (repos, exclude) => {
   const excluded = {}
@@ -8,7 +8,7 @@ export const mutateRepoNames = (repos, exclude) => {
   const replace = name => {
     if (excluded[name]) return excluded[name]
     if (excluded.hasOwnProperty(name)) return ''
-    return changeCase(name)
+    return camelCaseToPascalCase(name)
   }
   for (const edge of repos) {
     const repo = edge.node
