@@ -8,7 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
     const templatesFolder = 'src/templates'
     const templates = {
       blog: path.resolve(`${templatesFolder}/post.js`),
-      page: path.resolve(`${templatesFolder}/page.js`),
+      github: path.resolve(`${templatesFolder}/github.js`),
       game: path.resolve(`${templatesFolder}/game.js`),
       about: path.resolve(`${templatesFolder}/about.js`)
     }
@@ -25,9 +25,15 @@ exports.createPages = ({ graphql, actions }) => {
                   path
                 }
                 meta {
-                  slug
                   type
                 }
+              }
+            }
+          }
+          allRepositories {
+            edges {
+              node {
+                name
               }
             }
           }
@@ -38,20 +44,32 @@ exports.createPages = ({ graphql, actions }) => {
         console.log(result.errors)
       }
 
+      const template = (type) => {
+        if (!type) type = 'blog'
+        return slash(templates[type])
+      }
+
       // Create blog posts pages.
-      result.data.allOrgContent.edges.forEach(edge => {
-        const node = edge.node
+      result.data.allOrgContent.edges.forEach(({ node }) => {
         let path = node.meta.slug
-        const template = (type) => {
-          if (!type) type = 'blog'
-          return slash(templates[type])
-        }
         if (!path) path = node.fields.path
+        if (path.startsWith('/projects/')) path += 'play/'
         createPage({
           path: path,
           component: template(node.meta.type),
           context: {
             slug:  node.fields.slug,
+          },
+        })
+      })
+
+      result.data.allRepositories.edges.forEach(({ node }) => {
+        const repo = node
+        createPage({
+          path: `/projects/${repo.name}`,
+          component: template('github'),
+          context: {
+            repo: repo.name,
           },
         })
       })

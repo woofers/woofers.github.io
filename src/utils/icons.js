@@ -7,10 +7,14 @@ import { faArrowCircleDown,
          faExclamationTriangle,
          faChevronRight,
          faEnvelope,
+         faStar,
+         faScroll,
+         faBalanceScale,
          faArrowUp,
          faArrowLeft,
          faArrowDown,
-         faArrowRight } from '@fortawesome/free-solid-svg-icons'
+         faArrowRight,
+         faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { faGithub,
          faLinkedinIn as faLinkedin,
          faTwitter,
@@ -27,10 +31,14 @@ library.add(faArrowCircleDown,
             faTimesCircle,
             faChevronRight,
             faEnvelope,
+            faStar,
+            faScroll,
+            faBalanceScale,
             faArrowUp,
             faArrowLeft,
             faArrowDown,
-            faArrowRight
+            faArrowRight,
+            faInfoCircle
 )
 
 export const style = css`

@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { Link } from 'gatsby'
+import Link from './smart-link'
 
 const slant = '30px'
 const topRight = '11px'
@@ -34,9 +34,9 @@ export const style = theme => css`
 `
 
 const Button = p => (
-    <span css={style}>
-      <Link style={{...p.style}} to={p.href} role='button'>{p.children}</Link>
-    </span>
+  <span css={style}>
+    <Link style={p.style} to={p.href} role='button'>{p.children}</Link>
+  </span>
 )
 
 export default Button

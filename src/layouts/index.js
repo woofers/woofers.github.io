@@ -91,12 +91,34 @@ const style = theme => css`
 
   pre {
     background: ${theme.colors.codeBackground};
+    color: ${theme.colors.headerText};
   }
 
   code[class*="language-"],
   pre[class*="language-"] {
     background: ${theme.colors.codeBackground} !important;
     font-size: ${theme.fonts.code} !important;
+    color: #aaaaca;
+  }
+
+  .token.function, .token.attr-value {
+    color: #aaaaca;
+  }
+
+  .token.comment {
+    color: #787890;
+  }
+
+  .token.punctuation {
+    color: #8b8bb1;
+  }
+
+  .token.string, .token.number {
+    color: #dd672c;
+  }
+
+  .token.tag {
+    color: #fe8c52;
   }
 `
 
