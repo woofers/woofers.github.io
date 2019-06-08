@@ -2,10 +2,6 @@ import React from 'react'
 import { css } from '@emotion/core'
 import Link from './smart-link'
 
-const slant = '30px'
-const topRight = '11px'
-const bottomLeft = '12px'
-
 export const style = theme => css`
   a[role=button] {
     font-weight: bold;
@@ -16,7 +12,7 @@ export const style = theme => css`
     border: 1px solid ${theme.colors.link} !important;
     color: ${theme.colors.link};
     background: ${theme.colors.button};
-    border-radius: ${slant} ${topRight} ${slant} ${bottomLeft};
+    border-radius: ${theme.margins.image};
     transition: ${theme.transitions.hover} !important;
     transition-duration: 0.425s !important;
     &:hover {
