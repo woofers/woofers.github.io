@@ -80,7 +80,9 @@ export const Markdown = p => {
       display: none;
     }
     p img {
-      margin-right: ${theme.margins.large};
+      @media screen and (min-width: 1000px) {
+        margin-right: ${theme.margins.large};
+      }
       margin-bottom: ${theme.margins.normal};
     }
     ${p.centerImages ? centerImage : ''}
