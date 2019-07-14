@@ -29,10 +29,6 @@ const pico = theme => css`
 
 const Pico8 = p => (
   <P8 src={p.src}
-      autoPlay={true}
-      legacyButtons={false}
-      hideCursor={false}
-      blockKeys={false}
       center={true}
       placeholder={p.placeholder}
       css={pico}

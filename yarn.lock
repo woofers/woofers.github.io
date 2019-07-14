@@ -9736,10 +9736,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-pico-8@^2.4.2:
-  version "2.4.2"
-  resolved "https://registry.yarnpkg.com/react-pico-8/-/react-pico-8-2.4.2.tgz#61e470f35c5da6f9c93cb65d5cb21781fe685e79"
-  integrity sha512-FTYPj1CEF6s8ODjbbbfupDhIrw9V6c/MGSSoFjm6OWodj/w2C/n3FBFWHo5x3GTsgmBoD4u06ZLtEutWwyjXqw==
+react-pico-8@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/react-pico-8/-/react-pico-8-3.0.0.tgz#856139233661971225ee96d5f79da79c96bbcecd"
+  integrity sha512-6lLsf1h9g6Ud6bfya2a3vUZC+qNnilA8H+LCcv18YcSqTpOPL5hMKksuon2ZA51MYyaTSFXj07S3NkkwHXaf8A==
   dependencies:
     "@emotion/core" "^10.0.14"
     emotion "^10.0.14"
