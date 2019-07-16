@@ -48,7 +48,7 @@
     "react-dom": "^16.8.4",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.1",
-    "react-pico-8": "^2.4.2",
+    "react-pico-8": "^3.0.0",
     "react-rotating-text": "https://github.com/woofers/react-rotating-text",
     "react-switch": "woofers/react-switch#dist",
     "react-typography": "^0.16.19",
