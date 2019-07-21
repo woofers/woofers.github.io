@@ -17,7 +17,7 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
     const urlNoHttps = siteUrl.replace('https://', '')
     const urlHttp = siteUrl.replace('https://', 'http://')
 
-    let link = to.replace(siteUrl, '').replace(urlHttp, '').replace(urlNoHttps, '')
+    link = to.replace(siteUrl, '').replace(urlHttp, '').replace(urlNoHttps, '')
     if (!link) link = '/'
     if (!paths.includes(link)) link = to
   }
