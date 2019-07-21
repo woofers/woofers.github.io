@@ -7,9 +7,6 @@ const CodeBlock = p => {
   useEffect(() => {
     const code = () => ref.current.children[0]
     const lang = code().className
-    if (lang === 'language-js') {
-      code().className = `${lang}x`
-    }
     if (lang) window.Prism.highlightElement(code(), false)
     ref.current.removeAttribute('class')
   })
