@@ -11,15 +11,20 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   let link = to
 
   // Use relative links for jaxson.vandoorn.ca for local development
-  if (process.env.NODE_ENV !== 'production') {
-    const { siteUrl } = data.site.siteMetadata
-    const paths = data.allSitePage.nodes.map(node => node.path)
-    const urlNoHttps = siteUrl.replace('https://', '')
-    const urlHttp = siteUrl.replace('https://', 'http://')
+  const { siteUrl } = data.site.siteMetadata
+  const paths = data.allSitePage.nodes.map(node => node.path)
+  const urlNoHttps = siteUrl.replace('https://', '')
+  const urlHttp = siteUrl.replace('https://', 'http://')
 
-    let link = to.replace(siteUrl, '').replace(urlHttp, '').replace(urlNoHttps, '')
-    if (!link) link = '/'
-    if (!paths.includes(link)) link = to
+  link = to.replace(siteUrl, '').replace(urlHttp, '').replace(urlNoHttps, '')
+  if (!link) link = '/'
+
+  if (!paths.includes(link)) {
+    return (
+      <OutboundLink href={to} {...other}>
+        {children}
+      </OutboundLink>
+    )
   }
 
   // Tailor the following test to your environment.
@@ -41,9 +46,9 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
     )
   }
   return (
-    <OutboundLink href={link} {...other}>
+    <a href={link} {...other}>
       {children}
-    </OutboundLink>
+    </a>
   )
 }
 
