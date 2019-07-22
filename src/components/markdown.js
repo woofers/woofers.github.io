@@ -11,6 +11,7 @@ import CodeBlock from './code-block'
 import { image } from '../styles/center'
 import github from 'hast-util-sanitize/lib/github'
 import merge from 'lodash.merge'
+import Link from './smart-link'
 const schema = merge(github, { attributes: { '*': ['className', 'type'] } })
 
 export const onlyImages = () => {
@@ -56,7 +57,10 @@ export const Markdown = p => {
   }
   const content = () => {
     let md = remark().use(remark2react, {
-      remarkReactComponents: { pre: CodeBlock },
+      remarkReactComponents: {
+        pre: CodeBlock,
+        a: p => <Link to={p.href}>{p.children}</Link>
+      },
       sanitize: schema
     })
     md = md.use(() => links({ alt: p.alt }))
