@@ -19,10 +19,12 @@ const pico = theme => css`
     border-radius: 0;
     max-width: none;
   }
-  #p8_start_button {
-    border-radius: ${theme.margins.image};
-    img {
-     margin-bottom: auto;
+  #p8_container {
+    > button {
+      border-radius: ${theme.margins.image};
+      img {
+       margin-bottom: auto;
+      }
     }
   }
 `
