@@ -1981,10 +1981,10 @@ ajv@^6.1.0, ajv@^6.5.5, ajv@^6.9.1:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-alien-expansion@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/alien-expansion/-/alien-expansion-1.1.2.tgz#a326f36523e6c97ea6a4c5041f8c737ab8ed1d38"
-  integrity sha512-uBXbVdiDlEmD6nc7710iUrr/iSsLl4VtjFzJ6/oicr16YWMmxKKiyBcMwCuo967I1Fu9V+++vhvob8wLYjBkrw==
+alien-expansion@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/alien-expansion/-/alien-expansion-1.2.0.tgz#87248adf9343362892cce02fecc66edff3dd60e6"
+  integrity sha512-ClieKqjdJ1FAvSE9yHHTiHTQMeeFlwyxbXQ1P7TVWanTviJe6bota6RmgjAXBn5MCRW2LHtMqFMo1gb3hBLy7w==
   dependencies:
     luamin "^1.0.4"
     p8 "0.0.6"
