@@ -48,6 +48,7 @@
     "react-dom": "^16.8.4",
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.1",
+    "react-ludum-dare": "^1.0.0",
     "react-pico-8": "^3.1.0",
     "react-rotating-text": "woofers/react-rotating-text#master",
     "react-switch": "woofers/react-switch#dist",

@@ -3,6 +3,7 @@ import { css } from '@emotion/core'
 import { Content } from '../components/content'
 import { Frame } from '../components/frame'
 import Pico8 from '../components/pico-8'
+import Widget from './ludum-dare'
 
 const grid = css`
   display: grid;
@@ -21,5 +22,6 @@ export const Game = p => (
         />
     }
     <Content html={p.instruction} />
+    { p.ludumDare ? <Widget game={p.ludumDare} /> : null }
   </div>
 )
