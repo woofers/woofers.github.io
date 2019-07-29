@@ -7,6 +7,7 @@
 #+PLACEHOLDER: game/placeholder.png
 #+LANDSCAPE: nil
 #+GAME: game/index.js
+#+LUDUM_DARE: 44/alien-e-x-p-a-n-s-i-o-n
 
 ** Instructions
 

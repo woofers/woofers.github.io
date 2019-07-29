@@ -10,6 +10,7 @@ export const content = graphql`
       type
       icon_mode
       icon_type
+      ludum_dare
       placeholder
       game
       landscape

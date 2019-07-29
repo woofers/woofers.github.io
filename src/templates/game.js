@@ -13,6 +13,7 @@ class GameTemplate extends Component {
     const { projects } = this.props.data.site.siteMetadata.nav
     const iconMode = post.meta.icon_mode
     const iconType = post.meta.icon_type
+    const ludumDare = post.meta.ludum_dare
     const links = [{ name: 'Projects', link: projects},
                    { name: title, link: path },
                    { name: 'Play' }]
@@ -26,6 +27,7 @@ class GameTemplate extends Component {
               portrait={landscape === 'nil'}
               instruction={post.html}
               lang={lang}
+              ludumDare={ludumDare}
               placeholder={placeholder} />
       </Page>
     )
