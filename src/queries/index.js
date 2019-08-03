@@ -14,8 +14,6 @@ export const content = graphql`
       placeholder
       game
       landscape
-      profile_alt
-      profile
       lang
     }
     fields {
