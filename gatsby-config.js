@@ -43,15 +43,20 @@ module.exports = {
       about: '/about/',
     },
     exclude: [
-      ['woofers.github.io', 'jaxson.vandoorn.ca'],
       ['woofers3d', 'Woofers 3D'],
       ['ludum-dare-44', 'ALIEN, e x p a n s i o n .'],
-      ['libgdx-tools-installer', 'LibGDX Tools Installer'],
       ['react-pico-8', 'React PICO-8'],
+      ['woofers.github.io'],
+      ['kangaroo-country'],
       ['chess'],
+      ['resume'],
       ['java-formatter'],
       ['battlesnake-2018'],
       ['battlesnake-java-template'],
+      ['libgdx-tools-installer'],
+      ['challenger-deep-rofi'],
+      ['dotfiles'],
+      ['k9-krew'],
     ]
   },
   plugins: [

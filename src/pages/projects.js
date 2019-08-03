@@ -38,11 +38,11 @@ const end = css`
   }
   img {
     margin: 10px auto;
-    max-height: 600px
+    max-height: 600px;
     display: block;
     @media screen and (min-width: 1000px) {
       max-width: 500px;
-      max-height: 400px;
+      max-height: 405px;
     }
   }
 `
