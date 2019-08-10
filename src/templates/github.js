@@ -9,7 +9,7 @@ import { mutateRepoNames } from '../utils/repo'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import dlv from 'dlv'
-import PageLink from '../components/page-link'
+import PageLink from '../components/button'
 import ProjectButton from '../components/project-button'
 import { type } from '../utils/repo'
 
