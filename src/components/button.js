@@ -15,14 +15,14 @@ const Container = p => {
   return (<div css={style}>{p.children}</div>)
 }
 
-const PageLink = p => (
+const Button = p => (
   <Container inline={p.inline} align={p.align}>
     <Link style={p.style} to={p.href}>{p.children}</Link>
   </Container>
 )
 
-PageLink.defaultProps = {
+Button.defaultProps = {
   align: 'right'
 }
 
-export default withTheme(PageLink)
+export default withTheme(Button)

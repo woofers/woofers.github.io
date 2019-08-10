@@ -1,7 +1,7 @@
 import React from 'react'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle, faScroll } from '@fortawesome/free-solid-svg-icons'
-import Button from './page-link'
+import Button from './button'
 
 const ProjectButton = p => {
   if (p.type === 'game') return (<Button {...p}><Icon icon={faPlayCircle}/> Play</Button>)
