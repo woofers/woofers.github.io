@@ -8,7 +8,6 @@ import Footer from '../components/footer'
 import { Social } from '../components/social'
 import { light, dark } from '../themes'
 import { Nav } from '../components/nav'
-import { style as buttonStyle } from '../components/button'
 import 'prism-themes/themes/prism-duotone-space.css'
 import { icons, style as iconsStyle } from '../utils/icons'
 import { ThemeProvider, withTheme } from 'emotion-theming'
@@ -157,7 +156,7 @@ const Site = withTheme(p => {
           />
         </Nav>
       </Header>
-      <Global styles={[global, buttonStyle(p.theme), iconsStyle]} />
+      <Global styles={[global, iconsStyle]} />
       <div css={style}>
         <main css={divStyle}>
           {p.children}

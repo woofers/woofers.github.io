@@ -7,7 +7,7 @@ import { faUser, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons'
 import { css } from '@emotion/core'
 import { Profile } from '../components/profile'
-import Button from '../components/page-link'
+import Button from '../components/button'
 
 const profile = css`
   img {

@@ -1,38 +1,28 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import Link from './smart-link'
+import { withTheme } from 'emotion-theming'
 
-export const style = theme => css`
-  a[role=button] {
-    font-weight: bold;
-    font-family: 'Raleway',sans-serif;
-    display: inline-block;
-    padding: ${theme.margins.normal} !important;
-    margin: ${theme.margins.extraSmall};
-    border: 1px solid ${theme.colors.link} !important;
-    color: ${theme.colors.link};
-    background: ${theme.colors.button};
-    border-radius: ${theme.margins.image};
-    transition: ${theme.transitions.hover} !important;
-    transition-duration: 0.425s !important;
-    &:hover {
-      color: ${theme.colors.background};
-      background: ${theme.colors.header};
-      border-color: rgba(0, 0, 0, 0);
-    }
-    &:focus, &:hover, &:visited, &:link, &:active {
-      text-decoration: none;
-    }
-    * {
-      margin-right: ${theme.margins.superSmall};
-    }
-  }
-`
+const Container = p => {
+  const style = theme => css`
+    text-align: ${p.align};
+    display: ${p.inline ? 'inline-block' : 'block'};
+    margin-bottom: ${theme.margins.extraSmall};
+    margin-right: ${p.inline ? theme.margins.large : 0};
+    margin-top: ${p.inline ? theme.margins.medium : 0};
+  `
+  if (p.inline) return (<span css={style}>{p.children}</span>)
+  return (<div css={style}>{p.children}</div>)
+}
 
 const Button = p => (
-  <span css={style}>
-    <Link style={p.style} to={p.href} role='button'>{p.children}</Link>
-  </span>
+  <Container inline={p.inline} align={p.align}>
+    <Link style={p.style} to={p.href}>{p.children}</Link>
+  </Container>
 )
 
-export default Button
+Button.defaultProps = {
+  align: 'right'
+}
+
+export default withTheme(Button)
