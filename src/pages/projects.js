@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import { Page } from '../components/page'
-import Button from '../components/button'
+import Button from '../components/page-link'
 import { faStar, faBalanceScale, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import Link from '../components/smart-link'
@@ -69,7 +69,7 @@ class Projects extends Component {
             {license && license !== 'Other' ? <h4><Icon icon={faBalanceScale}/> {license}</h4> : null}
             {stars ? <h4><Icon icon={faStar}/> {stars}</h4> : null }
             {url ? <ProjectButton href={url} type={type(repo)} /> : null}
-            <Button href={`/projects/${repo.name}/`}><Icon icon={faInfoCircle}/> More Info</Button>
+            <Button inline={true} align="left" href={`/projects/${repo.name}/`}><Icon icon={faInfoCircle}/> More Info</Button>
           </div>
           <div key={`${name}-image`} css={end}>
             <Markdown alt={name} content={md} repo={repo} centerImages={false} filters={[removeBadges, firstImage]} />
