@@ -24,7 +24,7 @@ export const AboutProfile = p => {
     @media screen and (max-width: 700px) {
       float: none;
       margin: 1em auto !important;
-      width: 50%;
+      text-align: center;
     }
   `
   return <span css={shift}><Profile {...p} /></span>
