@@ -16,6 +16,6 @@ Here are some open source software projects I have authored:
 - [[https://github.com/woofers/whale][Whale]], a nautical mobile arcade game written in /Haxe/.
 - [[https://github.com/woofers/fox-hole][Fox Hole]], an innovative proof-of-concept side-scroller experience.
 
-More projects can be found on my [[https://github.com/woofers][GitHub]], along with my [[https://github.com/woofers/resume/blob/master/examples/latex/resume.pdf][resume]].
+More projects can be found on my [[https://github.com/woofers][GitHub]], along with my [[/about/resume.pdf][resume]].
 
 If you need to get in touch or have any question regarding the content on this site, I can be contacted through [[mailto:jaxson.vandoorn@gmail.com][jaxson.vandoorn@gmail.com]].
