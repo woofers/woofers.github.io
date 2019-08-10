@@ -9,12 +9,6 @@ import { css } from '@emotion/core'
 import { Profile } from '../components/profile'
 import Button from '../components/button'
 
-const profile = css`
-  img {
-    border-radius: 125px !important;
-  }
-`
-
 const text = theme => css`
   h1:first-of-type {
     font-size: ${theme.fonts.splash}
@@ -103,7 +97,7 @@ class Splash extends Component {
               {' '}for the modern world
             </h1>
           </div>
-          <div css={profile}><Profile width="250px" height="250px" /></div>
+          <Profile />
         </div>
         <div css={nav}>
           <Button href={projects}><Icon icon={faNewspaper}/> Check out my Projects</Button>

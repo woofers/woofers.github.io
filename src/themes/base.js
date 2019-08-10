@@ -21,7 +21,8 @@ const margins = {
   },
   items: '12px',
   itemsSmall: '6px',
-  profile: '265px',
+  profile: '250px',
+  profileRadius: '125px',
   image: '20px'
 }
 

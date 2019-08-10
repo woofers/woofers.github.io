@@ -2,9 +2,10 @@ import React from 'react'
 import { css } from '@emotion/core'
 
 const GenericProfile = p => {
-  const photo = css`
-    max-width: ${p.width};
-    max-height: ${p.height};
+  const photo = theme => css`
+    border-radius: ${theme.margins.profileRadius} !important;
+    max-width: ${theme.margins.profile};
+    max-height: ${theme.margins.profile};
   `
   return (
     <img css={photo} src={p.img} alt={p.alt} />
