@@ -29,7 +29,7 @@ class BlogIndex extends React.Component {
     const site = siteMeta.title
     const nav = siteMeta.nav
     const _posts = this.sortedPosts().map (({ node }) => {
-      const path = node.fields.path
+      const path = node.fields.slug
       const meta = node.meta
       const title = meta.title || path
       const include = nav.blog
@@ -40,13 +40,13 @@ class BlogIndex extends React.Component {
       return (
         <div css={ theme => ({ marginBottom: theme.margins.medium }) } key={path}>
           <h1 css={ theme => ({ marginBottom: theme.margins.superSmall }) }>
-            <Link css={ theme => ({ lineHeight: theme.fonts.large }) } to={node.fields.path}>{title}</Link>
+            <Link css={ theme => ({ lineHeight: theme.fonts.large }) } to={node.fields.slug}>{title}</Link>
           </h1>
           {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
           { preview.length ?
             <div>
               <Content html={preview.html()} />
-              <Link css={ theme => ({ color: `${theme.colors.text} !important` }) } to={node.fields.path}
+              <Link css={ theme => ({ color: `${theme.colors.text} !important` }) } to={node.fields.slug}
                     aria-label={`${continueReading} ${title}`}>
                   {continueReading} . . .
               </Link>
