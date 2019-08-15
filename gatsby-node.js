@@ -19,7 +19,6 @@ exports.createPages = ({ graphql, actions }) => {
               node {
                 fields {
                   slug
-                  path
                 }
                 meta {
                   type
@@ -46,7 +45,7 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create pages from Org content
       result.data.allOrgContent.edges.forEach(({ node }) => {
-        let path = node.meta.slug || node.fields.path
+        let path = node.meta.slug || node.fields.slug
         if (path.startsWith('/projects/')) path += 'play/'
         createPage({
           path: path,
@@ -88,10 +87,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   ) {
     let fileNode = getNode(node.parent)
     fileNode = getNode(fileNode.parent)
-    createNodeField({
-      node,
-      name: `path`,
-      value: fileNode.fields.slug
-    })
+    const { slug } = fileNode.fields
+    createNodeField({ node, name: `slug`, value: slug })
   }
 }
