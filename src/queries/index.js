@@ -18,7 +18,6 @@ export const content = graphql`
     }
     fields {
       slug
-      path
     }
   }
 `

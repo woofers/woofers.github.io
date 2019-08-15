@@ -8,7 +8,7 @@ import { graphql } from 'gatsby'
 class GameTemplate extends Component {
   render() {
     const post = this.props.data.orgContent
-    const { path } = post.fields
+    const path = post.fields.slug
     const { title, date, icon, landscape, lang, game, placeholder } = post.meta
     const { projects } = this.props.data.site.siteMetadata.nav
     const iconMode = post.meta.icon_mode
