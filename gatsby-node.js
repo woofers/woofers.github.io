@@ -88,10 +88,8 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   ) {
     let fileNode = getNode(node.parent)
     fileNode = getNode(fileNode.parent)
-    createNodeField({
-      node,
-      name: `path`,
-      value: fileNode.fields.slug
-    })
+    const { slug } = fileNode.fields
+    createNodeField({ node, name: `slug`, value: slug })
+    createNodeField({ node, name: `path`, value: slug })
   }
 }
