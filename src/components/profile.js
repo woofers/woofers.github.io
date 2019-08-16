@@ -28,5 +28,5 @@ export const AboutProfile = p => {
       text-align: center;
     }
   `
-  return <span css={shift}><Profile {...p} /></span>
+  return <span css={shift}><Profile {...p} />{p.children}</span>
 }
