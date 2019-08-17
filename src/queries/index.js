@@ -90,6 +90,7 @@ export const social = graphql`
   fragment Social on Query {
     site {
       siteMetadata {
+        resume
         social {
           github {
             name
