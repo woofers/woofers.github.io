@@ -11,6 +11,6 @@ Currently studying my *3rd* year of /Computer Science/ at [[https://uvic.ca][Uni
 
 You can find some of my [[/projects/][projects]] on this site.
 
-More projects can be found on my [[https://github.com/woofers][GitHub]], along with my [[/about/resume.pdf][resume]].
+More projects can be found on my [[https://github.com/woofers][GitHub]], along with my [[https://jaxson.vandoorn.ca/resume/jaxsonvd-resume.pdf][resume]].
 
 If you need to get in touch or have any question regarding the content on this site, I can be contacted through [[mailto:jaxson.vandoorn@gmail.com][jaxson.vandoorn@gmail.com]].

@@ -12,14 +12,14 @@ import Button from '../components/button'
 class AboutTemplate extends Component {
   render() {
     const post = this.props.data.orgContent
-    const { social } = this.props.data.site.siteMetadata
+    const { social, resume } = this.props.data.site.siteMetadata
     const { github } = social
     const { margins } = this.props.theme
     return (
       <Page title={post.meta.title} site={this.props.data.site.siteMetadata.title}>
         <Profile width={margins.profile} height={margins.profile} >
           <Button href={github.link}><Icon icon={faGithub}/> {github.name}</Button>
-          <Button href="resume.pdf"><Icon icon={faScroll}/> Resume</Button>
+          <Button href={resume}><Icon icon={faScroll}/> Resume</Button>
         </Profile>
         <Content html={post.html} hideTitle={true} />
       </Page>
