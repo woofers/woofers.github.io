@@ -103,6 +103,7 @@ export const social = graphql`
           twitter {
             name
             link
+            handle
           }
           linkedin {
             name

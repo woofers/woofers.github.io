@@ -47,6 +47,7 @@ module.exports = {
       ['woofers3d', 'Woofers 3D'],
       ['ludum-dare-44', 'ALIEN, e x p a n s i o n .'],
       ['react-pico-8', 'React PICO-8'],
+      ['ludum-dare-badges'],
       ['woofers.github.io'],
       ['kangaroo-country'],
       ['chess'],
