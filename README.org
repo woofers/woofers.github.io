@@ -4,11 +4,11 @@
 #+OPTIONS:  num:nil toc:nil
 * [[https://jaxson.vandoorn.ca][jaxson.vandoorn.ca]]
 
+[[https://github.com/woofers/ludum-dare-badges/actions][https://github.com/woofers/woofers.github.io/workflows/build/badge.svg]]
+
 A [[https://www.gatsbyjs.org/][Gatsby]] based site built using static [[https://orgmode.org/][Org Mode]] content with [[https://github.com/xiaoxinghu/orgajs][Orga]].
 
 Automated deploy to [[https://pages.github.com/][Github Pages]] is configured using [[https://github.com/features/actions][GitHub Actions]].
-
-[[https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/woofers/woofers.github.io?branch=development][https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/woofers/woofers.github.io?branch=development]]
 
 * Goals
 1) Be easy to update and maintain content.  Ideally with simple [[https://orgmode.org/][Org Mode]] markup.

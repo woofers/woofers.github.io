@@ -2,11 +2,11 @@
 
 # [jaxson.vandoorn.ca](https://jaxson.vandoorn.ca)
 
+[![img](https://github.com/woofers/woofers.github.io/workflows/build/badge.svg)](https://github.com/woofers/ludum-dare-badges/actions)
+
 A [Gatsby](https://www.gatsbyjs.org/) based site built using static [Org Mode](https://orgmode.org/) content with [Orga](https://github.com/xiaoxinghu/orgajs).
 
 Automated deploy to [Github Pages](https://pages.github.com/) is configured using [GitHub Actions](https://github.com/features/actions).
-
-[![Build Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/woofers/woofers.github.io?branch=development)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/woofers/woofers.github.io?branch=development)
 
 
 # Goals
