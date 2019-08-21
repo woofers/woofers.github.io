@@ -1567,6 +1567,11 @@
   dependencies:
     "@hapi/hoek" "8.x.x"
 
+"@ludum-dare-badges/react@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@ludum-dare-badges/react/-/react-1.0.0.tgz#c774becc0afea18585c144a45c74a15492eecf43"
+  integrity sha512-X6hjvMeMTqTWHt/Tv8EZZAkFeWKfmgYHd8QjnXwD5TD15wMfEc1ShQSF1FfyuAWyKaSmkUgOryqVNbcfLufD7g==
+
 "@mapbox/hast-util-table-cell-style@^0.1.3":
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/@mapbox/hast-util-table-cell-style/-/hast-util-table-cell-style-0.1.3.tgz#5b7166ae01297d72216932b245e4b2f0b642dca6"

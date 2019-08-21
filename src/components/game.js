@@ -3,7 +3,7 @@ import { css } from '@emotion/core'
 import { Content } from '../components/content'
 import { Frame } from '../components/frame'
 import Pico8 from '../components/pico-8'
-import Widget from './ludum-dare'
+import Widget from '@ludum-dare-badges/react'
 
 const grid = css`
   display: grid;

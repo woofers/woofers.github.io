@@ -13,6 +13,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@fortawesome/react-fontawesome": "^0.1.4",
+    "@ludum-dare-badges/react": "^1.0.0",
     "alien-expansion": "^1.2.0",
     "cheerio": "^1.0.0-rc.2",
     "dlv": "^1.1.3",
