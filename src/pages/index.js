@@ -8,6 +8,7 @@ import { faNewspaper } from '@fortawesome/free-regular-svg-icons'
 import { css } from '@emotion/core'
 import { Profile } from '../components/profile'
 import Button from '../components/button'
+import { Page } from '../components/page'
 
 const text = theme => css`
   h1:first-of-type {
@@ -82,7 +83,7 @@ class Splash extends Component {
     const emptyStop = 500
     const { about, blog, projects } = this.props.data.site.siteMetadata.nav
     return (
-      <div>
+      <Page title={this.props.data.site.siteMetadata.title}>
         <div css={flex}>
           <div css={text}>
             <h1>Hey I'm{' '}<Link to={about}>Jaxson Van Doorn</Link></h1>
@@ -104,11 +105,11 @@ class Splash extends Component {
           <Button href={blog}><Icon icon={faPencilAlt}/> Read my Blog</Button>
           <Button href={about}><Icon icon={faUser}/> Learn About me</Button>
         </div>
-      </div>
+      </Page>
     )
   }
 }
 
 export default Splash
 
-export const pageQuery = graphql`{ ...Nav }`
+export const pageQuery = graphql`{ ...Title, ...Nav }`

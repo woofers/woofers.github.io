@@ -1,4 +1,4 @@
-#+TITLE: Simple NPM package deployment using YAML GitHub Actions
+#+TITLE: NPM package deployment using YAML GitHub Actions
 #+DATE: August 21, 2019
 
 Recently [[http://github.com][GitHub]] announced that [[https://github.com/features/actions][GitHub Actions]] will be [[https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/][moving away]] from the original [[https://github.com/hashicorp/hcl][HCL]] syntax in-favour of a [[https://yaml.org/][YAML]] format
