@@ -63,7 +63,7 @@
     "unist-util-select": "^2.0.2",
     "unist-util-visit": "^1.4.1",
     "whale-dive": "^1.1.1",
-    "with-utterances": "^1.4.1"
+    "with-utterances": "https://github.com/woofers/withUtterances"
   },
   "repository": {
     "type": "git",

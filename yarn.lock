@@ -12708,10 +12708,9 @@ with-open-file@^0.1.6:
     p-try "^2.1.0"
     pify "^4.0.1"
 
-with-utterances@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/with-utterances/-/with-utterances-1.4.1.tgz#2c3e375cbd2c6470e06db0890231b0912a033a72"
-  integrity sha512-x2REOMubLoDg99VY0VtHgoRUnX5XRG9GLQJqMZDz1Fo4LNFqll/PVogRiFmi7YDI2EHXdCBs+4gl4ETZTn5GmA==
+"with-utterances@https://github.com/woofers/withUtterances":
+  version "1.5.0"
+  resolved "https://github.com/woofers/withUtterances#8a2bc904cf6a65a69be8d9851c45508a2144454f"
 
 wordwrap@~1.0.0:
   version "1.0.0"
