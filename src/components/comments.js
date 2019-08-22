@@ -15,7 +15,7 @@ const style = css`
 const utterances = (Page, theme) => {
   const { repo } = useStaticQuery(graphql`{ ...Repo }`).site.siteMetadata
   return withUtterances(
-    Page, repo, theme || 'github-light', 'og:title'
+    Page, repo, theme || 'github-light', 'og:title', 'comments'
   )
 }
 
