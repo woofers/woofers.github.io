@@ -2,7 +2,7 @@
 
 # [jaxson.vandoorn.ca](https://jaxson.vandoorn.ca)
 
-[![img](https://github.com/woofers/woofers.github.io/workflows/build/badge.svg)](https://github.com/woofers/ludum-dare-badges/actions)
+[![img](https://github.com/woofers/woofers.github.io/workflows/build/badge.svg)](https://github.com/woofers/woofers.github.io/actions)
 
 A [Gatsby](https://www.gatsbyjs.org/) based site built using static [Org Mode](https://orgmode.org/) content with [Orga](https://github.com/xiaoxinghu/orgajs).
 
