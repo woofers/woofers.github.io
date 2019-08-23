@@ -4,7 +4,7 @@
 #+OPTIONS:  num:nil toc:nil
 * [[https://jaxson.vandoorn.ca][jaxson.vandoorn.ca]]
 
-[[https://github.com/woofers/ludum-dare-badges/actions][https://github.com/woofers/woofers.github.io/workflows/build/badge.svg]]
+[[https://github.com/woofers/woofers.github.io/actions][https://github.com/woofers/woofers.github.io/workflows/build/badge.svg]]
 
 A [[https://www.gatsbyjs.org/][Gatsby]] based site built using static [[https://orgmode.org/][Org Mode]] content with [[https://github.com/xiaoxinghu/orgajs][Orga]].
 
