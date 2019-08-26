@@ -44,6 +44,7 @@ module.exports = {
       about: '/about/',
     },
     exclude: [
+      ['discord-jam-2', 'DOGE: BOIS'],
       ['woofers3d', 'Woofers 3D'],
       ['ludum-dare-44', 'ALIEN, e x p a n s i o n .'],
       ['react-pico-8', 'React PICO-8'],

@@ -16,3 +16,7 @@ mkdir -p static/projects/ludum-dare-44/play/game
 cp -r node_modules/alien-expansion/dist/. static/projects/ludum-dare-44/play/game
 cp -r node_modules/alien-expansion/favicon.png static/projects/ludum-dare-44/play/game/.
 cp -r node_modules/alien-expansion/placeholder.png static/projects/ludum-dare-44/play/game/.
+
+# DOGE
+mkdir -p static/projects/discord-jam-2/play/game
+cp -r node_modules/doge-bois/dist/. static/projects/discord-jam-2/play/game
