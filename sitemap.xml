@@ -3,9 +3,11 @@
 <url> <loc>https://jaxson.vandoorn.ca/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jaxson.vandoorn.ca/blog/anchors-in-bitbucket/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jaxson.vandoorn.ca/blog/yaml-github-actions/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jaxson.vandoorn.ca/projects/discord-jam-2/play/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jaxson.vandoorn.ca/projects/fox-hole/play/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jaxson.vandoorn.ca/projects/ludum-dare-44/play/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jaxson.vandoorn.ca/projects/whale/play/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://jaxson.vandoorn.ca/projects/discord-jam-2/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jaxson.vandoorn.ca/projects/opengraph-api/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jaxson.vandoorn.ca/projects/ludum-dare-badges/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://jaxson.vandoorn.ca/projects/react-ludum-dare/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
