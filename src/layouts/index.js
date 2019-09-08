@@ -153,6 +153,7 @@ const Site = withTheme(p => {
       <Header name={title} link={home}>
         <Nav>
           <Switch
+            label={`Switch to ${p.nextTheme().name} theme`}
             checked={p.theme.name === 'dark'}
             onChange={p.toggleTheme}
           />
@@ -179,9 +180,12 @@ const Template = ({ children }) => {
   const setThemeCookie = (value) => setCookie(cookieName, value, { path: '/' })
   const themeCookie = cookies[cookieName]
   const [theme, setTheme] = useState(defaultTheme)
-  const toggleTheme = () => {
+  const nextTheme = () => {
     const nextThemes = Object.values(themes).filter(t => t.name !== theme.name)
-    const newTheme = nextThemes[0] ? nextThemes[0] : defaultTheme;
+    return nextThemes[0] ? nextThemes[0] : defaultTheme;
+  }
+  const toggleTheme = () => {
+    const newTheme = nextTheme()
     setTheme(newTheme)
     setThemeCookie(newTheme.name)
   }
@@ -190,7 +194,8 @@ const Template = ({ children }) => {
     <CookiesProvider>
       <ThemeProvider theme={theme}>
         <Site children={children}
-              toggleTheme={toggleTheme} />
+              toggleTheme={toggleTheme}
+              nextTheme={nextTheme} />
       </ThemeProvider>
     </CookiesProvider>
   )

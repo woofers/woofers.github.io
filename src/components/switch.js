@@ -18,6 +18,7 @@ const Switch = p => {
     <span style={p.style} css={p.css}>
       <ReactSwitch
         checked={p.checked}
+        aria-checked={p.checked}
         onChange={p.onChange}
         onColor={dark.colors.switchBackground}
         offColor={light.colors.switchBackground}
@@ -30,6 +31,8 @@ const Switch = p => {
         activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
         height={p.height * scale}
         width={p.width * scale}
+        aria-label={p.label}
+        role="switch"
       />
     </span>
   )
