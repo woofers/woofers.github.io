@@ -122,7 +122,7 @@ const style = theme => css`
 `
 
 const Site = withTheme(p => {
-  const { title, home } = useStaticQuery(graphql`{ ...Template }`).site.siteMetadata
+  const { title, home, description, author } = useStaticQuery(graphql`{ ...Template }`).site.siteMetadata
   const divStyle = theme => css`
     margin: ${theme.margins.large} auto ${theme.margins.large};
     max-width: ${theme.contentWidth};
@@ -146,6 +146,8 @@ const Site = withTheme(p => {
         htmlAttributes={{ lang: 'en' }}
         meta={[
             { name: 'keywords', content: config.keywords.join(', ') },
+            { name: 'description', content: description },
+            { name: 'author', content: author },
         ]}>
       </Helmet>
       <Header name={title} link={home}>
