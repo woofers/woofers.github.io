@@ -68,6 +68,7 @@ module.exports = {
     `gatsby-plugin-layout`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
