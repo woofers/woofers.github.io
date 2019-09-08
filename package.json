@@ -1,7 +1,7 @@
 {
   "name": "jaxson.vandoorn.ca",
   "description": "Personal blog by Jaxson Van Doorn",
-  "version": "4.5.0",
+  "version": "4.6.0",
   "author": "Jaxson Van Doorn",
   "homepage": "https://jaxson.vandoorn.ca",
   "dependencies": {
