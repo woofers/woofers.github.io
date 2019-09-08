@@ -57,6 +57,8 @@ export const template = graphql`
     site {
       siteMetadata {
         home
+        description
+        author
       }
     }
   }
