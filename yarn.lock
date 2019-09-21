@@ -4373,10 +4373,10 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-doge-bois@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/doge-bois/-/doge-bois-1.0.0.tgz#2f803a25ddc72f7ad7736d9e505fd4d104187d06"
-  integrity sha512-JCMOD1cAzdKdEEU26Z0l+3L6oSsH4jGaRkpqPd9Y9qVhkOwklDgJL2UfzfUy7ETp4b2bkR4x7gQChn7/bIlq2g==
+doge-bois@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/doge-bois/-/doge-bois-1.0.1.tgz#61093b55d5850be3412267137697f2e0ab3fbf1d"
+  integrity sha512-Zlc4heNdBpiyN+pk04ONxJl3ZP6iBgpCe2MMq4MUqkSVb7/r5iYfUl17pgxsvRm806y/lur77oD2FiXEaqDC+A==
 
 dom-converter@^0.2:
   version "0.2.0"
