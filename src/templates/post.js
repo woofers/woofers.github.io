@@ -10,11 +10,11 @@ class PostTemplate extends Component {
   render() {
     const post = this.props.data.orgContent
     const { blog } = this.props.data.site.siteMetadata.nav
-    const { title, date } = post.meta
+    const { title, date } = post.metadata
     const links = [{ name: 'Blog', link: blog },
                    { name: title }]
     return (
-      <Page title={post.meta.title} site={this.props.data.site.siteMetadata.title}>
+      <Page title={post.metadata.title} site={this.props.data.site.siteMetadata.title}>
         <Breadcrumb links={links} />
         <BlogTitle title={title} date={date} />
         <Content html={post.html} />

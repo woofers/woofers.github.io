@@ -16,7 +16,7 @@ class AboutTemplate extends Component {
     const { github, twitter } = social
     const { margins } = this.props.theme
     return (
-      <Page title={post.meta.title} site={this.props.data.site.siteMetadata.title}>
+      <Page title={post.metadata.title} site={this.props.data.site.siteMetadata.title}>
         <Profile width={margins.profile} height={margins.profile} >
           <Button href={twitter.link}><Icon icon={faTwitter}/> {twitter.handle}</Button>
           <Button href={github.link}><Icon icon={faGithub}/> {github.name}</Button>

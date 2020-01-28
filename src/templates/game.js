@@ -9,11 +9,11 @@ class GameTemplate extends Component {
   render() {
     const post = this.props.data.orgContent
     const path = post.fields.slug
-    const { title, date, icon, landscape, lang, game, placeholder } = post.meta
+    const { title, date, icon, landscape, lang, game, placeholder } = post.metadata
     const { projects } = this.props.data.site.siteMetadata.nav
-    const iconMode = post.meta.icon_mode
-    const iconType = post.meta.icon_type
-    const ludumDare = post.meta.ludum_dare
+    const iconMode = post.metadata.icon_mode
+    const iconType = post.metadata.icon_type
+    const ludumDare = post.metadata.ludum_dare
     const links = [{ name: 'Projects', link: projects},
                    { name: title, link: path },
                    { name: 'Play' }]

@@ -14,7 +14,7 @@ const org = theme => css`
 class BlogIndex extends React.Component {
   sortedPosts() {
     let posts = this.props.data.allOrgContent.edges
-    const date = (node) => node.meta ? node.meta.date : ''
+    const date = (node) => node.metadata ? node.metadata.date : ''
     const safeCompare = (a, b, func) =>
       (a || b) ? (!a ? 1 : !b ? -1 : func(a, b) ? 1 : -1) : 0;
     posts.sort(function(a, b) {
@@ -30,7 +30,7 @@ class BlogIndex extends React.Component {
     const nav = siteMeta.nav
     const _posts = this.sortedPosts().map (({ node }) => {
       const path = node.fields.slug
-      const meta = node.meta
+      const meta = node.metadata
       const title = meta.title || path
       const include = nav.blog
       const date = meta.date

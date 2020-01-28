@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 export const content = graphql`
   fragment Content on OrgContent {
     html
-    meta {
+    metadata {
       title
       date
       icon
