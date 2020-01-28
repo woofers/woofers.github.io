@@ -4,7 +4,8 @@ import ReactRotatingText from 'react-rotating-text'
 import { withTheme } from 'emotion-theming'
 
 const RotatingText = p => {
-  const color = p.color || p.theme.colors.link
+  const { theme, ...rest } = p
+  const color = p.color || theme.colors.link
   const cursorColor = p.cursorColor || color
   const blink = theme => css`
     .react-rotating-text-cursor {
@@ -27,7 +28,7 @@ const RotatingText = p => {
   `
   return (
     <span css={blink}>
-      <ReactRotatingText {...p} color={color} />
+      <ReactRotatingText {...rest} color={color} />
     </span>
   )
 }
