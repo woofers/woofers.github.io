@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import 'prismjs'
+import Prism from 'prismjs'
 import 'prismjs/components/prism-jsx'
 
 const CodeBlock = p => {
@@ -7,7 +7,7 @@ const CodeBlock = p => {
   useEffect(() => {
     const code = () => ref.current.children[0]
     const lang = code().className
-    if (lang) window.Prism.highlightElement(code(), false)
+    if (lang) Prism.highlightElement(code(), false)
     ref.current.removeAttribute('class')
   })
   return (
