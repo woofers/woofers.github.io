@@ -10467,10 +10467,9 @@ react-reconciler@^0.24.0:
     prop-types "^15.6.2"
     scheduler "^0.18.0"
 
-react-rotating-text@^1.4.1:
+react-rotating-text@woofers/react-rotating-text#master:
   version "1.4.1"
-  resolved "https://registry.yarnpkg.com/react-rotating-text/-/react-rotating-text-1.4.1.tgz#9fcdfa5b3b2ddb21ea51d46ff9f3c29ffed59ad6"
-  integrity sha512-PithohDtcWAxrdCmIUbNLkgC+S4VTPVFWybLLCfHQ9udaxtC8Uw7PYGKSScwFxkZuaTKWwbpaPwRFTMsAtHeGA==
+  resolved "https://codeload.github.com/woofers/react-rotating-text/tar.gz/8a1dd3a708f0cedf5c09a22ab837db5996e538f8"
   dependencies:
     classnames "^2.1.2"
     lodash.toarray "^4.4.0"

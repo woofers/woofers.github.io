@@ -53,7 +53,7 @@
     "react-emotion": "^10.0.0",
     "react-helmet": "^5.2.1",
     "react-pico-8": "^3.3.0",
-    "react-rotating-text": "^1.4.1",
+    "react-rotating-text": "woofers/react-rotating-text#master",
     "react-switch": "woofers/react-switch#dist",
     "react-typography": "^0.16.19",
     "react-wavify": "^1.2.3",
