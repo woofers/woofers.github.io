@@ -1,1 +1,1 @@
-{"componentChunkName":"component---src-pages-index-js","path":"/","webpackCompilationHash":"3ef56d9149485a0cf2f8","result":{"data":{"site":{"siteMetadata":{"title":"Jaxson Van Doorn","nav":{"projects":"/projects/","blog":"/blog/","about":"/about/"}}}},"pageContext":{"isCreatedByStatefulCreatePages":true}}}
+{"componentChunkName":"component---src-pages-index-js","path":"/","result":{"data":{"site":{"id":"Site","siteMetadata":{"title":"Jaxson Van Doorn","nav":{"projects":"/projects/","blog":"/blog/","about":"/about/"}}}},"pageContext":{}}}
