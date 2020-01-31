@@ -1,4 +1,3 @@
-import { graphql, useStaticQuery } from 'gatsby'
 import { css } from '@emotion/core'
 import withUtterances from 'with-utterances'
 import noHighlight from '../styles/no-highlight'
@@ -13,9 +12,8 @@ const style = css`
 `
 
 const utterances = (Page, theme) => {
-  const { repo } = useStaticQuery(graphql`{ ...Repo }`).site.siteMetadata
   return withUtterances(
-    Page, repo, theme || 'github-light', 'og:title', 'comments'
+    Page, 'woofers/woofers.github.io', theme || 'github-light', 'og:title', 'comments'
   )
 }
 

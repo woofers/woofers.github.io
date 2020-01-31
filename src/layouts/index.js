@@ -189,6 +189,7 @@ const Template = ({ children }) => {
     setTheme(newTheme)
     setThemeCookie(newTheme.name)
   }
+  // eslint-disable-next-line
   useEffect(() => setTheme(themeCookie ? themes[themeCookie] : defaultTheme), [])
   return (
     <CookiesProvider>

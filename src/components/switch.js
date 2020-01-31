@@ -8,12 +8,12 @@ const Switch = p => {
   const resize = e => {
     setScale(value())
   }
-  useEffect(() => {
+  useEffect((resize => () => {
     window.addEventListener('resize', resize)
     return () => {
       window.removeEventListener('resize', resize)
     }
-  }, [])
+  })(resize), [])
   return (
     <span style={p.style} css={p.css}>
       <ReactSwitch

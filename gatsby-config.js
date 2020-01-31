@@ -61,6 +61,7 @@ module.exports = {
       ['challenger-deep-rofi'],
       ['dotfiles'],
       ['k9-krew'],
+      ['course-codes-bugs'],
     ]
   },
   plugins: [
