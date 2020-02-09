@@ -76,8 +76,11 @@ const style = theme => css`
   }
 
   figure, table, img, iframe {
-    margin-bottom: 0;
     border-width: 0;
+  }
+
+  figure, table, iframe {
+    margin-bottom: 0;
   }
 
   img, canvas {
