@@ -4,6 +4,7 @@ import { css } from '@emotion/core'
 const img = code => `//github.githubassets.com/images/icons/emoji/unicode/${code}.png`
 const border = css`
   border-radius: 0 !important;
+  margin-bottom: 0;
 `
 
 const Emoji = ({ emoji, size }) =>
