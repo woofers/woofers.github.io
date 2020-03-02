@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from './smart-link'
 import { css } from '@emotion/core'
 import Wave from 'react-wavify'
 import { withTheme } from 'emotion-theming'

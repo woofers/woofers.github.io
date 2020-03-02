@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { graphql } from 'gatsby'
 import RotatingText from '../components/rotating-text'
-import { Link } from 'gatsby'
+import Link from '../components/smart-link'
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
 import { faUser, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import { faNewspaper } from '@fortawesome/free-regular-svg-icons'

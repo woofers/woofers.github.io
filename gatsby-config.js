@@ -66,10 +66,15 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-layout`,
     `gatsby-plugin-catch-links`,
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-offline`,
+    {
+      resolve: "gatsby-plugin-transition-link",
+      options: {
+        layout: require.resolve(`./src/layouts/index.js`)
+      }
+    },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

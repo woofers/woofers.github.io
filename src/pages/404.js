@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+import Link from '../components/smart-link'
 import { Page } from '../components/page'
 import { css } from '@emotion/core'
 import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'

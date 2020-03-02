@@ -1,5 +1,6 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+import Link from '../components/smart-link'
 import { css } from '@emotion/core'
 import cheerio from 'cheerio'
 import { Page } from '../components/page'

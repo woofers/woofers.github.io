@@ -1,6 +1,7 @@
 import React from 'react'
-import { useStaticQuery, Link as GatsbyLink, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import GatsbyLink from 'gatsby-plugin-transition-link/AniLink'
 
 // Since DOM elements <a> cannot receive activeClassName
 // and partiallyActive, destructure the prop here and
