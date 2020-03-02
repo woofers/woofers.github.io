@@ -55,7 +55,8 @@ const style = theme => css`
   a {
     color: ${theme.colors.link};
     border-bottom: ${theme.margins.line} solid transparent;
-    transition: ${theme.transitions.hover}
+    transition: ${theme.transitions.hover};
+    transition-property: border-bottom, padding-bottom;
   }
 
   a:hover {
