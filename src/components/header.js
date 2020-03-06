@@ -1,14 +1,18 @@
-import { Link } from 'gatsby'
 import React from 'react'
+import { Link } from 'gatsby'
 import Nav from './nav'
+import Avatar from './avatar'
 import { css } from '@emotion/core'
 
 const style = css`
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
   justify-content: space-between;
   > div {
     display: flex;
+    > div:first-of-type {
+      margin-right: 10px;
+    }
   }
 `
 
@@ -20,6 +24,7 @@ const Header = ({ title }) => (
   <div>
     <header css={style}>
       <div>
+        <Avatar />
         <h1>
           <Link to="/">
             {title}
