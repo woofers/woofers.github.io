@@ -2,6 +2,9 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import Global from './global'
+import { ThemeProvider } from 'emotion-theming'
+import theme from '../themes'
+import Container from './container'
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -15,18 +18,18 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header title={data.site.siteMetadata.title} />
+    <ThemeProvider theme={theme}>
       <Global />
-      <div>
+      <Container>
+        <Header title={data.site.siteMetadata.title} />
         <main>{children}</main>
         <footer>
           Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
         </footer>
-      </div>
-    </>
+      </Container>
+    </ThemeProvider>
   )
 }
 
