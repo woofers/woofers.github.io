@@ -8,6 +8,8 @@ const style = css`
   }
   width: 60px;
   height: 60px;
+  margin-right: 50px;
+  margin-bottom: 25px;
 `
 
 const Avatar = p => {

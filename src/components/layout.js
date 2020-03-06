@@ -23,11 +23,6 @@ const Layout = ({ children }) => {
       <Container>
         <Header title={data.site.siteMetadata.title} />
         <main>{children}</main>
-        <footer>
-          Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
       </Container>
     </ThemeProvider>
   )

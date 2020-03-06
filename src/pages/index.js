@@ -5,9 +5,11 @@ import SEO from '../components/seo'
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>Projects</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+    <h4>Projects</h4>
+    <h1>React Wavify</h1>
+    <h1>React PICO 8</h1>
+    <h1>React Dialog Polyfill</h1>
+    <h1>Ludum Dare Badges</h1>
   </Layout>
 )
 
