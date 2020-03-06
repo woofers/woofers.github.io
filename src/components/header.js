@@ -4,6 +4,7 @@ import Nav from './nav'
 import { css } from '@emotion/core'
 
 const style = css`
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   > div {
@@ -11,18 +12,27 @@ const style = css`
   }
 `
 
+const text = css`
+  max-width: 600px;
+`
+
 const Header = ({ title }) => (
-  <header css={style}>
-    <div>
-      <h1>
-        <Link to="/">
-          {title}
-        </Link>
-      </h1>
-      <h4>Some tagline</h4>
-    </div>
-    <Nav />
-  </header>
+  <div>
+    <header css={style}>
+      <div>
+        <h1>
+          <Link to="/">
+            {title}
+          </Link>
+        </h1>
+        <h4>Some tagline</h4>
+      </div>
+      <Nav />
+    </header>
+    <p css={text}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nulla lacus, aliquam in justo et, accumsan consequat neque. Donec facilisis ipsum nec odio dictum,
+    </p>
+  </div>
 )
 
 Header.defaultProps = {
