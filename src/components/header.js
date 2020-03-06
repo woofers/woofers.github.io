@@ -30,7 +30,7 @@ const Header = ({ title }) => (
       <Nav />
     </header>
     <p css={text}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nulla lacus, aliquam in justo et, accumsan consequat neque. Donec facilisis ipsum nec odio dictum,
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nulla lacus, aliquam in justo et, accumsan consequat neque.
     </p>
   </div>
 )

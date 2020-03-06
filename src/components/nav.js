@@ -7,13 +7,14 @@ const style = css`
   a {
     padding: 10px 30px;
     font-size: 20px;
+    font-weight: 700;
   }
 `
 
 const links = [
   'About',
-  'Blog',
-  'Projects'
+  'Projects',
+  'Blog'
 ]
 
 const Nav = p => (
