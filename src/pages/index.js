@@ -1,6 +1,6 @@
 import React from 'react'
 import Splash from '../components/splash'
-import Link from '../components/link'
+import { FadeLink as Link } from '../components/link'
 import SEO from '../components/seo'
 import { css } from '@emotion/core'
 

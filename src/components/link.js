@@ -2,14 +2,24 @@ import React from 'react'
 //import TransitionLink from 'gatsby-plugin-transition-link'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
-const Link = p => {
-  const { fade, cover, duration, ...rest } = p
+export const FadeLink = p => {
+  const { fade, cover, ...rest } = p
   return (
-    <AniLink fade={!cover ? true : undefined}
-      duration={!!duration ? duration : (!cover ? 0.2 : 0.8)}
-      cover={cover} {...rest}
-    />
+    <AniLink fade {...rest} />
   )
 }
 
-export default Link
+FadeLink.defaultProps = {
+  duration: 0.2
+}
+
+export const SwipeLink = p => {
+  const { fade, cover, ...rest } = p
+  return (
+    <AniLink cover {...rest} />
+  )
+}
+
+SwipeLink.defaultProps = {
+  duration: 0.8
+}
