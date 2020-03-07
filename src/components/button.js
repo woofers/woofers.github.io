@@ -1,6 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import Link from './link'
+import { FadeLink as Link } from './link'
 
 const style = css`
   font-weight: 700;

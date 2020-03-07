@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from './link'
+import { FadeLink as Link } from './link'
 import Nav from './nav'
 import Avatar from './avatar'
 import { css } from '@emotion/core'

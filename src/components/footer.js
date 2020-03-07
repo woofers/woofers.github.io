@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from './link'
+import { SwipeLink as Link } from './link'
 import { css } from '@emotion/core'
 
 const color = '#f27052'
@@ -19,7 +19,7 @@ const footer = css`
 
 const Footer = p => (
   <footer role="contentinfo" css={footer}>
-    <Link cover bg={color} direction="up" to="/">Home</Link>
+    <Link bg={color} direction="up" to="/">Home</Link>
   </footer>
 )
 
