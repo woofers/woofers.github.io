@@ -5,11 +5,11 @@ import Avatar from './avatar'
 import { css } from '@emotion/core'
 import Header from './header'
 
-const space = 45
+const space = 40
 
 const home = css`
   margin-top: 10px;
-  margin-left: ${10 + space}px;
+  margin-left: ${space}px;
   align-self: center;
   h1 {
     margin-bottom: 0;
@@ -17,7 +17,7 @@ const home = css`
 `
 
 const container = css`
-  margin: 0 ${space + 80}px;
+  margin: 0 ${space + 90}px;
 `
 
 const text = css`
@@ -27,9 +27,6 @@ const text = css`
 const left = css`
   display: flex;
   flex: 1 1 auto;
-  > div:first-of-type {
-    margin-right: 10px;
-  }
 `
 
 const SplashHeader = ({ title, children }) => (
