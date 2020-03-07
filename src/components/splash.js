@@ -14,7 +14,7 @@ const Splash = ({ children }) => {
     }
   `)
   return (
-    <Layout>
+    <Layout color="#fff" background="#f27052">
       <Header title={data.site.siteMetadata.title}>
         <main>{children}</main>
       </Header>
