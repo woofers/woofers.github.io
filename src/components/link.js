@@ -11,9 +11,9 @@ export const FadeLink = p => {
 }
 
 FadeLink.defaultProps = {
-  duration: 0.5,
+  duration: 0.3,
   direction: 'left',
-  top: 'entry'
+  top: 'exit'
 }
 
 export const SwipeLink = p => {
