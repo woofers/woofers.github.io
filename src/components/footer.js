@@ -2,10 +2,12 @@ import React from 'react'
 import Link from './link'
 import { css } from '@emotion/core'
 
+const color = '#dc664a'
+
 const footer = css`
   width: 100%;
   justify-content: center;
-  background: #dc664a;
+  background: ${color};
   position: absolute;
   left: 0;
   bottom: 0;
@@ -17,7 +19,7 @@ const footer = css`
 
 const Footer = p => (
   <footer role="contentinfo" css={footer}>
-    <Link to="/">Home UP</Link>
+    <Link cover bg={color} direction="up" to="/">Home UP</Link>
   </footer>
 )
 
