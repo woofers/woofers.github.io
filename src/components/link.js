@@ -3,9 +3,9 @@ import React from 'react'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
 
 const Link = p => {
-
+  const { fade, cover, ...rest } = p
   return (
-    <AniLink fade {...p} />
+    <AniLink fade={!cover} cover={cover} {...rest} />
   )
 }
 
