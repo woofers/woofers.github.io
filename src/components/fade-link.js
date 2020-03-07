@@ -14,9 +14,9 @@ const swipeTopDirection = (direction, reverse) => {
         case 'up':
             return { y: `${polarityNeg}=100vh`, ease: "power1.easeIn" }
         case 'left':
-            return { x: `${polarityNeg}=100%`, ease: "power1.easeIn" }
+            return { x: `${polarityNeg}=2%`, ease: "power1.easeIn" }
         default:
-            return { x: `${polarityPos}=100%`, ease: "power1.easeIn" }
+            return { x: `${polarityPos}=2%`, ease: "power1.easeIn" }
     }
 }
 
@@ -41,7 +41,6 @@ const swipe = ({ node, exit, direction, top, triggerName, entryOffset }) => {
         (document.scrollingElement && document.scrollingElement.scrollTop) ||
         document.body.scrollTop ||
         window.pageYOffset
-
     if (triggerName === 'entry' && top === 'entry') {
         return gsap.timeline()
             .set(node, {
@@ -56,7 +55,7 @@ const swipe = ({ node, exit, direction, top, triggerName, entryOffset }) => {
         return gsap.timeline().from(
             node,
             {
-                ...swipeBottomDirection(direction, false, entryOffset),
+                ...swipeBottomDirection(direction, false, 0),
                 duration: exit.length,
             }
         )
@@ -67,8 +66,9 @@ const swipe = ({ node, exit, direction, top, triggerName, entryOffset }) => {
                 overflowY: 'hidden',
                 height: '100vh',
                 scrollTop: scrollTop,
+                autoAlpha: 1,
             })
-            .to(node, { ...swipeTopDirection(direction), duration: exit.length })
+            .to(node, { autoAlpha: 0, ...swipeTopDirection(direction), duration: exit.length })
             .set(node, { overflowY: 'initial' })
     } else {
         return gsap.timeline()
