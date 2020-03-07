@@ -3,22 +3,14 @@ import Layout from './layout'
 import Footer from './footer'
 import Header from './header'
 import Button from './button'
-import { css, Global } from '@emotion/core'
-
-const style = css`
-  body {
-    background: #fff;
-    color: #000;
-  }
-`
+import { css } from '@emotion/core'
 
 const container = css`
   margin-top: 30px;
 `
 
 const Page = ({ children }) => (
-  <Layout outside={<Footer />}>
-    <Global styles={style} />
+  <Layout outside={<Footer />} color="#000" background="#fff">
     <Header>
       <Button duration={0.5} to="/">{'<-'} Back</Button>
     </Header>

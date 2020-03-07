@@ -5,7 +5,7 @@ import Link from './swipe-link'
 export const FadeLink = p => {
   const { fade, cover, swipe, ...rest } = p
   return (
-    <AniLink fade {...rest} exit={{ length: 10 }}/>
+    <AniLink fade {...rest} />
   )
 }
 

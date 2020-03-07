@@ -17,7 +17,7 @@ const style = css`
 `
 
 const Button = ({ children, ...rest }) => (
-  <Link {...rest} css={style} href="#">
+  <Link {...rest} direction="right" css={style}>
     {children}
   </Link>
 )
