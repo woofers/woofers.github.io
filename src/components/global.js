@@ -10,6 +10,7 @@ const style = css`
   a {
     text-decoration: none;
     color: #fff;
+    transition: color 0.5s ease;
     &:hover {
       color: rgba(255, 255, 255, 0.5);
     }
