@@ -39,7 +39,7 @@ const style = css`
   }
 
   ::selection {
-    background: rgba(228, 225, 53, 0.5);
+    background: rgba(234, 169, 67, 0.99);
     color: #06324c;
   }
 `
