@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 const style = css`
   > img {
     border-radius: 50%;
-    border: 3px solid #1da1f2;
+    border: 2px solid #fff;
   }
   width: 60px;
   height: 60px;

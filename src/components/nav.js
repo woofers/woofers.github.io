@@ -5,7 +5,7 @@ const style = css`
   display: flex;
   a {
     padding: 10px 30px;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
   }
 `
