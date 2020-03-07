@@ -37,6 +37,11 @@ const style = css`
     font-weight: 400;
     font-size: 1.1rem;
   }
+
+  ::selection {
+    background: rgba(228, 225, 53, 0.5);
+    color: #06324c;
+  }
 `
 
 const Global = p => (

@@ -8,6 +8,7 @@ const style = css`
   }
   width: 60px;
   height: 60px;
+  user-select: none;
 `
 
 const Avatar = p => {
