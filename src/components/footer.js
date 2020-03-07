@@ -19,7 +19,7 @@ const footer = css`
 
 const Footer = p => (
   <footer role="contentinfo" css={footer}>
-    <Link cover bg={color} direction="up" to="/">Home UP</Link>
+    <Link cover bg={color} direction="up" to="/">Home</Link>
   </footer>
 )
 
