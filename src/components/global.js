@@ -19,7 +19,7 @@ const style = css`
   h4 {
     color: rgba(255, 255, 255, 0.7);
     font-weight: 400;
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
 `
 

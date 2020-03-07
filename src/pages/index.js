@@ -18,9 +18,12 @@ const side = css`
     &:not(:last-of-type) {
       margin-right: 125px;
     }
+    &:first-of-type {
+      padding-left: 0;
+    }
   }
   h1 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     transition: padding-left 0.25s ease;
   }
   a {

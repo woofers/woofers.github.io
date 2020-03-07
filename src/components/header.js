@@ -4,7 +4,7 @@ import Nav from './nav'
 import Avatar from './avatar'
 import { css } from '@emotion/core'
 
-const space = 65
+const space = 45
 
 const style = css`
   margin-top: 30px;
