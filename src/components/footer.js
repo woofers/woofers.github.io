@@ -2,7 +2,7 @@ import React from 'react'
 import Link from './link'
 import { css } from '@emotion/core'
 
-const color = '#dc664a'
+const color = '#f27052'
 
 const footer = css`
   width: 100%;

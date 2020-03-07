@@ -20,6 +20,7 @@ const style = css`
   body {
     background: #f27052;
     color: #fff;
+    transition: color, background 0.5s ease-in-out;
   }
 
   a {
