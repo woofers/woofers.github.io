@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from './header'
+import Header from './splash-header'
 import Layout from './layout'
 import { useStaticQuery, graphql } from 'gatsby'
 
