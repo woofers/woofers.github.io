@@ -1,6 +1,7 @@
 import React from 'react'
 import Layout from './layout'
 import Footer from './footer'
+import Header from './header'
 import { css, Global } from '@emotion/core'
 
 const style = css`
@@ -17,7 +18,10 @@ const container = css`
 const Page = ({ children }) => (
   <Layout outside={<Footer />}>
     <Global styles={style} />
-    <main css={container}>{children}</main>
+    <Header>
+      <button>Go back ... </button>
+    </Header>
+    <main>{children}</main>
   </Layout>
 )
 
