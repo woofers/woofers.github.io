@@ -21,8 +21,9 @@ const Layout = ({ children }) => {
     <ThemeProvider theme={theme}>
       <Global />
       <Container>
-        <Header title={data.site.siteMetadata.title} />
-        <main>{children}</main>
+        <Header title={data.site.siteMetadata.title}>
+          <main>{children}</main>
+        </Header>
       </Container>
     </ThemeProvider>
   )

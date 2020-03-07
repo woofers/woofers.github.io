@@ -4,6 +4,8 @@ import Nav from './nav'
 import Avatar from './avatar'
 import { css } from '@emotion/core'
 
+const space = 65
+
 const style = css`
   margin-top: 30px;
   display: flex;
@@ -19,18 +21,23 @@ const style = css`
 `
 
 const home = css`
-  margin-left: 10px;
+  margin-top: 10px;
+  margin-left: ${10 + space}px;
   align-self: center;
   h1 {
     margin-bottom: 0;
   }
 `
 
+const container = css`
+  margin: 0 ${space + 80}px;
+`
+
 const text = css`
   max-width: 600px;
 `
 
-const Header = ({ title }) => (
+const Header = ({ title, children }) => (
   <div>
     <header css={style}>
       <div>
@@ -46,9 +53,12 @@ const Header = ({ title }) => (
       </div>
       <Nav />
     </header>
-    <p css={text}>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nulla lacus, aliquam in justo et, accumsan consequat neque.
-    </p>
+    <div css={container}>
+      <p css={text}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nulla lacus, aliquam in justo et, accumsan consequat neque.
+      </p>
+      {children}
+    </div>
   </div>
 )
 
