@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import Link from './link'
 import Nav from './nav'
 import Avatar from './avatar'
 import { css } from '@emotion/core'
@@ -48,7 +48,7 @@ const Header = ({ title, children }) => (
               {title}
             </Link>
           </h1>
-          <h4>I build things 🔧 </h4>
+          <h4>I build things <span role="img" aria-label="wrench">🔧</span></h4>
         </div>
       </div>
       <Nav />

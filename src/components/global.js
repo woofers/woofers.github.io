@@ -2,6 +2,21 @@ import React from 'react'
 import { css, Global as Styles } from '@emotion/core'
 
 const style = css`
+  html {
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+  }
+
+  html,
+  body,
+  #___gatsby,
+  #gatsby-focus-wrapper,
+  .tl-edges,
+  .tl-wrapper {
+    height: 100%;
+  }
+
   body {
     background: #f27052;
     color: #fff;

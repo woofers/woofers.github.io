@@ -18,7 +18,8 @@ const Container = p => {
     padding: 5px 0;
     width: 93%;
     max-width: 1200px;
-    height: ${p.height || '100%'};
+    position: relative;
+    min-height: 100%;
     box-sizing: border-box;
     ${mq(theme.breakpoints)}
   `
