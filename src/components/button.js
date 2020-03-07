@@ -17,7 +17,7 @@ const style = css`
 `
 
 const Button = ({ children, ...rest }) => (
-  <Link {...rest} direction="right" css={style}>
+  <Link {...rest} top="exit" direction="right" duration={0.95} css={style}>
     {children}
   </Link>
 )

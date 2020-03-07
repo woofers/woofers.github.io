@@ -1,26 +1,30 @@
 import React from 'react'
 import AniLink from 'gatsby-plugin-transition-link/AniLink'
-import Link from './swipe-link'
+import SLink from './swipe-link'
+import FLink from './fade-link'
 
 export const FadeLink = p => {
   const { fade, cover, swipe, ...rest } = p
   return (
-    <AniLink fade {...rest} />
+    <FLink fade {...rest} />
   )
 }
 
 FadeLink.defaultProps = {
-  duration: 0.2
+  duration: 0.5,
+  direction: 'left',
+  top: 'entry'
 }
 
 export const SwipeLink = p => {
   const { fade, cover, swipe, ...rest } = p
   return (
-    <Link swipe {...rest} />
+    <SLink swipe {...rest} />
   )
 }
 
 SwipeLink.defaultProps = {
   duration: 0.8,
+  direction: 'up',
   top: 'entry'
 }
