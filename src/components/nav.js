@@ -1,5 +1,6 @@
 import React from 'react'
 import { css } from '@emotion/core'
+import Link from './link'
 
 const style = css`
   display: flex;
@@ -20,7 +21,7 @@ const Nav = p => (
   <nav css={style}>
     {
       links.map(link =>
-        <a href="#" key={link}>{link}</a>
+        <Link to={`/${link.toLowerCase()}`} key={link}>{link}</Link>
       )
     }
   </nav>

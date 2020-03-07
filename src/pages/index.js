@@ -1,5 +1,6 @@
 import React from 'react'
-import Layout from '../components/layout'
+import Splash from '../components/splash'
+import Link from '../components/link'
 import SEO from '../components/seo'
 import { css } from '@emotion/core'
 
@@ -36,16 +37,16 @@ const side = css`
 `
 
 const IndexPage = () => (
-  <Layout>
+  <Splash>
     <SEO title="Home" />
     <div css={side}>
       <div>
         <h4>Projects</h4>
         {
           projects.map(project => (
-            <a key={project} href="#">
+            <Link key={project} to={`${project.toLowerCase().replace(" ", "-")}`}>
               <h1>{project}</h1>
-            </a>
+            </Link>
           ))
         }
       </div>
@@ -53,14 +54,14 @@ const IndexPage = () => (
         <h4>More Projects</h4>
         {
           projects.map(project => (
-            <a key={'more' + project} href="#">
+            <Link key={'more' + project} to={`${project.toLowerCase().replace(" ", "-")}`}>
               <h1>{project}</h1>
-            </a>
+            </Link>
           ))
         }
       </div>
     </div>
-  </Layout>
+  </Splash>
 )
 
 export default IndexPage
