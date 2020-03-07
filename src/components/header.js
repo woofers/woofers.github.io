@@ -7,12 +7,22 @@ import { css } from '@emotion/core'
 const style = css`
   margin-top: 30px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   > div {
     display: flex;
+    flex: 1 1 auto;
     > div:first-of-type {
       margin-right: 10px;
     }
+  }
+`
+
+const home = css`
+  margin-left: 10px;
+  align-self: center;
+  h1 {
+    margin-bottom: 0;
   }
 `
 
@@ -25,12 +35,14 @@ const Header = ({ title }) => (
     <header css={style}>
       <div>
         <Avatar />
-        <h1>
-          <Link to="/">
-            {title}
-          </Link>
-        </h1>
-        <h4>Some tagline</h4>
+        <div css={home}>
+          <h1>
+            <Link to="/">
+              {title}
+            </Link>
+          </h1>
+          <h4>I build things 🔧 </h4>
+        </div>
       </div>
       <Nav />
     </header>

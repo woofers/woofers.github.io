@@ -4,7 +4,7 @@ import { css } from '@emotion/core'
 const style = css`
   display: flex;
   a {
-    padding: 10px 30px;
+    padding: 10px 20px;
     font-size: 17px;
     font-weight: 700;
   }
