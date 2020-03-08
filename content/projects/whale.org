@@ -1,0 +1,25 @@
+#+TITLE: Whale
+#+ICON: game/assets/images/icon.png
+#+ICON_MODE: auto
+#+ICON_TYPE: rounded
+#+TYPE: game
+#+LANDSCAPE: nil
+#+GAME: game/index.html
+#+LANG: frame
+
+** Instructions
+Dodge eels and crabs to obtain a high-score.
+
+*** Scoring
+- Lobsters are worth *7 points*.
+- Eeels count towards *15 points*.
+
+*** Controls
+#+BEGIN_EXPORT html
+<ul>
+  <li>
+    <strong>A</strong> and <strong>D</strong> or <i class="fa fa-arrow-left"></i>
+    and <i class="fa fa-arrow-right"></i> to dodge enemies.
+  </li>
+</ul>
+#+END_EXPORT
