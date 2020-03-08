@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import { css } from '@emotion/core'
 import Content from '../components/content'
@@ -18,10 +18,11 @@ const style = css`
 const AboutTemplate = p => {
   const { data } = p
   const { orgContent, site } = data
-  const { html } = orgContent
+  const { html, metadata } = orgContent
+  const { title } = metadata
   return (
     <Page>
-      <SEO title="About" />
+      <SEO title={title} />
       <div css={style}>
         <Content html={html} />
       </div>

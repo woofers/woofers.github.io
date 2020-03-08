@@ -7,7 +7,8 @@ import { css } from '@emotion/core'
 
 const Layout = ({ children, outside, color, background }) => {
   const style = css`
-    height: 100%;
+    position: relative;
+    min-height: 100%;
     background: ${background};
     color: ${color};
   `

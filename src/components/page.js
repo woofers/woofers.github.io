@@ -7,6 +7,7 @@ import { css } from '@emotion/core'
 
 const container = css`
   margin-top: 30px;
+  padding-bottom: 3.5rem;
 `
 
 const Page = ({ children }) => (
