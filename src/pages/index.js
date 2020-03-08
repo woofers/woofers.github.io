@@ -25,12 +25,12 @@ const side = css`
   }
   h1 {
     font-size: 2rem;
-    transition: padding-left 0.25s ease;
+    transition: transform 0.25s ease;
   }
   a {
     &:hover {
       h1 {
-        padding-left: 20px;
+        transform: translate(25px, 0px);
       }
     }
   }

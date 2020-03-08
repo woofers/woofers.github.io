@@ -15,6 +15,7 @@ const footer = css`
   overflow: hidden;
   display: flex;
   align-items: center;
+  font-weight: 700;
 `
 
 const Footer = p => (
