@@ -47,7 +47,7 @@ const SplashHeader = ({ title, children }) => (
     </Header>
     <div css={container}>
       <p css={text}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nulla lacus, aliquam in justo et, accumsan consequat neque.
+       I create software in <strong>Victoria, BC</strong>.
       </p>
       {children}
     </div>
