@@ -17,7 +17,7 @@ const style = css`
 
 const PostTemplate = p => {
   const { data } = p
-  const { orgContent, site } = data
+  const { orgContent } = data
   const { html, metadata } = orgContent
   const { title } = metadata
   return (

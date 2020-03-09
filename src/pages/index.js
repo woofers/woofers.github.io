@@ -6,7 +6,7 @@ import { css } from '@emotion/core'
 
 const projects = [
   'React Wavify',
-  'React PICO 8',
+  'React PICO-8',
   'React Dialog Polyfill',
   'Ludum Dare Badges'
 ]
@@ -44,7 +44,7 @@ const IndexPage = () => (
         <h4>Projects</h4>
         {
           projects.map(project => (
-            <Link key={project} to={`${project.toLowerCase().replace(" ", "-")}`}>
+            <Link key={project} to={`/projects/${project.toLowerCase().replace(/\s/g, "-")}`}>
               <h1>{project}</h1>
             </Link>
           ))
@@ -54,7 +54,7 @@ const IndexPage = () => (
         <h4>More Projects</h4>
         {
           projects.map(project => (
-            <Link key={'more' + project} to={`${project.toLowerCase().replace(" ", "-")}`}>
+            <Link key={'more' + project} to={`/projects/${project.toLowerCase().replace(/\s/g, "-")}`}>
               <h1>{project}</h1>
             </Link>
           ))

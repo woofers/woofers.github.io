@@ -17,7 +17,7 @@ const style = css`
 
 const AboutTemplate = p => {
   const { data } = p
-  const { orgContent, site } = data
+  const { orgContent } = data
   const { html, metadata } = orgContent
   const { title } = metadata
   return (
