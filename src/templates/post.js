@@ -1,19 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { css } from '@emotion/core'
 import Content from '../components/content'
 import Page from '../components/page'
 import SEO from '../components/seo'
-
-const style = css`
-  a {
-    color: #f27052;
-    font-weight: 700;
-    &:hover {
-      color: rgba(242, 112, 82, 0.75);
-    }
-  }
-`
 
 const PostTemplate = p => {
   const { data } = p
@@ -23,7 +12,7 @@ const PostTemplate = p => {
   return (
     <Page>
       <SEO title={title} />
-      <div css={style}>
+      <div>
         <Content html={html} />
       </div>
     </Page>
