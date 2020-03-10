@@ -1,22 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import { css } from '@emotion/core'
 import { Markdown, removeBadges } from '../components/markdown'
 import Org from '../components/org'
 import Page from '../components/page'
 import SEO from '../components/seo'
 import dlv from 'dlv'
 import { mutateRepoNames } from '../utils/repo'
-
-const style = css`
-  a {
-    color: #f27052;
-    font-weight: 700;
-    &:hover {
-      color: rgba(242, 112, 82, 0.75);
-    }
-  }
-`
 
 const GitHubTemplate = p => {
   const { data } = p
@@ -31,7 +20,7 @@ const GitHubTemplate = p => {
   return (
     <Page>
       <SEO title={fullName} />
-      <div css={style}>
+      <div>
         { org && !md ?
             <Org content={org} repo={repo} />
           : <Markdown content={md} repo={repo} filters={[removeBadges]} />

@@ -8,6 +8,13 @@ import { css } from '@emotion/core'
 const container = css`
   margin-top: 30px;
   padding-bottom: 3.5rem;
+  a {
+    color: #f27052;
+    font-weight: 700;
+    &:hover {
+      color: rgba(242, 112, 82, 0.75);
+    }
+  }
 `
 
 const Page = ({ children }) => (

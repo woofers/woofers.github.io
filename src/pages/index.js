@@ -14,6 +14,7 @@ const projects = [
 const side = css`
   margin-top: 75px;
   display: flex;
+  flex-wrap: wrap;
   > div {
     padding: 10px;
     &:not(:last-of-type) {
