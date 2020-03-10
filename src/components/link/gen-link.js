@@ -5,7 +5,7 @@ import { swipeTopDirection, swipeBottomDirection } from './utils'
 
 const swipe = p => {
     const { node, exit, direction, top, triggerName, fade, offset, entryOffset } = p
-    let autoAlpha = { }
+    let autoAlpha = {}
     if (fade) autoAlpha = { on: 1, off: 0 }
     const scrollTop =
         (document.scrollingElement && document.scrollingElement.scrollTop) ||
