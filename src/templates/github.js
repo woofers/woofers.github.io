@@ -34,42 +34,10 @@ export default GitHubTemplate
 
 export const pageQuery = graphql`
   query($repo: String!) {
-    site {
-      siteMetadata {
-        title
-        resume
-        exclude
-        nav {
-          projects
-          blog
-          about
-        }
-      }
-    }
+    ...RepoExclude
     repositories(name: {eq: $repo}) {
-      name
-      description
-      url
-      homepage
-      stars {
-        totalCount
-      }
-      license {
-        name
-      }
-      topics {
-        nodes {
-          topic {
-            name
-          }
-        }
-      }
-      readme {
-        text
-      }
-      readmeOrg {
-        text
-      }
+      ...GitHub
+      ...Readme
     }
   }
 `
