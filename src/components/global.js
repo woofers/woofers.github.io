@@ -8,15 +8,6 @@ const style = css`
     overflow-y: auto;
   }
 
-  html,
-  body,
-  #___gatsby,
-  #gatsby-focus-wrapper,
-  .tl-edges,
-  .tl-wrapper {
-    height: 100%;
-  }
-
   body {
     background: #f27052;
     color: #fff;
