@@ -17,7 +17,7 @@ const home = css`
 `
 
 const container = css`
-  margin: 0 ${space + 90}px;
+  margin-left: ${space + 90}px;
 `
 
 const text = css`

@@ -23,53 +23,9 @@ export default AboutTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        resume
-        social {
-          github {
-            name
-            link
-          }
-          stackoverflow {
-            name
-            link
-          }
-          twitter {
-            name
-            link
-            handle
-          }
-          linkedin {
-            name
-            link
-          }
-          email {
-            name
-            link
-          }
-        }
-      }
-    }
+    ...Social
     orgContent(fields: {slug: {eq: $slug}}) {
-      html
-      metadata {
-        title
-        date
-        icon
-        type
-        icon_mode
-        icon_type
-        ludum_dare
-        placeholder
-        game
-        landscape
-        lang
-      }
-      fields {
-        slug
-      }
+      ...Content
     }
   }
 `
