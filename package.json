@@ -39,6 +39,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
+    "react-rotating-text": "woofers/react-rotating-text#master",
     "react-typography": "^0.16.19",
     "remark": "^11.0.2",
     "remark-react": "^6.0.0",
