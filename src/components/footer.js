@@ -2,12 +2,10 @@ import React from 'react'
 import { SwipeLink as Link } from './link'
 import { css } from '@emotion/core'
 
-const color = '#f27052'
-
-const footer = css`
+const footer = theme => css`
   width: 100%;
   justify-content: center;
-  background: ${color};
+  background: ${theme.colors.accent};
   position: absolute;
   left: 0;
   bottom: 0;

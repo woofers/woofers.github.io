@@ -1,10 +1,10 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
-const style = css`
+const style = theme => css`
   > img {
     border-radius: 50%;
-    border: 1.5px solid #fff;
+    border: 1.5px solid ${theme.colors.text.light};
   }
   width: 90px;
   height: 90px;
