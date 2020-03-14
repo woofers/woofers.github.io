@@ -1,6 +1,7 @@
 import React from 'react'
 import { FadeLink as Link } from './link'
 import Nav from './nav'
+import Tagline from './tagline'
 import Avatar from './avatar'
 import { css } from '@emotion/core'
 import Header from './header'
@@ -40,7 +41,7 @@ const SplashHeader = ({ title, children }) => (
               {title}
             </Link>
           </h1>
-          <h4>I build things <span role="img" aria-label="wrench">🔧</span></h4>
+          <Tagline />
         </div>
       </div>
       <Nav />

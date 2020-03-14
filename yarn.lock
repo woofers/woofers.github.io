@@ -3186,6 +3186,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.1.2:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+
 clean-stack@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
@@ -10544,6 +10549,14 @@ react-reconciler@^0.24.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     scheduler "^0.18.0"
+
+react-rotating-text@woofers/react-rotating-text#master:
+  version "1.4.1"
+  resolved "https://codeload.github.com/woofers/react-rotating-text/tar.gz/8a1dd3a708f0cedf5c09a22ab837db5996e538f8"
+  dependencies:
+    classnames "^2.1.2"
+    lodash.toarray "^4.4.0"
+    prop-types "^15.5.10"
 
 react-side-effect@^1.1.0:
   version "1.1.5"
