@@ -1,15 +1,36 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { graphql } from 'gatsby'
+import Game from '../components/game'
+import Page from '../components/page'
+import SEO from '../components/seo'
 
-class GameTemplate extends Component {
-  render() {
-    return (
-      <div>
-      </div>
-    )
-  }
+const GameTemplate = p => {
+  const { data } = p
+  const { orgContent } = data
+  const { metadata, html } = orgContent
+  const { title, icon, landscape, lang, game, placeholder } = metadata
+  const iconMode = metadata.icon_mode
+  const iconType = metadata.icon_type
+  const ludumDare = metadata.ludum_dare
+  return (
+    <Page>
+      <SEO title={title} />
+      <Game title={title} src={game}
+            portrait={landscape === 'nil'}
+            instruction={html}
+            lang={lang}
+            ludumDare={ludumDare}
+            placeholder={placeholder} />
+    </Page>
+  )
 }
 
 export default GameTemplate
 
-//export const pageQuery = graphql`
-//`
+export const pageQuery = graphql`
+  query($slug: String!) {
+    orgContent(fields: {slug: {eq: $slug}}) {
+      ...Content
+    }
+  }
+`
