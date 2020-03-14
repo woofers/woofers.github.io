@@ -7,11 +7,15 @@
   "homepage": "https://jaxson.vandoorn.ca",
   "dependencies": {
     "@emotion/core": "^10.0.28",
+    "@ludum-dare-badges/react": "^1.1.0",
+    "alien-expansion": "^1.2.0",
     "cheerio": "^1.0.0-rc.3",
     "dlv": "^1.1.3",
+    "doge-bois": "^1.0.1",
     "emotion": "^10.0.27",
     "emotion-server": "^10.0.27",
     "emotion-theming": "^10.0.27",
+    "fox-hole": "^1.3.0",
     "gatsby": "^2.19.29",
     "gatsby-image": "^2.2.42",
     "gatsby-plugin-catch-links": "^2.1.26",
@@ -39,6 +43,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^5.2.1",
+    "react-pico-8": "^3.3.0",
     "react-rotating-text": "woofers/react-rotating-text#master",
     "react-typography": "^0.16.19",
     "remark": "^11.0.2",
@@ -50,6 +55,7 @@
     "unist-util-filter": "^2.0.2",
     "unist-util-select": "^3.0.1",
     "unist-util-visit": "^2.0.2",
+    "whale-dive": "^1.1.1",
     "with-utterances": "^1.5.0"
   },
   "devDependencies": {
@@ -60,7 +66,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
+    "build": "./dist-games.sh && gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "gatsby develop",
