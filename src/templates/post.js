@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Content from '../components/content'
 import Page from '../components/page'
 import SEO from '../components/seo'
+import Comments from '../components/comments'
 
 const PostTemplate = p => {
   const { data } = p
@@ -14,6 +15,7 @@ const PostTemplate = p => {
       <SEO title={title} />
       <div>
         <Content html={html} />
+        <Comments />
       </div>
     </Page>
   )

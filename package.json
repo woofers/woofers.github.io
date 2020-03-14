@@ -48,7 +48,8 @@
     "unist-builder": "^2.0.3",
     "unist-util-filter": "^2.0.2",
     "unist-util-select": "^3.0.1",
-    "unist-util-visit": "^2.0.2"
+    "unist-util-visit": "^2.0.2",
+    "with-utterances": "^1.5.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
