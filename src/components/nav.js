@@ -13,7 +13,6 @@ const style = css`
 
 const links = [
   'About',
-  'Projects',
   'Blog'
 ]
 
