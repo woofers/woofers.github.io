@@ -43,7 +43,6 @@ const IndexPage = p => {
   repos = repos.map(({ node }) => node)
   const right = repos.filter(repo => !!repo.fullName)
   const left = right.splice(0, Math.ceil(right.length / 2))
-    console.log(left)
   return (
     <Splash>
       <SEO title="Home" />
