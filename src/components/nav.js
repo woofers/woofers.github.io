@@ -20,7 +20,7 @@ const Nav = p => (
   <nav css={style}>
     {
       links.map(link =>
-        <Link to={`/${link.toLowerCase()}`} key={link}>{link}</Link>
+        <Link to={`/${link.toLowerCase()}/`} key={link}>{link}</Link>
       )
     }
   </nav>

@@ -51,7 +51,7 @@ const IndexPage = p => {
           <h4>Projects</h4>
           {
             left.map(project => (
-              <Link key={project.name} to={`/projects/${project.name}`}>
+              <Link key={project.name} to={`/projects/${project.name}/`}>
                 <h1>{project.fullName}</h1>
               </Link>
             ))
@@ -61,7 +61,7 @@ const IndexPage = p => {
           <h4>More Projects</h4>
           {
             right.map(project => (
-              <Link key={project.name} to={`/projects/${project.name}`}>
+              <Link key={project.name} to={`/projects/${project.name}/`}>
                 <h1>{project.fullName}</h1>
               </Link>
             ))
