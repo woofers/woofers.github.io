@@ -1,7 +1,7 @@
 import React from 'react'
-import TransitionLink from 'gatsby-plugin-transition-link'
 import gsap from 'gsap'
 import { swipeTopDirection, swipeBottomDirection } from './utils'
+import SmartLink from './smart-link'
 
 const swipe = p => {
     const { node, exit, direction, top, triggerName, fade, offset, entryOffset } = p
@@ -90,13 +90,13 @@ const SwipeLink = p => {
         })
     })
     return (
-      <TransitionLink
+      <SmartLink
         exit={make('exit', exitLength, exitZ)}
         entry={make('entry', entryLength, entryZ)}
         {...rest}
       >
         {children}
-      </TransitionLink>
+      </SmartLink>
     )
 }
 
