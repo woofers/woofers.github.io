@@ -65,7 +65,7 @@ export const Markdown = p => {
     for (const filter of p.filters) {
       md = md.use(filter)
     }
-    return md.processSync(p.content).contents
+    return md.processSync(p.content).result
   }
   return (
     <div>
