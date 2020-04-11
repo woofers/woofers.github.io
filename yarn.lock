@@ -3550,11 +3550,6 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@^2.1.2:
-  version "2.2.6"
-  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
-  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
-
 clean-stack@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"
@@ -11253,14 +11248,6 @@ react-refresh@^0.7.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.7.2.tgz#f30978d21eb8cac6e2f2fde056a7d04f6844dd50"
   integrity sha512-u5l7fhAJXecWUJzVxzMRU2Zvw8m4QmDNHlTrT5uo3KBlYBhmChd7syAakBoay1yIiVhx/8Fi7a6v6kQZfsw81Q==
 
-react-rotating-text@woofers/react-rotating-text#master:
-  version "1.4.1"
-  resolved "https://codeload.github.com/woofers/react-rotating-text/tar.gz/8a1dd3a708f0cedf5c09a22ab837db5996e538f8"
-  dependencies:
-    classnames "^2.1.2"
-    lodash.toarray "^4.4.0"
-    prop-types "^15.5.10"
-
 react-side-effect@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.0.tgz#1ce4a8b4445168c487ed24dab886421f74d380d3"
@@ -11280,6 +11267,13 @@ react-typography@^0.16.19:
   version "0.16.19"
   resolved "https://registry.yarnpkg.com/react-typography/-/react-typography-0.16.19.tgz#5736b47961dcf6b9605b6fa38d41980db2588e28"
   integrity sha512-kV2qLEsdm0x9P4YXQEDVc88tDb4Vg0h/vdVZGgbqaRn8ERvNzV76JHUeOby3vvcUYU5MPd5Kz5DPH9Bhp4I/iw==
+
+react-yat@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/react-yat/-/react-yat-1.0.5.tgz#7422d8e23acbff5e68e172164893539ca43592de"
+  integrity sha512-sGQcNuzcO34yBScJjSUi1lf/oCKJiIDbkLaOcTkJ1zGoU64vXKpNVx/xMie/QTl7n2r+9pn5P9UbmSywP23mnA==
+  dependencies:
+    prop-types "^15.7.2"
 
 react@^16.13.1:
   version "16.13.1"

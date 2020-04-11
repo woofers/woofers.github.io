@@ -1,26 +1,13 @@
 import React from 'react'
-import RotatingText from './rotating-text'
-
-const speed = 65
-const deleteSpeed = speed - 10
-const stop = 3000
-const emptyStop = 500
-
-const data = [
-  'build games 🎮',
-  'design apps 🖌',
-  'craft tools 🔧'
-]
+import { Typer, TyperElement } from 'react-yat'
 
 const Tagline = p => (
   <h4>
-    I{' '}
-    <RotatingText items={data}
-      typingInterval={speed}
-      deletingInterval={deleteSpeed}
-      emptyPause={emptyStop}
-      pause={stop}
-    />
+    <Typer prefix="I" cursorWidth={3.9}>
+      <TyperElement>build games <span role="img" aria-label="controller">🎮</span></TyperElement>
+      <TyperElement>design apps <span role="img" aria-label="paintbrush">🖌</span></TyperElement>
+      <TyperElement>craft tools <span role="img" aria-label="wrench">🔧</span></TyperElement>
+    </Typer>
   </h4>
 )
 
