@@ -9,7 +9,7 @@ Most of my open-source projects these days are with [[https://reactjs.org/][Reac
 
 Currently studying my *3rd* year of /Computer Science/ at [[https://uvic.ca][University of Victoria]].
 
-You can find some of my [[/projects/][projects]] on this site.
+You can find some of my [[/][projects]] on this site.
 
 More projects can be found on my [[https://github.com/woofers][GitHub]], along with my [[https://jaxson.vandoorn.ca/resume/jaxsonvd-resume.pdf][resume]].
 
