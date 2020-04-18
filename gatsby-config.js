@@ -55,7 +55,6 @@ module.exports = {
       ['chess'],
       ['resume'],
       ['java-formatter'],
-      ['battlesnake-2018'],
       ['battlesnake-java-template'],
       ['libgdx-tools-installer'],
       ['challenger-deep-rofi'],
