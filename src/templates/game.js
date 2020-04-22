@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 import Game from '../components/game'
 import Page from '../components/page'
 import SEO from '../components/seo'
+import GameTitle from '../components/game-title'
 
 const GameTemplate = p => {
   const { data } = p
@@ -15,6 +16,7 @@ const GameTemplate = p => {
   return (
     <Page>
       <SEO title={title} />
+      <GameTitle title={title} icon={icon} iconMode={iconMode} iconType={iconType} />
       <Game title={title} src={game}
             portrait={landscape === 'nil'}
             instruction={html}
