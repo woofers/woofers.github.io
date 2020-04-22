@@ -11,7 +11,7 @@ const iframe = css`
 `
 
 const Frame = p => {
-  const { aspectRatio, ...rest } = p
+  const { aspectRatio, title, ...rest } = p
   const container = css`
     ${noHighlight};
     text-align: center;
@@ -21,7 +21,7 @@ const Frame = p => {
   `
   return (
     <div css={container}>
-      <iframe {...rest} css={iframe} frameBorder="0" allowFullScreen />
+      <iframe {...rest} title={title} css={iframe} frameBorder="0" allowFullScreen />
     </div>
   )
 }
