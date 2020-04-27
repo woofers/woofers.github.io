@@ -63,6 +63,7 @@ module.exports = {
       ['dotfiles'],
       ['k9-krew'],
       ['course-codes-bugs'],
+      ['react-chameleon-theme-color']
     ]
   },
   plugins: [
