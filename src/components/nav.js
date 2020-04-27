@@ -2,12 +2,16 @@ import React from 'react'
 import { css } from '@emotion/core'
 import { FadeLink as Link } from './link'
 
-const style = css`
+const style = theme => css`
   display: flex;
   a {
     padding: 10px 20px;
     font-size: 17px;
     font-weight: 700;
+  }
+  justify-content: flex-end;
+  @media (min-width: ${theme.breakpoints.nav.breakpoint}) {
+    justify-content: flex-start;
   }
 `
 
