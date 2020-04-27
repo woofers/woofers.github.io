@@ -8,6 +8,8 @@ const style = theme => css`
   }
   width: 90px;
   height: 90px;
+  min-width: 90px;
+  min-height: 90px;
   user-select: none;
 `
 
