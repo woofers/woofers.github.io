@@ -37,7 +37,6 @@ export const nav = graphql`
     site {
       siteMetadata {
         nav {
-          projects
           blog
           about
         }

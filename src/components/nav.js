@@ -1,6 +1,8 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { FadeLink as Link } from './link'
+import { useStaticQuery, graphql } from 'gatsby'
+import { camelCaseToPascalCase as uppercase } from '../utils/case'
 
 const style = theme => css`
   display: flex;
@@ -15,20 +17,19 @@ const style = theme => css`
   }
 `
 
-const links = [
-  'About',
-  'Blog'
-]
-
-const Nav = p => (
-  <nav css={style}>
-    {
-      links.map(link =>
-        <Link to={`/${link.toLowerCase()}/`} key={link}>{link}</Link>
-      )
-    }
-  </nav>
-)
+const Nav = p => {
+  const data = useStaticQuery(graphql`{ ...Nav }`)
+  const links = Object.entries(data.site.siteMetadata.nav)
+  return (
+    <nav css={style}>
+      {
+        links.map(([name, link]) =>
+          <Link to={link} key={name}>{uppercase(name)}</Link>
+        )
+      }
+    </nav>
+  )
+}
 
 Nav.defaultProps = {
   title: ''
