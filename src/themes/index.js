@@ -37,8 +37,12 @@ const colors = {
 
 
 const breakpoints = {
+  nav: {
+    breakpoint: '575px',
+    size: '90%'
+  },
   mobile: {
-    breakpoint: '600px',
+    breakpoint: '650px',
     size: '90%'
   },
   small: {

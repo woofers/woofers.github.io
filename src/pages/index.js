@@ -6,22 +6,18 @@ import { css } from '@emotion/core'
 import { graphql } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
 
-const side = css`
-  margin-top: 75px;
-  display: flex;
+const side = theme => css`
   justify-content: space-between;
   > div {
-    padding: 10px;
+    padding: 10px 10px 10px 0;
     width: 500px;
     &:not(:last-of-type) {
       margin-right: 125px;
     }
-    &:first-of-type {
-      padding-left: 0;
-    }
   }
   h1 {
-    font-size: 2rem;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
     transition: transform 0.25s ease;
   }
   a {
@@ -29,6 +25,14 @@ const side = css`
       h1 {
         transform: translate(25px, 0px);
       }
+    }
+  }
+  @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
+    margin-top: 75px;
+    display: flex;
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 25px;
     }
   }
 `

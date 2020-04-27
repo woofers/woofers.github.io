@@ -17,8 +17,13 @@ const home = css`
   }
 `
 
-const container = css`
-  margin-left: ${space + 90}px;
+const container = theme => css`
+  margin-left: 0;
+  margin-top: 15px;
+  @media (min-width: ${theme.breakpoints.mobile.breakpoint}) {
+    margin-left: ${space + 90}px;
+    margin-top: 0;
+  }
 `
 
 const text = css`
