@@ -38,7 +38,6 @@ module.exports = {
     home,
     resume: `${json.homepage}/resume/jaxsonvd-resume.pdf`,
     nav: {
-      projects: '/projects/',
       blog: '/blog/',
       about: '/about/',
     },

@@ -12,15 +12,7 @@ const style = css`
 `
 
 const Splash = ({ children, theme }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
+  const data = useStaticQuery(graphql`{ ...Title }`)
   return (
     <Layout color={theme.colors.text.light}
       background={theme.colors.accent}
