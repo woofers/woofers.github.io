@@ -35,30 +35,48 @@ const left = css`
   flex: 1 1 auto;
 `
 
-const SplashHeader = ({ title, children }) => (
-  <div>
-    <Header>
-      <div css={left}>
-        <Avatar />
-        <div css={home}>
-          <h1>
-            <Link to="/">
-              {title}
-            </Link>
-          </h1>
-          <Tagline />
+const wordWrap = css`
+  display: flex;
+  flex-wrap: wrap;
+  > div {
+    &:not(:last-of-type) {
+      margin-right: 5px;
+    }
+  }
+`
+
+const SplashHeader = ({ title, children }) => {
+  const parts = title.split(' ')
+  const first = parts[0]
+  const last = parts.slice(1, parts.length).join(' ')
+  return (
+    <div>
+      <Header>
+        <div css={left}>
+          <Avatar />
+          <div css={home}>
+            <h1>
+              <Link to="/">
+                <div css={wordWrap}>
+                  <div>{first}</div>
+                  { last && <div>{last}</div> }
+                 </div>
+              </Link>
+            </h1>
+            <Tagline />
+          </div>
         </div>
+        <Nav />
+      </Header>
+      <div css={container}>
+        <p css={text}>
+         I create software in <strong>Victoria, BC</strong>.
+        </p>
+        {children}
       </div>
-      <Nav />
-    </Header>
-    <div css={container}>
-      <p css={text}>
-       I create software in <strong>Victoria, BC</strong>.
-      </p>
-      {children}
     </div>
-  </div>
-)
+  )
+}
 
 SplashHeader.defaultProps = {
   title: ''
