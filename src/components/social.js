@@ -9,7 +9,7 @@ import { FaGithub,
          FaEnvelope } from 'react-icons/fa'
 
 const style = css`
-  border: none !mportant;
+  border: none;
   font-size: 24px;
   color: #fff;
 `
@@ -37,6 +37,7 @@ const Entry = p => {
       rel="noopener noreferrer"
       css={style}
       title={title}
+      {...rest}
     >
       <Icon />
       {children}
@@ -53,7 +54,7 @@ export const Social = p => {
     <div css={spacing}>
       {
         Object.keys(social).map(key => {
-          const { name, link, icon } = social[key]
+          const { name } = social[key]
           return (
             <Entry key={`social-${name}`} title={name} {...social[key]} />
           )
