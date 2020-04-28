@@ -42,6 +42,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
+    "react-icons": "^3.10.0",
     "react-pico-8": "^3.3.0",
     "react-typography": "^0.16.19",
     "react-yat": "^1.0.5",

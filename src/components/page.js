@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from './layout'
 import Footer from './footer'
 import Header from './header'
-import Button from './button'
+import Back from './back-button'
 import { css } from '@emotion/core'
 import { withTheme } from 'emotion-theming'
 
@@ -24,7 +24,7 @@ const Page = ({ children, theme }) => (
     background={theme.colors.background}
   >
     <Header>
-      <Button duration={0.5} to="/">{'<-'} Back</Button>
+      <Back to="/" />
     </Header>
     <main css={container}>{children}</main>
   </Layout>
