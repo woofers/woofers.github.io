@@ -5,6 +5,7 @@ import Tagline from './tagline'
 import Avatar from './avatar'
 import { css } from '@emotion/core'
 import Header from './header'
+import Social from './social'
 
 const space = 40
 
@@ -45,6 +46,16 @@ const wordWrap = css`
   }
 `
 
+const footer = theme => css`
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  @media (min-width: ${theme.breakpoints.mobile.breakpoint}) {
+    justify-content: flex-start;
+  }
+
+`
+
 const SplashHeader = ({ title, children }) => {
   const parts = title.split(' ')
   const first = parts[0]
@@ -73,6 +84,9 @@ const SplashHeader = ({ title, children }) => {
          I create software in <strong>Victoria, BC</strong>.
         </p>
         {children}
+        <footer css={footer}>
+          <Social />
+        </footer>
       </div>
     </div>
   )
