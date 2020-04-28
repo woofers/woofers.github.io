@@ -4,8 +4,14 @@ import { Markdown, removeBadges } from '../components/markdown'
 import Org from '../components/org'
 import Page from '../components/page'
 import SEO from '../components/seo'
+import ProjectLink from '../components/project-link'
 import dlv from 'dlv'
-import { mutateRepoNames } from '../utils/repo'
+import { mutateRepoNames, type } from '../utils/repo'
+import { css } from '@emotion/core'
+
+const align = css`
+  text-align: right;
+`
 
 const GitHubTemplate = p => {
   const { data } = p
@@ -20,6 +26,9 @@ const GitHubTemplate = p => {
   return (
     <Page>
       <SEO title={fullName} />
+      <h1 css={align}>{fullName}</h1>
+      <ProjectLink to={repo.url} type="github" />
+      { repo.homepage && <ProjectLink to={repo.homepage} type={type(repo)} /> }
       <div>
         { org && !md ?
             <Org content={org} repo={repo} />
