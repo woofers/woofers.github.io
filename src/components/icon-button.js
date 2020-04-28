@@ -10,6 +10,7 @@ const style = css`
     top: 2px;
     right: 1px;
   }
+  display: inline-block;
 `
 
 const IconButton = p => {
