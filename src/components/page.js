@@ -24,7 +24,7 @@ const Page = ({ children, theme }) => (
     background={theme.colors.background}
   >
     <Header>
-      <Back to="/" />
+      <Back />
     </Header>
     <main css={container}>{children}</main>
   </Layout>
