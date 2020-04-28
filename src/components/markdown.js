@@ -10,7 +10,15 @@ import CodeBlock from './code-block'
 import github from 'hast-util-sanitize/lib/github'
 import merge from 'lodash.merge'
 import { FadeLink as Link } from './link'
+import { css } from '@emotion/core'
+
 const schema = merge(github, { attributes: { '*': ['className', 'type'] } })
+
+const title = css`
+  h1:first-of-type {
+    display: none;
+  }
+`
 
 export const onlyImages = () => {
   return (tree) => unist('paragraph', selectAll('image', tree))
@@ -68,7 +76,7 @@ export const Markdown = p => {
     return md.processSync(p.content).result
   }
   return (
-    <div>
+    <div css={title}>
       {content()}
     </div>
   )
