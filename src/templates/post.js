@@ -4,6 +4,7 @@ import Content from '../components/content'
 import Page from '../components/page'
 import SEO from '../components/seo'
 import Comments from '../components/comments'
+import Title from '../components/title'
 
 const PostTemplate = p => {
   const { data } = p
@@ -13,6 +14,7 @@ const PostTemplate = p => {
   return (
     <Page>
       <SEO title={title} />
+      <Title>{title}</Title>
       <div>
         <Content html={html} />
         <Comments />
