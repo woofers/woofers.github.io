@@ -10,6 +10,7 @@ module.exports = {
     siteUrl: json.homepage,
     author: name,
     description: json.description,
+    tagline: `I create software in **Victoria, BC**.`,
     repo,
     social: {
       github: {

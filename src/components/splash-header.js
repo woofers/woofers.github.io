@@ -6,6 +6,8 @@ import Avatar from './avatar'
 import { css } from '@emotion/core'
 import Header from './header'
 import Social from './social'
+import { Markdown } from './markdown'
+import { useStaticQuery, graphql } from 'gatsby'
 
 const space = 40
 
@@ -25,10 +27,9 @@ const container = theme => css`
     margin-left: ${space + 90}px;
     margin-top: 0;
   }
-`
-
-const text = css`
-  max-width: 600px;
+  > div:first-of-type {
+    max-width: 600px;
+  }
 `
 
 const left = css`
@@ -56,7 +57,9 @@ const footer = theme => css`
 
 `
 
-const SplashHeader = ({ title, children }) => {
+const SplashHeader = ({ children }) => {
+  const data = useStaticQuery(graphql`{ ...Title }`)
+  const { title, tagline } = data.site.siteMetadata
   const parts = title.split(' ')
   const first = parts[0]
   const last = parts.slice(1, parts.length).join(' ')
@@ -80,9 +83,7 @@ const SplashHeader = ({ title, children }) => {
         <Nav />
       </Header>
       <div css={container}>
-        <p css={text}>
-         I create software in <strong>Victoria, BC</strong>.
-        </p>
+        <Markdown content={tagline} />
         {children}
         <footer css={footer}>
           <Social />
