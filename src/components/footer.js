@@ -1,5 +1,6 @@
 import React from 'react'
-import { SwipeLink as Link } from './link'
+import Link from './icon-link'
+import { SwipeLink } from './link'
 import { css } from '@emotion/core'
 import { IoMdArrowRoundUp } from 'react-icons/io'
 
@@ -20,7 +21,9 @@ const footer = theme => css`
 
 const Footer = p => (
   <footer role="contentinfo" css={footer}>
-    <Link to="/"><IoMdArrowRoundUp /> Home</Link>
+    <Link to="/" link={SwipeLink} icon={IoMdArrowRoundUp}>
+      Home
+    </Link>
   </footer>
 )
 
