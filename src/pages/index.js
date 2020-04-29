@@ -18,12 +18,12 @@ const side = theme => css`
   h1 {
     font-size: 1.6rem;
     margin-bottom: 20px;
-    transition: transform 0.25s ease;
+    transition: transform 0.2s ease;
   }
   a {
     &:hover {
       h1 {
-        transform: translate(25px, 0px);
+        transform: translate(20px, 0px);
       }
     }
   }
