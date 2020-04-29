@@ -6,14 +6,14 @@ import { withTheme } from 'emotion-theming'
 
 const style = css`
   h4 {
-    color: rgba(255, 255, 255, 0.7);
+    color: #fbd4cb;
   }
 `
 
 const Splash = ({ children, theme }) => {
   return (
     <Layout color={theme.colors.text.light}
-      background={theme.colors.accent}
+      background={theme.colors.accentGradient}
     >
       <div css={style}>
         <Header>

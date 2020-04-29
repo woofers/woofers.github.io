@@ -4,6 +4,7 @@ const orange = '#f27052'
 const colors = {
   background: '#fff',
   accent: orange,
+  accentGradient: 'linear-gradient(110deg, #f27052 10%, #fd904f)',
   code: '#2d2833',
   text: {
     dark: '#000',
@@ -22,7 +23,7 @@ const colors = {
     },
     light: {
       normal: '#fff',
-      hover: '#f9b8a9'
+      hover: '#fbe0a0'
     },
     pico: {
       normal: '#696068',
