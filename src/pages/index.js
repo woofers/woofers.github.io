@@ -50,7 +50,7 @@ const IndexPage = p => {
   const left = right.splice(0, Math.ceil(right.length / 2))
   return (
     <Splash>
-      <SEO title="Home" />
+      <SEO />
       <div css={side}>
         <div>
           <h4>Projects</h4>
