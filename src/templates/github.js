@@ -7,11 +7,7 @@ import SEO from '../components/seo'
 import ProjectLink from '../components/project-link'
 import dlv from 'dlv'
 import { mutateRepoNames, type } from '../utils/repo'
-import { css } from '@emotion/core'
-
-const align = css`
-  text-align: right;
-`
+import Title from '../components/title'
 
 const GitHubTemplate = p => {
   const { data } = p
@@ -26,7 +22,7 @@ const GitHubTemplate = p => {
   return (
     <Page>
       <SEO title={fullName} />
-      <h1 css={align}>{fullName}</h1>
+      <Title>{fullName}</Title>
       <ProjectLink to={repo.url} type="github" />
       { repo.homepage && <ProjectLink to={repo.homepage} type={type(repo)} /> }
       <div>
