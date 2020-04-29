@@ -73,7 +73,7 @@ const SplashHeader = ({ children }) => {
               <Link to="/">
                 <div css={wordWrap}>
                   <div>{first}</div>
-                  { last && <div>{last}</div> }
+                  { last && <div>{' '}{last}</div> }
                  </div>
               </Link>
             </h1>
