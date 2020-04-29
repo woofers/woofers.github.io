@@ -27,6 +27,7 @@ export const title = graphql`
     site {
       siteMetadata {
         title
+        tagline
       }
     }
   }

@@ -84,5 +84,6 @@ export const Markdown = p => {
 
 Markdown.defaultProps = {
   filters: [],
+  repo: '',
   centerImages: true
 }
