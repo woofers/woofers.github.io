@@ -8,7 +8,7 @@ import { IoMdArrowRoundUp } from 'react-icons/io'
 const footer = theme => css`
   width: 100%;
   justify-content: center;
-  background: ${theme.colors.accent};
+  background: ${theme.colors.accentGradient};
   position: absolute;
   left: 0;
   bottom: 0;

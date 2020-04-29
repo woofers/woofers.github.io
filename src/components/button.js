@@ -9,10 +9,12 @@ const style = theme => css`
   font-size: 14px;
   border: 1px solid ${theme.colors.accent};
   border-radius: 4px;
-  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  transition: background 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
   &:hover {
     color: ${theme.colors.text.light};
-    background: ${theme.colors.accent};
+    background: ${theme.colors.accentGradient};
+    border: none;
+    padding: 7px 13px;
   }
 `
 
