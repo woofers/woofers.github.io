@@ -1,5 +1,4 @@
 import React from 'react'
-import { FadeLink as Link } from './link'
 import Nav from './nav'
 import Tagline from './tagline'
 import Avatar from './avatar'
@@ -70,12 +69,10 @@ const SplashHeader = ({ children }) => {
           <Avatar />
           <div css={home}>
             <h1>
-              <Link to="/">
-                <div css={wordWrap}>
-                  <div>{first}</div>
-                  { last && <div>{' '}{last}</div> }
-                 </div>
-              </Link>
+              <div css={wordWrap}>
+                <div>{first}</div>
+                { last && <div>{' '}{last}</div> }
+              </div>
             </h1>
             <Tagline />
           </div>
