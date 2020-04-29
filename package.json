@@ -59,17 +59,18 @@
     "with-utterances": "^1.5.0"
   },
   "devDependencies": {
-    "prettier": "^2.0.5"
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
   },
   "keywords": [
     "gatsby"
   ],
   "license": "MIT",
   "scripts": {
-    "build": "./dist-games.sh && gatsby build",
-    "dev": "gatsby develop",
+    "build": "yarn clean && ./dist-games.sh && gatsby build",
+    "dev": "yarn clean && gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "gatsby develop",
+    "start": "yarn clean && gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
