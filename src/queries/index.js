@@ -169,3 +169,16 @@ export const pages = graphql`
     }
   }
 `
+
+
+export const meta = graphql`
+  fragment Meta on Query {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
+    }
+  }
+`
