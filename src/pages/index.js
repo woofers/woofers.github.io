@@ -3,7 +3,7 @@ import Splash from '../components/splash'
 import { FadeLink as Link } from '../components/link'
 import SEO from '../components/seo'
 import { css } from '@emotion/core'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
 
 const side = theme => css`
@@ -39,7 +39,7 @@ const side = theme => css`
 `
 
 const IndexPage = p => {
-  const { data } = p
+  const data = useStaticQuery(graphql`{ ...GitHubProjects }`)
   const { site } = data
   const { siteMetadata } = site
   const { exclude } = siteMetadata
@@ -78,9 +78,3 @@ const IndexPage = p => {
 }
 
 export default IndexPage
-
-export const pageQuery = graphql`
-  {
-    ...GitHubProjects
-  }
-`
