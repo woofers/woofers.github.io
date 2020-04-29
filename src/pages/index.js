@@ -27,8 +27,9 @@ const side = theme => css`
       }
     }
   }
+  margin-top: 12px;
   @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
-    margin-top: 75px;
+    margin-top: 50px;
     display: flex;
     h1 {
       font-size: 2rem;
