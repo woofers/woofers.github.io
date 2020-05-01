@@ -1,115 +1,110 @@
-import React, { Component } from "react"
-import { graphql } from 'gatsby'
-import RotatingText from '../components/rotating-text'
-import { Link } from 'gatsby'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faUser, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
-import { faNewspaper } from '@fortawesome/free-regular-svg-icons'
+import React from 'react'
+import Splash from '../components/splash'
+import { FadeLink as Link } from '../components/link'
+import SEO from '../components/seo'
 import { css } from '@emotion/core'
-import { Profile } from '../components/profile'
-import Button from '../components/button'
-import { Page } from '../components/page'
+import { graphql, useStaticQuery } from 'gatsby'
+import { mutateRepoNames } from '../utils/repo'
+import Description from '../components/description'
 
-const text = theme => css`
-  h1:first-of-type {
-    font-size: ${theme.fonts.splash}
-  }
-  @media screen and (max-width: 814px) {
-    h1:first-of-type {
-      font-size: 2.5em;
-    }
-  }
-  @media screen and (max-width: 675px) {
-    h1:first-of-type {
-      font-size: 2em;
-    }
-    h1 {
-      font-size: 1.3rem;
-    }
-  }
-`
-
-const nav = theme => css`
-  margin-top: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  div {
-    font-family: 'Raleway',sans-serif;
-    font-size: 1.25em;
-    text-align: left;
-    margin-right: ${theme.margins.large};
-  }
-  @media screen and (max-width: 502px) {
-    div {
-      margin-bottom: ${theme.margins.small};
-      font-size: 20px;
-    }
-    display: block !important;
-  }
-`
-
-const flex = theme => css`
-  display: flex;
-  flex-wrap: wrap;
+const side = theme => css`
   justify-content: space-between;
-  text-align: center;
-  img {
-    margin-right: auto;
-    margin-left: auto;
-  }
-  @media screen and (max-width: 1066px) {
-    h1 {
-      margin-block-start: 2px !important;
-      margin-block-end: 30px !important;
-    }
-    div {
-      width: 100%;
+  > div {
+    padding: 10px 10px 10px 0;
+    width: 500px;
+    &:not(:last-of-type) {
+      margin-right: 125px;
     }
   }
-  @media screen and (max-width: 481px) {
+  h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    transition: transform 0.2s ease;
+  }
+  a {
+    &:hover {
+      h1 {
+        transform: translate(20px, 0px);
+      }
+    }
+  }
+  margin-top: 12px;
+  @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
+    margin-top: 50px;
+    display: flex;
     h1 {
-      margin-block-start: 8px !important;
-      margin-block-end: 10px !important;
+      font-size: 2rem;
+      margin-bottom: 25px;
     }
   }
 `
 
-class Splash extends Component {
-  render() {
-    const speed = 65
-    const deleteSpeed = speed - 10
-    const stop = 3000
-    const emptyStop = 500
-    const { about, blog, projects } = this.props.data.site.siteMetadata.nav
-    return (
-      <Page title={this.props.data.site.siteMetadata.title}>
-        <div css={flex}>
-          <div css={text}>
-            <h1>Hey I'm{' '}<Link to={about}>Jaxson Van Doorn</Link></h1>
-            <h1>
-              I{' '}
-              <RotatingText items={['build games 🎮', 'design apps 🖌', 'craft tools 🔧']}
-                typingInterval={speed}
-                deletingInterval={deleteSpeed}
-                emptyPause={emptyStop}
-                pause={stop}
-              />
-              {' '}for the modern world
-            </h1>
-          </div>
-          <Profile />
-        </div>
-        <div css={nav}>
-          <Button href={projects}><Icon icon={faNewspaper}/> Check out my Projects</Button>
-          <Button href={blog}><Icon icon={faPencilAlt}/> Read my Blog</Button>
-          <Button href={about}><Icon icon={faUser}/> Learn About me</Button>
-        </div>
-      </Page>
-    )
+const desc = css`
+  > a {
+    > h1 {
+      margin-bottom: 5px;
+    }
+    > div {
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
   }
+  > a:hover, > a:focus {
+    > div {
+      height: 25px;
+      overflow: hidden;
+    }
+  }
+  transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+`
+
+const height = theme => css`
+  @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
+    height: 450px;
+  }
+`
+
+const Projects = p => {
+  const { title, projects, ...rest } = p
+  return (
+    <div {...rest} css={height}>
+      <h4>{title}</h4>
+      {
+        projects.map(project => (
+          <div key={project.name} css={desc}>
+            <Link to={`/projects/${project.name}/`}>
+              <h1>{project.fullName}</h1>
+              <div css={desc}>
+                <Description text={project.description} />
+              </div>
+            </Link>
+          </div>
+        ))
+      }
+    </div>
+  )
 }
 
-export default Splash
+const IndexPage = p => {
+  const data = useStaticQuery(graphql`{ ...GitHubProjects }`)
+  const { site } = data
+  const { siteMetadata } = site
+  const { exclude } = siteMetadata
+  let repos = data.allRepositories.edges
+  mutateRepoNames(repos, exclude)
+  repos = repos.map(({ node }) => node)
+  const right = repos.filter(repo => !!repo.fullName)
+  const left = right.splice(0, Math.ceil(right.length / 2))
+  return (
+    <Splash>
+      <SEO />
+      <div css={side}>
+        <Projects title="Projects" projects={left} />
+        <Projects title="More Projects" projects={right} />
+      </div>
+    </Splash>
+  )
+}
 
-export const pageQuery = graphql`{ ...Title, ...Nav }`
+export default IndexPage

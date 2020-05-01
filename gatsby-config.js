@@ -1,4 +1,3 @@
-
 const json = require('./package.json')
 const name = json.author
 const remote = /(\/\/github.com\/)(.*)(\.git$)/g
@@ -11,6 +10,7 @@ module.exports = {
     siteUrl: json.homepage,
     author: name,
     description: json.description,
+    tagline: `I create software in **Victoria, BC**.`,
     repo,
     social: {
       github: {
@@ -39,7 +39,6 @@ module.exports = {
     home,
     resume: `${json.homepage}/resume/jaxsonvd-resume.pdf`,
     nav: {
-      projects: '/projects/',
       blog: '/blog/',
       about: '/about/',
     },
@@ -48,43 +47,30 @@ module.exports = {
       ['woofers3d', 'Woofers 3D'],
       ['ludum-dare-44', 'ALIEN, e x p a n s i o n .'],
       ['react-pico-8', 'React PICO-8'],
+      ['react-yat', 'React YAT'],
       ['opengraph-api'],
+      ['org-invoice-template'],
       ['react-ludum-dare'],
       ['woofers.github.io'],
       ['kangaroo-country'],
       ['chess'],
       ['resume'],
       ['java-formatter'],
+      ['battlesnake-2018'],
       ['battlesnake-java-template'],
       ['libgdx-tools-installer'],
       ['challenger-deep-rofi'],
       ['dotfiles'],
       ['k9-krew'],
       ['course-codes-bugs'],
+      ['react-chameleon-theme-color']
     ]
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    `gatsby-plugin-layout`,
-    `gatsby-plugin-catch-links`,
-    `gatsby-plugin-robots-txt`,
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-transition-link`,
+    `gatsby-plugin-emotion`,
     `gatsby-plugin-offline`,
-    {
-      resolve: `gatsby-plugin-sitemap`,
-      options: {
-        exclude: ['/resume/**'],
-      },
-    },
-    {
-      resolve: `gatsby-plugin-typography`,
-      options: {
-        pathToConfigModule: `src/utils/typography.js`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {},
-    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -96,25 +82,24 @@ module.exports = {
       resolve: `gatsby-transformer-orga`,
       options: {},
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`,
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name,
         short_name: name,
         start_url: home,
-        background_color: '#463d4e',
+        background_color: '#fff',
         theme_color: '#f27052',
         display: `standalone`,
-        icon: 'static/favicon.png',
-        theme_color_in_head: false,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-analytics`,
-      options: {
-        trackingId: 'UA-140419508-1',
-        head: true,
-        anonymize: true,
+        icon: `static/favicon.png`,
       },
     },
     {
@@ -171,4 +156,4 @@ module.exports = {
       },
     },
   ],
-};
+}

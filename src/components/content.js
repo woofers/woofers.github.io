@@ -1,21 +1,12 @@
 import React from 'react'
-import { css } from '@emotion/core'
+import 'prism-themes/themes/prism-duotone-space.css'
 
-export const Content = p => {
-  const hide = css`
-    div:first-of-type h1 {
-      display: none;
-    }
-  `
-  const org = theme => css`
-    ${p.hideTitle ? hide : ''}
-    div {
-      margin-bottom: ${theme.margins.small};
-      text-align: 'left';
-    }
-  `
+const Content = p => {
+  const { html, ...rest } = p
   return (
-    <div css={org}
-       dangerouslySetInnerHTML={{ __html: p.html }} />
+    <div {...rest}
+      dangerouslySetInnerHTML={{ __html: html }} />
   )
 }
+
+export default Content

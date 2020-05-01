@@ -2,17 +2,9 @@ import React from 'react'
 import toHast from 'oast-to-hast'
 import hastToHtml from 'hast-util-to-html'
 import { parse as orga } from 'orga'
-import { Content } from './content'
+import Content from './content'
 import { toGitHubLink } from '../utils/link'
 import u from 'unist-builder'
-import { css } from '@emotion/core'
-import { image as center } from '../styles/center'
-
-const image = css`
-  img {
-    ${center};
-  }
-`
 
 const Org = p => {
   const parse = content => {
@@ -30,7 +22,7 @@ const Org = p => {
     return hastToHtml(hast, { allowDangerousHTML: true })
   }
   return (
-    <div css={image}>
+    <div>
       <Content html={parse(p.content)} />
     </div>
   )

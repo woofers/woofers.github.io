@@ -4,14 +4,14 @@ import { css } from '@emotion/core'
 import { withTheme } from 'emotion-theming'
 
 const pico = theme => css`
-  margin: ${theme.margins.small} 0;
+  margin: 16px 0;
   .p8_menu_button {
     button {
-      background: ${theme.colors.pico};
+      background: ${theme.colors.link.pico.normal};
     }
     &:hover {
       button {
-        background: ${theme.colors.text};
+        background: ${theme.colors.link.pico.hover};
       }
     }
   }
@@ -21,7 +21,6 @@ const pico = theme => css`
   }
   #p8_container {
     > button {
-      border-radius: ${theme.margins.image};
       img {
        margin-bottom: auto;
       }
@@ -30,11 +29,11 @@ const pico = theme => css`
 `
 
 const Pico8 = p => (
-  <P8 src={p.src}
-      center={true}
-      placeholder={p.placeholder}
-      css={pico}
-  />
+  <P8 css={pico} {...p} />
 )
+
+Pico8.defaultProps = {
+  center: true
+}
 
 export default withTheme(Pico8)

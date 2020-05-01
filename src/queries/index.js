@@ -21,44 +21,13 @@ export const content = graphql`
     }
   }
 `
-export const url = graphql`
-  fragment Url on Query {
-    site {
-      siteMetadata {
-        siteUrl
-      }
-    }
-  }
-`
 
 export const title = graphql`
   fragment Title on Query {
     site {
       siteMetadata {
         title
-      }
-    }
-  }
-`
-
-export const pages = graphql`
-  fragment Pages on Query {
-    allSitePage {
-      nodes {
-        path
-      }
-    }
-  }
-`
-
-export const template = graphql`
-  fragment Template on Query {
-    ...Title
-    site {
-      siteMetadata {
-        home
-        description
-        author
+        tagline
       }
     }
   }
@@ -69,7 +38,6 @@ export const nav = graphql`
     site {
       siteMetadata {
         nav {
-          projects
           blog
           about
         }
@@ -78,11 +46,11 @@ export const nav = graphql`
   }
 `
 
-export const repo = graphql`
-  fragment Repo on Query {
+export const resume = graphql`
+  fragment Resume on Query {
     site {
       siteMetadata {
-        repo
+        resume
       }
     }
   }
@@ -92,7 +60,6 @@ export const social = graphql`
   fragment Social on Query {
     site {
       siteMetadata {
-        resume
         social {
           github {
             name
@@ -131,21 +98,21 @@ export const repoExclude = graphql`
   }
 `
 
-export const github = graphql`
-  fragment GitHub on Query {
+export const allGithub = graphql`
+  fragment GitHubProjects on Query {
     ...RepoExclude
     allRepositories {
       edges {
         node {
-          ...RepoContent
+          ...GitHub
         }
       }
     }
   }
 `
 
-export const repoContent = graphql`
-  fragment RepoContent on repositories {
+export const github = graphql`
+  fragment GitHub on repositories {
     name
     description
     url
@@ -166,6 +133,9 @@ export const repoContent = graphql`
     readme {
       text
     }
+    readmeOrg {
+      text
+    }
   }
 `
 
@@ -176,6 +146,39 @@ export const readme = graphql`
     }
     readmeOrg {
       text
+    }
+  }
+`
+
+export const url = graphql`
+  fragment Url on Query {
+    site {
+      siteMetadata {
+        siteUrl
+      }
+    }
+  }
+`
+
+export const pages = graphql`
+  fragment Pages on Query {
+    allSitePage {
+      nodes {
+        path
+      }
+    }
+  }
+`
+
+
+export const meta = graphql`
+  fragment Meta on Query {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+      }
     }
   }
 `

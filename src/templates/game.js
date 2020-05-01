@@ -1,45 +1,36 @@
-import React, { Component } from "react"
-import { BlogTitle } from '../components/blog-title'
-import { Breadcrumb } from '../components/breadcrumb'
-import { Game } from '../components/game'
-import { Page } from '../components/page'
+import React from 'react'
 import { graphql } from 'gatsby'
+import Game from '../components/game'
+import Page from '../components/page'
+import SEO from '../components/seo'
+import GameTitle from '../components/game-title'
 
-class GameTemplate extends Component {
-  render() {
-    const post = this.props.data.orgContent
-    const path = post.fields.slug
-    const { title, date, icon, landscape, lang, game, placeholder } = post.metadata
-    const { projects } = this.props.data.site.siteMetadata.nav
-    const iconMode = post.metadata.icon_mode
-    const iconType = post.metadata.icon_type
-    const ludumDare = post.metadata.ludum_dare
-    const links = [{ name: 'Projects', link: projects},
-                   { name: title, link: path },
-                   { name: 'Play' }]
-    return (
-      <Page title={title}
-            site={this.props.data.site.siteMetadata.title}>
-        <Breadcrumb links={links} />
-        <BlogTitle title={title} date={date}
-                   icon={{ image: icon, mode: iconMode, type: iconType }} />
-        <Game title={title} src={game}
-              portrait={landscape === 'nil'}
-              instruction={post.html}
-              lang={lang}
-              ludumDare={ludumDare}
-              placeholder={placeholder} />
-      </Page>
-    )
-  }
+const GameTemplate = p => {
+  const { data } = p
+  const { orgContent } = data
+  const { metadata, html } = orgContent
+  const { title, icon, landscape, lang, game, placeholder } = metadata
+  const iconMode = metadata.icon_mode
+  const iconType = metadata.icon_type
+  const ludumDare = metadata.ludum_dare
+  return (
+    <Page>
+      <SEO title={title} />
+      <GameTitle title={title} icon={icon} iconMode={iconMode} iconType={iconType} />
+      <Game title={title} src={game}
+            portrait={landscape === 'nil'}
+            instruction={html}
+            lang={lang}
+            ludumDare={ludumDare}
+            placeholder={placeholder} />
+    </Page>
+  )
 }
 
 export default GameTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    ...Title
-    ...Nav
     orgContent(fields: {slug: {eq: $slug}}) {
       ...Content
     }

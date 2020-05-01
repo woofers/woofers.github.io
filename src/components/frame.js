@@ -10,17 +10,18 @@ const iframe = css`
   height: 100%;
 `
 
-export const Frame = p => {
-  const container = theme => css`
+const Frame = p => {
+  const { aspectRatio, title, ...rest } = p
+  const container = css`
     ${noHighlight};
     text-align: center;
-    margin: ${theme.margins.small} 0;
+    margin: 2px 0;
     position: relative;
-    padding-bottom: ${100 / p.aspectRatio}%;
+    padding-bottom: ${100 / aspectRatio}%;
   `
   return (
     <div css={container}>
-      <iframe title={p.title} src={p.src} css={iframe} frameBorder="0" allowFullScreen />
+      <iframe {...rest} title={title} css={iframe} frameBorder="0" allowFullScreen />
     </div>
   )
 }
@@ -28,3 +29,5 @@ export const Frame = p => {
 Frame.defaultProps = {
   aspectRatio: 16 / 9
 }
+
+export default Frame

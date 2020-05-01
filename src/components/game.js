@@ -1,8 +1,8 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { Content } from '../components/content'
-import { Frame } from '../components/frame'
-import Pico8 from '../components/pico-8'
+import Content from './content'
+import Frame from './frame'
+import Pico8 from './pico-8'
 import Widget from '@ludum-dare-badges/react'
 
 const grid = css`
@@ -13,15 +13,21 @@ const grid = css`
   justify-content: center;
 `
 
-export const Game = p => (
-  <div css={p.portrait && p.lang !== "pico" ? grid : ''}>
-    { p.lang === 'pico'
-      ? <Pico8 src={p.src} placeholder={p.placeholder} />
-      : <Frame aspectRatio={p.portrait && p.lang !== "pico" ? (9 / 16) : (16 / 9)}
-               title={p.title} src={p.src}
-        />
-    }
-    <Content html={p.instruction} />
-    { p.ludumDare ? <Widget game={p.ludumDare} /> : null }
-  </div>
-)
+const Game = p => {
+  const { portrait, lang, title, src, instruction, ludumDare, placeholder } = p
+  const isPico = lang === 'pico'
+  return (
+    <div css={portrait && !isPico ? grid : ''}>
+      {
+        isPico
+          ? <Pico8 src={src} placeholder={placeholder} />
+          : <Frame aspectRatio={portrait ? (9 / 16) : (16 / 9)}
+                   title={title} src={src} />
+      }
+      <Content html={instruction} />
+      { ludumDare && <Widget game={p.ludumDare} /> }
+    </div>
+  )
+}
+
+export default Game

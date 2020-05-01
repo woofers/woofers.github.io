@@ -1,28 +1,27 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import Link from './smart-link'
-import { withTheme } from 'emotion-theming'
+import { FadeLink as Link } from './link'
 
-const Container = p => {
-  const style = theme => css`
-    text-align: ${p.align};
-    display: ${p.inline ? 'inline-block' : 'block'};
-    margin-bottom: ${theme.margins.extraSmall};
-    margin-right: ${p.inline ? theme.margins.large : 0};
-    margin-top: ${p.inline ? theme.margins.medium : 0};
-  `
-  if (p.inline) return (<span css={style}>{p.children}</span>)
-  return (<div css={style}>{p.children}</div>)
-}
+const style = theme => css`
+  font-weight: 700;
+  padding: 6px 12px;
+  color: ${theme.colors.accent};
+  font-size: 14px;
+  border: 1px solid ${theme.colors.accent};
+  border-radius: 4px;
+  transition: background 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  &:hover {
+    color: ${theme.colors.text.light};
+    background: ${theme.colors.accentGradient};
+    border: none;
+    padding: 7px 13px;
+  }
+`
 
-const Button = p => (
-  <Container inline={p.inline} align={p.align}>
-    <Link style={p.style} to={p.href}>{p.children}</Link>
-  </Container>
+const Button = ({ children, ...rest }) => (
+  <Link {...rest} direction="left" duration={0.4} css={style}>
+    {children}
+  </Link>
 )
 
-Button.defaultProps = {
-  align: 'right'
-}
-
-export default withTheme(Button)
+export default Button

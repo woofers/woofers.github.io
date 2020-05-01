@@ -1,12 +1,20 @@
 import React from 'react'
-import { useStaticQuery, Link as GatsbyLink, graphql } from 'gatsby'
+import { useStaticQuery, graphql } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import TransitionLink from 'gatsby-plugin-transition-link'
 
-// Since DOM elements <a> cannot receive activeClassName
-// and partiallyActive, destructure the prop here and
-// pass it only to GatsbyLink
-// Adapted from: https://www.gatsbyjs.org/docs/gatsby-link/
-const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
+/*
+  Since DOM elements tags cannot receive activeClassName
+  and partiallyActive, destructure the prop here and
+  pass it only to GatsbyLink
+  Adapted from: https://www.gatsbyjs.org/docs/gatsby-link/
+*/
+const Link = p => {
+  const {
+    children, to, activeClassName, partiallyActive,
+    exit, entry,
+    ...rest
+  } = p
   const data = useStaticQuery(graphql`{ ...Url, ...Pages }`)
   let link = to
 
@@ -21,7 +29,7 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
 
   if (!paths.includes(link)) {
     return (
-      <OutboundLink href={to} {...other}>
+      <OutboundLink href={to} {...rest}>
         {children}
       </OutboundLink>
     )
@@ -32,21 +40,23 @@ const Link = ({ children, to, activeClassName, partiallyActive, ...other }) => {
   // will start with exactly one slash, and that anything else is external.
   const internal = /^\/(?!\/)/.test(link)
 
-  // Use Gatsby Link for internal links, and <a> for others
+  // Use Gatsby Link for internal links, and tags for others
   if (internal) {
     return (
-      <GatsbyLink
+      <TransitionLink
         to={link}
         activeClassName={activeClassName}
         partiallyActive={partiallyActive}
-        {...other}
+        exit={exit}
+        entry={entry}
+        {...rest}
       >
         {children}
-      </GatsbyLink>
+      </TransitionLink>
     )
   }
   return (
-    <a href={link} {...other}>
+    <a href={link} {...rest}>
       {children}
     </a>
   )

@@ -1,8 +1,8 @@
-import { css } from '@emotion/core'
-import withUtterances from 'with-utterances'
+import React from 'react'
 import noHighlight from '../styles/no-highlight'
-import React from "react"
+import withUtterances from 'with-utterances'
 import { withTheme } from 'emotion-theming'
+import { css } from '@emotion/core'
 
 const style = css`
   .utterances {
@@ -17,14 +17,13 @@ const utterances = (Page, theme) => {
   )
 }
 
-export const comments = (Page) => {
-  return withTheme(p => {
-      const Comments = utterances(Page, p.theme.comments)
-      return (
-        <div css={style}>
-          <Comments {...p} />
-        </div>
-      )
-    }
+const Comments = withTheme(p => {
+  const Comments = utterances(() => null, p.theme.comments)
+  return (
+    <div css={style}>
+      <Comments {...p} />
+    </div>
   )
-}
+})
+
+export default Comments

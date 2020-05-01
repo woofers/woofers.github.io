@@ -1,39 +1,80 @@
-import React, { Component } from "react"
-import { Content } from '../components/content'
-import { Page } from '../components/page'
-import { AboutProfile as Profile } from '../components/profile'
+import React from 'react'
 import { graphql } from 'gatsby'
-import { withTheme } from 'emotion-theming'
-import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome'
-import { faScroll } from '@fortawesome/free-solid-svg-icons'
-import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons'
-import Button from '../components/button'
+import Content from '../components/content'
+import Page from '../components/page'
+import SEO from '../components/seo'
+import Avatar from '../components/avatar'
+import Link from '../components/icon-link'
+import { FaGithub,
+         FaTwitter,
+         FaScroll } from 'react-icons/fa'
+import { css } from '@emotion/core'
+import Title from '../components/large-title'
+import { camelCaseToPascalCase as uppercase } from '../utils/case'
 
-class AboutTemplate extends Component {
-  render() {
-    const post = this.props.data.orgContent
-    const { social, resume } = this.props.data.site.siteMetadata
-    const { github, twitter } = social
-    const { margins } = this.props.theme
-    return (
-      <Page title={post.metadata.title} site={this.props.data.site.siteMetadata.title}>
-        <Profile width={margins.profile} height={margins.profile} >
-          <Button href={twitter.link}><Icon icon={faTwitter}/> {twitter.handle}</Button>
-          <Button href={github.link}><Icon icon={faGithub}/> {github.name}</Button>
-          <Button href={resume}><Icon icon={faScroll}/> Resume</Button>
-        </Profile>
-        <Content html={post.html} hideTitle={true} />
-      </Page>
-    )
+const style = theme => css`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  > div:first-of-type {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 23px;
   }
+  text-align: right;
+  @media (min-width: ${theme.breakpoints.mobile.breakpoint}) {
+    padding-left: 10px;
+    text-align: center;
+  }
+`
+
+const flex = theme => css`
+  @media (min-width: ${theme.breakpoints.mobile.breakpoint}) {
+    display: flex;
+    > h1 {
+      flex-grow: 2;
+      flex-shrink: 1;
+      flex-basis: auto;
+    }
+  }
+`
+
+const AboutTemplate = p => {
+  const { data } = p
+  const { orgContent, site } = data
+  const { html, metadata } = orgContent
+  const { title, type } = metadata
+  const { siteMetadata } = site
+  const { resume, social } = siteMetadata
+  const { twitter, github } = social
+  return (
+    <Page>
+      <SEO title={uppercase(type)} />
+      <div css={flex}>
+        <Title>{title}</Title>
+        <div css={style}>
+          <div>
+            <Avatar size="130px" />
+          </div>
+          <div>
+            <Link to={twitter.link} inline={false} icon={FaTwitter}>{twitter.handle}</Link>
+            <Link to={github.link} inline={false} icon={FaGithub}>{github.name}</Link>
+            <Link to={resume} inline={false} icon={FaScroll}>Resume</Link>
+          </div>
+        </div>
+      </div>
+      <Content html={html} />
+    </Page>
+  )
 }
 
-export default withTheme(AboutTemplate)
+export default AboutTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
-    ...Title
     ...Social
+    ...Resume
     orgContent(fields: {slug: {eq: $slug}}) {
       ...Content
     }

@@ -1,70 +1,75 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
-import { css } from '@emotion/core'
+import Page from '../components/page'
+import SEO from '../components/seo'
+import { graphql } from 'gatsby'
 import cheerio from 'cheerio'
-import { Page } from '../components/page'
-import { Content } from '../components/content'
+import { FadeLink as Link } from '../components/link'
+import Content from '../components/content'
+import { css } from '@emotion/core'
+import Title from '../components/large-title'
 
-const org = theme => css`
-  div {
-    margin-bottom: ${theme.margins.small};
-  }
+const space = css`
+  margin-bottom: 30px;
+  padding: 20px 20px;
 `
 
-class BlogIndex extends React.Component {
-  sortedPosts() {
-    let posts = this.props.data.allOrgContent.edges
-    const date = (node) => node.metadata ? node.metadata.date : ''
-    const safeCompare = (a, b, func) =>
-      (a || b) ? (!a ? 1 : !b ? -1 : func(a, b) ? 1 : -1) : 0;
-    posts.sort(function(a, b) {
-      return safeCompare(date(a.node), date(b.node), (a, b) => new Date(a) < new Date(b));
-    });
-    return posts
-  }
+const read = css`
+  margin-bottom: 20px;
+`
 
-  render() {
-    const continueReading = 'Continue reading'
-    const siteMeta = this.props.data.site.siteMetadata
-    const site = siteMeta.title
-    const nav = siteMeta.nav
-    const _posts = this.sortedPosts().map (({ node }) => {
-      const path = node.fields.slug
-      const meta = node.metadata
-      const title = meta.title || path
-      const include = nav.blog
-      const date = meta.date
-      if (!path || !path.startsWith(include)) return null
-      let preview = cheerio.load(node.html)('p', 'body')
-      preview.find('h1').remove()
-      return (
-        <div css={ theme => ({ marginBottom: theme.margins.medium }) } key={path}>
-          <h1 css={ theme => ({ marginBottom: theme.margins.superSmall }) }>
-            <Link css={ theme => ({ lineHeight: theme.fonts.large }) } to={node.fields.slug}>{title}</Link>
-          </h1>
-          {date ? <span style={{ fontWeight: 'bold' }}>{date}</span> : null }
-          { preview.length ?
-            <div>
-              <Content html={preview.html()} />
-              <Link css={ theme => ({ color: `${theme.colors.text} !important` }) } to={node.fields.slug}
+const Blog = p => {
+  const { data } = p
+  const { allOrgContent, site } = data
+  const { edges } = allOrgContent
+  const { siteMetadata } = site
+  const { nav } = siteMetadata
+  const { blog } = nav
+  const content = edges.map(({ node }) => node)
+  const posts = content.filter(post => {
+    const path = post.fields.slug
+    return path && path.startsWith(blog)
+  }).sort((a, b) => {
+    const date = post => post.metadata && post.metadata.date
+    const compare = (a, b, f) =>
+      (a || b) ? (!a ? 1 : !b ? -1 : f(a, b) ? 1 : -1) : 0
+    return compare(date(a), date(b), (a, b) => new Date(a) < new Date(b))
+  })
+  return (
+    <Page>
+      <SEO title="Blog" />
+      <Title>Posts</Title>
+      {
+        posts.map(post => {
+          const continueReading = 'Continue reading'
+          const { metadata, fields, html } = post
+          const { slug } = fields
+          const { date, title } = metadata
+          const preview = cheerio.load(html)('p', 'body')
+          preview.find('h1').remove()
+          return (
+            <div key={`post-preview-${title}`} css={space}>
+              <h1>
+                <Link to={slug}>{title}</Link>
+              </h1>
+              {date && <h5>{date}</h5> }
+              <div css={read}>
+                <Content html={preview.html()} />
+              </div>
+              <Link to={slug}
                     aria-label={`${continueReading} ${title}`}>
                   {continueReading} . . .
               </Link>
-            </div>: null}
-        </div>
-      )
-    })
-    return (
-      <Page title='Posts' site={site}>
-        <div css={org}>
-          {_posts}
-        </div>
-      </Page>
-    )
-  }
+            </div>
+          )
+        })
+
+      }
+    </Page>
+  )
 }
 
-export default BlogIndex
+export default Blog
+
 
 export const pageQuery = graphql`
   {

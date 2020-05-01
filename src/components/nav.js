@@ -1,55 +1,38 @@
 import React from 'react'
 import { css } from '@emotion/core'
-import { useStaticQuery, graphql, Link } from 'gatsby'
-import { camelCaseToPascalCase } from '../utils/case'
+import { FadeLink as Link } from './link'
+import { useStaticQuery, graphql } from 'gatsby'
+import { camelCaseToPascalCase as uppercase } from '../utils/case'
 
-const navStyle = theme => css`
+const style = theme => css`
   display: flex;
-  align-items: center;
-  margin: 0 0 ${theme.margins.nav.overhang} 0;
-`
-
-const linkStyle = theme => css`
-  font-size: ${theme.fonts.nav};
-  color: ${theme.colors.headerText};
-  padding: ${theme.margins.nav.buttonSize};
-  &:not(:last-child) {
-    @media only screen and (min-width: 545px) {
-      margin: 0 ${theme.margins.items} 0 0
-    }
-    margin: 0 ${theme.margins.itemsSmall} 0 0
+  a {
+    padding: 10px 20px;
+    font-size: 17px;
+    font-weight: 700;
   }
-  text-decoration: none;
-  border-bottom: 1.5px double;
-  transition: border-bottom ${theme.transitions.hover};
-  border-color: rgba(0, 0, 0, 0);
-  &:hover {
-    border-color: initial;
-  }
-  &:focus, &:hover, &:visited, &:link, &:active {
-    text-decoration: none;
+  justify-content: flex-end;
+  @media (min-width: ${theme.breakpoints.nav.breakpoint}) {
+    justify-content: flex-start;
   }
 `
 
-export const Nav = p => {
-  const { nav } = useStaticQuery(graphql`{ ...Nav }`).site.siteMetadata
+const Nav = p => {
+  const data = useStaticQuery(graphql`{ ...Nav }`)
+  const links = Object.entries(data.site.siteMetadata.nav)
   return (
-    <nav css={navStyle}>
-      { Object.keys(nav).map(name => {
-          const link = nav[name]
-          return (
-            <Link
-              css={linkStyle}
-              to={link}
-              key={link}
-              activeStyle={{ borderColor: 'initial' }}
-            >
-              {camelCaseToPascalCase(name)}
-            </Link>
-          )
-        })
+    <nav css={style}>
+      {
+        links.map(([name, link]) =>
+          <Link to={link} key={name}>{uppercase(name)}</Link>
+        )
       }
-      <span>{p.children}</span>
     </nav>
   )
 }
+
+Nav.defaultProps = {
+  title: ''
+}
+
+export default Nav

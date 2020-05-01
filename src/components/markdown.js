@@ -1,18 +1,24 @@
 import React from 'react'
 import remark from 'remark'
 import remark2react from 'remark-react'
-import { css } from '@emotion/core'
 import unist from 'unist-builder'
 import visit from 'unist-util-visit'
 import filter from 'unist-util-filter'
 import { selectAll, select } from 'unist-util-select'
 import { toGitHubLink } from '../utils/link'
 import CodeBlock from './code-block'
-import { image } from '../styles/center'
 import github from 'hast-util-sanitize/lib/github'
 import merge from 'lodash.merge'
-import Link from './smart-link'
+import { FadeLink as Link } from './link'
+import { css } from '@emotion/core'
+
 const schema = merge(github, { attributes: { '*': ['className', 'type'] } })
+
+const title = css`
+  h1:first-of-type {
+    display: none;
+  }
+`
 
 export const onlyImages = () => {
   return (tree) => unist('paragraph', selectAll('image', tree))
@@ -67,32 +73,10 @@ export const Markdown = p => {
     for (const filter of p.filters) {
       md = md.use(filter)
     }
-    return md.processSync(p.content).contents
+    return md.processSync(p.content).result
   }
-
-  const centerImage = css`
-    img:last-child {
-      ${image};
-    }
-    img ~ img {
-      display: inline !important;
-    }
-  `
-
-  const style = theme => css`
-    h1:first-of-type {
-      display: none;
-    }
-    p img {
-      @media screen and (min-width: 1000px) {
-        margin-right: ${theme.margins.large};
-      }
-      margin-bottom: ${theme.margins.normal};
-    }
-    ${p.centerImages ? centerImage : ''}
-  `
   return (
-    <div css={style}>
+    <div css={title}>
       {content()}
     </div>
   )
@@ -100,5 +84,6 @@ export const Markdown = p => {
 
 Markdown.defaultProps = {
   filters: [],
+  repo: '',
   centerImages: true
 }
