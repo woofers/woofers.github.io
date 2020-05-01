@@ -10,6 +10,7 @@ import { FaGithub,
          FaScroll } from 'react-icons/fa'
 import { css } from '@emotion/core'
 import Title from '../components/large-title'
+import { camelCaseToPascalCase as uppercase } from '../utils/case'
 
 const style = theme => css`
   display: flex;
@@ -43,15 +44,15 @@ const AboutTemplate = p => {
   const { data } = p
   const { orgContent, site } = data
   const { html, metadata } = orgContent
-  const { title } = metadata
+  const { title, type } = metadata
   const { siteMetadata } = site
   const { resume, social } = siteMetadata
   const { twitter, github } = social
   return (
     <Page>
-      <SEO title={title} />
+      <SEO title={uppercase(type)} />
       <div css={flex}>
-        <Title>Hey I'm Jaxson</Title>
+        <Title>{title}</Title>
         <div css={style}>
           <div>
             <Avatar size="130px" />
