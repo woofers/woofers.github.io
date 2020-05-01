@@ -10,7 +10,7 @@ import Description from '../components/description'
 const side = theme => css`
   justify-content: space-between;
   > div {
-    padding: 10px 10px 10px 0;
+    padding: 0 10px 0 0;
     width: 500px;
     &:not(:last-of-type) {
       margin-right: 125px;
@@ -30,7 +30,7 @@ const side = theme => css`
   }
   margin-top: 12px;
   @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
-    margin-top: 50px;
+    margin-top: 60px;
     display: flex;
     h1 {
       font-size: 2rem;
@@ -59,17 +59,19 @@ const desc = css`
   transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
 `
 
-const height = theme => css`
-  @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
-    height: 450px;
-  }
-`
 
 const Projects = p => {
-  const { title, projects, ...rest } = p
+  const { projects, children, ...rest } = p
+  const noChild = !React.Children.count(children)
+  const height = theme => css`
+    @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
+      margin-top: ${noChild ? '50px' : '0'};
+      height: ${noChild ? '390px' : '440px'};
+    }
+  `
   return (
     <div {...rest} css={height}>
-      <h4>{title}</h4>
+      {children}
       {
         projects.map(project => (
           <div key={project.name} css={desc}>
@@ -100,8 +102,10 @@ const IndexPage = p => {
     <Splash>
       <SEO />
       <div css={side}>
-        <Projects title="Projects" projects={left} />
-        <Projects title="More Projects" projects={right} />
+        <Projects projects={left}>
+          <h4>Projects</h4>
+        </Projects>
+        <Projects projects={right} />
       </div>
     </Splash>
   )
