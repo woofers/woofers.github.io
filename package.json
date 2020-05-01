@@ -78,8 +78,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "deploy-ident": "git config --global user.email 'woofers1tt@gmail.com' && git config --global user.name 'Jaxson Van Doorn' && yarn deploy",
-    "deploy": "gh-pages-with-token -d public -b master",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "deploy": "gh-pages-with-token -d public -b master -m $(./version.sh)",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
     "type": "git",
