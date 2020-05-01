@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://jaxson.vandoorn.ca/sitemap.xml
-Host: https://jaxson.vandoorn.ca
