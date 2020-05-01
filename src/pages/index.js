@@ -50,7 +50,7 @@ const desc = css`
       margin-bottom: 15px;
     }
   }
-  > a:hover {
+  > a:hover, > a:focus {
     > div {
       height: 25px;
       overflow: hidden;
