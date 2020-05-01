@@ -1,8 +1,7 @@
 {
-  "name": "jvd-next",
-  "private": true,
+  "name": "jaxson.vandoorn.ca",
   "description": "Personal blog by Jaxson Van Doorn",
-  "version": "0.1.0",
+  "version": "5.0.0",
   "author": "Jaxson Van Doorn",
   "homepage": "https://jaxson.vandoorn.ca",
   "dependencies": {
@@ -60,11 +59,15 @@
     "with-utterances": "^1.5.0"
   },
   "devDependencies": {
+    "gh-pages": "^2.2.0",
+    "gh-pages-with-token": "^1.0.0",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "org-mode",
+    "jaxson"
   ],
   "license": "MIT",
   "scripts": {
@@ -74,13 +77,15 @@
     "start": "yarn clean && gatsby develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "deploy-ident": "git config --global user.email 'woofers1tt@gmail.com' && git config --global user.name 'Jaxson Van Doorn' && yarn deploy",
+    "deploy": "gh-pages-with-token -d public -b master",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/woofers/jvd-next.git"
+    "url": "git+https://github.com/woofers/woofers.github.io.git"
   },
   "bugs": {
-    "url": "https://github.com/woofers/jvd-next/issues"
+    "url": "https://github.com/woofers/woofers.github.io/issues"
   }
 }
