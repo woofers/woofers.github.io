@@ -1,8 +1,6 @@
 #+TITLE: About
 #+TYPE: about
 
-My name is *Jaxson Van Doorn* & I create software in *Victoria, BC*.
-
 I enjoy doing both /frontend/ & /backend/ web design work as-well as the occasional /game/ for fun.
 
 Most of my open-source projects these days are with [[https://reactjs.org/][React]] + [[https://developer.mozilla.org/en-US/docs/Web/JavaScript][JavaScript]], [[https://www.java.com][Java]] or [[https://www.lua.org/][Lua]].

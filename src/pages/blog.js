@@ -6,9 +6,15 @@ import cheerio from 'cheerio'
 import { FadeLink as Link } from '../components/link'
 import Content from '../components/content'
 import { css } from '@emotion/core'
+import Title from '../components/large-title'
 
 const space = css`
   margin-bottom: 30px;
+  padding: 20px 20px;
+`
+
+const read = css`
+  margin-bottom: 20px;
 `
 
 const Blog = p => {
@@ -31,6 +37,7 @@ const Blog = p => {
   return (
     <Page>
       <SEO title="Blog" />
+      <Title>Posts</Title>
       {
         posts.map(post => {
           const continueReading = 'Continue reading'
@@ -45,7 +52,9 @@ const Blog = p => {
                 <Link to={slug}>{title}</Link>
               </h1>
               {date && <h5>{date}</h5> }
-              <Content html={preview.html()} />
+              <div css={read}>
+                <Content html={preview.html()} />
+              </div>
               <Link to={slug}
                     aria-label={`${continueReading} ${title}`}>
                   {continueReading} . . .

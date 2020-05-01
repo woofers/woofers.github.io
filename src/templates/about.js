@@ -9,6 +9,7 @@ import { FaGithub,
          FaTwitter,
          FaScroll } from 'react-icons/fa'
 import { css } from '@emotion/core'
+import Title from '../components/large-title'
 
 const style = theme => css`
   display: flex;
@@ -16,16 +17,25 @@ const style = theme => css`
   justify-content: space-between;
   > div:first-of-type {
     position: relative;
-    bottom: 20px;
     margin-left: auto;
     margin-right: auto;
+    bottom: 23px;
   }
-  float: none;
   text-align: right;
   @media (min-width: ${theme.breakpoints.mobile.breakpoint}) {
     padding-left: 10px;
-    float: right;
-    text-align: left;
+    text-align: center;
+  }
+`
+
+const flex = theme => css`
+  @media (min-width: ${theme.breakpoints.mobile.breakpoint}) {
+    display: flex;
+    > h1 {
+      flex-grow: 2;
+      flex-shrink: 1;
+      flex-basis: auto;
+    }
   }
 `
 
@@ -40,14 +50,17 @@ const AboutTemplate = p => {
   return (
     <Page>
       <SEO title={title} />
-      <div css={style}>
-        <div>
-          <Avatar size="130px" />
-        </div>
-        <div>
-          <Link to={twitter.link} inline={false} icon={FaTwitter}>{twitter.handle}</Link>
-          <Link to={github.link} inline={false} icon={FaGithub}>{github.name}</Link>
-          <Link to={resume} inline={false} icon={FaScroll}>Resume</Link>
+      <div css={flex}>
+        <Title>Hey I'm Jaxson</Title>
+        <div css={style}>
+          <div>
+            <Avatar size="130px" />
+          </div>
+          <div>
+            <Link to={twitter.link} inline={false} icon={FaTwitter}>{twitter.handle}</Link>
+            <Link to={github.link} inline={false} icon={FaGithub}>{github.name}</Link>
+            <Link to={resume} inline={false} icon={FaScroll}>Resume</Link>
+          </div>
         </div>
       </div>
       <Content html={html} />
