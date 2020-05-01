@@ -1,71 +1,69 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import Nav from './nav'
+import Avatar from './avatar'
 import { css } from '@emotion/core'
-import Wave from 'react-wavify'
-import { withTheme } from 'emotion-theming'
-import { ChameleonThemeColor as Chameleon } from 'react-chameleon-theme-color'
 
-const header = theme => css`
-  background: ${theme.colors.header};
-  padding-top: ${theme.margins.small};
+const space = 65
 
-  * {
-    ::selection {
-      background: ${theme.selections.header} !important;
+const style = css`
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  > div {
+    display: flex;
+    flex: 1 1 auto;
+    > div:first-of-type {
+      margin-right: 10px;
     }
   }
 `
 
-const container = theme => css`
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 0 ${theme.margins.large};
-  z-index: -2;
-`
-
-const link = theme => css`
-  color: ${theme.colors.headerText};
-  font-size: ${theme.fonts.header};
-  border: none;
-  &:focus, &:hover, &:visited, &:link, &:active {
-    text-decoration: none;
+const home = css`
+  margin-top: 10px;
+  margin-left: ${10 + space}px;
+  align-self: center;
+  h1 {
+    margin-bottom: 0;
   }
 `
 
-const wave = theme => css`
-  margin-top: -20px;
-  height: 145px;
-  width: 100%;
-  position: absolute;
-  background: ${theme.colors.header};
-  z-index: -1;
+const container = css`
+  margin: 0 ${space + 80}px;
 `
 
-const space = theme => css`
-  margin-top: ${theme.margins.small};
+const text = css`
+  max-width: 600px;
 `
 
-const Header = p => (
-  <header role='banner' css={header}>
-    <Chameleon />
-    <div css={container}>
-      <div css={space}>
-        <h1>
-          <Link
-            to={p.link}
-            css={link}
-          >
-          {p.name}
-          </Link>
-        </h1>
+const Header = ({ title, children }) => (
+  <div>
+    <header css={style}>
+      <div>
+        <Avatar />
+        <div css={home}>
+          <h1>
+            <Link to="/">
+              {title}
+            </Link>
+          </h1>
+          <h4>I build things 🔧 </h4>
+        </div>
       </div>
-      {p.children}
+      <Nav />
+    </header>
+    <div css={container}>
+      <p css={text}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nulla lacus, aliquam in justo et, accumsan consequat neque.
+      </p>
+      {children}
     </div>
-    <div css={wave}>
-      <Wave fill={p.theme.colors.background}/>
-    </div>
-  </header>
+  </div>
 )
 
-export default withTheme(Header)
+Header.defaultProps = {
+  title: ''
+}
+
+export default Header
