@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import { css } from '@emotion/core'
 import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
+import Description from '../components/description'
 
 const side = theme => css`
   justify-content: space-between;
@@ -38,6 +39,53 @@ const side = theme => css`
   }
 `
 
+const desc = css`
+  > a {
+    > h1 {
+      margin-bottom: 5px;
+    }
+    > div {
+      height: 0;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+  }
+  > a:hover {
+    > div {
+      height: 25px;
+      overflow: hidden;
+    }
+  }
+  transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+`
+
+const height = theme => css`
+  @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
+    height: 450px;
+  }
+`
+
+const Projects = p => {
+  const { title, projects, ...rest } = p
+  return (
+    <div {...rest} css={height}>
+      <h4>{title}</h4>
+      {
+        projects.map(project => (
+          <div key={project.name} css={desc}>
+            <Link to={`/projects/${project.name}/`}>
+              <h1>{project.fullName}</h1>
+              <div css={desc}>
+                <Description text={project.description} />
+              </div>
+            </Link>
+          </div>
+        ))
+      }
+    </div>
+  )
+}
+
 const IndexPage = p => {
   const data = useStaticQuery(graphql`{ ...GitHubProjects }`)
   const { site } = data
@@ -52,26 +100,8 @@ const IndexPage = p => {
     <Splash>
       <SEO />
       <div css={side}>
-        <div>
-          <h4>Projects</h4>
-          {
-            left.map(project => (
-              <Link key={project.name} to={`/projects/${project.name}/`}>
-                <h1>{project.fullName}</h1>
-              </Link>
-            ))
-          }
-        </div>
-        <div>
-          <h4>More Projects</h4>
-          {
-            right.map(project => (
-              <Link key={project.name} to={`/projects/${project.name}/`}>
-                <h1>{project.fullName}</h1>
-              </Link>
-            ))
-          }
-        </div>
+        <Projects title="Projects" projects={left} />
+        <Projects title="More Projects" projects={right} />
       </div>
     </Splash>
   )
