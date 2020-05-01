@@ -8,6 +8,14 @@ import ProjectLink from '../components/project-link'
 import dlv from 'dlv'
 import { mutateRepoNames, type } from '../utils/repo'
 import Title from '../components/title'
+import { css } from '@emotion/core'
+
+const flex = theme => css`
+  @media (min-width: ${theme.breakpoints.mobile.breakpoint}) {
+    display: flex;
+    justify-content: space-between;
+  }
+`
 
 const GitHubTemplate = p => {
   const { data } = p
@@ -22,9 +30,13 @@ const GitHubTemplate = p => {
   return (
     <Page>
       <SEO title={fullName} />
-      <Title>{fullName}</Title>
-      <ProjectLink to={repo.url} type="github" />
-      { repo.homepage && <ProjectLink to={repo.homepage} type={type(repo)} /> }
+      <div css={flex}>
+        <Title>{fullName}</Title>
+        <div>
+          <ProjectLink to={repo.url} type="github" />
+          { repo.homepage && <ProjectLink to={repo.homepage} type={type(repo)} /> }
+        </div>
+      </div>
       <div>
         { org && !md ?
             <Org content={org} repo={repo} />
