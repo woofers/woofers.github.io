@@ -17,6 +17,10 @@ const footer = theme => css`
   display: flex;
   align-items: center;
   font-weight: 700;
+
+  *::selection {
+    background: ${theme.colors.selection.home} !important;
+  }
 `
 
 const Footer = p => (

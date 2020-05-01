@@ -32,7 +32,9 @@ const colors = {
   },
   selection: {
     text: '#06324c',
-    background: 'rgba(234, 169, 67, 0.99)'
+    home: 'rgba(232, 234, 243, 0.68)',
+    background: 'rgba(0, 0, 255, 0.3)',
+    code: 'rgba(236, 200, 191, 0.99)'
   }
 }
 

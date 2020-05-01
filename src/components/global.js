@@ -36,6 +36,9 @@ const style = theme => css`
   pre {
     background: ${theme.colors.code};
     color: ${theme.colors.text.light};
+    *::selection {
+      background: ${theme.colors.selection.code} !important;
+    }
   }
 
   code[class*="language-"],
