@@ -1,12 +1,13 @@
 import React from 'react'
 import { Typer, TyperElement } from 'react-yat'
+import Emoji from './emoji'
 
 const Tagline = p => (
   <h4>
     <Typer prefix="I" cursorWidth={3.9}>
-      <TyperElement>build games <span role="img" aria-label="controller">🎮</span></TyperElement>
-      <TyperElement>design apps <span role="img" aria-label="paintbrush">🖌</span></TyperElement>
-      <TyperElement>craft tools <span role="img" aria-label="wrench">🔧</span></TyperElement>
+      <TyperElement>build games <Emoji size="16px" alt="controller" emoji="🎮" /></TyperElement>
+      <TyperElement>design apps <Emoji size="16px" alt="paintbrush" emoji="🖌" /></TyperElement>
+      <TyperElement>craft tools <Emoji size="16px" alt="wrench" emoji="🔧" /></TyperElement>
     </Typer>
   </h4>
 )
