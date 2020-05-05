@@ -15,7 +15,7 @@ const Frame = p => {
   const container = css`
     ${noHighlight};
     text-align: center;
-    margin: 2px 0;
+    margin: 2px 0 23px 0;
     position: relative;
     padding-bottom: ${100 / aspectRatio}%;
   `
