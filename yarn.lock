@@ -10189,6 +10189,11 @@ not@^0.1.0:
   resolved "https://registry.yarnpkg.com/not/-/not-0.1.0.tgz#c9691c1746c55dcfbe54cbd8bd4ff041bc2b519d"
   integrity sha1-yWkcF0bFXc++VMvYvU/wQbwrUZ0=
 
+noto-emoji-react@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/noto-emoji-react/-/noto-emoji-react-1.0.0.tgz#c60d36d5b7fe1078fa884fed2851faf8207dca8c"
+  integrity sha512-ZA1FZBphQPTY4uAwIxJlg3OapqwXroXb+tK/GNEO8zmKDTeg5bzSXXbaCNaOdkcChxAWFJEGzD1hId85xR8XzQ==
+
 npm-conf@^1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/npm-conf/-/npm-conf-1.1.3.tgz#256cc47bd0e218c259c4e9550bf413bc2192aff9"

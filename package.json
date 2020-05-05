@@ -35,6 +35,7 @@
     "gsap": "^3.2.6",
     "hast-util-sanitize": "^2.0.2",
     "lodash.merge": "^4.6.2",
+    "noto-emoji-react": "^1.0.0",
     "oast-to-hast": "^1.7.0",
     "orga": "^1.8.15",
     "prism-themes": "^1.4.0",
