@@ -1,18 +1,25 @@
 import React from 'react'
 import { css } from '@emotion/core'
 
-const img = code => `//github.githubassets.com/images/icons/emoji/unicode/${code}.png`
 const border = css`
-  border-radius: 0 !important;
   margin-bottom: 0;
+  font-family: Noto Color Emoji;
 `
 
-const Emoji = ({ emoji, size }) =>
-  (<img alt="" css={border} width={size} height={size} src={img(emoji.codePointAt(0).toString(16).toLowerCase())} />)
+const Emoji = p => {
+  const { children, size, role, ...rest } = p
+  const ariaHidden = !rest['aria-label']
+  return (
+    <span css={border} role={role} aria-hidden={ariaHidden} {...rest}>
+      {children}
+    </span>
+  )
+}
 
 Emoji.defaultProps = {
-  emoji: '👾',
-  size: '20px'
+  children: '👾',
+  size: '20px',
+  role: 'img'
 }
 
 export default Emoji

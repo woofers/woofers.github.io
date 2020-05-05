@@ -16,7 +16,7 @@ const Description = ({ text }) => {
       if (segment) desc.push(<span key={`${segment}-${i}-${lastMatch[0]}-text-${text}`}>{segment}</span>)
     }
     const emoji = match[0]
-    desc.push(<span key={`${text}-${match[0]}-${match.index}`} ><Emoji emoji={emoji} /> </span>)
+    desc.push(<span key={`${text}-${match[0]}-${match.index}`} ><Emoji>{emoji}</Emoji> </span>)
     i = match.index + emoji.length
     lastMatch = match
   }

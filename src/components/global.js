@@ -2,6 +2,12 @@ import React from 'react'
 import { css, Global as Styles } from '@emotion/core'
 
 const style = theme => css`
+
+  @font-face {
+    font-family: 'Noto Color Emoji';
+    src: url(NotoColorEmoji.ttf) format('truetype');
+  }
+
   html {
     margin: 0;
     padding: 0;
