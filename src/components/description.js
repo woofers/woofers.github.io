@@ -8,8 +8,7 @@ const Description = ({ text }) => {
   let match
   let lastMatch
   let i = 0;
-  // eslint-disable-next-line
-  while (match = regexp.exec(text)) {
+  while ((match = regexp.exec(text))) {
     if (lastMatch) {
       i = lastMatch.index + lastMatch[0].length
       const segment = text.substring(i + 1, match.index)
@@ -20,7 +19,7 @@ const Description = ({ text }) => {
     i = match.index + emoji.length
     lastMatch = match
   }
-  const last = text.substring(i + 1, text.length)
+  const last = text.substring(i, text.length)
   if (last) desc.push(<span key={`${last}-last-${text}`}>{last}</span>)
   return (<div>{desc}</div>)
 }

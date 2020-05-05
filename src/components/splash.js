@@ -4,9 +4,12 @@ import Layout from './layout'
 import { css } from '@emotion/core'
 import { withTheme } from 'emotion-theming'
 
-const style = css`
+const style = theme => css`
   h4 {
     color: #fbd4cb;
+  }
+  *::selection {
+    background: ${theme.colors.selection.home} !important;
   }
 `
 
