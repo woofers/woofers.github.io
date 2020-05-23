@@ -77,18 +77,21 @@ const Projects = p => {
     <div {...rest} css={height}>
       {children}
       {
-        projects.map(project => (
-          <div key={project.name} css={desc}>
-            <Link to={`/projects/${project.name}/`}>
-              <div>
-                <h1>{project.fullName}</h1>
-                <div css={desc}>
-                  <Description text={project.description} />
+        projects.map(project => {
+          const description = `${project.name}-description`
+          return (
+            <div key={project.name} css={desc}>
+              <Link to={`/projects/${project.name}/`} aria-describedby={description} aria-label={project.fullName}>
+                <div>
+                  <h1>{project.fullName}</h1>
+                  <div css={desc}>
+                    <Description id={description} text={project.description} />
+                  </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-        ))
+              </Link>
+            </div>
+          )
+        })
       }
     </div>
   )
