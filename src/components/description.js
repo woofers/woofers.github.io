@@ -2,7 +2,7 @@ import React from 'react'
 import isEmoji from 'emoji-regex'
 import Emoji from './emoji'
 
-const Description = ({ text }) => {
+const Description = ({ text, ...rest }) => {
   const desc = []
   const regexp = isEmoji()
   let match
@@ -21,7 +21,7 @@ const Description = ({ text }) => {
   }
   const last = text.substring(i, text.length)
   if (last) desc.push(<span key={`${last}-last-${text}`}>{last}</span>)
-  return (<div>{desc}</div>)
+  return (<div {...rest}>{desc}</div>)
 }
 
 export default Description

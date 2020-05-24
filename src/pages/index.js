@@ -41,19 +41,23 @@ const side = theme => css`
 
 const desc = css`
   > a {
-    > h1 {
-      margin-bottom: 5px;
-    }
     > div {
-      height: 0;
-      overflow: hidden;
-      margin-bottom: 15px;
+      > h1 {
+        margin-bottom: 5px;
+      }
+      > div {
+        height: 0;
+        overflow: hidden;
+        margin-bottom: 15px;
+      }
     }
   }
   > a:hover, > a:focus {
     > div {
-      height: 25px;
-      overflow: hidden;
+      > div {
+        height: 25px;
+        overflow: hidden;
+      }
     }
   }
   transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
@@ -73,16 +77,21 @@ const Projects = p => {
     <div {...rest} css={height}>
       {children}
       {
-        projects.map(project => (
-          <div key={project.name} css={desc}>
-            <Link to={`/projects/${project.name}/`}>
-              <h1>{project.fullName}</h1>
-              <div css={desc}>
-                <Description text={project.description} />
-              </div>
-            </Link>
-          </div>
-        ))
+        projects.map(project => {
+          const description = `${project.name}-description`
+          return (
+            <div key={project.name} css={desc}>
+              <Link to={`/projects/${project.name}/`} aria-describedby={description} aria-label={project.fullName}>
+                <div>
+                  <h1>{project.fullName}</h1>
+                  <div css={desc}>
+                    <Description id={description} text={project.description} />
+                  </div>
+                </div>
+              </Link>
+            </div>
+          )
+        })
       }
     </div>
   )
