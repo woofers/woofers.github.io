@@ -5,7 +5,7 @@ import CodePlugin from 'typography-plugin-code'
 const googleFonts = theme.googleFonts.concat({
   name: 'Nunito',
   styles: ['300', '700']
-})
+}, { name: '&display=swap'})
 
 const myTheme = {
   ...theme,
