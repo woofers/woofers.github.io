@@ -1,9 +1,21 @@
 import React from 'react'
 import { Typer, TyperElement } from 'react-yat'
 import Emoji from './emoji'
+import { css } from '@emotion/core'
+
+const image = css`
+  > span {
+    > span:first-of-type {
+      img {
+        width: 0;
+        height: 0;
+      }
+    }
+  }
+`
 
 const Tagline = p => (
-  <h4>
+  <h4 css={image}>
     <Typer prefix="I" cursorWidth={3.9}>
       <TyperElement>build games <Emoji size="16px" alt="controller" emoji="🎮" /></TyperElement>
       <TyperElement>design apps <Emoji size="16px" alt="paintbrush" emoji="🖌" /></TyperElement>
