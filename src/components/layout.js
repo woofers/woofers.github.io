@@ -1,6 +1,7 @@
 import React from 'react'
 import Global from './global'
 import Container from './container'
+import GoogleFonts from './google-fonts'
 import { css } from '@emotion/core'
 
 const Layout = ({ children, outside, color, background }) => {
@@ -13,6 +14,7 @@ const Layout = ({ children, outside, color, background }) => {
   return (
     <div css={style}>
       <Global />
+      <GoogleFonts fonts={['Lato:400,700', 'Nunito:300,700']} />
       <Container>
         {children}
       </Container>
