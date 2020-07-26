@@ -7,7 +7,8 @@ import { camelCaseToPascalCase as uppercase } from '../utils/case'
 const style = theme => css`
   display: flex;
   a {
-    padding: 10px 20px;
+    padding: 11.5px 20px;
+    height: 50px;
     font-size: 17px;
     font-weight: 700;
   }
