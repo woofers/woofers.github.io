@@ -64,7 +64,9 @@ module.exports = {
       ['k9-krew'],
       ['course-codes-bugs'],
       ['noto-emoji-react'],
-      ['react-chameleon-theme-color']
+      ['react-chameleon-theme-color'],
+      ['qmk-indicator'],
+      ['quefrency-case']
     ]
   },
   plugins: [

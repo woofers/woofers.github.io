@@ -33,8 +33,14 @@ const side = theme => css`
     margin-top: 60px;
     display: flex;
     h1 {
-      font-size: 2rem;
+      font-size: 1.7rem;
       margin-bottom: 25px;
+    }
+  }
+
+  @media (min-width: ${theme.breakpoints.large.breakpoint}) {
+    h1 {
+      font-size: 2rem;
     }
   }
 `
