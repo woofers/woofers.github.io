@@ -54,6 +54,7 @@ const desc = css`
       }
       > div {
         height: 0;
+        opacity: 0;
         overflow: hidden;
         margin-bottom: 15px;
       }
@@ -62,12 +63,13 @@ const desc = css`
   > a:hover, > a:focus {
     > div {
       > div {
+        opacity: 1;
         height: 25px;
         overflow: hidden;
       }
     }
   }
-  transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.3s;
 `
 
 
