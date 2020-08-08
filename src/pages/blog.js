@@ -7,6 +7,7 @@ import { FadeLink as Link } from '../components/link'
 import Content from '../components/content'
 import { css } from '@emotion/core'
 import Title from '../components/large-title'
+import { normal } from '../styles/text'
 
 const space = css`
   margin-bottom: 30px;
@@ -51,7 +52,7 @@ const Blog = p => {
               <h1>
                 <Link to={slug}>{title}</Link>
               </h1>
-              {date && <h5>{date}</h5> }
+              {date && <div css={normal}>{date}</div> }
               <div css={read}>
                 <Content html={preview.html()} />
               </div>

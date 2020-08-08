@@ -2,8 +2,10 @@ import React from 'react'
 import { Typer, TyperElement } from 'react-yat'
 import Emoji from './emoji'
 import { css } from '@emotion/core'
+import { small } from '../styles/text'
 
 const image = css`
+  ${small}
   > span {
     > span:first-of-type {
       img {
@@ -15,13 +17,13 @@ const image = css`
 `
 
 const Tagline = p => (
-  <h4 css={image}>
+  <div css={image}>
     <Typer prefix="I" cursorWidth={3.9}>
       <TyperElement>build games <Emoji size="16px" alt="controller" emoji="🎮" /></TyperElement>
       <TyperElement>design apps <Emoji size="16px" alt="paintbrush" emoji="🖌" /></TyperElement>
       <TyperElement>craft tools <Emoji size="16px" alt="wrench" emoji="🔧" /></TyperElement>
     </Typer>
-  </h4>
+  </div>
 )
 
 export default Tagline
