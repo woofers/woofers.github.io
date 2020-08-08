@@ -16,7 +16,7 @@ const Avatar = p => {
   `
   return (
     <div css={style} {...rest}>
-      <img src="https://avatars3.githubusercontent.com/u/7284672?s=460&v=4"
+      <img src="https://avatars3.githubusercontent.com/u/7284672?s=260&v=4"
         alt="Jaxson Van Doorn"
         draggable="false"
       />
