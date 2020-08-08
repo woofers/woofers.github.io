@@ -5,6 +5,7 @@ import TransitionLink from 'gatsby-plugin-transition-link'
 import { css } from '@emotion/core'
 
 const removeLine = css`
+  border-bottom: 0;
   &:after {
     content: none;
   }
