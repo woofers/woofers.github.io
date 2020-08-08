@@ -18,17 +18,17 @@ const style = theme => css`
     text-decoration: none;
     display: inline-block;
     color: ${theme.colors.link};
-    border-bottom: solid 2px #f2705729;
+    box-shadow: 0 -2px 0 #f2705729 inset;
     &:after {
       display: block;
       content: '';
       border-bottom: solid 2px currentColor;
-      transform: scaleX(0) translateY(2px);
+      transform: scaleX(0);
       transition: transform 250ms ease-in-out;
       transform-origin: 100% 50%
     }
     &:hover:after {
-      transform: scaleX(1) translateY(2px);
+      transform: scaleX(1);
       transform-origin: 0 50%;
     }
 

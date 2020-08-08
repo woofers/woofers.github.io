@@ -23,6 +23,7 @@ const side = theme => css`
     transition: transform 0.2s ease;
   }
   a {
+    display: block;
     &:hover {
       h3 {
         transform: translate(20px, 0px);
