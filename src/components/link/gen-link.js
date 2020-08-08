@@ -1,7 +1,7 @@
 import React from 'react'
 import gsap from 'gsap'
 import { swipeTopDirection, swipeBottomDirection } from './utils'
-import SmartLink from './smart-link'
+import Link from './underline-link'
 
 const swipe = p => {
     const { node, exit, direction, top, triggerName, fade, offset, entryOffset } = p
@@ -90,13 +90,13 @@ const SwipeLink = p => {
         })
     })
     return (
-      <SmartLink
+      <Link
         exit={make('exit', exitLength, exitZ)}
         entry={make('entry', entryLength, entryZ)}
         {...rest}
       >
         {children}
-      </SmartLink>
+      </Link>
     )
 }
 
