@@ -4,6 +4,23 @@ const remote = /(\/\/github.com\/)(.*)(\.git$)/g
 const repo = remote.exec(json.repository.url)[2]
 const home = '/'
 
+const makeIcon = (name, size) => ({
+  type: 'image/png',
+  sizes: `${size}x${size}`,
+  src: `icons/${name}-${size}x${size}.png`,
+  purpose: name === 'mask' ? 'maskable' : undefined
+})
+
+const sizes = [32, 48, 72, 96, 144, 192, 256, 384, 512]
+const icons = sizes.map(size => [
+  makeIcon('icon', size),
+  makeIcon('mask', size)
+]).reduce((acc, [icon, other]) => {
+  acc.push(icon)
+  acc.push(other)
+  return acc
+}, [])
+
 module.exports = {
   siteMetadata: {
     title: name,
@@ -102,7 +119,7 @@ module.exports = {
         background_color: '#fff',
         theme_color: '#f27052',
         display: `standalone`,
-        icon: `static/favicon.png`,
+        icons
       },
     },
     {
