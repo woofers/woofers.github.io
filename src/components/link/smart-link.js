@@ -2,6 +2,14 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import TransitionLink from 'gatsby-plugin-transition-link'
+import { css } from '@emotion/core'
+
+const removeLine = css`
+  box-shadow: none;
+  &:after {
+    content: none;
+  }
+`
 
 /*
   Since DOM elements tags cannot receive activeClassName
@@ -13,8 +21,10 @@ const Link = p => {
   const {
     children, to, activeClassName, partiallyActive,
     exit, entry,
+    underline,
     ...rest
   } = p
+  const style = !underline ? removeLine : ''
   const data = useStaticQuery(graphql`{ ...Url, ...Pages }`)
   let link = to
 
@@ -29,7 +39,7 @@ const Link = p => {
 
   if (!paths.includes(link)) {
     return (
-      <OutboundLink href={to} {...rest}>
+      <OutboundLink href={to} {...rest} css={style}>
         {children}
       </OutboundLink>
     )
@@ -50,13 +60,14 @@ const Link = p => {
         exit={exit}
         entry={entry}
         {...rest}
+        css={style}
       >
         {children}
       </TransitionLink>
     )
   }
   return (
-    <a href={link} {...rest}>
+    <a href={link} {...rest} css={style}>
       {children}
     </a>
   )

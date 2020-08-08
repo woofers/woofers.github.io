@@ -1,7 +1,7 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { useStaticQuery, graphql } from 'gatsby'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
+import { FadeLink } from './link'
 import { FaGithub,
          FaLinkedinIn as FaLinkedin,
          FaStackOverflow,
@@ -31,8 +31,8 @@ const icons = {
 const Entry = p => {
   const { children, icon: Icon, title, link, ...rest } = p
   return (
-    <OutboundLink
-      href={link}
+    <FadeLink
+      to={link}
       target="_blank"
       rel="noopener noreferrer"
       css={style}
@@ -41,7 +41,7 @@ const Entry = p => {
     >
       <Icon />
       {children}
-    </OutboundLink>
+    </FadeLink>
   )
 }
 

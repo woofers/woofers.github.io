@@ -6,6 +6,7 @@ import { css } from '@emotion/core'
 import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
 import Description from '../components/description'
+import { small, large } from '../styles/text'
 
 const side = theme => css`
   justify-content: space-between;
@@ -16,14 +17,15 @@ const side = theme => css`
       margin-right: 125px;
     }
   }
-  h1 {
+  h3 {
     font-size: 1.6rem;
     margin-bottom: 20px;
     transition: transform 0.2s ease;
   }
   a {
+    display: block;
     &:hover {
-      h1 {
+      h3 {
         transform: translate(20px, 0px);
       }
     }
@@ -32,14 +34,14 @@ const side = theme => css`
   @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
     margin-top: 60px;
     display: flex;
-    h1 {
+    h3 {
       font-size: 1.7rem;
       margin-bottom: 25px;
     }
   }
 
   @media (min-width: ${theme.breakpoints.large.breakpoint}) {
-    h1 {
+    h3 {
       font-size: 2rem;
     }
   }
@@ -48,11 +50,12 @@ const side = theme => css`
 const desc = css`
   > a {
     > div {
-      > h1 {
+      > h3 {
         margin-bottom: 5px;
       }
       > div {
         height: 0;
+        opacity: 0;
         overflow: hidden;
         margin-bottom: 15px;
       }
@@ -61,12 +64,13 @@ const desc = css`
   > a:hover, > a:focus {
     > div {
       > div {
+        opacity: 1;
         height: 25px;
         overflow: hidden;
       }
     }
   }
-  transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s;
+  transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.3s;
 `
 
 
@@ -89,7 +93,7 @@ const Projects = p => {
             <div key={project.name} css={desc}>
               <Link to={`/projects/${project.name}/`} aria-describedby={description} aria-label={project.fullName}>
                 <div>
-                  <h1>{project.fullName}</h1>
+                  <h3 css={large}>{project.fullName}</h3>
                   <div css={desc}>
                     <Description id={description} text={project.description} />
                   </div>
@@ -118,7 +122,7 @@ const IndexPage = p => {
       <SEO />
       <div css={side}>
         <Projects projects={left}>
-          <h4>Projects</h4>
+          <h2 css={small}>Projects</h2>
         </Projects>
         <Projects projects={right} />
       </div>
