@@ -16,6 +16,23 @@ const style = theme => css`
 
   a {
     text-decoration: none;
+    display: inline-block;
+    color: ${theme.colors.link};
+    &:after {
+      display: block;
+      content: '';
+      border-bottom: solid 2px currentColor;
+      transform: scaleX(0);
+      transition: transform 250ms ease-in-out;
+      transform-origin: 100% 50%
+    }
+    &:hover:after {
+      transform: scaleX(1);
+      transform-origin: 0 50%;
+    }
+    border: none;
+
+    text-decoration: none;
     color: ${theme.colors.link.light.normal};
     transition: color 0.5s ease;
     &:hover {
