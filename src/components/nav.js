@@ -11,6 +11,7 @@ const style = theme => css`
     height: 50px;
     font-size: 17px;
     font-weight: 700;
+    box-shadow: none;
   }
   justify-content: flex-end;
   @media (min-width: ${theme.breakpoints.nav.breakpoint}) {
@@ -25,7 +26,7 @@ const Nav = p => {
     <nav css={style}>
       {
         links.map(([name, link]) =>
-          <Link to={link} key={name}>{uppercase(name)}</Link>
+          <Link to={link} underline key={name}>{uppercase(name)}</Link>
         )
       }
     </nav>

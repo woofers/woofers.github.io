@@ -65,7 +65,7 @@ export const Markdown = p => {
     let md = remark().use(remark2react, {
       remarkReactComponents: {
         pre: CodeBlock,
-        a: p => <Link to={p.href}>{p.children}</Link>
+        a: p => <Link to={p.href} underline>{p.children}</Link>
       },
       sanitize: schema
     })

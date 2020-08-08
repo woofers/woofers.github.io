@@ -56,8 +56,11 @@ const Blog = p => {
               <div css={read}>
                 <Content html={preview.html()} />
               </div>
-              <Link to={slug}
-                    aria-label={`${continueReading} ${title}`}>
+              <Link
+                to={slug}
+                aria-label={`${continueReading} ${title}`}
+                underline
+              >
                   {continueReading} . . .
               </Link>
             </div>

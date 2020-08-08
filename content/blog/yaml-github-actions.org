@@ -145,7 +145,7 @@ To make it even nicer we can link the badge to our repo's actions page:
 It will look something like this:
 
 #+BEGIN_EXPORT html
-<a style="color: rgba(0,0,0,0)" href="https://github.com/woofers/ludum-dare-badges/actions">
+<a style="color: rgba(0,0,0,0); box-shadow: none;" href="https://github.com/woofers/ludum-dare-badges/actions">
   <img style="border-radius: 0" src="https://github.com/woofers/ludum-dare-badges/workflows/build/badge.svg" alt="GitHub Actions build" />
 </a>
 #+END_EXPORT
