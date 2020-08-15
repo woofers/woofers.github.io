@@ -2,10 +2,12 @@ import Typography from 'typography'
 import theme from 'typography-theme-noriega'
 import CodePlugin from 'typography-plugin-code'
 
+const size = scale => `${scale * 16}px`
+
 const myTheme = {
   ...theme,
   googleFonts: [],
-  baseFontSize: '18px',
+  baseFontSize: size(1.115),
   bodyFontFamily: ['Nunito', 'sans-serif'],
   baseLineHeight: 1.6,
   scaleRatio: 1.5,
