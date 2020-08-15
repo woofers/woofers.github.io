@@ -38,7 +38,7 @@
     "oast-to-hast": "^1.7.0",
     "orga": "^1.8.16",
     "prism-themes": "^1.4.0",
-    "prismjs": "^1.20.0",
+    "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
