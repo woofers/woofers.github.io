@@ -9,6 +9,13 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
+const openGraphImage = title => {
+  const size = 300
+  const url = 'https://opengraph.vandoorn.ca'
+  const image = `${url}/jvd.png`
+  return `${url}/**${title}**.png?&md=1&images=${image}&widths=${size}&heights=${size}`
+}
+
 const SEO = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(graphql`{ ...Meta }`)
   const { siteMetadata } = site
@@ -35,6 +42,10 @@ const SEO = ({ description, lang, meta, title }) => {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: openGraphImage(tab),
         },
         {
           name: `twitter:card`,
