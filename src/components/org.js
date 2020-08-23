@@ -19,7 +19,7 @@ const Org = p => {
     }
     const ast = orga(content)
     const hast = toHast(ast, { highlight: true, handlers: { link } })
-    return hastToHtml(hast, { allowDangerousHTML: true })
+    return hastToHtml(hast, { allowDangerousHtml: true })
   }
   return (
     <div>

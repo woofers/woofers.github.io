@@ -1,7 +1,7 @@
 import React from 'react'
 import Page from '../components/page'
 import SEO from '../components/seo'
-import { graphql } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby'
 import cheerio from 'cheerio'
 import { FadeLink as Link } from '../components/link'
 import Content from '../components/content'
@@ -18,8 +18,20 @@ const read = css`
   margin-bottom: 20px;
 `
 
-const Blog = p => {
-  const { data } = p
+const Blog = () => {
+  const data = useStaticQuery(graphql`
+    {
+      ...Title
+      ...Nav
+      allOrgContent {
+        edges {
+          node {
+            ...Content
+          }
+        }
+      }
+    }
+  `)
   const { allOrgContent, site } = data
   const { edges } = allOrgContent
   const { siteMetadata } = site
@@ -45,8 +57,7 @@ const Blog = p => {
           const { metadata, fields, html } = post
           const { slug } = fields
           const { date, title } = metadata
-          const preview = cheerio.load(html)('p', 'body')
-          preview.find('h1').remove()
+          const preview = cheerio.load(html)('p:nth-child(3)')
           return (
             <div key={`post-preview-${title}`} css={space}>
               <h1>
@@ -73,18 +84,3 @@ const Blog = p => {
 }
 
 export default Blog
-
-
-export const pageQuery = graphql`
-  {
-    ...Title
-    ...Nav
-    allOrgContent {
-      edges {
-        node {
-          ...Content
-        }
-      }
-    }
-  }
-`
