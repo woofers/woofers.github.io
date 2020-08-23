@@ -2,10 +2,16 @@ import React from 'react'
 import { Helmet } from 'react-helmet'
 
 const func = 'fl'
+const html = 'e'
 
 const script = `
-  function ${func}() { document.querySelector('html').style.fontSize = "112.5%" }
-`
+  function ${func}() {
+    var ${html} = document.querySelector('html');
+    ${html}.style.fontSize = "112.5%";
+    ${html}.style.letterSpacing = "normal";
+  }
+`.split('\n').map(el => el.trim()).join('')
+
 
 const GoogleFonts = ({ fonts }) => {
   const href = `https://fonts.googleapis.com/css?family=${fonts.join('|')}&display=swap`
