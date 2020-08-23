@@ -11,7 +11,12 @@ const myTheme = {
   bodyFontFamily: ['Nunito', 'sans-serif'],
   baseLineHeight: 1.6,
   scaleRatio: 1.5,
-  plugins: [new CodePlugin()]
+  plugins: [new CodePlugin()],
+  overrideThemeStyles: ({ rhythm }, options) => ({
+    'html': {
+      letterSpacing: '0.1px',
+    }
+  })
 }
 
 const typography = new Typography(myTheme)

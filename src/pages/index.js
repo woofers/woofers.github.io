@@ -107,7 +107,7 @@ const Projects = p => {
   )
 }
 
-const IndexPage = p => {
+const IndexPage = () => {
   const data = useStaticQuery(graphql`{ ...GitHubProjects }`)
   const { site } = data
   const { siteMetadata } = site
