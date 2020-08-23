@@ -20,7 +20,7 @@ const SEO = ({ description, lang, meta, title }) => {
   const { site } = useStaticQuery(graphql`{ ...Meta }`)
   const { siteMetadata } = site
   const metaDescription = description || siteMetadata.description
-  const tab = title || siteMetadata.title
+  const tab = title || siteMetadata.title || 'Jaxson Van Doorn'
   return (
     <Helmet
       htmlAttributes={{ lang }}
