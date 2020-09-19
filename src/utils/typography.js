@@ -2,14 +2,9 @@ import Typography from 'typography'
 import theme from 'typography-theme-noriega'
 import CodePlugin from 'typography-plugin-code'
 
-const googleFonts = theme.googleFonts.concat({
-  name: 'Nunito',
-  styles: ['300', '700']
-})
-
 const myTheme = {
   ...theme,
-  googleFonts,
+  googleFonts: [],
   baseFontSize: '18px',
   bodyFontFamily: ['Nunito', 'sans-serif'],
   baseLineHeight: 1.6,
