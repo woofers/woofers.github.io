@@ -123,6 +123,15 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-subfont`,
+      options: {
+        recursive: true,
+        silent: true,
+        fallback: false,
+        inlineFonts: true
+      },
+    },
+    {
       resolve: `gatsby-source-github-gql`,
       options: {
         auth: process.env.GH_TOKEN,
