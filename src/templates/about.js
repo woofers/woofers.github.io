@@ -55,7 +55,7 @@ const AboutTemplate = p => {
         <Title>{title}</Title>
         <div css={style}>
           <div>
-            <Avatar size="130px" />
+            <Avatar size="130px" fallback="#f1eeed" />
           </div>
           <div>
             <Link to={twitter.link} inline={false} icon={FaTwitter}>{twitter.handle}</Link>

@@ -2,10 +2,10 @@ import React from 'react'
 import { css } from '@emotion/core'
 
 const Avatar = p => {
-  const { size, ...rest } = p
+  const { size, fallback, ...rest } = p
   const style = theme => css`
     border-radius: 50%;
-    background: #f58b71;
+    background: ${fallback};
     background-image: url(https://avatars3.githubusercontent.com/u/7284672?s=260&v=4);
     width: ${size};
     height: ${size};
@@ -22,7 +22,8 @@ const Avatar = p => {
 }
 
 Avatar.defaultProps = {
-  size: '90px'
+  size: '90px',
+  fallback: '#f58b71'
 }
 
 export default Avatar
