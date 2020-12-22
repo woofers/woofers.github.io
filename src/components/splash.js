@@ -2,7 +2,7 @@ import React from 'react'
 import Header from './splash-header'
 import Layout from './layout'
 import { css } from '@emotion/core'
-import { withTheme } from 'emotion-theming'
+import { withTheme } from '@emotion/react'
 
 const style = theme => css`
   *::selection {

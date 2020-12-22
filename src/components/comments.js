@@ -1,7 +1,7 @@
 import React from 'react'
 import noHighlight from '../styles/no-highlight'
 import withUtterances from 'with-utterances'
-import { withTheme } from 'emotion-theming'
+import { withTheme } from '@emotion/react'
 import { css } from '@emotion/core'
 
 const style = css`

@@ -1,7 +1,7 @@
 import React from 'react'
 import P8 from 'react-pico-8'
 import { css } from '@emotion/core'
-import { withTheme } from 'emotion-theming'
+import { withTheme } from '@emotion/react'
 
 const pico = theme => css`
   margin: 16px 0;
