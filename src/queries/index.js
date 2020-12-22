@@ -15,6 +15,9 @@ export const content = graphql`
       landscape
       lang
     }
+    fields {
+      slug
+    }
     slug
   }
 `

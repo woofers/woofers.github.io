@@ -5,7 +5,7 @@ I enjoy doing both /frontend/ & /backend/ web design work as-well as the occasio
 
 Most of my open-source projects these days are with [[https://reactjs.org/][React]] + [[https://developer.mozilla.org/en-US/docs/Web/JavaScript][JavaScript]], [[https://www.java.com][Java]] or [[https://www.lua.org/][Lua]].
 
-Currently studying my *3rd* year of /Computer Science/ at [[https://uvic.ca][University of Victoria]].
+Currently studying my *4th* year of /Computer Science/ at [[https://uvic.ca][University of Victoria]].
 
 You can find some of my [[/][projects]] on this site.
 

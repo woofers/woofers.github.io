@@ -39,7 +39,7 @@ const Blog = () => {
   const { blog } = nav
   const content = edges.map(({ node }) => node)
   const posts = content.filter(post => {
-    const path = post.slug
+    const path = post.fields.slug
     return path && path.startsWith(blog)
   }).sort((a, b) => {
     const date = post => post.metadata && post.metadata.date
@@ -57,7 +57,7 @@ const Blog = () => {
           const { metadata, fields, html } = post
           const { slug } = fields
           const { date, title } = metadata
-          const preview = cheerio.load(html)('p:nth-child(3)')
+          const preview = cheerio.load(html)('p:first-child')
           return (
             <div key={`post-preview-${title}`} css={space}>
               <h1>
