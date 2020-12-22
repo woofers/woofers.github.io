@@ -5,7 +5,6 @@ export const content = graphql`
     html
     metadata {
       title
-      date
       icon
       type
       icon_mode
@@ -16,9 +15,7 @@ export const content = graphql`
       landscape
       lang
     }
-    fields {
-      slug
-    }
+    slug
   }
 `
 

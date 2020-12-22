@@ -1,7 +1,7 @@
 import React from 'react'
 import { Typer, TyperElement } from 'react-yat'
 import Emoji from './emoji'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { small } from '../styles/text'
 
 const image = css`

@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import TransitionLink from 'gatsby-plugin-transition-link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const removeLine = css`
   box-shadow: none;

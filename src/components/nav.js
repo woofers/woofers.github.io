@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { FadeLink as Link } from './link'
 import { useStaticQuery, graphql } from 'gatsby'
 import { camelCaseToPascalCase as uppercase } from '../utils/case'

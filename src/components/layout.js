@@ -2,7 +2,7 @@ import React from 'react'
 import Global from './global'
 import Container from './container'
 import GoogleFonts from './google-fonts'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const Layout = ({ children, outside, color, background }) => {
   const style = css`

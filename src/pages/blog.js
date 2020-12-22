@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import cheerio from 'cheerio'
 import { FadeLink as Link } from '../components/link'
 import Content from '../components/content'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import Title from '../components/large-title'
 import { normal } from '../styles/text'
 
@@ -39,7 +39,7 @@ const Blog = () => {
   const { blog } = nav
   const content = edges.map(({ node }) => node)
   const posts = content.filter(post => {
-    const path = post.fields.slug
+    const path = post.slug
     return path && path.startsWith(blog)
   }).sort((a, b) => {
     const date = post => post.metadata && post.metadata.date

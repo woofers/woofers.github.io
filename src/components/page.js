@@ -3,7 +3,7 @@ import Layout from './layout'
 import Footer from './footer'
 import Header from './header'
 import Back from './back-button'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { withTheme } from '@emotion/react'
 
 const container = theme => css`

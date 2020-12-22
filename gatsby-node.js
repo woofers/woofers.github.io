@@ -17,9 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
           ) {
             edges {
               node {
-                fields {
-                  slug
-                }
+                slug
                 metadata {
                   type
                 }
@@ -45,13 +43,13 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create pages from Org content
       result.data.allOrgContent.edges.forEach(({ node }) => {
-        let path = node.metadata.slug || node.fields.slug
+        let path = node.metadata.slug || node.slug
         if (path.startsWith('/projects/')) path += 'play/'
         createPage({
           path: path,
           component: template(node.metadata.type),
           context: {
-            slug:  node.fields.slug
+            slug:  node.slug
           },
         })
       })
