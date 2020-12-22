@@ -5,7 +5,7 @@ const Avatar = p => {
   const { size, fallback, ...rest } = p
   const style = theme => css`
     border-radius: 50%;
-    background-image:  url(data:image/png;base64, ${fallback});
+    background: ${fallback};
     background-image: url(https://avatars3.githubusercontent.com/u/7284672?s=260&v=4);
     transition: background-image 0.25s ease-in-out;
     width: ${size};
@@ -24,7 +24,7 @@ const Avatar = p => {
 
 Avatar.defaultProps = {
   size: '90px',
-  fallback: 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP82l34HwAHYALyiVNL2wAAAABJRU5ErkJggg=='
+  fallback: '#f58b71'
 }
 
 export default Avatar
