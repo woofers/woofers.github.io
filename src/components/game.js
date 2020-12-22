@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import Content from './content'
 import Frame from './frame'
 import Pico8 from './pico-8'

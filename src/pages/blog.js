@@ -5,7 +5,7 @@ import { graphql, useStaticQuery } from 'gatsby'
 import cheerio from 'cheerio'
 import { FadeLink as Link } from '../components/link'
 import Content from '../components/content'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import Title from '../components/large-title'
 import { normal } from '../styles/text'
 
@@ -57,7 +57,7 @@ const Blog = () => {
           const { metadata, fields, html } = post
           const { slug } = fields
           const { date, title } = metadata
-          const preview = cheerio.load(html)('p:nth-child(3)')
+          const preview = cheerio.load(html)('p:first-child')
           return (
             <div key={`post-preview-${title}`} css={space}>
               <h1>

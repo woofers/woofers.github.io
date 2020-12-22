@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from './icon-link'
 import { SwipeLink } from './link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { IoMdArrowRoundUp } from 'react-icons/io'
 
 

@@ -10,7 +10,7 @@ import CodeBlock from './code-block'
 import github from 'hast-util-sanitize/lib/github'
 import merge from 'lodash.merge'
 import { FadeLink as Link } from './link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const schema = merge(github, { attributes: { '*': ['className', 'type'] } })
 

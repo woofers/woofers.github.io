@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const header = theme => css`
   color: ${theme.colors.text.dark};

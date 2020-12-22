@@ -30,8 +30,8 @@ const GameTemplate = p => {
 export default GameTemplate
 
 export const pageQuery = graphql`
-  query($slug: String!) {
-    orgContent(fields: {slug: {eq: $slug}}) {
+  query ($slug: String!) {
+    orgContent(slug: {eq: $slug}) {
       ...Content
     }
   }

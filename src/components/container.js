@@ -1,6 +1,6 @@
 // Adapted from https://github.com/nvandoorn/portfolio/blob/master/src/components/container.js
 import React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const mq = breakpoints =>
   Object.values(breakpoints)

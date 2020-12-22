@@ -26,9 +26,9 @@ const PostTemplate = p => {
 export default PostTemplate
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     ...Social
-    orgContent(fields: {slug: {eq: $slug}}) {
+    orgContent(slug: {eq: $slug}) {
       ...Content
     }
   }

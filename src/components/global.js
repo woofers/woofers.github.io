@@ -1,5 +1,5 @@
 import React from 'react'
-import { css, Global as Styles } from '@emotion/core'
+import { css, Global as Styles } from '@emotion/react'
 
 const style = theme => css`
   html {
