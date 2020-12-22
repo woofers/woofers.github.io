@@ -53,7 +53,7 @@ const desc = css`
       > h3 {
         margin-bottom: 5px;
       }
-      > div {
+      & > div {
         height: 0;
         opacity: 0;
         overflow: hidden;
@@ -63,7 +63,7 @@ const desc = css`
   }
   > a:hover, > a:focus {
     > div {
-      > div {
+      & > div {
         opacity: 1;
         height: 25px;
         overflow: hidden;

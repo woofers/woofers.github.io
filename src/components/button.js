@@ -11,7 +11,7 @@ const style = theme => css`
   > div {
     ${radius}
     background: ${theme.colors.accentGradient};
-    > div {
+    & > div {
       ${radius}
       background: ${theme.colors.background};
       height: 100%;
