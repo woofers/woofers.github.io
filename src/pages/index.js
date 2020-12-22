@@ -2,7 +2,7 @@ import React from 'react'
 import Splash from '../components/splash'
 import { FadeLink as Link } from '../components/link'
 import SEO from '../components/seo'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
 import Description from '../components/description'
@@ -53,7 +53,7 @@ const desc = css`
       > h3 {
         margin-bottom: 5px;
       }
-      > div {
+      & > div {
         height: 0;
         opacity: 0;
         overflow: hidden;
@@ -63,7 +63,7 @@ const desc = css`
   }
   > a:hover, > a:focus {
     > div {
-      > div {
+      & > div {
         opacity: 1;
         height: 25px;
         overflow: hidden;

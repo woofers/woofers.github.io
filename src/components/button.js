@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { FadeLink as Link } from './link'
 
 const radius = `
@@ -11,7 +11,7 @@ const style = theme => css`
   > div {
     ${radius}
     background: ${theme.colors.accentGradient};
-    > div {
+    & > div {
       ${radius}
       background: ${theme.colors.background};
       height: 100%;

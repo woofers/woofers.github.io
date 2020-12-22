@@ -3,8 +3,8 @@ import Layout from './layout'
 import Footer from './footer'
 import Header from './header'
 import Back from './back-button'
-import { css } from '@emotion/core'
-import { withTheme } from 'emotion-theming'
+import { css } from '@emotion/react'
+import { withTheme } from '@emotion/react'
 
 const container = theme => css`
   margin-top: 30px;

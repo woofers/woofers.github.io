@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
           ) {
             edges {
               node {
+                slug
                 fields {
                   slug
                 }
@@ -45,13 +46,13 @@ exports.createPages = ({ graphql, actions }) => {
 
       // Create pages from Org content
       result.data.allOrgContent.edges.forEach(({ node }) => {
-        let path = node.metadata.slug || node.fields.slug
+        let path = node.metadata.slug || node.fields.slug || node.slug
         if (path.startsWith('/projects/')) path += 'play/'
         createPage({
           path: path,
           component: template(node.metadata.type),
           context: {
-            slug:  node.fields.slug
+            slug:  node.slug
           },
         })
       })
@@ -67,7 +68,6 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
       })
-
       resolve()
     })
   })
@@ -82,8 +82,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const slug = `/${path.join(folder, fileName)}/`
     createNodeField({ node, name: `slug`, value: slug })
   } else if (
-    node.internal.type === `OrgContent` &&
-      typeof node.slug === `undefined`
+    node.internal.type === `OrgContent`
   ) {
     let fileNode = getNode(node.parent)
     fileNode = getNode(fileNode.parent)

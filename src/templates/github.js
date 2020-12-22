@@ -8,7 +8,7 @@ import ProjectLink from '../components/project-link'
 import dlv from 'dlv'
 import { mutateRepoNames, type } from '../utils/repo'
 import Title from '../components/title'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const flex = theme => css`
   @media (min-width: ${theme.breakpoints.mobile.breakpoint}) {

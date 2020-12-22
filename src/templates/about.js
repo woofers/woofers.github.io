@@ -8,7 +8,7 @@ import Link from '../components/icon-link'
 import { FaGithub,
          FaTwitter,
          FaScroll } from 'react-icons/fa'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import Title from '../components/large-title'
 import { camelCaseToPascalCase as uppercase } from '../utils/case'
 
@@ -72,10 +72,10 @@ const AboutTemplate = p => {
 export default AboutTemplate
 
 export const pageQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     ...Social
     ...Resume
-    orgContent(fields: {slug: {eq: $slug}}) {
+    orgContent(slug: {eq: $slug}) {
       ...Content
     }
   }

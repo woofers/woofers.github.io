@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from './icon-link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 import { FaGithub, FaPlayCircle, FaScroll } from 'react-icons/fa'
 
 const Align = p => {

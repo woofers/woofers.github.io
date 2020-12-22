@@ -1,7 +1,7 @@
 import React from 'react'
 import IconBox from './icon-box'
 import { FadeLink } from './link'
-import { css } from '@emotion/core'
+import { css } from '@emotion/react'
 
 const style = css`
   margin-bottom: 7px;
