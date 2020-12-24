@@ -4,6 +4,7 @@ export const content = graphql`
   fragment Content on OrgContent {
     html
     metadata {
+      date
       title
       icon
       type

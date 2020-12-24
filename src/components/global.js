@@ -69,24 +69,34 @@ const style = theme => css`
     color: ${theme.colors.text.code};
   }
 
-  .token.function, .token.attr-value {
-    color: ${theme.colors.text.code};
-  }
-
-  .token.comment {
+  .hljs-comment {
     color: ${theme.colors.text.comment};
   }
 
-  .token.punctuation {
+  .hljs-bullet {
     color: ${theme.colors.text.punctuation};
   }
 
-  .token.string, .token.number {
+  .hljs-string {
     color: ${theme.colors.text.string};
   }
 
-  .token.tag {
+  .hljs-keyword, .hljs-name, .hljs-link {
     color: ${theme.colors.text.tag};
+  }
+
+  .hljs-attr {
+    color: ${theme.colors.text.code};
+  }
+
+  .language-yaml {
+    .hljs-attr {
+      color: ${theme.colors.text.tag};
+    }
+
+    .hljs-string {
+      color: ${theme.colors.text.code};
+    }
   }
 
   blockquote {
