@@ -6,9 +6,9 @@ import visit from 'unist-util-visit'
 import filter from 'unist-util-filter'
 import { selectAll, select } from 'unist-util-select'
 import { toGitHubLink } from '../utils/link'
-import CodeBlock from './code-block'
 import github from 'hast-util-sanitize/lib/github'
 import merge from 'lodash.merge'
+import highlight from 'remark-highlight.js'
 import { FadeLink as Link } from './link'
 import { css } from '@emotion/react'
 
@@ -64,11 +64,10 @@ export const Markdown = p => {
   const content = () => {
     let md = remark().use(remark2react, {
       remarkReactComponents: {
-        pre: CodeBlock,
         a: p => <Link to={p.href} underline>{p.children}</Link>
       },
       sanitize: schema
-    })
+    }).use(highlight)
     md = md.use(() => links({ alt: p.alt }))
     for (const filter of p.filters) {
       md = md.use(filter)
