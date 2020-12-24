@@ -32,20 +32,26 @@ const Blog = () => {
       }
     }
   `)
+  const formatter = new Intl.DateTimeFormat('en' , { dateStyle: 'long' })
   const { allOrgContent, site } = data
   const { edges } = allOrgContent
   const { siteMetadata } = site
   const { nav } = siteMetadata
   const { blog } = nav
+  const getDate = post => post.metadata && post.metadata.date
   const content = edges.map(({ node }) => node)
   const posts = content.filter(post => {
     const path = post.fields.slug
     return path && path.startsWith(blog)
   }).sort((a, b) => {
-    const date = post => post.metadata && post.metadata.date
     const compare = (a, b, f) =>
       (a || b) ? (!a ? 1 : !b ? -1 : f(a, b) ? 1 : -1) : 0
-    return compare(date(a), date(b), (a, b) => new Date(a) < new Date(b))
+    return compare(getDate(a), getDate(b), (a, b) => new Date(a) < new Date(b))
+  }).map(post => {
+    const date = new Date(getDate(post))
+    post.metadata.date = undefined
+    if (!isNaN(date.getTime())) post.metadata.date = date
+    return post
   })
   return (
     <Page>
@@ -63,7 +69,7 @@ const Blog = () => {
               <h1>
                 <Link to={slug}>{title}</Link>
               </h1>
-              {date && <div css={normal}>{date}</div> }
+                {date && <div css={normal}>{formatter.format(date)}</div> }
               <div css={read}>
                 <Content html={preview.html()} />
               </div>
