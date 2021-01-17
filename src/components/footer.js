@@ -3,7 +3,7 @@ import Link from './icon-link'
 import { SwipeLink } from './link'
 import { css } from '@emotion/react'
 import { IoMdArrowRoundUp } from 'react-icons/io'
-
+import { Tada } from 'react-micron'
 
 const footer = theme => css`
   width: 100%;
@@ -25,9 +25,11 @@ const footer = theme => css`
 
 const Footer = p => (
   <footer role="contentinfo" css={footer}>
-    <Link to="/" link={SwipeLink} icon={IoMdArrowRoundUp}>
-      Home
-    </Link>
+    <Tada>
+      <Link to="/" link={SwipeLink} icon={IoMdArrowRoundUp}>
+        Home
+      </Link>
+    </Tada>
   </footer>
 )
 

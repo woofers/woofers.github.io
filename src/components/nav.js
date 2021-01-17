@@ -3,15 +3,18 @@ import { css } from '@emotion/react'
 import { FadeLink as Link } from './link'
 import { useStaticQuery, graphql } from 'gatsby'
 import { camelCaseToPascalCase as uppercase } from '../utils/case'
+import { Tada } from 'react-micron'
 
 const style = theme => css`
   display: flex;
   a {
     padding: 11.5px 20px;
-    height: 50px;
     font-size: 17px;
     font-weight: 700;
     box-shadow: none;
+  }
+  div {
+    height: 50px;
   }
   justify-content: flex-end;
   @media (min-width: ${theme.breakpoints.nav.breakpoint}) {
@@ -26,7 +29,9 @@ const Nav = p => {
     <nav css={style}>
       {
         links.map(([name, link]) =>
-          <Link to={link} underline key={name}>{uppercase(name)}</Link>
+          <Tada events="onMouseOver" key={name}>
+            <Link to={link} underline>{uppercase(name)}</Link>
+          </Tada>
         )
       }
     </nav>
