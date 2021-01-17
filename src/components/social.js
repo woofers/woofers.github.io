@@ -7,6 +7,7 @@ import { FaGithub,
          FaStackOverflow,
          FaTwitter,
          FaEnvelope } from 'react-icons/fa'
+import { Flicker } from 'react-micron'
 
 const style = css`
   border: none;
@@ -39,9 +40,12 @@ const Entry = p => {
       title={title}
       {...rest}
     >
-      <Icon />
-      {children}
+      <Flicker events="onMouseOver">
+        <Icon />
+        {children}
+      </Flicker>
     </FadeLink>
+
   )
 }
 
