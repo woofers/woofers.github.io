@@ -8,6 +8,7 @@ import Content from '../components/content'
 import { css } from '@emotion/react'
 import Title from '../components/large-title'
 import { normal } from '../styles/text'
+import { Bounce, Blink } from 'react-micron'
 
 const space = css`
   margin-bottom: 30px;
@@ -67,7 +68,9 @@ const Blog = () => {
           return (
             <div key={`post-preview-${title}`} css={space}>
               <h1>
-                <Link to={slug}>{title}</Link>
+                <Bounce events="onMouseOver">
+                  <Link to={slug}>{title}</Link>
+                </Bounce>
               </h1>
                 {date && <div css={normal}>{formatter.format(date)}</div> }
               <div css={read}>
@@ -76,9 +79,10 @@ const Blog = () => {
               <Link
                 to={slug}
                 aria-label={`${continueReading} ${title}`}
-                underline
               >
+                <Blink events="onMouseOver">
                   {continueReading} . . .
+                </Blink>
               </Link>
             </div>
           )
