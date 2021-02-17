@@ -28,7 +28,7 @@ const Link = p => {
   const data = useStaticQuery(graphql`{ ...Url, ...Pages }`)
   let link = to
 
-  // Use relative links for jaxson.vandoorn.ca for local development
+  // Use relative links for jaxs.onl for local development
   const { siteUrl } = data.site.siteMetadata
   const paths = data.allSitePage.nodes.map(node => node.path)
   const urlNoHttps = siteUrl.replace('https://', '')

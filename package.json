@@ -1,9 +1,9 @@
 {
-  "name": "jaxson.vandoorn.ca",
+  "name": "jaxs.onl",
   "description": "Personal blog by Jaxson Van Doorn",
   "version": "5.4.2",
   "author": "Jaxson Van Doorn",
-  "homepage": "https://jaxson.vandoorn.ca",
+  "homepage": "https://jaxs.onl",
   "dependencies": {
     "@emotion/react": "^11.1.4",
     "@ludum-dare-badges/react": "^1.1.0",

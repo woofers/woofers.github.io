@@ -2,7 +2,7 @@
 #+AUTHOR:	Jaxson Van Doorn
 #+EMAIL:	jaxson.vandoorn@gmail.com
 #+OPTIONS:  num:nil toc:nil
-* [[https://jaxson.vandoorn.ca][jaxson.vandoorn.ca]]
+* [[https://jaxs.onl][jaxs.onl]]
 
 [[https://github.com/woofers/woofers.github.io/actions][https://github.com/woofers/woofers.github.io/workflows/build/badge.svg]]
 
