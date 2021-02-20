@@ -9,11 +9,9 @@ const style = theme => css`
   }
 `
 
-const Splash = ({ children, theme }) => {
+const Splash = ({ children, theme, ...rest }) => {
   return (
-    <Layout color={theme.colors.text.light}
-      background={theme.colors.accentGradient}
-    >
+    <Layout color="#2b3044" background="#fbf7f3" {...rest}>
       <div css={style}>
         <Header>
           <main>{children}</main>
