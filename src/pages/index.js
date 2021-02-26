@@ -59,10 +59,9 @@ const grey = css`
 
 
 const peach = css`
+  position: relative;
   margin-top: -5px;
   background-color: #ffe9d8;
-  padding-top: 1400px;
-
   padding-bottom: 24vw;
   background-image: url(${contact});
   background-repeat: no-repeat;
@@ -101,12 +100,30 @@ const subbox = css`
   position: absolute;
 `
 
+const peachbox = css`
+  ${box};
+  right: 0;
+  top: calc(-20vw + 100px);
+  position: absolute;
+  max-width: 900px;
+`
+
 const underbox = css`
   ${box};
   padding-top: 170px;
   margin-left: auto;
   max-width: 1100px;
   text-align: right;
+`
+
+const centerbox = css`
+  ${box};
+  padding-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1300px;
+  text-align: center;
+
 `
 
 const widebox = css`
@@ -181,6 +198,9 @@ const Background = () => {
             "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
           </div>
         </div>
+        <div css={centerbox}>
+          <h1 css={subhead}>Check out my <span css={crossOrange}>code</span> <Link to="/projects/">projects</Link></h1>
+        </div>
       </div>
       <div css={neutral}>
         <div css={widebox}>
@@ -193,6 +213,9 @@ const Background = () => {
         </div>
       </div>
       <div css={peach}>
+        <div css={peachbox}>
+          <h1 css={hello}>and within the open-source world </h1>
+        </div>
       </div>
       <div css={footer}>
       </div>
