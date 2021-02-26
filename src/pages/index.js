@@ -38,7 +38,6 @@ const orange = css`
 const neutral = css`
   margin-top: -5px;
   background-color: #fbf7f3;
-  padding-top: 1200px;
   padding-bottom: 4vw;
   background-image: url(${line});
   background-repeat: no-repeat;
@@ -50,8 +49,6 @@ const neutral = css`
 const grey = css`
   margin-top: -5px;
   background-color: #fbf7f3;
-  padding-top: 1600px;
-
   padding-bottom: 20vw;
   background-image: url(${projects});
   background-repeat: no-repeat;
@@ -112,6 +109,12 @@ const underbox = css`
   text-align: right;
 `
 
+const widebox = css`
+  ${box};
+  max-width: none;
+  padding-top: 30px;
+`
+
 const desc = css`
   font-size: 25px;
   letter-spacing: 1.25px;
@@ -132,9 +135,14 @@ const cross = css`
   text-decoration: line-through;
 `
 
-const crossHi = css`
+const crossOrange = css`
   ${cross};
   color: #ffcca5;
+`
+
+const crossGrey = css`
+  ${cross};
+  color: #c8ccd0;
 `
 
 const underline = css`
@@ -168,15 +176,21 @@ const Background = () => {
           </div>
         </div>
         <div css={underbox}>
-          <h1 css={subhead}>I sometimes <span css={crossHi}>vent</span> write on my <span css={underline}><Link to="/blog/">blog</Link></span></h1>
+          <h1 css={subhead}>I sometimes <span css={crossOrange}>vent</span> write on my <span css={underline}><Link to="/blog/">blog</Link></span></h1>
           <div css={whiteDesc}>
             "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
           </div>
         </div>
       </div>
       <div css={neutral}>
+        <div css={widebox}>
+          <h1 css={hello}>I have worked <span css={crossGrey}>for</span> with</h1>
+        </div>
       </div>
       <div css={grey}>
+        <div css={widebox}>
+          <h1 css={hello}>on products like</h1>
+        </div>
       </div>
       <div css={peach}>
       </div>
