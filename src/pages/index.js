@@ -73,7 +73,6 @@ const peach = css`
 const footer = css`
   margin-top: -5px;
   background-color: #ffb277;
-  height: 500px;
 
   width: 100%;
 `
@@ -85,6 +84,12 @@ const hello = css`
 const subhead = css`
   font-size: 70px;
   color: #fcf3ec;
+`
+
+const subsubhead = css`
+  ${subhead};
+  font-size: 45px;
+  font-weight: 400;
 `
 
 const box = css`
@@ -218,6 +223,10 @@ const Background = () => {
         </div>
       </div>
       <div css={footer}>
+        <div css={widebox}>
+          <h1 css={subhead}>Get in touch.</h1>
+          <h2 css={subsubhead}>Say hi.</h2>
+        </div>
       </div>
     </>
   )
