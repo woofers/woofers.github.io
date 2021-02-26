@@ -4,6 +4,7 @@ import SEO from '../components/seo'
 import { css } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
+import { FadeLink as Link } from '../components/link'
 import header from './header.svg'
 import slide from './slide.svg'
 import line from './line.svg'
@@ -23,8 +24,8 @@ const margin = css`
 `
 
 const orange = css`
+  position: relative;
   margin-top: -5px;
-  padding-top: 600px;
   padding-bottom: 11.5vw;
   background-color: #ffb277;
   background-image: url(${slide});
@@ -85,10 +86,41 @@ const hello = css`
   font-size: 70px;
 `
 
+const subhead = css`
+  font-size: 70px;
+  color: #fcf3ec;
+`
+
+const box = css`
+  padding-left: 125px;
+  padding-right: 125px;
+  padding-bottom: 75px;
+  max-width: 850px;
+`
+
+const subbox = css`
+  ${box};
+  top: calc(-20vw + 100px);
+  position: absolute;
+`
+
+const underbox = css`
+  ${box};
+  padding-top: 170px;
+  margin-left: auto;
+  max-width: 1100px;
+  text-align: right;
+`
+
 const desc = css`
   font-size: 25px;
   letter-spacing: 1.25px;
   padding-left: 5px;
+`
+
+const whiteDesc = css`
+  ${desc};
+  color: #fcf3ec;
 `
 
 const orangeDesc = css`
@@ -100,11 +132,14 @@ const cross = css`
   text-decoration: line-through;
 `
 
-const box = css`
-  padding-left: 125px;
-  padding-right: 125px;
-  padding-bottom: 75px;
-  max-width: 850px;
+const crossHi = css`
+  ${cross};
+  color: #ffcca5;
+`
+
+const underline = css`
+  padding-bottom: 5px;
+  border-bottom: 13px solid currentColor;
 `
 
 const highlight = css`
@@ -126,6 +161,18 @@ const Background = () => {
         </div>
       </div>
       <div css={orange}>
+        <div css={subbox}>
+          <h1 css={subhead}>About me</h1>
+          <div css={whiteDesc}>
+            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
+          </div>
+        </div>
+        <div css={underbox}>
+          <h1 css={subhead}>I sometimes <span css={crossHi}>vent</span> write on my <span css={underline}><Link to="/blog/">blog</Link></span></h1>
+          <div css={whiteDesc}>
+            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
+          </div>
+        </div>
       </div>
       <div css={neutral}>
       </div>
