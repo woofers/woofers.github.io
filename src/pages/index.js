@@ -9,30 +9,24 @@ import slide from './slide.svg'
 import line from './line.svg'
 import projects from './projects.svg'
 import contact from './contact.svg'
-
-const style = css`
-  background: #2b3044;
-  width: 100px;
-  height: 100px;
-`
-
+import me from './me.png'
 
 const margin = css`
-  padding-top: 300px;
+  background-color: #fbf7f3;
+  padding-top: 100px;
   padding-bottom: 20vw;
-  background-image: url(${header});
+  background-image: url(${header}), url(${me});
   background-repeat: no-repeat;
   width: 100%;
-  background-size: 100% auto;
-  background-position: center bottom, 100% 100%;
+  background-size: 100% auto, auto 90%;
+  background-position: center bottom, 100% 50%;
 `
 
 const orange = css`
   margin-top: -5px;
-  padding-top: 300px;
+  padding-top: 600px;
   padding-bottom: 11.5vw;
   background-color: #ffb277;
-  height: 800px;
   background-image: url(${slide});
   background-repeat: no-repeat;
   width: 100%;
@@ -49,7 +43,7 @@ const neutral = css`
   background-repeat: no-repeat;
   width: 100%;
   background-size: 100% auto;
-  background-position: center bottom, 100% 100%;
+  background-position: center bottom;
 `
 
 const grey = css`
@@ -62,21 +56,21 @@ const grey = css`
   background-repeat: no-repeat;
   width: 100%;
   background-size: 100% auto;
-  background-position: center bottom, 100% 100%;
+  background-position: center bottom;
 `
 
 
 const peach = css`
   margin-top: -5px;
   background-color: #ffe9d8;
-  height: 1600px;
+  padding-top: 1400px;
 
   padding-bottom: 24vw;
   background-image: url(${contact});
   background-repeat: no-repeat;
   width: 100%;
   background-size: 100% auto;
-  background-position: center bottom, 100% 100%;
+  background-position: center bottom;
 `
 
 const footer = css`
@@ -87,10 +81,49 @@ const footer = css`
   width: 100%;
 `
 
+const hello = css`
+  font-size: 70px;
+`
+
+const desc = css`
+  font-size: 25px;
+  letter-spacing: 1.25px;
+  padding-left: 5px;
+`
+
+const orangeDesc = css`
+  ${desc};
+  color: #ff7170;
+`
+
+const cross = css`
+  text-decoration: line-through;
+`
+
+const box = css`
+  padding-left: 125px;
+  padding-right: 125px;
+  padding-bottom: 75px;
+  max-width: 850px;
+`
+
+const highlight = css`
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  background: -webkit-linear-gradient(-90deg,#ff7170,#ffd57f);
+  -webkit-background-clip: text;
+  background-clip: text;
+`
+
 const Background = () => {
   return (
     <>
       <div css={margin}>
+        <div css={box}>
+          <h1 css={hello}>Hey I'm <span css={highlight}>Jaxson</span></h1>
+          <div css={desc}>I make software for humans, <span css={cross}>not robots</span></div>
+          <div css={orangeDesc}>I’ve been trusted by companies to work on various web-based <abbr title="Software as a Service">SaaS</abbr> products for 4+ years.</div>
+        </div>
       </div>
       <div css={orange}>
       </div>
@@ -117,7 +150,7 @@ const IndexPage = () => {
   return (
     <Splash wrapper={Background}>
       <SEO />
-      <div css={style}>
+      <div>
       </div>
     </Splash>
   )

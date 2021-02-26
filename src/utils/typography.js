@@ -6,7 +6,8 @@ const myTheme = {
   ...theme,
   googleFonts: [],
   baseFontSize: '18px',
-  bodyFontFamily: ['Nunito', 'sans-serif'],
+  headerFontFamily: ['Hammersmith One', 'sans-serif'],
+  bodyFontFamily: ['Hanuman', 'sans-serif'],
   baseLineHeight: 1.6,
   scaleRatio: 1.5,
   plugins: [new CodePlugin()]
