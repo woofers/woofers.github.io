@@ -6,6 +6,8 @@ import { css } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
 import { FadeLink as Link } from '../components/link'
+import Input from '../components/input'
+
 import header from './header.svg'
 import slide from './slide.svg'
 import line from './line.svg'
@@ -227,6 +229,7 @@ const Background = () => {
         <div css={widebox}>
           <h1 css={subhead}>Get in touch.</h1>
           <h2 css={subsubhead}>Say hi.</h2>
+          <Input type="text" placeholder="Name"/>
         </div>
       </div>
     </>
