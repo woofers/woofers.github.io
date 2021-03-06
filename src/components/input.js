@@ -1,16 +1,41 @@
 import React from 'react'
 import { css } from '@emotion/react'
 
+const padding = {
+  x: 20,
+  y: 15
+}
+
+const floating = css`
+  position: absolute;
+  left: ${padding.x}px;
+  top: ${padding.y}px;
+  pointer-events: none;
+`
+
+const label = css`
+  width: 100%;
+  display: flex;
+  font-family: 'Hammersmith One',sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  position: relative;
+  input:valid + label {
+    top: -${padding.y * 3}px;
+  }
+`
+
 const placeholder = css`
   color: #c8ccd0;
   opacity: 1;
 `
 
 const style = css`
+  filter: none;
   width: 100%;
   font-size: 30px;
   border: none;
-  padding: 15px 20px;
+  padding: ${padding.y}px ${padding.x}px;
   background: #fbf7f3;
   color: #2b3044;
   font-weight: 700;
@@ -38,9 +63,13 @@ const style = css`
   font-family: 'Hammersmith One',sans-serif;
 `
 
-const Input = p => {
+
+const Input = ({ placeholder, ...rest }) => {
   return (
-    <input css={style} {...p} />
+    <div css={label}>
+      <input css={style} {...rest} required pattern=".*\S.*" />
+      <label css={floating}>{placeholder}</label>
+    </div>
   )
 }
 
