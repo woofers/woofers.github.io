@@ -19,7 +19,7 @@ const style = css`
   box-shadow: 0 4px #c8ccd0;
   &:focus {
     outline: none;
-    box-shadow: 0 4px #ff9b74;
+    box-shadow: 0 5px #ff9b74;
   }
 
   ::-webkit-input-placeholder {

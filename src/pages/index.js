@@ -15,6 +15,19 @@ import projects from './projects.svg'
 import contact from './contact.svg'
 import me from './me.png'
 
+const flex = css`
+  display: flex;
+  margin-bottom: 20px;
+  > input {
+    &:first-of-type {
+      margin-right: 10px;
+    }
+    &:last-of-type {
+      margin-left: 10px;
+    }
+  }
+`
+
 const margin = css`
   background-color: #fbf7f3;
   padding-top: 100px;
@@ -229,7 +242,11 @@ const Background = () => {
         <div css={widebox}>
           <h1 css={subhead}>Get in touch.</h1>
           <h2 css={subsubhead}>Say hi.</h2>
-          <Input type="text" placeholder="Name"/>
+          <div css={flex}>
+            <Input type="text" placeholder="Name"/>
+            <Input type="text" placeholder="Email"/>
+          </div>
+          <Input type="textarea" placeholder="Email"/>
         </div>
       </div>
     </>
