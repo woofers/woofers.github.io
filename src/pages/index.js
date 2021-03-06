@@ -1,6 +1,7 @@
 import React from 'react'
 import Splash from '../components/splash'
 import SEO from '../components/seo'
+import Abbr from '../components/abbr'
 import { css } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
@@ -187,7 +188,7 @@ const Background = () => {
         <div css={box}>
           <h1 css={hello}>Hey I'm <span css={highlight}>Jaxson</span></h1>
           <div css={desc}>I make software for humans, <span css={cross}>not robots</span></div>
-          <div css={orangeDesc}>I’ve been trusted by companies to work on various web-based <abbr title="Software as a Service">SaaS</abbr> products for 4+ years.</div>
+          <div css={orangeDesc}>I’ve been trusted by companies to work on various web-based <Abbr title="Software as a Service">SaaS</Abbr> products for 4+ years.</div>
         </div>
       </div>
       <div css={orange}>
