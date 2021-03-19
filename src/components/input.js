@@ -7,6 +7,8 @@ const padding = {
 }
 
 const floating = css`
+  transition: color 0.2s cubic-bezier(0, 0, 0.1, 1) 0ms,
+              transform 0.2s cubic-bezier(0, 0, 0.1, 1) 0ms;
   position: absolute;
   left: ${padding.x}px;
   top: ${padding.y}px;
@@ -14,20 +16,23 @@ const floating = css`
 `
 
 const label = css`
+  margin-top: 45px;
   width: 100%;
   display: flex;
   font-family: 'Hammersmith One',sans-serif;
   font-weight: 700;
   font-size: 30px;
   position: relative;
+  color: #c8ccd0;
+  transform: translate(0, 0);
   input:valid + label {
-    top: -${padding.y * 3}px;
+    font-size: 25px;
+    color: #2b3044;
+    transform: translate(-${padding.x * 0.5}px, -${padding.y * 3.75}px);
   }
 `
 
 const placeholder = css`
-  color: #c8ccd0;
-  opacity: 1;
 `
 
 const style = css`
