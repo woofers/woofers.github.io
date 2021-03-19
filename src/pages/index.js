@@ -169,8 +169,21 @@ const orangeDesc = css`
   color: #ff7170;
 `
 
+const thick = 5.5
+const indent = 3
+
 const cross = css`
-  text-decoration: line-through;
+  position: relative;
+  &:before {
+    content: '';
+    width: calc(100% - ${indent}px);
+    height: ${thick}px;
+    position: absolute;
+    background: currentColor;
+    top: calc(50% - ${thick / 2}px);
+    left: ${indent}px;
+    cursor: text;
+  }
 `
 
 const crossOrange = css`
