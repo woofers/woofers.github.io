@@ -6,6 +6,7 @@ import { css } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
 import { FadeLink as Link } from '../components/link'
+import Logo from '../components/logo'
 import Input from '../components/input'
 
 import header from './header.svg'
@@ -17,8 +18,7 @@ import me from './me.png'
 
 const flex = css`
   display: flex;
-  margin-bottom: 20px;
-  > input {
+  > div {
     &:first-of-type {
       margin-right: 10px;
     }
@@ -105,6 +105,7 @@ const subhead = css`
 const subsubhead = css`
   ${subhead};
   font-size: 45px;
+  margin-bottom: 0;
   font-weight: 400;
 `
 
@@ -173,6 +174,8 @@ const thick = 5.5
 const indent = 3
 
 const cross = css`
+  user-select: none;
+  pointer-events: none;
   position: relative;
   &:before {
     content: '';
@@ -182,7 +185,6 @@ const cross = css`
     background: currentColor;
     top: calc(50% - ${thick / 2}px);
     left: ${indent}px;
-    cursor: text;
   }
 `
 
@@ -214,6 +216,7 @@ const Background = () => {
     <>
       <div css={margin}>
         <div css={box}>
+          <Logo />
           <h1 css={hello}>Hey I'm <span css={highlight}>Jaxson</span></h1>
           <div css={desc}>I make software for humans, <span css={cross}>not robots</span></div>
           <div css={orangeDesc}>I’ve been trusted by companies to work on various web-based <Abbr title="Software as a Service">SaaS</Abbr> products for 4+ years.</div>
@@ -233,12 +236,12 @@ const Background = () => {
           </div>
         </div>
         <div css={centerbox}>
-          <h1 css={subhead}>Check out my <span css={crossOrange}>code</span> <Link to="/projects/">projects</Link></h1>
+          <h1 css={subhead}>Check out my <span aria-hidden css={crossOrange}>code</span> <Link to="/projects/">projects</Link></h1>
         </div>
       </div>
       <div css={neutral}>
         <div css={widebox}>
-          <h1 css={hello}>I have worked <span css={crossGrey}>for</span> with</h1>
+          <h1 css={hello}>I have worked <span aria-hidden css={crossGrey}>for</span> with</h1>
         </div>
       </div>
       <div css={grey}>
@@ -259,7 +262,7 @@ const Background = () => {
             <Input type="text" placeholder="Name"/>
             <Input type="text" placeholder="Email"/>
           </div>
-          <Input type="textarea" placeholder="Email"/>
+          <Input type="textarea" placeholder="Message"/>
         </div>
       </div>
     </>
