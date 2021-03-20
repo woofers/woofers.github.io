@@ -57,14 +57,13 @@ const italic = css`
 `
 
 const content = 'jaxs.on'
-
 const fadeTicks = 8
 const blinkTicks = fadeTicks + 2
 
 const Logo = p => {
   const { children, ...rest } = p
   const [index, setIndex] = useState(0)
-  const isTyping = index < content.length
+  const isTyping = index > content.length
   const isBlink = index < content.length + blinkTicks
   const isFade = index > content.length + fadeTicks
   const ifTyping = style => isTyping ? style : null
