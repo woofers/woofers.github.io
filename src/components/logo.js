@@ -57,23 +57,24 @@ const italic = css`
 `
 
 const content = 'jaxs.on'
-const fadeTicks = 8
+const startDelay = 5
+const fadeTicks = startDelay + 8
 const blinkTicks = fadeTicks + 2
 
 const Logo = p => {
   const { children, ...rest } = p
   const [index, setIndex] = useState(0)
-  const isTyping = index > content.length
+  const isNotTyping = index > content.length + startDelay
   const isBlink = index < content.length + blinkTicks
   const isFade = index > content.length + fadeTicks
-  const ifTyping = style => isTyping ? style : null
+  const ifNotTyping = style => isNotTyping ? style : null
   const ifBlink = style => isBlink ? style : null
   const ifFade = style => isFade ? style : null
   setTimeout(() => setIndex(index + 1), 150)
   return (
     <h1 css={hello}>
-      <span css={[name, ifFade(bright)]}>{content.substring(0, index)}</span>
-      <span css={[cursor, ifTyping(italic), ifBlink(blink)]}>l</span>
+      <span css={[name, ifFade(bright)]}>{content.substring(0, Math.max(index - startDelay, 0))}</span>
+      <span css={[cursor, ifNotTyping(italic), ifBlink(blink)]}>l</span>
     </h1>
   )
 }
