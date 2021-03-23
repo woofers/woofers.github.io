@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { keyframes, css } from '@emotion/react'
+import useAnimationFrame from './use-animation-frame'
 
 const blinkAnimation = keyframes`
   0% {
@@ -70,17 +71,21 @@ const blinkTicks = fadeTicks + 2
 // 30 - Fade
 const Logo = p => {
   const { children, ...rest } = p
-  const [index, setIndex] = useState(0)
+  const [count, setCount] = useState(0)
+  const index = count / 150
   const isNotTyping = index > content.length + freezeDelay
   const isBlink = index < content.length + blinkTicks
   const isFade = index > content.length + fadeTicks
   const ifNotTyping = style => isNotTyping ? style : null
   const ifBlink = style => isBlink ? style : null
   const ifFade = style => isFade ? style : null
-  setTimeout(() => setIndex(index + 1), 150)
+  useAnimationFrame(dt => {
+    setCount(time => time + dt)
+    console.log(dt)
+  })
   return (
     <h1 css={hello}>
-      <span>{index}</span>
+      <div>{Math.round((count / 1000) * 100) / 100}</div>
       <span css={[name, ifFade(bright)]}>{content.substring(0, Math.max(index - startDelay, 0))}</span>
       <span css={[cursor, ifNotTyping(italic), ifBlink(blink)]}>l</span>
     </h1>
