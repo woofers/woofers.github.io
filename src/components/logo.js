@@ -69,25 +69,25 @@ const blinkTicks = fadeTicks + 2
 // 22 - Italic
 // 22 No Blink
 // 30 - Fade
+const steps = 150
+
 const Logo = p => {
   const { children, ...rest } = p
   const [count, setCount] = useState(0)
-  const index = count / 150
-  const isNotTyping = index > content.length + freezeDelay
-  const isBlink = index < content.length + blinkTicks
-  const isFade = index > content.length + fadeTicks
+  const isNotTyping = count > content.length + freezeDelay
+  const isBlink = count < content.length + blinkTicks
+  const isFade = count > content.length + fadeTicks
   const ifNotTyping = style => isNotTyping ? style : null
   const ifBlink = style => isBlink ? style : null
   const ifFade = style => isFade ? style : null
-  useAnimationFrame(dt => {
-    setCount(time => time + dt)
-    console.log(dt)
+  useAnimationFrame((dt, runTime, cancel) => {
+    setCount(runTime / steps)
+    if ((runTime / steps) > 35) cancel()
   })
   return (
     <h1 css={hello}>
-      <div>{Math.round((count / 1000) * 100) / 100}</div>
-      <span css={[name, ifFade(bright)]}>{content.substring(0, Math.max(index - startDelay, 0))}</span>
-      <span css={[cursor, ifNotTyping(italic), ifBlink(blink)]}>l</span>
+      <span aria-label={content} css={[name, ifFade(bright)]}>{content.substring(0, Math.max(count - startDelay, 0))}</span>
+      <span aria-hidden css={[cursor, ifNotTyping(italic), ifBlink(blink)]}>l</span>
     </h1>
   )
 }
