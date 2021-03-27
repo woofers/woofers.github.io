@@ -2,6 +2,25 @@ import React, { useState } from 'react'
 import { keyframes, css } from '@emotion/react'
 import useAnimationFrame from './use-animation-frame'
 
+const typeAnimation = keyframes`
+  0% {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  99% {
+    position: static;
+  }
+  100% {
+    display: inline;
+  }
+`
+
 const blinkAnimation = keyframes`
   0% {
     opacity: 0;
@@ -36,9 +55,13 @@ const blink = css`
 `
 
 const name = css`
-  ${highlight}
   filter: brightness(0) saturate(100%) invert(15%) sepia(33%) saturate(615%) hue-rotate(191deg) brightness(92%) contrast(89%);
   transition: filter 0.2s cubic-bezier(0, 0, 0.1, 1) 0ms;
+`
+
+const letter = css`
+  animation: ${typeAnimation} 150ms;
+  animation-fill-mode: both;
 `
 
 const bright = css`
@@ -80,14 +103,12 @@ const Logo = p => {
   const ifNotTyping = style => isNotTyping ? style : null
   const ifBlink = style => isBlink ? style : null
   const ifFade = style => isFade ? style : null
-  useAnimationFrame((dt, runTime, cancel) => {
-    setCount(runTime / steps)
-    if ((runTime / steps) > 35) cancel()
-  })
   return (
     <h1 css={hello}>
-      <span aria-label={content} css={[name, ifFade(bright)]}>{content.substring(0, Math.max(count - startDelay, 0))}</span>
-      <span aria-hidden css={[cursor, ifNotTyping(italic), ifBlink(blink)]}>l</span>
+      <span aria-label={content} css={name}>
+        {content.split('').map((el, i) => <span style={{ animationDelay: `${(i + 5) * steps}ms`}} css={letter}>{el}</span>)}
+      </span>
+      <span aria-hidden css={[cursor, blink]}>l</span>
     </h1>
   )
 }
