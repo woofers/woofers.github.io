@@ -107,7 +107,7 @@ const hello = css`
   width: 100%;
 `
 
-const steps = 150
+const steps = 125
 
 const blink = css`
   animation: ${blinkAnimation} ${steps * (40/3)}ms, ${italicAnimation} ${steps * (10/3)}ms, ${fadeOutAnimation} ${steps * (19/3)}ms;
@@ -129,7 +129,7 @@ const letter = css`
 `
 
 const j = css`
-  animation: ${typeAnimation} ${steps}ms, ${scaleUpAnimation} ${steps * (14/3)}ms;
+  animation: ${typeAnimation} ${steps}ms, ${scaleUpAnimation} ${steps * (10/3)}ms;
   animation-fill-mode: both, both;
   animation-iteration-count: 1, 1;
 `
@@ -153,7 +153,7 @@ const startDelay = 5
 
 const Letter = ({ letter: el, index: i, isDot, isFirst }) => {
   const delay = (() => {
-    if (isFirst) return `, ${steps * (116/3)}ms`
+    if (isFirst) return `, ${steps * 38}ms`
     if (isDot) return `, ${steps * 36}ms`
     return ''
   })()
