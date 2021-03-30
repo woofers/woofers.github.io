@@ -103,6 +103,7 @@ const bright = css`
 const cursor = css`
   ${highlight}
   user-select: none;
+  pointer-events: none;
   display: inline-block;
   width: 30px;
 `
@@ -135,7 +136,7 @@ const Logo = p => {
       <span aria-label={content} css={name}>
         {content.split('').map((el, i) => <span style={{ animationDelay: `${(i + startDelay) * steps}ms`}} css={letter}>{el}</span>)}
       </span>
-      <span aria-hidden css={[cursor, blink]}>l</span>
+      <span draggable="false" aria-hidden css={[cursor, blink]}>l</span>
     </h1>
   )
 }
