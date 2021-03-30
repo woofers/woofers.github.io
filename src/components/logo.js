@@ -110,7 +110,7 @@ const hello = css`
 const blink = css`
   animation: ${blinkAnimation} 2s, ${italicAnimation} 0.2s, ${fadeOutAnimation} 1s;
   animation-iteration-count: 2, 1, 1;
-  animation-delay: 0s, 4s, 4.5s;
+  animation-delay: 0s, 4s, 4.9s;
   animation-fill-mode: none, forwards, forwards;
 `
 
@@ -169,7 +169,7 @@ const Logo = p => {
       <span aria-label={content} css={name}>
         {content.split('').map((el, i) =>
           <span key={`${el}-${i}`}
-            style={{ animationDelay: `${(i + startDelay) * steps}ms${i === 4 || i === 0 ? ', 4.5s': ''}`}}
+            style={{ animationDelay: `${(i + startDelay) * steps}ms${i === 4 || i === 0 ? ', 5.4s': ''}`}}
             css={i !== 0 ? (i !== 4 ? letter : dot) : j}
           >
             {el}
