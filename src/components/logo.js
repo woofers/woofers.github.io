@@ -13,6 +13,22 @@ const hide = css`
   width: 1px;
 `
 
+const clip = css`
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  -webkit-background-clip: text;
+  background-clip: text;
+`
+
+const fadeAnimation = keyframes`
+  0% {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(33%) saturate(615%) hue-rotate(191deg) brightness(92%) contrast(89%);
+  }
+  100% {
+    filter: brightness(1);
+  }
+`
+
 const italicAnimation = keyframes`
   0% {
     font-style: normal;
@@ -56,15 +72,8 @@ const hello = css`
   width: 100%;
 `
 
-const clip = css`
-  -webkit-text-fill-color: transparent;
-  -webkit-box-decoration-break: clone;
-  -webkit-background-clip: text;
-  background-clip: text;
-`
-
 const highlight = css`
-  background: -webkit-linear-gradient(-90deg,#ff7170,#ffd57f);
+  background: -webkit-linear-gradient(-90deg, #ff7170, #ffd57f);
   ${clip}
 `
 
@@ -76,8 +85,10 @@ const blink = css`
 `
 
 const name = css`
-  filter: brightness(0) saturate(100%) invert(15%) sepia(33%) saturate(615%) hue-rotate(191deg) brightness(92%) contrast(89%);
-  transition: filter 0.2s cubic-bezier(0, 0, 0.1, 1) 0ms;
+  ${highlight}
+  animation: ${fadeAnimation} 0.2s;
+  animation-delay: 4.2s;
+  animation-fill-mode: both;
 `
 
 const letter = css`
@@ -91,9 +102,9 @@ const bright = css`
 
 const cursor = css`
   ${highlight}
+  user-select: none;
   display: inline-block;
   width: 30px;
-  transition: transform 0.2s cubic-bezier(0, 0, 0.1, 1) 0ms;
 `
 
 const italic = css`
@@ -103,9 +114,6 @@ const italic = css`
 
 const content = 'jaxs.on'
 const startDelay = 5
-const freezeDelay = startDelay + 10
-const fadeTicks = freezeDelay + 8
-const blinkTicks = fadeTicks + 2
 
 // [0,5] Wait blink
 // (5, 13] Typing
@@ -118,13 +126,6 @@ const steps = 150
 const Logo = p => {
   const { children, ...rest } = p
   const ready = useRef()
-  const [count, setCount] = useState(0)
-  const isNotTyping = count > content.length + freezeDelay
-  const isBlink = count < content.length + blinkTicks
-  const isFade = count > content.length + fadeTicks
-  const ifNotTyping = style => isNotTyping ? style : null
-  const ifBlink = style => isBlink ? style : null
-  const ifFade = style => isFade ? style : null
   useEffect(() => {
     ready.current = true
   }, [])
