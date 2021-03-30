@@ -108,7 +108,7 @@ const hello = css`
 `
 
 const blink = css`
-  animation: ${blinkAnimation} 2s, ${italicAnimation} 0.2s, ${fadeOutAnimation} 1s;
+  animation: ${blinkAnimation} 2000ms, ${italicAnimation} 200ms, ${fadeOutAnimation} 1s;
   animation-iteration-count: 2, 1, 1;
   animation-delay: 0s, 4s, 4.9s;
   animation-fill-mode: none, forwards, forwards;
@@ -116,7 +116,7 @@ const blink = css`
 
 const name = css`
   ${highlight}
-  animation: ${fadeAnimation} 0.5s;
+  animation: ${fadeAnimation} 500ms;
   animation-delay: 4.2s;
   animation-fill-mode: both;
 `
@@ -127,13 +127,13 @@ const letter = css`
 `
 
 const j = css`
-  animation: ${typeAnimation} 150ms, ${scaleUpAnimation} 0.7s;
+  animation: ${typeAnimation} 150ms, ${scaleUpAnimation} 700ms;
   animation-fill-mode: both, both;
   animation-iteration-count: 1, 1;
 `
 
 const dot = css`
-  animation: ${typeAnimation} 150ms, ${scaleAnimation} 0.7s;
+  animation: ${typeAnimation} 150ms, ${scaleAnimation} 700ms;
   animation-fill-mode: both, forwards;
   animation-iteration-count: 1, 1;
 `
@@ -148,20 +148,12 @@ const cursor = css`
 
 const content = 'Jaxs.on'
 const startDelay = 5
-
-// [0,5] Wait blink
-// (5, 13] Typing
-// (13, 22) Freeze
-// 22 - Italic
-// 22 No Blink
-// 30 - Fade
 const steps = 150
-
 
 const Letter = ({ letter: el, index: i, isDot, isFirst }) => {
   const delay = (() => {
-    if (isFirst) return ', 5.8s'
-    if (isDot) return ', 5.4s'
+    if (isFirst) return ', 5800ms'
+    if (isDot) return ', 5400ms'
     return ''
   })()
   return (
