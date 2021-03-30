@@ -24,6 +24,15 @@ const highlight = css`
   ${clip}
 `
 
+const scaleUpAnimation = keyframes`
+  0% {
+    font-size: 60px;
+  }
+  100% {
+    font-size: 70px;
+  }
+`
+
 const scaleAnimation = keyframes`
   0% {
     font-size: 70px;
@@ -117,6 +126,12 @@ const letter = css`
   animation-fill-mode: both;
 `
 
+const j = css`
+  animation: ${typeAnimation} 150ms, ${scaleUpAnimation} 1s;
+  animation-fill-mode: both, both;
+  animation-iteration-count: 1, 1;
+`
+
 const dot = css`
   animation: ${typeAnimation} 150ms, ${scaleAnimation} 1s;
   animation-fill-mode: both, forwards;
@@ -131,7 +146,7 @@ const cursor = css`
   width: 30px;
 `
 
-const content = 'jaxs.on'
+const content = 'Jaxs.on'
 const startDelay = 5
 
 // [0,5] Wait blink
@@ -154,8 +169,8 @@ const Logo = p => {
       <span aria-label={content} css={name}>
         {content.split('').map((el, i) =>
           <span key={`${el}-${i}`}
-            style={{ animationDelay: `${(i + startDelay) * steps}ms${i === 4 ? ', 4.5s': ''}`}}
-            css={i !== 4 ? letter : dot}
+            style={{ animationDelay: `${(i + startDelay) * steps}ms${i === 4 || i === 0 ? ', 4.5s': ''}`}}
+            css={i !== 0 ? (i !== 4 ? letter : dot) : j}
           >
             {el}
           </span>
