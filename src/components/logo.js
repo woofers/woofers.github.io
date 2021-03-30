@@ -112,14 +112,14 @@ const steps = 150
 const blink = css`
   animation: ${blinkAnimation} ${steps * (40/3)}ms, ${italicAnimation} ${steps * (10/3)}ms, ${fadeOutAnimation} ${steps * (19/3)}ms;
   animation-iteration-count: 2, 1, 1;
-  animation-delay: 0ms, 4000ms, 4900ms;
+  animation-delay: 0ms, ${steps * (80/3)}ms, ${steps * (98/3)}ms;
   animation-fill-mode: none, forwards, forwards;
 `
 
 const name = css`
   ${highlight}
   animation: ${fadeAnimation} ${steps * (10/3)}ms;
-  animation-delay: 4200ms;
+  animation-delay: ${steps * 28}ms;
   animation-fill-mode: both;
 `
 
@@ -153,8 +153,8 @@ const startDelay = 5
 
 const Letter = ({ letter: el, index: i, isDot, isFirst }) => {
   const delay = (() => {
-    if (isFirst) return ', 5800ms'
-    if (isDot) return ', 5400ms'
+    if (isFirst) return `, ${steps * (116/3)}ms`
+    if (isDot) return `, ${steps * 36}ms`
     return ''
   })()
   return (
