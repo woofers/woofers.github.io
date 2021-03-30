@@ -1,6 +1,5 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { keyframes, css } from '@emotion/react'
-import useAnimationFrame from './use-animation-frame'
 
 const hide = css`
   border: 0;
@@ -20,12 +19,39 @@ const clip = css`
   background-clip: text;
 `
 
-const fadeAnimation = keyframes`
+const highlight = css`
+  background: -webkit-linear-gradient(-90deg, #ff7170, #ffd57f);
+  ${clip}
+`
+
+const scaleAnimation = keyframes`
   0% {
-    filter: brightness(0) saturate(100%) invert(15%) sepia(33%) saturate(615%) hue-rotate(191deg) brightness(92%) contrast(89%);
+    font-size: 70px;
+  }
+  99% {
+    font-size: 0;
   }
   100% {
-    filter: brightness(1);
+    ${hide};
+  }
+`
+
+const fadeOutAnimation = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+`
+
+const fadeAnimation = keyframes`
+  0% {
+    background: #2b3044;
+    ${clip}
+  }
+  100% {
+    ${highlight}
   }
 `
 
@@ -72,21 +98,16 @@ const hello = css`
   width: 100%;
 `
 
-const highlight = css`
-  background: -webkit-linear-gradient(-90deg, #ff7170, #ffd57f);
-  ${clip}
-`
-
 const blink = css`
-  animation: ${blinkAnimation} 2s, ${italicAnimation} 0.2s;
-  animation-iteration-count: 2, 1;
-  animation-delay: 0s, 4s;
-  animation-fill-mode: none, forwards;
+  animation: ${blinkAnimation} 2s, ${italicAnimation} 0.2s, ${fadeOutAnimation} 1s;
+  animation-iteration-count: 2, 1, 1;
+  animation-delay: 0s, 4s, 4.5s;
+  animation-fill-mode: none, forwards, forwards;
 `
 
 const name = css`
   ${highlight}
-  animation: ${fadeAnimation} 0.2s;
+  animation: ${fadeAnimation} 0.5s;
   animation-delay: 4.2s;
   animation-fill-mode: both;
 `
@@ -96,8 +117,10 @@ const letter = css`
   animation-fill-mode: both;
 `
 
-const bright = css`
-  filter: brightness(1);
+const dot = css`
+  animation: ${typeAnimation} 150ms, ${scaleAnimation} 1s;
+  animation-fill-mode: both, forwards;
+  animation-iteration-count: 1, 1;
 `
 
 const cursor = css`
@@ -106,11 +129,6 @@ const cursor = css`
   pointer-events: none;
   display: inline-block;
   width: 30px;
-`
-
-const italic = css`
-  animation: ${italicAnimation} 0.2s;
-  animation-fill-mode: both;
 `
 
 const content = 'jaxs.on'
@@ -134,7 +152,14 @@ const Logo = p => {
   return (
     <h1 css={hello}>
       <span aria-label={content} css={name}>
-        {content.split('').map((el, i) => <span style={{ animationDelay: `${(i + startDelay) * steps}ms`}} css={letter}>{el}</span>)}
+        {content.split('').map((el, i) =>
+          <span key={`${el}-${i}`}
+            style={{ animationDelay: `${(i + startDelay) * steps}ms${i === 4 ? ', 4.5s': ''}`}}
+            css={i !== 4 ? letter : dot}
+          >
+            {el}
+          </span>
+        )}
       </span>
       <span draggable="false" aria-hidden css={[cursor, blink]}>l</span>
     </h1>
