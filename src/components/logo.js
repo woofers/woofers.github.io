@@ -107,33 +107,35 @@ const hello = css`
   width: 100%;
 `
 
+const steps = 150
+
 const blink = css`
-  animation: ${blinkAnimation} 2000ms, ${italicAnimation} 200ms, ${fadeOutAnimation} 1s;
+  animation: ${blinkAnimation} ${steps * (40/3)}ms, ${italicAnimation} ${steps * (10/3)}ms, ${fadeOutAnimation} ${steps * (19/3)}ms;
   animation-iteration-count: 2, 1, 1;
-  animation-delay: 0s, 4s, 4.9s;
+  animation-delay: 0ms, 4000ms, 4900ms;
   animation-fill-mode: none, forwards, forwards;
 `
 
 const name = css`
   ${highlight}
-  animation: ${fadeAnimation} 500ms;
-  animation-delay: 4.2s;
+  animation: ${fadeAnimation} ${steps * (10/3)}ms;
+  animation-delay: 4200ms;
   animation-fill-mode: both;
 `
 
 const letter = css`
-  animation: ${typeAnimation} 150ms;
+  animation: ${typeAnimation} ${steps * (10/3)}ms;
   animation-fill-mode: both;
 `
 
 const j = css`
-  animation: ${typeAnimation} 150ms, ${scaleUpAnimation} 700ms;
+  animation: ${typeAnimation} ${steps}ms, ${scaleUpAnimation} ${steps * (14/3)}ms;
   animation-fill-mode: both, both;
   animation-iteration-count: 1, 1;
 `
 
 const dot = css`
-  animation: ${typeAnimation} 150ms, ${scaleAnimation} 700ms;
+  animation: ${typeAnimation} ${steps}ms, ${scaleAnimation} ${steps * (14/3)}ms;
   animation-fill-mode: both, forwards;
   animation-iteration-count: 1, 1;
 `
@@ -148,7 +150,6 @@ const cursor = css`
 
 const content = 'Jaxs.on'
 const startDelay = 5
-const steps = 150
 
 const Letter = ({ letter: el, index: i, isDot, isFirst }) => {
   const delay = (() => {
