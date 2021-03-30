@@ -2,16 +2,34 @@ import React, { useRef, useState, useEffect } from 'react'
 import { keyframes, css } from '@emotion/react'
 import useAnimationFrame from './use-animation-frame'
 
+const hide = css`
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+`
+
+const italicAnimation = keyframes`
+  0% {
+    font-style: normal;
+    transform: scale(1) rotate(0) translate(0);
+  }
+  1% {
+    font-style: italic;
+  }
+  100% {
+    transform: scale(1, 1.25) rotate(8deg) translate(5px, 8px);
+    font-style: italic;
+  }
+`
+
 const typeAnimation = keyframes`
   0% {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+    ${hide}
   }
   99% {
     position: static;
@@ -51,8 +69,10 @@ const highlight = css`
 `
 
 const blink = css`
-  animation: ${blinkAnimation} 2s;
-  animation-iteration-count: 2;
+  animation: ${blinkAnimation} 2s, ${italicAnimation} 0.2s;
+  animation-iteration-count: 2, 1;
+  animation-delay: 0s, 4s;
+  animation-fill-mode: none, forwards;
 `
 
 const name = css`
@@ -77,8 +97,8 @@ const cursor = css`
 `
 
 const italic = css`
-  transform: scale(1, 1.25) rotate(8deg) translate(5px, 8px);
-  font-style: italic;
+  animation: ${italicAnimation} 0.2s;
+  animation-fill-mode: both;
 `
 
 const content = 'jaxs.on'
