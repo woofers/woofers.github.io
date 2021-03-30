@@ -157,6 +157,29 @@ const startDelay = 5
 // 30 - Fade
 const steps = 150
 
+
+const Letter = ({ letter: el, index: i, isDot, isFirst }) => {
+  const delay = (() => {
+    if (isFirst) return ', 5.8s'
+    if (isDot) return ', 5.4s'
+    return ''
+  })()
+  return (
+    <span
+      style={{ animationDelay: `${(i + startDelay) * steps}ms${delay}`}}
+      css={isFirst ? j : (isDot ? dot : letter)}
+    >
+      {el}
+    </span>
+  )
+}
+
+const AllLetter = ({ el, i }) => {
+  if (el === 'J') return <Letter isFirst letter={el} index={i} />
+  if (el === '.') return <Letter ariaHidden isDot letter={el} index={i} />
+  return <Letter letter={el} index={i} />
+}
+
 const Logo = p => {
   const { children, ...rest } = p
   const ready = useRef()
@@ -168,12 +191,7 @@ const Logo = p => {
     <h1 css={hello}>
       <span aria-label={content} css={name}>
         {content.split('').map((el, i) =>
-          <span key={`${el}-${i}`}
-            style={{ animationDelay: `${(i + startDelay) * steps}ms${i === 4 || i === 0 ? ', 5.4s': ''}`}}
-            css={i !== 0 ? (i !== 4 ? letter : dot) : j}
-          >
-            {el}
-          </span>
+          <AllLetter key={`${el}-${i}`} el={el} i={i} />
         )}
       </span>
       <span draggable="false" aria-hidden css={[cursor, blink]}>l</span>
