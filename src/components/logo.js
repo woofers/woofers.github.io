@@ -127,13 +127,13 @@ const letter = css`
 `
 
 const j = css`
-  animation: ${typeAnimation} 150ms, ${scaleUpAnimation} 1s;
+  animation: ${typeAnimation} 150ms, ${scaleUpAnimation} 0.7s;
   animation-fill-mode: both, both;
   animation-iteration-count: 1, 1;
 `
 
 const dot = css`
-  animation: ${typeAnimation} 150ms, ${scaleAnimation} 1s;
+  animation: ${typeAnimation} 150ms, ${scaleAnimation} 0.7s;
   animation-fill-mode: both, forwards;
   animation-iteration-count: 1, 1;
 `
