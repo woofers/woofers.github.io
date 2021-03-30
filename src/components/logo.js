@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { keyframes, css } from '@emotion/react'
 import useAnimationFrame from './use-animation-frame'
 
@@ -23,13 +23,13 @@ const typeAnimation = keyframes`
 
 const blinkAnimation = keyframes`
   0% {
-    opacity: 0;
-  }
-  50% {
     opacity: 1;
   }
-  100% {
+  50% {
     opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 `
 
@@ -51,7 +51,8 @@ const highlight = css`
 `
 
 const blink = css`
-  animation: ${blinkAnimation} 2s infinite;
+  animation: ${blinkAnimation} 2s;
+  animation-iteration-count: 2;
 `
 
 const name = css`
@@ -96,6 +97,7 @@ const steps = 150
 
 const Logo = p => {
   const { children, ...rest } = p
+  const ready = useRef()
   const [count, setCount] = useState(0)
   const isNotTyping = count > content.length + freezeDelay
   const isBlink = count < content.length + blinkTicks
@@ -103,10 +105,14 @@ const Logo = p => {
   const ifNotTyping = style => isNotTyping ? style : null
   const ifBlink = style => isBlink ? style : null
   const ifFade = style => isFade ? style : null
+  useEffect(() => {
+    ready.current = true
+  }, [])
+  if (!ready.current) return <div style={{ height: '105px' }}></div>
   return (
     <h1 css={hello}>
       <span aria-label={content} css={name}>
-        {content.split('').map((el, i) => <span style={{ animationDelay: `${(i + 5) * steps}ms`}} css={letter}>{el}</span>)}
+        {content.split('').map((el, i) => <span style={{ animationDelay: `${(i + startDelay) * steps}ms`}} css={letter}>{el}</span>)}
       </span>
       <span aria-hidden css={[cursor, blink]}>l</span>
     </h1>
