@@ -105,6 +105,7 @@ const blinkAnimation = keyframes`
 const hello = css`
   font-size: 70px;
   width: 100%;
+  display: inline;
 `
 
 const steps = 125
@@ -179,10 +180,10 @@ const Logo = p => {
   useEffect(() => {
     ready.current = true
   }, [])
-  if (!ready.current) return <div style={{ height: '105px' }}></div>
+  if (!ready.current) return null
   return (
     <h1 css={hello}>
-      <span aria-label={content} css={name}>
+      <span aria-label="Jaxson" css={name}>
         {content.split('').map((el, i) =>
           <AllLetter key={`${el}-${i}`} el={el} i={i} />
         )}

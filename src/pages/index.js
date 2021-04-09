@@ -2,7 +2,7 @@ import React from 'react'
 import Splash from '../components/splash'
 import SEO from '../components/seo'
 import Abbr from '../components/abbr'
-import { css } from '@emotion/react'
+import { css, keyframes } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { mutateRepoNames } from '../utils/repo'
 import { FadeLink as Link } from '../components/link'
@@ -15,6 +15,15 @@ import line from './line.svg'
 import projects from './projects.svg'
 import contact from './contact.svg'
 import me from './me.png'
+
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.65;
+  }
+`
 
 const flex = css`
   display: flex;
@@ -89,12 +98,16 @@ const peach = css`
 const footer = css`
   margin-top: -5px;
   background-color: #ffb277;
-
   width: 100%;
 `
 
 const hello = css`
   font-size: 70px;
+  display: inline;
+  animation: ${fadeIn} 1000ms;
+  animation-iteration-count: 1;
+  animation-delay: 250ms;
+  animation-fill-mode: both;
 `
 
 const subhead = css`
@@ -216,8 +229,9 @@ const Background = () => {
     <>
       <div css={margin}>
         <div css={box}>
+          <h1 css={hello}>Hey I'm{' '}</h1>
           <Logo />
-          <h1 css={hello}>Hey I'm <span css={highlight}>Jaxson</span></h1>
+
           <div css={desc}>I make software for humans, <span css={cross}>not robots</span></div>
           <div css={orangeDesc}>I’ve been trusted by companies to work on various web-based <Abbr title="Software as a Service">SaaS</Abbr> products for 4+ years.</div>
         </div>
