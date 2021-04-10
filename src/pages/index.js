@@ -18,10 +18,10 @@ import me from './me.png'
 
 const shift = keyframes`
   0% {
-    background-position: center bottom,200% 50%;
+    background-position-x: 50%, 200%;
   }
   100% {
-    background-position: center bottom,100% 50%;
+    background-position-x: 50%, 100%;
   }
 `
 
@@ -30,7 +30,7 @@ const fadeIn = keyframes`
     opacity: 0;
   }
   100% {
-    opacity: 0.65;
+    opacity: 1;
   }
 `
 
@@ -46,20 +46,28 @@ const flex = css`
   }
 `
 
-const margin = css`
+const margin = theme => css`
   background-color: #fbf7f3;
   padding-top: 100px;
   padding-bottom: 20vw;
   background-image: url(${header}), url(${me});
   background-repeat: no-repeat;
   width: 100%;
-  background-size: 100% auto, auto 90%;
-  background-position: center bottom, 100% 50%;
 
   animation: ${shift} 1500ms;
   animation-iteration-count: 1;
   animation-delay: 1150ms;
   animation-fill-mode: both;
+
+  background-size: 100% auto, auto 60%;
+  background-position-y: 100%, 95%;
+  @media (min-width: ${theme.breakpoints.small.breakpoint}) {
+    background-size: 100% auto, auto 75%;
+  }
+  @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
+    background-size: 100% auto, auto 90%;
+    background-position-y: 100%, 50%;
+  }
 `
 
 const orange = css`
@@ -126,6 +134,8 @@ const hello = css`
   animation-iteration-count: 1;
   animation-delay: 250ms;
   animation-fill-mode: both;
+  -webkit-text-stroke: 1.5px #747581;
+  color: #fbf7f3;
 `
 
 const subhead = css`
