@@ -16,6 +16,15 @@ import projects from './projects.svg'
 import contact from './contact.svg'
 import me from './me.png'
 
+const shift = keyframes`
+  0% {
+    background-position: center bottom,200% 50%;
+  }
+  100% {
+    background-position: center bottom,100% 50%;
+  }
+`
+
 const fadeIn = keyframes`
   0% {
     opacity: 0;
@@ -46,6 +55,11 @@ const margin = css`
   width: 100%;
   background-size: 100% auto, auto 90%;
   background-position: center bottom, 100% 50%;
+
+  animation: ${shift} 1500ms;
+  animation-iteration-count: 1;
+  animation-delay: 1150ms;
+  animation-fill-mode: both;
 `
 
 const orange = css`
@@ -101,8 +115,12 @@ const footer = css`
   width: 100%;
 `
 
-const hello = css`
+const big = css`
   font-size: 70px;
+`
+
+const hello = css`
+  ${big}
   display: inline;
   animation: ${fadeIn} 1000ms;
   animation-iteration-count: 1;
@@ -171,15 +189,18 @@ const desc = css`
   font-size: 25px;
   letter-spacing: 1.25px;
   padding-left: 5px;
+  visibility: hidden;
 `
 
 const whiteDesc = css`
   ${desc};
+  visibility: visible;
   color: #fcf3ec;
 `
 
 const orangeDesc = css`
   ${desc};
+  visibility: hidden;
   color: #ff7170;
 `
 
@@ -255,17 +276,17 @@ const Background = () => {
       </div>
       <div css={neutral}>
         <div css={widebox}>
-          <h1 css={hello}>I have worked <span aria-hidden css={crossGrey}>for</span> with</h1>
+          <h1 css={big}>I have worked <span aria-hidden css={crossGrey}>for</span> with</h1>
         </div>
       </div>
       <div css={grey}>
         <div css={widebox}>
-          <h1 css={hello}>on products like</h1>
+          <h1 css={big}>on products like</h1>
         </div>
       </div>
       <div css={peach}>
         <div css={peachbox}>
-          <h1 css={hello}>and within the open-source world </h1>
+          <h1 css={big}>and within the open-source world </h1>
         </div>
       </div>
       <div css={footer}>
