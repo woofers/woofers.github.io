@@ -106,6 +106,7 @@ const hello = css`
   font-size: 70px;
   width: 100%;
   display: inline;
+  white-space: nowrap;
 `
 
 const steps = 125
