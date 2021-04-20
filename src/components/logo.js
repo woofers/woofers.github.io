@@ -102,14 +102,26 @@ const blinkAnimation = keyframes`
   }
 `
 
+const wrapperAnimation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
+const steps = 125
+
 const hello = css`
   font-size: 70px;
   width: 100%;
   display: inline;
   white-space: nowrap;
+  animation: ${wrapperAnimation} 0ms;
+  animation-delay: ${625}ms;
+  animation-fill-mode: both;
 `
-
-const steps = 125
 
 const blink = css`
   animation: ${blinkAnimation} ${steps * (40/3)}ms, ${italicAnimation} ${steps * (10/3)}ms, ${fadeOutAnimation} ${steps * (19/3)}ms;
@@ -151,7 +163,7 @@ const cursor = css`
 `
 
 const content = 'Jaxs.on'
-const startDelay = 5
+const startDelay = 15
 
 const Letter = ({ letter: el, index: i, isDot, isFirst }) => {
   const delay = (() => {
