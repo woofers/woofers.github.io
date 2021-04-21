@@ -54,10 +54,14 @@ const fadeOutAnimation = keyframes`
   }
 `
 
+const dark = css`
+  background: -webkit-linear-gradient(-90deg, #2b3044, #2b3044);
+  ${clip}
+`
+
 const fadeAnimation = keyframes`
   0% {
-    background: #2b3044;
-    ${clip}
+    ${dark}
   }
   100% {
     ${highlight}
