@@ -213,12 +213,16 @@ const headerDesc = css`
   animation-iteration-count: 1;
   animation-delay: 5850ms;
   animation-fill-mode: both;
+  font-weight: 600;
+}
 `
 
 const whiteDesc = css`
   ${desc};
   visibility: visible;
   color: #fcf3ec;
+  letter-spacing: -1px;
+  line-height: 35px;
 `
 
 const orangeDesc = css`
@@ -308,7 +312,7 @@ const Background = () => {
         <div css={subbox}>
           <h1 css={subhead}>About me</h1>
           <div css={whiteDesc}>
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
+              I'm a frontend developer working from <b>Victoria, BC</b>.  My interests in technology are pretty broad however I specialize in building fluid and accessible large scale apps with <b>React</b>.  As a tech enthusiast I hope to grow and learn along-side others to help drive the next generation of software.
           </div>
         </div>
         <div css={underbox}>
