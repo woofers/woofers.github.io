@@ -85,6 +85,8 @@ const orange = css`
   width: 100%;
   background-size: 100% auto;
   background-position: center bottom, 100% 100%;
+
+  padding-top: 50px;
 `
 
 const neutral = css`
@@ -155,6 +157,12 @@ const subsubhead = css`
   font-weight: 400;
 `
 
+const rotate = css`
+  ${subhead}
+  margin-top: 100px;
+  transform: translate(0, 50px) rotateZ(355deg);
+`
+
 const box = css`
   padding-left: 125px;
   padding-right: 125px;
@@ -186,7 +194,8 @@ const underbox = css`
 
 const centerbox = css`
   ${box};
-  padding-top: 70px;
+  padding-top: 128px;
+  padding-bottom: 0;
   margin-left: auto;
   margin-right: auto;
   max-width: 1300px;
@@ -201,7 +210,7 @@ const widebox = css`
 `
 
 const desc = css`
-  font-size: 25px;
+  font-size: 23px;
   padding-left: 5px;
 `
 
@@ -217,11 +226,17 @@ const headerDesc = css`
 `
 
 const whiteDesc = css`
-  ${desc};
-  visibility: visible;
+  ${desc}
   color: #2b3044;
   letter-spacing: -1px;
   line-height: 35px;
+`
+
+const rightDesc = css`
+  ${whiteDesc}
+  max-width: 720px;
+  margin-left: auto;
+  text-align: right;
 `
 
 const orangeDesc = css`
@@ -314,14 +329,14 @@ const Background = () => {
               I'm a frontend developer working from <b>Victoria, BC</b>.  My interests in technology are pretty broad however I specialize in building fluid and accessible large scale apps with <b>React</b>.  As a tech enthusiast I hope to grow and learn along-side others to help drive the next generation of software that will shape how we live.
           </div>
         </div>
-        <div css={underbox}>
-          <h1 css={subhead}>I sometimes <span css={crossOrange}>vent</span> write on my <span css={underline}><Link to="/blog/">blog</Link></span></h1>
-          <div css={whiteDesc}>
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti
+        <div css={centerbox}>
+          <div css={rightDesc}>
+              In my free time, I enjoy spending time with my dog, cooking delicious food, or watching old movies.  I also spend my time tinkering with tech
+              such as open source projects, or building custom keyboards.  On top of this I always try and find time to learn about emerging web technologies and frameworks.
           </div>
         </div>
         <div css={centerbox}>
-          <h1 css={subhead}>Check out my <span aria-hidden css={crossOrange}>code</span> <Link to="/projects/">projects</Link></h1>
+          <h1 css={rotate}>Check out my <span aria-hidden css={crossOrange}>code</span> <Link to="/projects/">projects</Link></h1>
         </div>
       </div>
       <div css={neutral}>
