@@ -7,7 +7,7 @@ const myTheme = {
   googleFonts: [],
   baseFontSize: '18px',
   headerFontFamily: ['Hammersmith One', 'sans-serif'],
-  bodyFontFamily: ['Hanuman', 'sans-serif'],
+  bodyFontFamily: ['Source Sans Pro', 'sans-serif'],
   baseLineHeight: 1.6,
   scaleRatio: 1.5,
   plugins: [new CodePlugin()]

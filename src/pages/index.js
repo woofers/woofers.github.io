@@ -146,6 +146,7 @@ const hello = css`
 const subhead = css`
   font-size: 70px;
   color: #fcf3ec;
+
 `
 
 const subsubhead = css`
@@ -202,13 +203,12 @@ const widebox = css`
 
 const desc = css`
   font-size: 25px;
-  letter-spacing: 1.25px;
   padding-left: 5px;
 `
 
 const headerDesc = css`
   ${desc}
-  color: #6F707B;
+  color: #2b3044;
   animation: ${fadeIn} 800ms;
   animation-iteration-count: 1;
   animation-delay: 5850ms;
@@ -267,7 +267,7 @@ const highlight = css`
   background-clip: text;
 `
 
-const button = css`
+const button = color => css`
   font-weight: 700;
   font-family: 'Hammersmith One',sans-serif;
   cursor: pointer;
@@ -283,8 +283,9 @@ const button = css`
   padding-top: 8px;
   padding-bottom: 8px;
   border-radius: 500px;
-  background: #ff7170;
+  background: ${color};
   color: #fbf7f3;
+  margin-right: 5px;
 `
 
 const Background = () => {
@@ -298,7 +299,9 @@ const Background = () => {
           <div css={headerDesc}>JavaScript developer <Icon top="4px" icon={BsFillTerminalFill} />, keyboard enthusiast <Icon top="7px" width="1.25em" height="1.25em" icon={FaKeyboard} /></div>
 
           <Social />
-          <div css={button}>Message me</div>
+          <div css={button('#ff7170')}>Message me</div>
+          <div css={button('#ff9077')}>Message me</div>
+          <div css={button('#779bff')}>Message me</div>
         </div>
       </div>
       <div css={orange}>
