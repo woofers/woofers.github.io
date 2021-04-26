@@ -77,7 +77,7 @@ const italicAnimation = keyframes`
     font-style: italic;
   }
   100% {
-    transform: scale(1, 1.25) rotate(8deg) translate(5px, 8px);
+    transform: scale(0.8, 1.1) rotate(8deg) translate(4px, 6px);
     font-style: italic;
   }
 `
