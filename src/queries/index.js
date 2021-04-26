@@ -70,15 +70,6 @@ export const social = graphql`
             name
             link
           }
-          twitter {
-            name
-            link
-            handle
-          }
-          linkedin {
-            name
-            link
-          }
           email {
             name
             link

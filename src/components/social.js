@@ -12,7 +12,7 @@ import { Flicker } from 'react-micron'
 const style = css`
   border: none;
   font-size: 24px;
-  color: #fff;
+  color: #ff7170;
 `
 
 const spacing = css`

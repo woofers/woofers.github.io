@@ -8,6 +8,10 @@ import { mutateRepoNames } from '../utils/repo'
 import { FadeLink as Link } from '../components/link'
 import Logo from '../components/logo'
 import Input from '../components/input'
+import Social from '../components/social'
+import Icon from '../components/icon-box'
+import { BsFillTerminalFill } from 'react-icons/bs'
+import { FaKeyboard } from 'react-icons/fa'
 
 import header from './header.svg'
 import slide from './slide.svg'
@@ -134,7 +138,7 @@ const hello = css`
   animation-iteration-count: 1;
   animation-delay: 250ms;
   animation-fill-mode: both;
-  -webkit-text-stroke: 1.5px #747581;
+  -webkit-text-stroke: 1.5px #6F707B;
   color: #fbf7f3;
 `
 
@@ -199,7 +203,15 @@ const desc = css`
   font-size: 25px;
   letter-spacing: 1.25px;
   padding-left: 5px;
-  visibility: hidden;
+`
+
+const headerDesc = css`
+  ${desc}
+  color: #6F707B;
+  animation: ${fadeIn} 800ms;
+  animation-iteration-count: 1;
+  animation-delay: 5850ms;
+  animation-fill-mode: both;
 `
 
 const whiteDesc = css`
@@ -210,7 +222,6 @@ const whiteDesc = css`
 
 const orangeDesc = css`
   ${desc};
-  visibility: hidden;
   color: #ff7170;
 `
 
@@ -263,8 +274,9 @@ const Background = () => {
           <h1 css={hello}>Hey I'm{' '}</h1>
           <Logo />
 
-          <div css={desc}>I make software for humans, <span css={cross}>not robots</span></div>
-          <div css={orangeDesc}>I’ve been trusted by companies to work on various web-based <Abbr title="Software as a Service">SaaS</Abbr> products for 4+ years.</div>
+          <div css={headerDesc}>JavaScript developer <Icon top="4px" icon={BsFillTerminalFill} />, keyboard enthusiast <Icon top="7px" width="1.25em" height="1.25em" icon={FaKeyboard} /></div>
+
+          <div css={orangeDesc}><Social/></div>
         </div>
       </div>
       <div css={orange}>

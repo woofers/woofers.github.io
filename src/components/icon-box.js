@@ -4,13 +4,15 @@ import { css } from '@emotion/react'
 const EmptyIcon = () => null
 
 const IconBox = p => {
-  const { children, icon: Icon, top, right, ...rest } = p
+  const { children, icon: Icon, top, width, height, right, ...rest } = p
   const style = css`
     display: inline-block;
     > svg {
       position: relative;
       top: ${top};
       right: ${right};
+      width: ${width};
+      height: ${height};
     }
   `
   return (
@@ -22,6 +24,8 @@ const IconBox = p => {
 
 IconBox.defaultProps = {
   icon: EmptyIcon,
+  width: '1em',
+  height: '1em',
   top: '2px',
   right: '1px'
 }
