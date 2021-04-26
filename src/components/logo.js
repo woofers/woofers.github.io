@@ -171,8 +171,8 @@ const startDelay = 15
 
 const Letter = ({ letter: el, index: i, isDot, isFirst }) => {
   const delay = (() => {
-    if (isFirst) return `, ${steps * 38}ms`
-    if (isDot) return `, ${steps * 36}ms`
+    if (isFirst) return `, ${steps * 36}ms`
+    if (isDot) return `, ${steps * 35}ms`
     return ''
   })()
   return (
