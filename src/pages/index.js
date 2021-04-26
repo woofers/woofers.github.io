@@ -10,6 +10,7 @@ import Logo from '../components/logo'
 import Input from '../components/input'
 import Social from '../components/social'
 import Icon from '../components/icon-box'
+import Button from '../components/button'
 import { BsFillTerminalFill } from 'react-icons/bs'
 import { FaKeyboard } from 'react-icons/fa'
 
@@ -266,6 +267,26 @@ const highlight = css`
   background-clip: text;
 `
 
+const button = css`
+  font-weight: 700;
+  font-family: 'Hammersmith One',sans-serif;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  font-size: 20px;
+  line-height: 1.17;
+  font-weight: 700;
+  min-width: 28px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 500px;
+  background: #ff7170;
+  color: #fbf7f3;
+`
+
 const Background = () => {
   return (
     <>
@@ -276,7 +297,8 @@ const Background = () => {
 
           <div css={headerDesc}>JavaScript developer <Icon top="4px" icon={BsFillTerminalFill} />, keyboard enthusiast <Icon top="7px" width="1.25em" height="1.25em" icon={FaKeyboard} /></div>
 
-          <div css={orangeDesc}><Social/></div>
+          <Social />
+          <div css={button}>Message me</div>
         </div>
       </div>
       <div css={orange}>
