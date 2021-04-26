@@ -145,8 +145,7 @@ const hello = css`
 
 const subhead = css`
   font-size: 70px;
-  color: #fcf3ec;
-
+  color: #2b3044;
 `
 
 const subsubhead = css`
@@ -220,7 +219,7 @@ const headerDesc = css`
 const whiteDesc = css`
   ${desc};
   visibility: visible;
-  color: #fcf3ec;
+  color: #2b3044;
   letter-spacing: -1px;
   line-height: 35px;
 `
@@ -312,7 +311,7 @@ const Background = () => {
         <div css={subbox}>
           <h1 css={subhead}>About me</h1>
           <div css={whiteDesc}>
-              I'm a frontend developer working from <b>Victoria, BC</b>.  My interests in technology are pretty broad however I specialize in building fluid and accessible large scale apps with <b>React</b>.  As a tech enthusiast I hope to grow and learn along-side others to help drive the next generation of software.
+              I'm a frontend developer working from <b>Victoria, BC</b>.  My interests in technology are pretty broad however I specialize in building fluid and accessible large scale apps with <b>React</b>.  As a tech enthusiast I hope to grow and learn along-side others to help drive the next generation of software that will shape how we live.
           </div>
         </div>
         <div css={underbox}>
