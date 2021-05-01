@@ -1,14 +1,14 @@
 import React from 'react'
 import { css, keyframes } from '@emotion/core'
 
+const width = 600
+
 const anim = keyframes`
   0% {
-    right: 600px;
-    width: calc(100vw - 600px);
+    transform: translateX(-${width}px) scaleX(${width * 10});
   }
   100% {
-    right: 0;
-    width: 600px;
+    transform: translateX(0) scaleX(${width});
   }
 `
 
@@ -20,16 +20,18 @@ const style = css`
   position: fixed;
   top: 0;
   right: 0;
-  width: 600px;
+  width: 1px;
   height: 100vh;
   background: #ffb277;
-  transition: right .5s ease-out, width .5s ease-out;
+  transition: transform .5s ease-out;
   transition-timing-function: cubic-bezier(.23,1,.32,1);
   z-index: 1;
 
+  transform-origin: right;
+
   animation: ${anim} 700ms;
   animation-iteration-count: 1;
-  animation-delay: 500ms;
+  animation-delay: 0ms;
   animation-fill-mode: both;
 `
 
