@@ -1,45 +1,47 @@
 import React from 'react'
-import { css } from '@emotion/core'
+import { css, keyframes } from '@emotion/core'
+
+const anim = keyframes`
+  0% {
+    right: 600px;
+    width: calc(100vw - 600px);
+  }
+  100% {
+    right: 0;
+    width: 600px;
+  }
+`
 
 const wrapper = css`
-  position: fixed;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
 
 `
 
 const style = css`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   width: 600px;
   height: 100vh;
   background: #ffb277;
-
-  transition: .5s ease-out;
+  transition: right .5s ease-out, width .5s ease-out;
   transition-timing-function: cubic-bezier(.23,1,.32,1);
+  z-index: 1;
+
+  animation: ${anim} 700ms;
+  animation-iteration-count: 1;
+  animation-delay: 500ms;
+  animation-fill-mode: both;
 `
 
 const shape = css`
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #ffb277;
-  width: 200px;
-  height: 300px
-
-
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 444px;
   background: #ffb277;
   width: 200px;
   height: 120%;
   transform: skewX(358deg);
-  z-index: -1
+  z-index: 2;
 `
 
 const PopUp = () => {

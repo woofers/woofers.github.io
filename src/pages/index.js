@@ -28,7 +28,7 @@ const shift = keyframes`
     background-position-x: 200%;
   }
   100% {
-    background-position-x: 100%;
+    background-position-x: calc(100% - 650px);
   }
 `
 
@@ -80,10 +80,10 @@ const margin = theme => css`
   background-size: auto 55%;
   background-position-y: 100%;
   @media (min-width: ${theme.breakpoints.small.breakpoint}) {
-    background-size: auto 68%;
+    background-size: auto 60%;
   }
   @media (min-width: ${theme.breakpoints.large.breakpoint}) {
-    background-size: auto 85%;
+    background-size: auto 70%;
     background-position-y: 100%;
   }
 `
