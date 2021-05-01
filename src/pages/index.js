@@ -11,8 +11,10 @@ import Input from '../components/input'
 import Social from '../components/social'
 import Icon from '../components/icon-box'
 import Button from '../components/button'
+import PopUp from '../components/pop-up'
 import { BsFillTerminalFill } from 'react-icons/bs'
 import { FaKeyboard } from 'react-icons/fa'
+import { ImArrowRight2 } from "react-icons/im"
 
 import header from './header.svg'
 import slide from './slide.svg'
@@ -23,10 +25,10 @@ import me from './me.png'
 
 const shift = keyframes`
   0% {
-    background-position-x: 50%, 200%;
+    background-position-x: 200%;
   }
   100% {
-    background-position-x: 50%, 100%;
+    background-position-x: 100%;
   }
 `
 
@@ -36,6 +38,18 @@ const fadeIn = keyframes`
   }
   100% {
     opacity: 1;
+  }
+`
+
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  60% {
+    transform: scale(0.8);
+  }
+  100% {
+    transform: scale(1);
   }
 `
 
@@ -52,10 +66,9 @@ const flex = css`
 `
 
 const margin = theme => css`
+  height: 100vh;
   background-color: #fbf7f3;
-  padding-top: 100px;
-  padding-bottom: 20vw;
-  background-image: url(${header}), url(${me});
+  background-image: url(${me});
   background-repeat: no-repeat;
   width: 100%;
 
@@ -64,14 +77,14 @@ const margin = theme => css`
   animation-delay: 1150ms;
   animation-fill-mode: both;
 
-  background-size: 100% auto, auto 60%;
-  background-position-y: 100%, 95%;
+  background-size: auto 55%;
+  background-position-y: 100%;
   @media (min-width: ${theme.breakpoints.small.breakpoint}) {
-    background-size: 100% auto, auto 75%;
+    background-size: auto 68%;
   }
-  @media (min-width: ${theme.breakpoints.normal.breakpoint}) {
-    background-size: 100% auto, auto 90%;
-    background-position-y: 100%, 50%;
+  @media (min-width: ${theme.breakpoints.large.breakpoint}) {
+    background-size: auto 85%;
+    background-position-y: 100%;
   }
 `
 
@@ -164,6 +177,7 @@ const rotate = css`
 `
 
 const box = css`
+  padding-top: 100px;
   padding-left: 125px;
   padding-right: 125px;
   padding-bottom: 75px;
@@ -286,24 +300,20 @@ const highlight = css`
 `
 
 const button = color => css`
+  animation: ${pulse} 1600ms infinite;
+
   font-weight: 700;
   font-family: 'Hammersmith One',sans-serif;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   text-align: center;
   white-space: nowrap;
-  font-size: 20px;
-  line-height: 1.17;
+  font-size: 40px;
   font-weight: 700;
-  min-width: 28px;
-  padding-left: 16px;
-  padding-right: 16px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  border-radius: 500px;
+  padding: 15px;
+  border-radius: 50%;
   background: ${color};
   color: #fbf7f3;
-  margin-right: 5px;
 `
 
 const Background = () => {
@@ -313,56 +323,11 @@ const Background = () => {
         <div css={box}>
           <h1 css={hello}>Hey I'm{' '}</h1>
           <Logo />
-
-          <div css={headerDesc}>JavaScript developer <Icon top="4px" icon={BsFillTerminalFill} />, keyboard enthusiast <Icon top="7px" width="1.25em" height="1.25em" icon={FaKeyboard} /></div>
+          <div css={headerDesc}>JavaScript developer <Icon marginLeft="4px" marginRight="1px" top="4px" icon={BsFillTerminalFill} />, keyboard enthusiast <Icon marginLeft="2px" top="7px" width="1.25em" height="1.25em" icon={FaKeyboard} /></div>
 
           <Social />
-          <div css={button('#ff7170')}>Message me</div>
-          <div css={button('#ff9077')}>Message me</div>
-          <div css={button('#779bff')}>Message me</div>
-        </div>
-      </div>
-      <div css={orange}>
-        <div css={subbox}>
-          <h1 css={subhead}>About me</h1>
-          <div css={whiteDesc}>
-              I'm a frontend developer working from <b>Victoria, BC</b>.  My interests in technology are pretty broad however I specialize in building fluid and accessible large scale apps with <b>React</b>.  As a tech enthusiast I hope to grow and learn along-side others to help drive the next generation of software that will shape how we live.
-          </div>
-        </div>
-        <div css={centerbox}>
-          <div css={rightDesc}>
-              In my free time, I enjoy spending time with my dog, cooking delicious food, or watching old movies.  I also spend my time tinkering with tech
-              such as open source projects, or building custom keyboards.  On top of this I always try and find time to learn about emerging web technologies and frameworks.
-          </div>
-        </div>
-        <div css={centerbox}>
-          <h1 css={rotate}>Check out my <span aria-hidden css={crossOrange}>code</span> <Link to="/projects/">projects</Link></h1>
-        </div>
-      </div>
-      <div css={neutral}>
-        <div css={widebox}>
-          <h1 css={big}>I have worked <span aria-hidden css={crossGrey}>for</span> with</h1>
-        </div>
-      </div>
-      <div css={grey}>
-        <div css={widebox}>
-          <h1 css={big}>on products like</h1>
-        </div>
-      </div>
-      <div css={peach}>
-        <div css={peachbox}>
-          <h1 css={big}>and within the open-source world </h1>
-        </div>
-      </div>
-      <div css={footer}>
-        <div css={widebox}>
-          <h1 css={subhead}>Get in touch.</h1>
-          <h2 css={subsubhead}>Say hi.</h2>
-          <div css={flex}>
-            <Input type="text" placeholder="Name"/>
-            <Input type="text" placeholder="Email"/>
-          </div>
-          <Input type="textarea" placeholder="Message"/>
+          <div css={button('#ff7170')}><Icon display="flex" top="0" right="0" icon={ImArrowRight2} /></div>
+          <PopUp />
         </div>
       </div>
     </>
