@@ -13,7 +13,15 @@ const anim = keyframes`
 `
 
 const wrapper = css`
+`
 
+const container = css`
+  padding: 200px 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: ${width}px;
+  z-index: 2;
 `
 
 const style = css`
@@ -46,14 +54,19 @@ const shape = css`
   z-index: 2;
 `
 
-const PopUp = () => {
+const PopUp = ({ children }) => {
   return (
-    <div css={wrapper}>
-      <div css={style}>
+    <>
+      <div css={wrapper}>
+        <div css={style}>
+        </div>
+        <div css={shape}>
+        </div>
       </div>
-      <div css={shape}>
+      <div css={container}>
+        {children}
       </div>
-    </div>
+    </>
   )
 }
 

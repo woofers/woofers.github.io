@@ -158,6 +158,11 @@ const hello = css`
   color: #fbf7f3;
 `
 
+const headerText = css`
+  ${big}
+  transform: skewX(351deg);
+`
+
 const subhead = css`
   font-size: 70px;
   color: #2b3044;
@@ -327,7 +332,9 @@ const Background = () => {
 
           <Social />
           <div css={button('#ff7170')}><Icon display="flex" top="0" right="0" icon={ImArrowRight2} /></div>
-          <PopUp />
+          <PopUp>
+            <h1 css={headerText}>About Me</h1>
+          </PopUp>
         </div>
       </div>
     </>
