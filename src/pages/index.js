@@ -2,18 +2,23 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { StaticImage } from 'gatsby-plugin-image'
 import Page from '../components/page'
+import Nav from '../components/nav'
 
 const Header = styled.h1`
-  margin-top: 0;
-  margin-bottom: 64px;
-  max-width: 320px;
+  margin: 0;
+  color: #333333;
+  font-size: 42px;
+  line-height: 40px;
+  letter-spacing: -0.2px;
+  font-weight: 800;
 `
 
 const Home = () => {
   return (
     <Page>
       <title>Home</title>
-      <Header>Home page</Header>
+      <Header>Jaxson Van Doorn</Header>
+      <Nav />
       <StaticImage
         src="https://placekitten.com/800/600"
         alt="A dinosaur"

@@ -5,7 +5,6 @@ import styled from '@emotion/styled'
 const Main = styled.main`
   color: #232129;
   padding: 96px;
-  font-family: -apple-system, Roboto, sans-serif, serif;
 `
 
 const Header = styled.h1`
