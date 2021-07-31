@@ -1,12 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { StaticImage } from 'gatsby-plugin-image'
-
-const Main = styled.main`
-  color: #232129;
-  padding: 96px;
-  font-family: -apple-system, Roboto, sans-serif, serif;
-`
+import Page from '../components/page'
 
 const Header = styled.h1`
   margin-top: 0;
@@ -16,7 +11,7 @@ const Header = styled.h1`
 
 const Home = () => {
   return (
-    <Main>
+    <Page>
       <title>Home</title>
       <Header>Home page</Header>
       <StaticImage
@@ -27,7 +22,7 @@ const Home = () => {
         width={800}
         height={600}
       />
-    </Main>
+    </Page>
   )
 }
 
