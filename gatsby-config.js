@@ -5,7 +5,7 @@ module.exports = {
     DEV_WEBPACK_CACHE: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: true,
-    LMDB_STORE: true
+    LMDB_STORE: false
   },
   siteMetadata: {
     siteUrl: 'https://jaxs.onl',
