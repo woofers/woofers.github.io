@@ -9,12 +9,20 @@ import Nav from './nav'
 const Header = styled(motion.h1)`
   margin: 0;
   color: #333333;
-  font-size: 42px;
+  font-size: 32px;
   line-height: 40px;
-  letter-spacing: -0.2px;
-  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 20px 50px 0;
   font-style: italic;
-  padding: 20px 50px 10px;
+  font-family: 'Montserrat', sans-serif;
+`
+
+const Color = styled.span`
+  margin-left: 5px;
+  font-size: 42px;
+  color: #ff9a19;
+  letter-spacing: -0.2px;
+  font-weight: 900;
 `
 
 const Wrapper = styled.div`
@@ -48,15 +56,15 @@ const items = [
 const Layout = ({ children, location, ...rest }) => {
   return (
     <Wrapper {...rest}>
-      <GoogleFonts fonts={['Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700']} />
+      <GoogleFonts fonts={['Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700', 'Montserrat:ital,wght@0,700;0,900;1,900']} />
       <Global />
       <Header
         className="subtitle"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ opacity: 0, x: -200 }}
+        animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2 }}
       >
-        Jaxson Van Doorn
+        Hey I'm <Color>Jaxson</Color>
       </Header>
       <Nav items={items} />
       <AnimatePresence exitBeforeEnter>

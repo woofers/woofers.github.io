@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { Link } from 'gatsby'
+import { motion } from 'framer-motion'
 import withLocation from './with-location'
 
 // #fff9fb
@@ -42,7 +43,7 @@ const Button = styled(Link)`
   }
 `
 
-const Container = styled.nav`
+const Container = styled(motion.nav)`
   display: flex;
   margin: 10px 0 0;
   box-shadow: inset 0px -2px 0px -1px #dddddd;
@@ -55,7 +56,11 @@ const Container = styled.nav`
 const Nav = ({ location, items }) => {
   const { pathname } = location
   return (
-    <Container>
+    <Container
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.7 }}
+    >
       {items.map(({ to, children }) => (
         <Button to={to} key={`link-${to}`} aria-current={to === pathname}>{children}</Button>
       ))}
