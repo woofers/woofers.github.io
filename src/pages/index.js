@@ -1,11 +1,7 @@
 import React from 'react'
-import styled from '@emotion/styled'
 import { StaticImage } from 'gatsby-plugin-image'
-import { motion } from 'framer-motion'
-import Page from '../components/page'
-import Nav from '../components/nav'
 
-const About = () => {
+const Index = () => {
   return (
     <>
       <StaticImage
@@ -20,4 +16,4 @@ const About = () => {
   )
 }
 
-export default About
+export default Index

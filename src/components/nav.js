@@ -42,10 +42,11 @@ const Button = styled(Link)`
   }
 `
 
-const Container = styled.div`
+const Container = styled.nav`
   display: flex;
-  margin: 10px 20px;
+  margin: 10px 0 0;
   box-shadow: inset 0px -2px 0px -1px #dddddd;
+  padding: 0 50px;
   > ${Button}:first-of-type {
     margin-left: -10px;
   }
