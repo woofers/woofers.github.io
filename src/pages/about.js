@@ -2,19 +2,17 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { StaticImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
-import Page from '../components/page'
-import Nav from '../components/nav'
 
 const About = () => {
   return (
     <>
       <StaticImage
-        src="https://placekitten.com/600/900"
+        src="https://placekitten.com/400/400"
         alt="A dinosaur"
         placeholder="blurred"
         layout="fixed"
-        width={600}
-        height={900}
+        width={400}
+        height={400}
       />
     </>
   )

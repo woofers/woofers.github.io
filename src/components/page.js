@@ -2,9 +2,9 @@ import React from 'react'
 import Layout from './layout'
 
 const Page = ({ children, ...rest }) => (
-  <Layout {...rest}>
+  <div {...rest}>
     {children}
-  </Layout>
+  </div>
 )
 
 export default Page
