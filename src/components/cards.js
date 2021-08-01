@@ -24,6 +24,7 @@ const Card = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 10;
   }
 
 --system-dimension-fontSizeDynamic: 20;
@@ -40,9 +41,9 @@ const C = styled.div`
 
 const Container = styled.div`
   position: absolute;
-  padding: 6rem 12rem;
+  padding: 5rem 12rem;
   width: 100%;
-  height: 500px;
+  height: 430px;
   z-index: 2;
 `
 
