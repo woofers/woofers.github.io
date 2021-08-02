@@ -15,6 +15,19 @@ module.exports = {
     'gatsby-plugin-emotion',
     'gatsby-plugin-image',
     {
+      resolve: 'gatsby-plugin-svgr',
+      options: {
+        prettier: true,
+        svgo: true,
+        svgoConfig: {
+          plugins: [
+            { removeViewBox: false },
+            { cleanupIDs: true },
+          ],
+        },
+      },
+    },
+    {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
         trackingId: 'helo',
