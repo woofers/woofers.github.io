@@ -12,7 +12,7 @@ const Header = styled.header`
   top: 0;
   left: 0;
   z-index: 1;
-  background: #fff;
+  background: hsla(0, 0%, 100%, 0.8);
 `
 
 const Text = styled(motion.h1)`
@@ -64,7 +64,7 @@ const items = [
 const Layout = ({ children, location, ...rest }) => {
   return (
     <Wrapper {...rest}>
-      <GoogleFonts fonts={['Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700', 'Montserrat:ital,wght@0,700;0,900;1,900']} />
+      <GoogleFonts fonts={['Mulish:wght@900', 'Manrope:wght@800', 'Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700', 'Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900']} />
       <Global />
       <Header>
         <Text

@@ -17,8 +17,7 @@ const Card = styled(motion.div)`
   border-radius: 25px;
   display: inline-flex;
   background: #fff;
-  border: 1px solid #c9c9c9;
-  &[data-abs=true] {
+  &[data-open=true] {
     cursor: default;
     top: 0;
     left: 0;
@@ -26,10 +25,7 @@ const Card = styled(motion.div)`
     height: 100%;
     z-index: 10;
   }
-
---system-dimension-fontSizeDynamic: 20;
---system-dimension-fontSizeDifference: 0;
-  box-shadow: 0 2px 3px 0 rgba(0,0,0,.1),0 10px min(calc(1rem * (15 / (var(--system-dimension-fontSizeDynamic) + .167 * var(--system-dimension-fontSizeDifference)))),15px) 0 rgba(0,0,0,.06);
+  box-shadow: rgba(0, 0, 0, 0.10) 0px 5px 15px 0px;
 `
 
 const C = styled.div`
@@ -74,7 +70,7 @@ const Cards = ({ location }) => {
           <>
             <Overlay onClick={() => setSelectedId(null)} />
             <Container onClick={() => setSelectedId(null)}>
-              <Card layoutId={selectedId} data-abs>
+              <Card layoutId={selectedId} data-open>
                 <motion.button onClick={() => setSelectedId(null)}>Close</motion.button>
               </Card>
             </Container>

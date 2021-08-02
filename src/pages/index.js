@@ -1,19 +1,13 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import Cards from '../components/cards'
+import Title from '../components/title'
 
 const Index = () => {
   return (
     <>
+      <Title>Work</Title>
       <Cards />
-      <StaticImage
-        src="https://placekitten.com/600/900"
-        alt="A dinosaur"
-        placeholder="blurred"
-        layout="fixed"
-        width={600}
-        height={900}
-      />
     </>
   )
 }
