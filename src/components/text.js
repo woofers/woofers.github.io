@@ -19,7 +19,7 @@ Text.defaultProps = {
   right: 0,
   top: 0,
   bottom: 0,
-  width: 'unset'
+  width: 'unset',
 }
 
 export default Text

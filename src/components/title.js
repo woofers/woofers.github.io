@@ -19,7 +19,7 @@ Title.defaultProps = {
   fontSize: '45px',
   paddingX: '10px',
   paddingY: '20px',
-  transform: 'none'
+  transform: 'none',
 }
 
 export default Title

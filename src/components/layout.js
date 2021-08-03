@@ -7,6 +7,7 @@ import GoogleFonts from './google-fonts'
 import Nav from './nav'
 
 const Header = styled.header`
+  opacity: 0;
   width: 100%;
   position: sticky;
   top: 0;

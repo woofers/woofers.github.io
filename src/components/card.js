@@ -29,14 +29,13 @@ const Content = styled.div`
   height: calc(100% - 25px);
   display: flex;
   align-items: flex-end;
+  justify-content: ${props => props.justifyContent};
 `
 
-const Card = ({ logo, children, ...rest }) => (
+const Card = ({ logo, children, justifyContent = 'flex-start', ...rest }) => (
   <Wrapper {...rest}>
     {logo}
-    <Content>
-      {children}
-    </Content>
+    <Content justifyContent={justifyContent}>{children}</Content>
   </Wrapper>
 )
 

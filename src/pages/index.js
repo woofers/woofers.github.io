@@ -7,6 +7,29 @@ import Text from '../components/text'
 import { LivRent, Fts360, AlienExpansion } from '../logos'
 import Wave from 'react-wavify'
 
+const alpha = 0.36
+
+const Menu = styled.div`
+  display: flex;
+  width: max-content;
+  position: relative;
+  padding: 0 0 10px;
+  &:after {
+    content: '';
+    background-image: linear-gradient(
+      90deg,
+      #fff 0%,
+      rgba(255, 255, 255, ${alpha}) 5%,
+      #ff00 50%,
+      rgba(255, 255, 255, ${alpha}) 95%,
+      #fff 100%
+    );
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+`
+
 const Right = styled.span`
   align-self: flex-end;
   margin-right: 15px;
@@ -45,7 +68,7 @@ const items = [
         </Title>{' '}
         <Right>working on liv.rent</Right>
       </Text>
-    )
+    ),
   },
   {
     id: 'fts',
@@ -64,7 +87,7 @@ const items = [
           as="a"
           paddingX="0"
           paddingY="10px"
-          color="#000"
+          color="#231f20"
           fontSize="32px"
           href="https://ftsinc.com"
           transform="translateX(32%)"
@@ -73,11 +96,12 @@ const items = [
         </Title>{' '}
         <Right>who worked on FTS 360</Right>
       </Text>
-    )
+    ),
   },
   {
     id: 'react-wavify',
     background: '#fadc96',
+    justifyContent: 'flex-end',
     logo: (
       <div>
         <div
@@ -118,6 +142,17 @@ const items = [
         />
       </div>
     ),
+    children: (
+      <Title
+        paddingX="30px"
+        paddingY="10px"
+        color="#226699"
+        fontSize="32px"
+        transform="translateX(0)"
+      >
+        react-wavify
+      </Title>
+    ),
   },
   {
     id: 'alien-expansion',
@@ -143,7 +178,11 @@ const items = [
 const Index = () => {
   return (
     <>
-      <Title>Work</Title>
+      <Menu>
+        <Title color="#c9c9c9">Me</Title>
+        <Title>Work</Title>
+        <Title color="#c9c9c9">Contact</Title>
+      </Menu>
       <Cards items={items} />
     </>
   )
