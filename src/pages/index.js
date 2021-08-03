@@ -2,18 +2,18 @@ import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import Cards from '../components/cards'
 import Title from '../components/title'
-import { LivRentDark, Fts360 } from '../logos'
+import { LivRent, Fts360 } from '../logos'
 import Wave from 'react-wavify'
 
 
 const items = [
   {
     id: 'liv.rent',
-    background: '#fafafa',
+    background: '#fe5f55',
     children: (
       <div>
           <div style={{ marginLeft: '20px', marginTop: '20px', width: '100px', height: '200px' }}>
-          <LivRentDark />
+          <LivRent />
         </div>
       </div>
     )
