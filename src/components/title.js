@@ -11,13 +11,15 @@ const Title = styled.h1`
   font-weight: 900;
   font-family: 'Mulish', sans-serif;
   text-decoration: none;
+  transform: ${props => props.transform};
 `
 
 Title.defaultProps = {
   color: '#000',
   fontSize: '45px',
   paddingX: '10px',
-  paddingY: '20px'
+  paddingY: '20px',
+  transform: 'none'
 }
 
 export default Title

@@ -31,16 +31,11 @@ const Content = styled.div`
   align-items: flex-end;
 `
 
-const Right = styled.span`
-  align-self: flex-end;
-  margin-right: 15px;
-`
-
-const Card = ({ children, ...rest }) => (
+const Card = ({ logo, children, ...rest }) => (
   <Wrapper {...rest}>
-    {children}
+    {logo}
     <Content>
-        <Text>Junior Software Developer at <Title as="a" paddingX="0" paddingY="10px" color="#fff" fontSize="32px" href="https://machobear.ca">Machobear Studios Inc.</Title> <Right>working on liv.rent</Right></Text>
+      {children}
     </Content>
   </Wrapper>
 )

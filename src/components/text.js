@@ -7,7 +7,9 @@ const Text = styled.div`
   font-weight: 900;
   display: flex;
   flex-direction: column;
-  margin: ${({ top, right, bottom, left }) => `${top} ${right} ${bottom} ${left}`};
+  margin: ${({ top, right, bottom, left }) =>
+    `${top} ${right} ${bottom} ${left}`};
+  width: ${props => props.width};
 `
 
 Text.defaultProps = {
@@ -16,7 +18,8 @@ Text.defaultProps = {
   left: 0,
   right: 0,
   top: 0,
-  bottom: 0
+  bottom: 0,
+  width: 'unset'
 }
 
 export default Text
