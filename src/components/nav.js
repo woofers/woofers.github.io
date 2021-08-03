@@ -18,16 +18,17 @@ const Button = styled(Link)`
   margin-top: 6px;
   margin-bottom: 6px;
   margin-right: 6px;
-  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, transform 0.1s ease 0s, transform 0.1s ease 0s;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    transform 0.1s ease 0s, transform 0.1s ease 0s;
   position: relative;
   outline: currentcolor none medium;
   color: #717171;
   cursor: pointer;
-  &[aria-current=true] {
+  &[aria-current='true'] {
     color: #222222;
     &:after {
       position: absolute;
-      content: "";
+      content: '';
       background-color: #222222;
       bottom: -6px;
       left: 10px;
@@ -38,8 +39,8 @@ const Button = styled(Link)`
   &:hover {
     background: #f7f7f7 none repeat scroll 0% 0%;
   }
-  &[aria-current=false]:focus {
-    transform: scale(0.90) !important;
+  &[aria-current='false']:focus {
+    transform: scale(0.9) !important;
   }
 `
 
@@ -62,7 +63,9 @@ const Nav = ({ location, items }) => {
       transition={{ delay: 0.7 }}
     >
       {items.map(({ to, children }) => (
-        <Button to={to} key={`link-${to}`} aria-current={to === pathname}>{children}</Button>
+        <Button to={to} key={`link-${to}`} aria-current={to === pathname}>
+          {children}
+        </Button>
       ))}
     </Container>
   )

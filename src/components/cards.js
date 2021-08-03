@@ -26,7 +26,7 @@ const Overlay = styled(motion.div)`
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: rgba(255,255,255,0.5);
+  background: rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(100px);
 `
 
@@ -35,26 +35,36 @@ const Cards = ({ items = [], location }) => {
   const item = items.find(({ id }) => id === selectedId)
   return (
     <C>
-    <AnimateSharedLayout type="crossfade">
-      {items.map(({ id, children, ...rest }) => (
-        <Card layoutId={id} onClick={() => setSelectedId(id)} key={id} {...rest}>
-          {children}
-        </Card>
-      ))}
-      <AnimatePresence>
-        {(selectedId || selectedId === 0) && (({ id, children, ... rest}) => (
-          <>
-            <Overlay onClick={() => setSelectedId(null)} />
-            <Container onClick={() => setSelectedId(null)}>
-              <Card layoutId={id} data-open {...rest}>
-                {children}
-                <motion.button onClick={() => setSelectedId(null)}>Close</motion.button>
-              </Card>
-            </Container>
-          </>
-        ))(item)}
-      </AnimatePresence>
-    </AnimateSharedLayout>
+      <AnimateSharedLayout type="crossfade">
+        {items.map(({ id, children, ...rest }) => (
+          <Card
+            layoutId={id}
+            onClick={() => setSelectedId(id)}
+            key={id}
+            {...rest}
+          >
+            {children}
+          </Card>
+        ))}
+        <AnimatePresence>
+          {(selectedId || selectedId === 0) &&
+            (({ id, children, ...rest }) => (
+              <>
+                <Overlay onClick={() => setSelectedId(null)} />
+                <Container onClick={() => setSelectedId(null)}>
+                  <Card layoutId={id} data-open {...rest}>
+                    {children}
+                    {false && (
+                      <motion.button onClick={() => setSelectedId(null)}>
+                        Close
+                      </motion.button>
+                    )}
+                  </Card>
+                </Container>
+              </>
+            ))(item)}
+        </AnimatePresence>
+      </AnimateSharedLayout>
     </C>
   )
 }

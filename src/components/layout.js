@@ -49,22 +49,29 @@ const Main = styled(motion.main)`
 const items = [
   {
     to: '/',
-    children: 'Home'
+    children: 'Home',
   },
   {
     to: '/about/',
-    children: 'About'
+    children: 'About',
   },
   {
     to: '/me/',
-    children: 'Me'
-  }
+    children: 'Me',
+  },
 ]
 
 const Layout = ({ children, location, ...rest }) => {
   return (
     <Wrapper {...rest}>
-      <GoogleFonts fonts={['Mulish:wght@900', 'Manrope:wght@800', 'Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700', 'Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900']} />
+      <GoogleFonts
+        fonts={[
+          'Mulish:wght@900',
+          'Manrope:wght@800',
+          'Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700',
+          'Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900',
+        ]}
+      />
       <Global />
       <Header>
         <Text
@@ -84,15 +91,13 @@ const Layout = ({ children, location, ...rest }) => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 200 }}
           transition={{
-            type: "spring",
+            type: 'spring',
             mass: 0.35,
             stiffness: 75,
-            duration: 0.3
+            duration: 0.3,
           }}
-          >
-          <Container>
-            {children}
-          </Container>
+        >
+          <Container>{children}</Container>
         </Main>
       </AnimatePresence>
     </Wrapper>

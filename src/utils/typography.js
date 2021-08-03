@@ -9,7 +9,7 @@ const myTheme = {
   bodyFontFamily: ['Cabin', 'sans-serif'],
   baseLineHeight: 1.6,
   scaleRatio: 1.5,
-  plugins: [new CodePlugin()]
+  plugins: [new CodePlugin()],
 }
 
 const typography = new Typography(myTheme)

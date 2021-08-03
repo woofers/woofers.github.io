@@ -4,11 +4,14 @@ import { css } from '@emotion/react'
 
 const mq = breakpoints =>
   Object.values(breakpoints)
-    .map(({ breakpoint, size }) => `
+    .map(
+      ({ breakpoint, size }) => `
       @media (min-width: ${breakpoint}) {
         width: ${size};
       }
-    `).join('\n')
+    `
+    )
+    .join('\n')
 
 const Container = p => {
   const style = theme => css`

@@ -7,8 +7,7 @@ const Card = styled(motion.div)`
   cursor: pointer;
   border-radius: 25px;
   display: inline-flex;
-  background: ${props => props.background || '#fff'};
-  &[data-open=true] {
+  &[data-open='true'] {
     cursor: default;
     top: 0;
     left: 0;
@@ -16,7 +15,10 @@ const Card = styled(motion.div)`
     height: 100%;
     z-index: 10;
   }
-  box-shadow: rgba(0, 0, 0, 0.10) 0px 5px 15px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
+  background: ${props => props.background || '#fff'};
+  background-size: 100% auto;
+  background-position: center;
 `
 
 export default Card
