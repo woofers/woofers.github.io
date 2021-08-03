@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
+import Title from './title'
+import Text from './text'
 
-const Card = styled(motion.div)`
+const Wrapper = styled(motion.div)`
   position: relative;
   cursor: pointer;
   border-radius: 25px;
@@ -19,6 +21,28 @@ const Card = styled(motion.div)`
   background: ${props => props.background || '#fff'};
   background-size: 100% auto;
   background-position: center;
+  justify-content: space-between;
 `
+
+const Content = styled.div`
+  width: calc(100% - 170px);
+  height: calc(100% - 25px);
+  display: flex;
+  align-items: flex-end;
+`
+
+const Right = styled.span`
+  align-self: flex-end;
+  margin-right: 15px;
+`
+
+const Card = ({ children, ...rest }) => (
+  <Wrapper {...rest}>
+    {children}
+    <Content>
+        <Text>Junior Software Developer at <Title as="a" paddingX="0" paddingY="10px" color="#fff" fontSize="32px" href="https://machobear.ca">Machobear Studios Inc.</Title> <Right>working on liv.rent</Right></Text>
+    </Content>
+  </Wrapper>
+)
 
 export default Card
