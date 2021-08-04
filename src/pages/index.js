@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import Cards from '../components/cards'
@@ -16,6 +16,7 @@ const Menu = styled.div`
   padding: 0 0 10px;
   &:after {
     content: '';
+    pointer-events: none;
     background-image: linear-gradient(
       90deg,
       #fff 0%,
@@ -176,12 +177,34 @@ const items = [
 ]
 
 const Index = () => {
+  const [page, setPage] = useState('Work')
   return (
     <>
       <Menu>
-        <Title color="#c9c9c9">Me</Title>
-        <Title>Work</Title>
-        <Title color="#c9c9c9">Contact</Title>
+        <Title
+          onClick={() => setPage('Me')}
+          href="#"
+          as="a"
+          color={page === 'Me' ? '#000' : '#c9c9c9'}
+        >
+          Me
+        </Title>
+        <Title
+          onClick={() => setPage('Work')}
+          href="#"
+          as="a"
+          color={page === 'Work' ? '#000' : '#c9c9c9'}
+        >
+          Work
+        </Title>
+        <Title
+          onClick={() => setPage('Contact')}
+          href="#"
+          as="a"
+          color={page === 'Contact' ? '#000' : '#c9c9c9'}
+        >
+          Contact
+        </Title>
       </Menu>
       <Cards items={items} />
     </>

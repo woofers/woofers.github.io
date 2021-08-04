@@ -12,6 +12,7 @@ const Title = styled.h1`
   font-family: 'Mulish', sans-serif;
   text-decoration: none;
   transform: ${props => props.transform};
+  transition: color 0.3s ease-in-out;
 `
 
 Title.defaultProps = {
