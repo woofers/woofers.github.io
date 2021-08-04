@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import styled from '@emotion/styled'
 import Cards from '../components/cards'
@@ -6,30 +6,6 @@ import Title from '../components/title'
 import Text from '../components/text'
 import { LivRent, Fts360, AlienExpansion } from '../logos'
 import Wave from 'react-wavify'
-
-const alpha = 0.36
-
-const Menu = styled.div`
-  display: flex;
-  width: max-content;
-  position: relative;
-  padding: 0 0 10px;
-  &:after {
-    content: '';
-    pointer-events: none;
-    background-image: linear-gradient(
-      90deg,
-      #fff 0%,
-      rgba(255, 255, 255, ${alpha}) 5%,
-      #ff00 50%,
-      rgba(255, 255, 255, ${alpha}) 95%,
-      #fff 100%
-    );
-    position: absolute;
-    height: 100%;
-    width: 100%;
-  }
-`
 
 const Right = styled.span`
   align-self: flex-end;
@@ -176,36 +152,9 @@ const items = [
   },
 ]
 
-const Index = () => {
-  const [page, setPage] = useState('Work')
+const Index = props => {
   return (
     <>
-      <Menu>
-        <Title
-          onClick={() => setPage('Me')}
-          href="#"
-          as="a"
-          color={page === 'Me' ? '#000' : '#c9c9c9'}
-        >
-          Me
-        </Title>
-        <Title
-          onClick={() => setPage('Work')}
-          href="#"
-          as="a"
-          color={page === 'Work' ? '#000' : '#c9c9c9'}
-        >
-          Work
-        </Title>
-        <Title
-          onClick={() => setPage('Contact')}
-          href="#"
-          as="a"
-          color={page === 'Contact' ? '#000' : '#c9c9c9'}
-        >
-          Contact
-        </Title>
-      </Menu>
       <Cards items={items} />
     </>
   )

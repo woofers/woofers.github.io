@@ -4,9 +4,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Global from './global'
 import Container from './container'
 import GoogleFonts from './google-fonts'
+import Header from './header'
 import Nav from './nav'
 
-const Header = styled.header`
+const H = styled.header`
   opacity: 0;
   width: 100%;
   position: sticky;
@@ -74,7 +75,7 @@ const Layout = ({ children, location, ...rest }) => {
         ]}
       />
       <Global />
-      <Header>
+      <H>
         <Text
           className="subtitle"
           initial={{ opacity: 0, x: -200 }}
@@ -84,7 +85,10 @@ const Layout = ({ children, location, ...rest }) => {
           Hey I'm <Color>Jaxson</Color>
         </Text>
         <Nav items={items} />
-      </Header>
+      </H>
+      <Container>
+        <Header />
+      </Container>
       <AnimatePresence exitBeforeEnter>
         <Main
           key={location.pathname}

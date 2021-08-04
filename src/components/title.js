@@ -13,6 +13,9 @@ const Title = styled.h1`
   text-decoration: none;
   transform: ${props => props.transform};
   transition: color 0.3s ease-in-out;
+  &[aria-current='page'] {
+    color: #000;
+  }
 `
 
 Title.defaultProps = {
