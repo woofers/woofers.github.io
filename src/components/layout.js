@@ -5,17 +5,6 @@ import Global from './global'
 import Container from './container'
 import GoogleFonts from './google-fonts'
 import Header from './header'
-import Nav from './nav'
-
-const H = styled.header`
-  opacity: 0;
-  width: 100%;
-  position: sticky;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background: hsla(0, 0%, 100%, 0.8);
-`
 
 const Text = styled(motion.h1)`
   margin: 0;
@@ -45,22 +34,23 @@ const Wrapper = styled.div`
 
 const Main = styled(motion.main)`
   position: relative;
-  min-height: calc(100vh - 123.5px);
+  min-height: calc(100vh - 225px);
 `
+
 
 const items = [
   {
-    to: '/',
-    children: 'Home',
+    to: '/about/',
+    children: 'Me'
   },
   {
-    to: '/about/',
-    children: 'About',
+    to: '/',
+    children: 'Work'
   },
   {
     to: '/me/',
-    children: 'Me',
-  },
+    children: 'Contact'
+  }
 ]
 
 const Layout = ({ children, location, ...rest }) => {
@@ -75,19 +65,8 @@ const Layout = ({ children, location, ...rest }) => {
         ]}
       />
       <Global />
-      <H>
-        <Text
-          className="subtitle"
-          initial={{ opacity: 0, x: -200 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2 }}
-        >
-          Hey I'm <Color>Jaxson</Color>
-        </Text>
-        <Nav items={items} />
-      </H>
       <Container>
-        <Header />
+        <Header items={items} />
       </Container>
       <AnimatePresence exitBeforeEnter>
         <Main

@@ -4,10 +4,12 @@ import withLocation from './with-location'
 import Title from './title'
 import { Link } from 'gatsby'
 
+const Wrapper = styled.header`
+  padding: 125px 0 0;
+`
+
 const head = arr => arr[0]
 const last = arr => arr[arr.length - 1]
-
-const Wrapper = styled.header``
 
 const color = (alpha = 1) => `rgba(255, 255, 255, ${alpha})`
 const edge = color(1)
@@ -40,23 +42,7 @@ const Menu = styled.div`
   }
 `
 
-const items = [
-  {
-    to: '/about/',
-    children: 'Me'
-  },
-  {
-    to: '/',
-    children: 'Work'
-  },
-  {
-    to: '/me/',
-    children: 'Contact'
-  }
-]
-
-const Header = props => {
-  const { location } = props
+const Header = ({ items, location }) => {
   const path = location?.pathname
   return (
     <Wrapper>
@@ -64,7 +50,7 @@ const Header = props => {
         {items.map(({ children, to, ...rest }) => (
           <Title
             {...rest}
-            key={`menu-link-${to}`}
+            key={`menu-nav-${to}`}
             to={to}
             as={Link}
             aria-current={path === to ? 'page' : undefined}
