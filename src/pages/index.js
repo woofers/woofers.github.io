@@ -12,34 +12,50 @@ const Right = styled.span`
   margin-right: 15px;
 `
 
+const Box = styled.div`
+  width: 100px;
+  height: 200px;
+`
+
+const LivLogo = styled(Box)`
+  margin-left: 20px;
+  margin-top: 20px;
+`
+
+const WavifyLogo = styled(Box)`
+  font-size: 50px;
+  margin-left: 20px;
+  margin-top: 5px;
+`
+
+const WavifyBar = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  bottom: 0px;
+  background: #5E9EF1;
+  clip-path: inset(0% 0 0% 0 round 25px);
+`
+
 const items = [
   {
     id: 'liv.rent',
     background: '#fe5f55',
     logo: (
       <div>
-        <div
-          style={{
-            marginLeft: '20px',
-            marginTop: '20px',
-            width: '100px',
-            height: '200px',
-          }}
-        >
+        <LivLogo>
           <LivRent />
-        </div>
+        </LivLogo>
       </div>
     ),
     children: (
       <Text>
         Junior Software Developer at{' '}
         <Title
-          as="a"
           paddingX="0"
           paddingY="10px"
           color="#fff"
           fontSize="32px"
-          href="https://machobear.ca"
         >
           Machobear Studios Inc.
         </Title>{' '}
@@ -52,21 +68,19 @@ const items = [
     background: '#ddffb4',
     logo: (
       <div>
-        <div style={{ width: '100px', height: '200px' }}>
+        <Box>
           <Fts360 />
-        </div>
+        </Box>
       </div>
     ),
     children: (
       <Text color="#38976a" width="100%">
         Former Software Developer at{' '}
         <Title
-          as="a"
           paddingX="0"
           paddingY="10px"
           color="#231f20"
           fontSize="32px"
-          href="https://ftsinc.com"
           transform="translateX(32%)"
         >
           FTS Inc.
@@ -81,17 +95,10 @@ const items = [
     justifyContent: 'flex-end',
     logo: (
       <div>
-        <div
-          style={{
-            fontSize: '50px',
-            width: '100px',
-            height: '200px',
-            marginLeft: '20px',
-            marginTop: '5px',
-          }}
+        <WavifyLogo
         >
           🌊
-        </div>
+        </WavifyLogo>
         <Wave
           style={{
             position: 'absolute',
@@ -107,16 +114,7 @@ const items = [
             points: 4,
           }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            width: '100%',
-            height: '40px',
-            bottom: '0px',
-            background: '#5E9EF1',
-            clipPath: 'inset(0% 0 0% 0 round 25px)',
-          }}
-        />
+        <WavifyBar />
       </div>
     ),
     children: (
