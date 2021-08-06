@@ -13,6 +13,11 @@ const style = css`
   p {
     font-family: 'Cabin', sans-serif;
   }
+
+  ::selection {
+    background: rgba(0, 40, 255, 0.3) !important;
+    color: #314cf0 !important;
+  }
 `
 
 const Global = () => <GlobalStyle styles={style} />
