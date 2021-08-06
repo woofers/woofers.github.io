@@ -58,7 +58,7 @@ const Header = ({ items, location }) => {
           >
             {children}
           </Title>
-          ))}
+        ))}
       </Menu>
     </Wrapper>
   )

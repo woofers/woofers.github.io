@@ -33,7 +33,7 @@ const WavifyBar = styled.div`
   width: 100%;
   height: 40px;
   bottom: 0px;
-  background: #5E9EF1;
+  background: #5e9ef1;
   clip-path: inset(0% 0 0% 0 round 25px);
 `
 
@@ -51,12 +51,7 @@ const items = [
     children: (
       <Text>
         Junior Software Developer at{' '}
-        <Title
-          paddingX="0"
-          paddingY="10px"
-          color="#fff"
-          fontSize="32px"
-        >
+        <Title paddingX="0" paddingY="10px" color="#fff" fontSize="32px">
           Machobear Studios Inc.
         </Title>{' '}
         <Right>working on liv.rent</Right>
@@ -95,10 +90,7 @@ const items = [
     justifyContent: 'flex-end',
     logo: (
       <div>
-        <WavifyLogo
-        >
-          🌊
-        </WavifyLogo>
+        <WavifyLogo>🌊</WavifyLogo>
         <Wave
           style={{
             position: 'absolute',

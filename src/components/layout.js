@@ -37,20 +37,19 @@ const Main = styled(motion.main)`
   min-height: calc(100vh - 225px);
 `
 
-
 const items = [
   {
     to: '/about/',
-    children: 'Me'
+    children: 'Me',
   },
   {
     to: '/',
-    children: 'Work'
+    children: 'Work',
   },
   {
     to: '/me/',
-    children: 'Contact'
-  }
+    children: 'Contact',
+  },
 ]
 
 const Layout = ({ children, location, ...rest }) => {
