@@ -14,7 +14,7 @@ const Title = styled.h1`
   transform: ${props => props.transform};
   transition: color 0.3s ease-in-out;
   &[aria-current='page'] {
-    color: #000;
+    color: #27292b;
   }
 `
 

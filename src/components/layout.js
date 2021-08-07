@@ -53,7 +53,7 @@ const items = [
 
 const Layout = ({ children, location, ...rest }) => {
   return (
-    <Wrapper {...rest}>
+    <Wrapper {...rest} id="root-layout-wrapper">
       <GoogleFonts
         fonts={[
           'Mulish:wght@900',

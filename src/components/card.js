@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import { Global, css } from '@emotion/react'
 import styled from '@emotion/styled'
 import { motion } from 'framer-motion'
+import { createGlobal } from '../components/global'
 import Title from './title'
 import Text from './text'
 
@@ -9,6 +11,9 @@ const Wrapper = styled(motion.div)`
   cursor: pointer;
   border-radius: 25px;
   display: inline-flex;
+  &[data-hide='true'] {
+    display: none;
+  }
   &[data-open='true'] {
     cursor: default;
     top: 0;
@@ -32,6 +37,12 @@ const Content = styled.div`
   justify-content: ${props => props.justifyContent};
 `
 
+const HideOverflow = createGlobal`
+  body, #root-layout-wrapper {
+    overflow-y: hidden;
+  }
+`
+
 const Card = ({
   logo,
   children: Child,
@@ -40,6 +51,7 @@ const Card = ({
   ...rest
 }) => (
   <Wrapper {...rest} data-open={isOpen}>
+    {isOpen && <HideOverflow />}
     {logo}
     <Content justifyContent={justifyContent}>
       <Child isOpen={isOpen} />

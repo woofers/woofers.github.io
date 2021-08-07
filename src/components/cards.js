@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import withLocation from './with-location'
 import Card from './card'
 
@@ -20,6 +21,13 @@ const Grid = styled.div`
   grid-gap: ${CARD_GAP};
   grid-template-rows: repeat(4, ${CARD_HEIGHT});
   height: ${HEIGHT};
+  @media only screen and (max-width: 1360px) {
+    align-self: center;
+  }
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoints.small.breakpoint}) {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 `
 
 const Container = styled.div`
@@ -34,6 +42,10 @@ const Container = styled.div`
   height: calc(100vh - 225px);
   z-index: 2;
   left: 0;
+  @media only screen and (max-width: ${({ theme }) => theme.breakpoints.small.breakpoint}) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
 `
 
 const Overlay = styled(motion.div)`
@@ -48,6 +60,7 @@ const Overlay = styled(motion.div)`
 const Cards = ({ items = [], location }) => {
   const [selectedId, setSelectedId] = useState()
   const item = items.find(({ id }) => id === selectedId)
+  const shift = useMediaQuery(`@media only screen and (max-width: 1360px)`)
   return (
     <Grid>
       <AnimateSharedLayout type="crossfade">
@@ -55,6 +68,7 @@ const Cards = ({ items = [], location }) => {
           <Card
             layoutId={id}
             onClick={() => setSelectedId(id)}
+            data-hide={shift && id === selectedId}
             key={id}
             {...rest}
           >

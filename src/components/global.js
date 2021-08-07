@@ -23,3 +23,8 @@ const style = css`
 const Global = () => <GlobalStyle styles={style} />
 
 export default Global
+
+export const createGlobal = val => {
+  const style = css(val)
+  return () => <GlobalStyle styles={style} />
+}
