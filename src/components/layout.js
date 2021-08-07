@@ -26,14 +26,12 @@ const Color = styled.span`
 `
 
 const Wrapper = styled.div`
-  position: relative;
   min-height: 100vh;
   background: #fff;
   color: #000;
 `
 
 const Main = styled(motion.main)`
-  position: relative;
   min-height: calc(100vh - 225px);
 `
 

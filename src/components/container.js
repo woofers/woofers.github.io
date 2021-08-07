@@ -21,7 +21,6 @@ const Container = p => {
     padding: 5px 0;
     width: 93%;
     max-width: 1200px;
-    position: relative;
     min-height: 100%;
     box-sizing: border-box;
     ${mq(theme.breakpoints)}

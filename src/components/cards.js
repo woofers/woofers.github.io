@@ -4,19 +4,30 @@ import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import withLocation from './with-location'
 import Card from './card'
 
-const C = styled.div`
+const ROWS = 2
+const CARD_WIDTH = '585px'
+const CARD_HEIGHT = '250px'
+const CARD_GAP = '30px'
+const HEIGHT = `calc(${ROWS} * ${CARD_HEIGHT} + ((${ROWS} - 1) * ${CARD_GAP}))`
+
+const EXPANDED_WIDTH = '300px'
+const EXPANDED_TOP = '40px'
+const EXPANDED_BOTTOM = '70px'
+
+const Grid = styled.div`
   display: grid;
-  grid-template-columns: 0.5fr 0.5fr;
-  grid-gap: 30px;
-  grid-template-rows: repeat(2, 250px);
+  grid-template-columns: repeat(auto-fill, ${CARD_WIDTH});
+  grid-gap: ${CARD_GAP};
+  grid-template-rows: repeat(4, ${CARD_HEIGHT});
 `
 
 const Container = styled.div`
   position: absolute;
-  padding: 5rem 12rem;
+  padding: calc((530px - ${CARD_HEIGHT}) / 2 - ${EXPANDED_TOP}) calc((100vw - ${CARD_WIDTH} - ${EXPANDED_WIDTH}) / 2) calc((530px - ${CARD_HEIGHT}) / 2  - ${EXPANDED_BOTTOM} + ((100vh - 225px) - 530px));
   width: 100%;
-  height: 430px;
+  height: calc(100vh - 225px);
   z-index: 2;
+  left: 0;
 `
 
 const Overlay = styled(motion.div)`
@@ -34,7 +45,7 @@ const Cards = ({ items = [], location }) => {
   const [selectedId, setSelectedId] = useState()
   const item = items.find(({ id }) => id === selectedId)
   return (
-    <C>
+    <Grid>
       <AnimateSharedLayout type="crossfade">
         {items.map(({ id, children, ...rest }) => (
           <Card
@@ -65,7 +76,7 @@ const Cards = ({ items = [], location }) => {
             ))(item)}
         </AnimatePresence>
       </AnimateSharedLayout>
-    </C>
+    </Grid>
   )
 }
 
