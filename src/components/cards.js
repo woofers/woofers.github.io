@@ -43,8 +43,6 @@ const Overlay = styled(motion.div)`
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(100px);
 `
 
 const Cards = ({ items = [], location }) => {
@@ -67,7 +65,18 @@ const Cards = ({ items = [], location }) => {
           {(selectedId || selectedId === 0) &&
             (({ id, children, ...rest }) => (
               <>
-                <Overlay onClick={() => setSelectedId(null)} />
+                <Overlay
+                  onClick={() => setSelectedId(null)}
+                  initial={{
+                    backdropFilter: 'blur(0)',
+                    background: 'rgba(255, 255, 255, 0)',
+                  }}
+                  animate={{
+                    backdropFilter: 'blur(3px)',
+                    background: 'rgba(255, 255, 255, 0.5)',
+                  }}
+                  transition={{ delay: 0.05 }}
+                />
                 <Container onClick={() => setSelectedId(null)}>
                   <Card layoutId={id} isOpen {...rest}>
                     {children}
