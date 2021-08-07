@@ -19,11 +19,17 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, ${CARD_WIDTH});
   grid-gap: ${CARD_GAP};
   grid-template-rows: repeat(4, ${CARD_HEIGHT});
+  height: ${HEIGHT};
 `
 
 const Container = styled.div`
   position: absolute;
-  padding: calc((530px - ${CARD_HEIGHT}) / 2 - ${EXPANDED_TOP}) calc((100vw - ${CARD_WIDTH} - ${EXPANDED_WIDTH}) / 2) calc((530px - ${CARD_HEIGHT}) / 2  - ${EXPANDED_BOTTOM} + ((100vh - 225px) - 530px));
+  padding: calc((530px - ${CARD_HEIGHT}) / 2 - ${EXPANDED_TOP})
+    calc((100vw - ${CARD_WIDTH} - ${EXPANDED_WIDTH}) / 2)
+    calc(
+      (530px - ${CARD_HEIGHT}) / 2 - ${EXPANDED_BOTTOM} +
+        ((100vh - 225px) - 530px)
+    );
   width: 100%;
   height: calc(100vh - 225px);
   z-index: 2;
@@ -63,13 +69,8 @@ const Cards = ({ items = [], location }) => {
               <>
                 <Overlay onClick={() => setSelectedId(null)} />
                 <Container onClick={() => setSelectedId(null)}>
-                  <Card layoutId={id} data-open {...rest}>
+                  <Card layoutId={id} isOpen {...rest}>
                     {children}
-                    {false && (
-                      <motion.button onClick={() => setSelectedId(null)}>
-                        Close
-                      </motion.button>
-                    )}
                   </Card>
                 </Container>
               </>

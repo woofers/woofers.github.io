@@ -48,15 +48,16 @@ const items = [
         </LivLogo>
       </div>
     ),
-    children: (
-      <Text>
-        Junior Software Developer at{' '}
-        <Title paddingX="0" paddingY="10px" color="#fff" fontSize="32px">
-          Machobear Studios Inc.
-        </Title>{' '}
-        <Right>working on liv.rent</Right>
-      </Text>
-    ),
+    children: ({ isOpen }) =>
+      !isOpen ? (
+        <Text>
+          Junior Software Developer at{' '}
+          <Title paddingX="0" paddingY="10px" color="#fff" fontSize="32px">
+            Machobear Studios Inc.
+          </Title>{' '}
+          <Right>working on liv.rent</Right>
+        </Text>
+      ) : null,
   },
   {
     id: 'fts',
@@ -68,21 +69,22 @@ const items = [
         </Box>
       </div>
     ),
-    children: (
-      <Text color="#38976a" width="100%">
-        Former Software Developer at{' '}
-        <Title
-          paddingX="0"
-          paddingY="10px"
-          color="#231f20"
-          fontSize="32px"
-          transform="translateX(32%)"
-        >
-          FTS Inc.
-        </Title>{' '}
-        <Right>who worked on FTS 360</Right>
-      </Text>
-    ),
+    children: ({ isOpen }) =>
+      !isOpen ? (
+        <Text color="#38976a" width="100%">
+          Former Software Developer at{' '}
+          <Title
+            paddingX="0"
+            paddingY="10px"
+            color="#231f20"
+            fontSize="32px"
+            transform="translateX(32%)"
+          >
+            FTS Inc.
+          </Title>{' '}
+          <Right>who worked on FTS 360</Right>
+        </Text>
+      ) : null,
   },
   {
     id: 'react-wavify',
@@ -109,7 +111,7 @@ const items = [
         <WavifyBar />
       </div>
     ),
-    children: (
+    children: () => (
       <Title
         paddingX="30px"
         paddingY="10px"
@@ -139,6 +141,7 @@ const items = [
         </div>
       </div>
     ),
+    children: () => null,
   },
 ]
 

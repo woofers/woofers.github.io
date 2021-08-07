@@ -32,10 +32,18 @@ const Content = styled.div`
   justify-content: ${props => props.justifyContent};
 `
 
-const Card = ({ logo, children, justifyContent = 'flex-start', ...rest }) => (
-  <Wrapper {...rest}>
+const Card = ({
+  logo,
+  children: Child,
+  justifyContent = 'flex-start',
+  isOpen,
+  ...rest
+}) => (
+  <Wrapper {...rest} data-open={isOpen}>
     {logo}
-    <Content justifyContent={justifyContent}>{children}</Content>
+    <Content justifyContent={justifyContent}>
+      <Child isOpen={isOpen} />
+    </Content>
   </Wrapper>
 )
 
