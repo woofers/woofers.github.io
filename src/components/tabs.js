@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'emotion'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
 import withLocation from './with-location'

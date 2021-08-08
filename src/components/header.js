@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'emotion'
 import withLocation from './with-location'
 import Title from './title'
 import { Link } from 'gatsby'

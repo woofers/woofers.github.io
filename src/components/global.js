@@ -1,7 +1,6 @@
-import React from 'react'
-import { Global as GlobalStyle, css } from '@emotion/react'
+import { createGlobal } from 'emotion'
 
-const style = css`
+const Global = createGlobal`
   html,
   h1,
   h2,
@@ -20,11 +19,4 @@ const style = css`
   }
 `
 
-const Global = () => <GlobalStyle styles={style} />
-
 export default Global
-
-export const createGlobal = val => {
-  const style = css(val)
-  return () => <GlobalStyle styles={style} />
-}

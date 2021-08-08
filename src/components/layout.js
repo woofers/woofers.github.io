@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'emotion'
 import { AnimatePresence, motion } from 'framer-motion'
 import Global from './global'
 import Container from './container'

@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import styled from '@emotion/styled'
+import { styled } from 'emotion'
 
 const Image = styled.div`
   width: 460px;

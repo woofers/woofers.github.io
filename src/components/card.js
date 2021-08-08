@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { Global, css } from '@emotion/react'
-import styled from '@emotion/styled'
+import { styled, createGlobal, css } from 'emotion'
 import { motion } from 'framer-motion'
-import { createGlobal } from '../components/global'
 import Title from './title'
 import Text from './text'
 

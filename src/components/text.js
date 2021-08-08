@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import { styled } from 'emotion'
 
 const Text = styled.div`
   color: ${props => props.color};

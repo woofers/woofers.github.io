@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
-import styled from '@emotion/styled'
+import { styled, useMediaQuery } from 'emotion'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import withLocation from './with-location'
 import Card from './card'
 
@@ -60,7 +59,7 @@ const Overlay = styled(motion.div)`
 const Cards = ({ items = [], location }) => {
   const [selectedId, setSelectedId] = useState()
   const item = items.find(({ id }) => id === selectedId)
-  const shift = useMediaQuery(`@media only screen and (max-width: 1360px)`)
+  const shift = useMediaQuery("@media only screen and (max-width: 1360px)")
   return (
     <Grid>
       <AnimateSharedLayout type="crossfade">
