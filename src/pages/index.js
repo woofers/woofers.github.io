@@ -1,10 +1,10 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 import { styled } from 'emotion'
-import Cards from '../components/cards'
-import Title from '../components/title'
-import Text from '../components/text'
-import { LivRent, Fts360, AlienExpansion } from '../logos'
+import Cards from 'components/cards'
+import Title from 'components/title'
+import Text from 'components/text'
+import { WaveIcon, LivRent, Fts360, AlienExpansion } from 'logos'
 import Wave from 'react-wavify'
 
 const Right = styled.span`
@@ -23,9 +23,8 @@ const LivLogo = styled(Box)`
 `
 
 const WavifyLogo = styled(Box)`
-  font-size: 50px;
   margin-left: 20px;
-  margin-top: 5px;
+  margin-top: 19px;
 `
 
 const WavifyBar = styled.div`
@@ -92,7 +91,7 @@ const items = [
     justifyContent: 'flex-end',
     logo: (
       <div>
-        <WavifyLogo>🌊</WavifyLogo>
+        <WavifyLogo><WaveIcon width={50} height={50} /></WavifyLogo>
         <Wave
           style={{
             position: 'absolute',
