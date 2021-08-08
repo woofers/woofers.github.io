@@ -26,10 +26,8 @@ const Color = styled.span`
 `
 
 const Wrapper = styled.div`
-  min-height: 100vh;
   background: #fff;
   color: #000;
-  overflow-x: hidden;
 `
 
 const Main = styled(motion.main)`

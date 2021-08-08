@@ -77,7 +77,8 @@ const items = [
             paddingY="10px"
             color="#231f20"
             fontSize="32px"
-            transform="translateX(32%)"
+            transform="translateX(102%)"
+            width="max-content"
           >
             FTS Inc.
           </Title>{' '}

@@ -13,6 +13,7 @@ const Title = styled.h1`
   text-decoration: none;
   transform: ${props => props.transform};
   transition: color 0.3s ease-in-out;
+  width: ${props => props.width};
   &[aria-current='page'] {
     color: #27292b;
   }
@@ -24,15 +25,7 @@ Title.defaultProps = {
   paddingX: '10px',
   paddingY: '20px',
   transform: 'none',
+  width: 'unset'
 }
 
 export default Title
-
-// color: #fff;
-// text-decoration: none;
-// font-size: 32px;
-// font-weight: 900;
-// padding: 20px 10px;
-// font-family: 'Mulish',sans-serif;
-// line-height: 1px;
-// padding-bottom: 40px;
