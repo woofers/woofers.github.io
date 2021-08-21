@@ -8,10 +8,4 @@ const createGlobal = val => {
   return () => <Global styles={style} />
 }
 
-export {
-  styled,
-  Global,
-  css,
-  createGlobal,
-  useMediaQuery
-}
+export { styled, Global, css, createGlobal, useMediaQuery }

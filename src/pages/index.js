@@ -92,7 +92,9 @@ const items = [
     justifyContent: 'flex-end',
     logo: (
       <div>
-        <WavifyLogo><WaveIcon width={50} height={50} /></WavifyLogo>
+        <WavifyLogo>
+          <WaveIcon width={50} height={50} />
+        </WavifyLogo>
         <Wave
           style={{
             position: 'absolute',

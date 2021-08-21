@@ -23,7 +23,8 @@ const Grid = styled.div`
   @media only screen and (max-width: 1360px) {
     align-self: center;
   }
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoints.small.breakpoint}) {
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
     grid-template-columns: 1fr;
     width: 100%;
   }
@@ -41,7 +42,8 @@ const Container = styled.div`
   height: calc(100vh - 225px);
   z-index: 2;
   left: 0;
-  @media only screen and (max-width: ${({ theme }) => theme.breakpoints.small.breakpoint}) {
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
     padding-left: 25px;
     padding-right: 25px;
   }
@@ -59,7 +61,7 @@ const Overlay = styled(motion.div)`
 const Cards = ({ items = [], location }) => {
   const [selectedId, setSelectedId] = useState()
   const item = items.find(({ id }) => id === selectedId)
-  const shift = useMediaQuery("@media only screen and (max-width: 1360px)")
+  const shift = useMediaQuery('@media only screen and (max-width: 1360px)')
   return (
     <Grid>
       <AnimateSharedLayout type="crossfade">

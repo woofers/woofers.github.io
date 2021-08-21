@@ -25,7 +25,7 @@ Title.defaultProps = {
   paddingX: '10px',
   paddingY: '20px',
   transform: 'none',
-  width: 'unset'
+  width: 'unset',
 }
 
 export default Title
