@@ -15,6 +15,7 @@ const Right = styled.span`
 const Box = styled.div`
   width: 100px;
   height: 200px;
+  pointer-events: none;
 `
 
 const LivLogo = styled(Box)`
@@ -41,11 +42,9 @@ const items = [
     id: 'liv.rent',
     background: '#fe5f55',
     logo: (
-      <div>
-        <LivLogo>
-          <LivRent />
-        </LivLogo>
-      </div>
+      <LivLogo>
+        <LivRent />
+      </LivLogo>
     ),
     children: ({ isOpen }) =>
       !isOpen ? (
@@ -62,11 +61,9 @@ const items = [
     id: 'fts',
     background: '#ddffb4',
     logo: (
-      <div>
-        <Box>
-          <Fts360 />
-        </Box>
-      </div>
+      <Box>
+        <Fts360 />
+      </Box>
     ),
     children: ({ isOpen }) =>
       !isOpen ? (
@@ -101,6 +98,7 @@ const items = [
             width: '100%',
             bottom: '0px',
             clipPath: 'inset(0% 0 0% 0 round 25px)',
+            color: '#5E9EF1'
           }}
           fill="#5E9EF1"
           options={{

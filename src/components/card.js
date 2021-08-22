@@ -28,6 +28,7 @@ const Wrapper = styled(motion.div)`
 `
 
 const Content = styled.div`
+  pointer-events: none;
   width: calc(100% - 170px);
   height: calc(100% - 25px);
   display: flex;
