@@ -21,7 +21,8 @@ const Translate = styled(motion.div)`
 const Primary = styled.div`
   z-index: 10;
   line-height: 20px;
-  color: #ffba36;
+  color: var(--mouse-color, #ffba36);
+  transition: color 0.5s ease;
   font-style: italic;
   font-weight: 800;
   letter-spacing: -1px;

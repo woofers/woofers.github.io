@@ -5,6 +5,7 @@ import Global from './global'
 import Container from './container'
 import GoogleFonts from './google-fonts'
 import Header from './header'
+import useCursorColor from 'hooks/use-cursor-color'
 
 const Text = styled(motion.h1)`
   margin: 0;
@@ -50,6 +51,7 @@ const items = [
 ]
 
 const Layout = ({ children, location, ...rest }) => {
+  useCursorColor()
   return (
     <Wrapper {...rest} id="root-layout-wrapper">
       <GoogleFonts
