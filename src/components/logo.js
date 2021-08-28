@@ -10,8 +10,7 @@ const Container = styled.div`
   color: #000;
   display: flex;
   flex-direction: column-reverse;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Cantarell;
 `
 
 const Translate = styled(motion.div)`
@@ -21,7 +20,7 @@ const Translate = styled(motion.div)`
 const Primary = styled.div`
   z-index: 10;
   line-height: 20px;
-  color: var(--mouse-color, #ffba36);
+  color: var(--hover-color, #fe9c55);
   transition: color 0.5s ease;
   font-style: italic;
   font-weight: 800;

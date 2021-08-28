@@ -3,6 +3,7 @@ import { styled, createGlobal, css } from 'emotion'
 import { motion } from 'framer-motion'
 import Title from './title'
 import Text from './text'
+import { setCSSVar, removeCSSVar } from 'utils/css-var'
 
 const Wrapper = styled(motion.div)`
   position: relative;
@@ -42,20 +43,28 @@ const HideOverflow = createGlobal`
   }
 `
 
+const setColor = setCSSVar('hover-color')
+const removeColor = removeCSSVar('hover-color')
+
 const Card = ({
   logo,
   children: Child,
   justifyContent = 'flex-start',
   isOpen,
+  background,
+  color,
   ...rest
-}) => (
-  <Wrapper {...rest} data-open={isOpen}>
-    {isOpen && <HideOverflow />}
-    {logo}
-    <Content justifyContent={justifyContent}>
-      <Child isOpen={isOpen} />
-    </Content>
-  </Wrapper>
-)
+}) => {
+  const onHover = setColor(color ?? background)
+  return (
+    <Wrapper {...rest} background={background} data-open={isOpen} onMouseEnter={onHover} onMouseLeave={removeColor}>
+      {isOpen && <HideOverflow />}
+      {logo}
+      <Content justifyContent={justifyContent}>
+        <Child isOpen={isOpen} />
+      </Content>
+    </Wrapper>
+  )
+}
 
 export default Card

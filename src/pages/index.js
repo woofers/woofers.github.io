@@ -59,6 +59,7 @@ const items = [
   },
   {
     id: 'fts',
+    color: '#38976a',
     background: '#ddffb4',
     logo: (
       <Box>
@@ -86,6 +87,7 @@ const items = [
   {
     id: 'react-wavify',
     background: '#fadc96',
+    color: '#5e9ef1',
     justifyContent: 'flex-end',
     logo: (
       <div>
@@ -127,6 +129,7 @@ const items = [
     id: 'alien-expansion',
     background:
       'url(https://cdn.jsdelivr.net/gh/woofers/ludum-dare-44/screenshots/title-screen.gif)',
+    color: '#83769c',
     logo: (
       <div>
         <div
