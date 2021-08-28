@@ -7,10 +7,11 @@ const Title = styled.h1`
   font-size: ${props => props.fontSize};
   padding: ${props => `${props.paddingY} ${props.paddingX}`};
   line-height: 40px;
-  letter-spacing: 0.65px;
-  font-weight: 900;
+  letter-spacing: ${props => props.letterSpacing};
+  font-weight: ${props => props.fontWeight};
   font-family: 'Mulish', sans-serif;
   text-decoration: none;
+  text-transform: ${props => props.textTransform};
   transform: ${props => props.transform};
   transition: color 0.3s ease-in-out;
   width: ${props => props.width};
@@ -26,6 +27,9 @@ Title.defaultProps = {
   paddingY: '20px',
   transform: 'none',
   width: 'unset',
+  fontWeight: '900',
+  letterSpacing: '0.65px',
+  textTransform: 'none'
 }
 
 export default Title

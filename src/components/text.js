@@ -4,7 +4,7 @@ import { styled } from 'emotion'
 const Text = styled.div`
   color: ${props => props.color};
   font-size: ${props => props.fontSize};
-  font-weight: 900;
+  font-weight: ${props => props.fontWeight};
   display: flex;
   flex-direction: column;
   margin: ${({ top, right, bottom, left }) =>
@@ -15,6 +15,7 @@ const Text = styled.div`
 Text.defaultProps = {
   color: '#973838',
   fontSize: '20px',
+  fontWeight: '900',
   left: 0,
   right: 0,
   top: 0,

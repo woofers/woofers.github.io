@@ -22,10 +22,10 @@ const Primary = styled.div`
   line-height: 20px;
   color: var(--hover-color, #fe9c55);
   transition: color 0.5s ease;
-  font-style: italic;
   font-weight: 800;
   letter-spacing: -1px;
   font-size: 64px;
+  transform: skew(172deg, 0deg);
 `
 
 const Secondary = styled(motion.div)`
@@ -47,10 +47,11 @@ const Space = styled.span`
   display: none;
 `
 
-const Logo = () => {
+const Logo = ({ shift }) => {
   return (
     <Translate
-      initial={{ x: 300, y: -48, opacity: 0 }}
+      layoutId={"jvd-logo"}
+      initial={{ x: shift ? 300 : 0, y: -48, opacity: 0 }}
       animate={{ x: 0, y: -48, opacity: 1 }}
       transition={{ duration: 0.5 }}
     >

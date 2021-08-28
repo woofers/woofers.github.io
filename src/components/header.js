@@ -2,6 +2,7 @@ import React from 'react'
 import { styled } from 'emotion'
 import Nav from './nav'
 import Logo from './logo'
+import withLocation from './with-location'
 
 const Wrapper = styled.header`
   padding: 125px 0 0;
@@ -9,13 +10,13 @@ const Wrapper = styled.header`
   justify-content: space-between;
 `
 
-const Header = ({ items }) => {
+const Header = ({ items, location }) => {
   return (
     <Wrapper>
       <Nav items={items} />
-      <Logo />
+      {location.pathname !== '/about/' && <Logo />}
     </Wrapper>
   )
 }
 
-export default Header
+export default withLocation(Header)
