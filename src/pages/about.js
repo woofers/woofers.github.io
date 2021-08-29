@@ -4,6 +4,8 @@ import Logo from 'components/logo'
 import Title from 'components/title'
 import Text from 'components/text'
 import { styled } from 'emotion'
+import ShiftCard from 'components/shift-card'
+import ShiftCards from 'components/shift-cards'
 
 const Grid = styled.div`
   display: grid;
@@ -21,76 +23,46 @@ const Flex = styled.div`
   }
 `
 
-const LogoContainer = styled.div`
-  padding: 0 10px;
-  transform: translate(14px, 10px);
-`
-
 const List = styled.div`
   padding-top: 55px;
   grid-row: span 2;
 `
 
-const HeadingContainer = styled.div`
-  display: flex;
-  align-items: stretch;
-  height: 80px;
+const LogoContainer = styled.div`
+  padding: 0 10px;
+  transform: translate(14px, 10px);
 `
 
-const IconContainer = styled.div`
-  font-size: ${props => props.fontSize};
-  > img {
-    width: 64px;
-  }
-`
-
-const Block = styled.div`
-  background-color: ${props => props.color};
-  border-radius: 25px;
-  width: 585px;
-  height: 250px;
-  padding: 30px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
-  ${props =>
-    !props.active &&
-    `
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
-    height: 80px;
-    box-shadow: none;
-  `}
-`
-
-const Heading = ({
-  color,
-  active,
-  icon: Icon,
-  contrast = '#fff',
-  children,
-  ...rest
-}) => (
-  <Block color={color} active={active}>
-    <HeadingContainer>
-      <Title
-        textTransform="lowercase"
-        fontSize="45px"
-        fontWeight="400"
-        letterSpacing="-2.25px"
-        color={!active ? color : contrast}
-      >
-        › {children}
-      </Title>
-      <IconContainer fontSize="45px">
-        <Icon />
-      </IconContainer>
-    </HeadingContainer>
-    <Text color={contrast}>
-      This is text. This is text. This is text. This is text. This is text. This
-      is text. This is text. This is text. This is text. This is text. This is
-      text. This is text. This is text.
-    </Text>
-  </Block>
-)
+const items = [
+  {
+    id: 'intro',
+    color: '#fa743e',
+    icon: () => '🧙',
+    children: 'Software Developer',
+  },
+  {
+    id: 'tech',
+    color: '#1a8bed',
+    icon: () => (
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/71/Safari_14_icon.png" />
+    ),
+    children: 'Safari Navigator',
+  },
+  {
+    id: 'hobby-1',
+    color: '#a52a2a',
+    icon: () => '🐕',
+    children: 'Pet Lover',
+  },
+  {
+    id: 'hobby-2',
+    color: '#ff251e',
+    icon: () => (
+      <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/racing-car_1f3ce-fe0f.png" />
+    ),
+    children: 'Car Racer',
+  },
+]
 
 const Me = () => {
   return (
@@ -111,28 +83,7 @@ const Me = () => {
         </Flex>
       </div>
       <List>
-        <Heading icon={() => '🧙'} color="#fa743e" active>
-          Software Developer
-        </Heading>
-        <Heading
-          color="#1a8bed"
-          icon={() => (
-            <img src="https://upload.wikimedia.org/wikipedia/en/7/71/Safari_14_icon.png" />
-          )}
-        >
-          Safari Navigator
-        </Heading>
-        <Heading icon={() => '🐕'} color="#a52a2a">
-          Pet Lover
-        </Heading>
-        <Heading
-          color="#ff251e"
-          icon={() => (
-            <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/racing-car_1f3ce-fe0f.png" />
-          )}
-        >
-          Car Racer
-        </Heading>
+        <ShiftCards items={items} />
       </List>
       <Avatar />
     </Grid>
