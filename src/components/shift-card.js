@@ -3,6 +3,7 @@ import { styled } from 'emotion'
 import { motion } from 'framer-motion'
 import Title from 'components/title'
 import Text from 'components/text'
+import { setCSSVar, removeCSSVar } from 'utils/css-var'
 
 const HeadingContainer = styled.div`
   display: flex;
@@ -35,6 +36,9 @@ const Block = styled(motion.div)`
   `}
 `
 
+const setColor = setCSSVar('hover-color')
+const removeColor = removeCSSVar('hover-color')
+
 const ShiftCard = ({
   color,
   active,
@@ -42,30 +46,40 @@ const ShiftCard = ({
   contrast = '#fff',
   children,
   ...rest
-}) => (
-  <Block layoutId="card" color={color} active={active} {...rest}>
-    <HeadingContainer>
-      <Title
-        textTransform="lowercase"
-        fontSize="45px"
-        fontWeight="400"
-        letterSpacing="-2.25px"
-        color={!active ? color : contrast}
-      >
-        › {children}
-      </Title>
-      <IconContainer fontSize="45px">
-        <Icon />
-      </IconContainer>
-    </HeadingContainer>
-    {active && (
-      <Text color={contrast}>
-        This is text. This is text. This is text. This is text. This is text.
-        This is text. This is text. This is text. This is text. This is text.
-        This is text. This is text. This is text.
-      </Text>
-    )}
-  </Block>
-)
+}) => {
+  const onHover = setColor(color)
+  return (
+    <Block
+      layoutId="card"
+      color={color}
+      active={active}
+      onMouseEnter={onHover}
+      onMouseLeave={removeColor}
+      {...rest}
+    >
+      <HeadingContainer>
+        <Title
+          textTransform="lowercase"
+          fontSize="45px"
+          fontWeight="400"
+          letterSpacing="-2.25px"
+          color={!active ? color : contrast}
+        >
+          › {children}
+        </Title>
+        <IconContainer fontSize="45px">
+          <Icon />
+        </IconContainer>
+      </HeadingContainer>
+      {active && (
+        <Text color={contrast}>
+          This is text. This is text. This is text. This is text. This is text.
+          This is text. This is text. This is text. This is text. This is text.
+          This is text. This is text. This is text.
+        </Text>
+      )}
+    </Block>
+  )
+}
 
 export default ShiftCard
