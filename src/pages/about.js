@@ -45,26 +45,51 @@ const IconContainer = styled.div`
 `
 
 const Block = styled.div`
-  background-color: #e8e8e8;
-  border-radius: 58px;
+  background-color: ${props => props.color};
+  border-radius: 25px;
+  width: 585px;
+  height: 250px;
   padding: 30px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
+  ${props =>
+    !props.active &&
+    `
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+    height: 80px;
+    box-shadow: none;
+  `}
 `
 
-const Heading = ({ color, icon: Icon, children, ...props }) => (
-  <HeadingContainer>
-    <Title
-      textTransform="lowercase"
-      fontSize="45px"
-      fontWeight="400"
-      letterSpacing="-2.25px"
-      color={color}
-    >
-      › {children}
-    </Title>
-    <IconContainer fontSize="45px">
-      <Icon />
-    </IconContainer>
-  </HeadingContainer>
+const Heading = ({
+  color,
+  active,
+  icon: Icon,
+  contrast = '#fff',
+  children,
+  ...rest
+}) => (
+  <Block color={color} active={active}>
+    <HeadingContainer>
+      <Title
+        textTransform="lowercase"
+        fontSize="45px"
+        fontWeight="400"
+        letterSpacing="-2.25px"
+        color={!active ? color : contrast}
+      >
+        › {children}
+      </Title>
+      <IconContainer fontSize="45px">
+        <Icon />
+      </IconContainer>
+    </HeadingContainer>
+    <Text color={contrast}>
+      This is text. This is text. This is text. This is text. This is text. This
+      is text. This is text. This is text. This is text. This is text. This is
+      text. This is text. This is text.
+    </Text>
+  </Block>
 )
 
 const Me = () => {
@@ -86,26 +111,9 @@ const Me = () => {
         </Flex>
       </div>
       <List>
-        <Heading icon={() => '🧙'} color="#fa743e">
+        <Heading icon={() => '🧙'} color="#fa743e" active>
           Software Developer
         </Heading>
-        <Block>
-        <Text>
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-          This is text.
-        </Text>
-        </Block>
         <Heading
           color="#1a8bed"
           icon={() => (
