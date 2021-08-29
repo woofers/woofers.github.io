@@ -22,8 +22,12 @@ const Block = styled(motion.div)`
   cursor: pointer;
   position: relative;
   width: 585px;
+  height: 80px;
   padding: 0;
-  height: 250px;
+  ${props => props.active && `
+    margin-top: 20px;
+    height: 250px;
+  `}
 `
 
 const setColor = setCSSVar('hover-color')
