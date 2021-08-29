@@ -8,6 +8,7 @@ import { styled } from 'emotion'
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
+  grid-auto-rows: 175px;
 `
 
 const Flex = styled.div`
@@ -58,7 +59,7 @@ const Heading = ({ color, icon: Icon, children, ...props }) => (
       letterSpacing="-2.25px"
       color={color}
     >
-      > {children}
+      › {children}
     </Title>
     <IconContainer fontSize="45px">
       <Icon />

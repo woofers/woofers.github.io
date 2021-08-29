@@ -5,8 +5,9 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 const Wrapper = styled.div`
   > div {
-    display: grid;
-    grid-template-columns: 0.5fr 0.5fr;
+    border-radius: 50%;
+    background-color: #f7a28d;
+    box-shadow: inset 0.3px -0.4px 8px 2px #00000030
   }
 `
 
