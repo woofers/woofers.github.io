@@ -5,13 +5,18 @@ import Title from 'components/title'
 import Text from 'components/text'
 import { styled } from 'emotion'
 
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+`
+
 const Flex = styled.div`
   margin-top: 50px;
   display: flex;
   width: 100%;
   align-items: flex-end;
   > div {
-    margin: 0 5px;
+    margin: 0;
   }
 `
 
@@ -20,7 +25,10 @@ const LogoContainer = styled.div`
   transform: translate(14px, 10px);
 `
 
-const List = styled.div``
+const List = styled.div`
+  padding-top: 55px;
+  grid-row: span 2;
+`
 
 const HeadingContainer = styled.div`
   display: flex;
@@ -33,6 +41,12 @@ const IconContainer = styled.div`
   > img {
     width: 64px;
   }
+`
+
+const Block = styled.div`
+  background-color: #e8e8e8;
+  border-radius: 58px;
+  padding: 30px;
 `
 
 const Heading = ({ color, icon: Icon, children, ...props }) => (
@@ -54,26 +68,43 @@ const Heading = ({ color, icon: Icon, children, ...props }) => (
 
 const Me = () => {
   return (
-    <>
-      <Flex>
-        <Text
-          fontSize="53px"
-          fontWeight="400"
-          letterSpacing="-1.5px"
-          color="#27292b"
-        >
-          Hello, I'm
-        </Text>
-        <LogoContainer>
-          <Logo />
-        </LogoContainer>
-      </Flex>
-      <Avatar />
+    <Grid>
+      <div>
+        <Flex>
+          <Text
+            fontSize="53px"
+            fontWeight="400"
+            letterSpacing="-1.5px"
+            color="#27292b"
+          >
+            Hello, I'm
+          </Text>
+          <LogoContainer>
+            <Logo />
+          </LogoContainer>
+        </Flex>
+      </div>
       <List>
         <Heading icon={() => '🧙'} color="#fa743e">
           Software Developer
         </Heading>
-
+        <Block>
+        <Text>
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+          This is text.
+        </Text>
+        </Block>
         <Heading
           color="#1a8bed"
           icon={() => (
@@ -94,7 +125,8 @@ const Me = () => {
           Car Racer
         </Heading>
       </List>
-    </>
+      <Avatar />
+    </Grid>
   )
 }
 

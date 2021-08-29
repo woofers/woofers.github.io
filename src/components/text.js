@@ -13,7 +13,7 @@ const Text = styled.div`
 `
 
 Text.defaultProps = {
-  color: '#973838',
+  color: '#27292b',
   fontSize: '20px',
   fontWeight: '900',
   left: 0,

@@ -3,6 +3,13 @@ import { GatsbyImage } from 'gatsby-plugin-image'
 import { styled } from 'emotion'
 import { useStaticQuery, graphql } from 'gatsby'
 
+const Wrapper = styled.div`
+  > div {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+  }
+`
+
 const Avatar = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -19,10 +26,12 @@ const Avatar = () => {
     }
   `)
   return (
-    <GatsbyImage
-      image={data.file.childImageSharp.gatsbyImageData}
-      alt="A Jaxson"
-    />
+    <Wrapper>
+      <GatsbyImage
+        image={data.file.childImageSharp.gatsbyImageData}
+        alt="A Jaxson"
+      />
+    </Wrapper>
   )
 }
 
