@@ -57,7 +57,13 @@ const Card = ({
 }) => {
   const onHover = setColor(color ?? background)
   return (
-    <Wrapper {...rest} background={background} data-open={isOpen} onMouseEnter={onHover} onMouseLeave={removeColor}>
+    <Wrapper
+      {...rest}
+      background={background}
+      data-open={isOpen}
+      onMouseEnter={onHover}
+      onMouseLeave={removeColor}
+    >
       {isOpen && <HideOverflow />}
       {logo}
       <Content justifyContent={justifyContent}>

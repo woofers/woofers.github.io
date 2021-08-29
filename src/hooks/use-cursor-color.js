@@ -6,7 +6,12 @@ const useCursorColor = () => {
     const onMove = e => {
       const target = e?.target
       const hasTarget = target?.nodeName?.toLowerCase() !== 'main'
-      const getComputedStyle = (element) => window ? (element.parentNode ? window.getComputedStyle(element) : false) : false
+      const getComputedStyle = element =>
+        window
+          ? element.parentNode
+            ? window.getComputedStyle(element)
+            : false
+          : false
       const style = getComputedStyle(target)
       const color = style?.getPropertyValue('color')
       const background = style?.getPropertyValue('background-color')

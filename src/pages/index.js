@@ -100,7 +100,7 @@ const items = [
             width: '100%',
             bottom: '0px',
             clipPath: 'inset(0% 0 0% 0 round 25px)',
-            color: '#5E9EF1'
+            color: '#5E9EF1',
           }}
           fill="#5E9EF1"
           options={{

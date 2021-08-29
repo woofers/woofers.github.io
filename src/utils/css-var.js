@@ -1,4 +1,3 @@
-
 export const removeCSSVar = key => () => {
   if (typeof window === 'undefined') return
   document.documentElement.style.removeProperty(`--${key}`)

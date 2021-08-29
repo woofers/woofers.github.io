@@ -8,17 +8,22 @@ const Avatar = () => {
     query {
       file(relativePath: { eq: "jaxson.png" }) {
         childImageSharp {
-          gatsbyImageData(layout: FIXED, width: 250, height: 250, placeholder:TRACED_SVG)
+          gatsbyImageData(
+            layout: FIXED
+            width: 250
+            height: 250
+            placeholder: TRACED_SVG
+          )
         }
       }
     }
   `)
-  console.log(data.file.childImageSharp.fixed)
   return (
-  <GatsbyImage
-    image={data.file.childImageSharp.gatsbyImageData}
-    alt="A Jaxson"
-  />
-  )}
+    <GatsbyImage
+      image={data.file.childImageSharp.gatsbyImageData}
+      alt="A Jaxson"
+    />
+  )
+}
 
 export default Avatar

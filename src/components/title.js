@@ -29,7 +29,7 @@ Title.defaultProps = {
   width: 'unset',
   fontWeight: '900',
   letterSpacing: '0.65px',
-  textTransform: 'none'
+  textTransform: 'none',
 }
 
 export default Title

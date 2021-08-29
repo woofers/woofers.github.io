@@ -20,40 +20,104 @@ const LogoContainer = styled.div`
   transform: translate(14px, 10px);
 `
 
-
 const Me = () => {
   return (
     <>
       <Avatar />
       <Flex>
-        <Text fontSize="53px" fontWeight="400" letterSpacing="-1.5px" color="#8082ff">Hello, I'm</Text>
+        <Text
+          fontSize="53px"
+          fontWeight="400"
+          letterSpacing="-1.5px"
+          color="#8082ff"
+        >
+          Hello, I'm
+        </Text>
         <LogoContainer>
           <Logo />
         </LogoContainer>
-        <Title textTransform="lowercase" fontWeight="400" letterSpacing="-2.25px" color="#fa743e">- Software Developer 🧙</Title>
+        <Title
+          textTransform="lowercase"
+          fontWeight="400"
+          letterSpacing="-2.25px"
+          color="#fa743e"
+        >
+          - Software Developer 🧙
+        </Title>
       </Flex>
       <Flex>
-        <Text fontSize="53px" fontWeight="400" letterSpacing="-1.5px" color="#8082ff" style={{ opacity: 0 }}>Hello, I'm</Text>
+        <Text
+          fontSize="53px"
+          fontWeight="400"
+          letterSpacing="-1.5px"
+          color="#8082ff"
+          style={{ opacity: 0 }}
+        >
+          Hello, I'm
+        </Text>
         <LogoContainer style={{ opacity: 0 }}>
           <Logo />
         </LogoContainer>
-        <Title textTransform="lowercase" fontWeight="400" letterSpacing="-2.25px" color="#1a8bed">- safari navigator</Title>
-        <img src="https://upload.wikimedia.org/wikipedia/en/7/71/Safari_14_icon.png" style={{ width: '64px', transform: 'translateY(23px)'}} />
+        <Title
+          textTransform="lowercase"
+          fontWeight="400"
+          letterSpacing="-2.25px"
+          color="#1a8bed"
+        >
+          - safari navigator
+        </Title>
+        <img
+          src="https://upload.wikimedia.org/wikipedia/en/7/71/Safari_14_icon.png"
+          style={{ width: '64px', transform: 'translateY(23px)' }}
+        />
       </Flex>
       <Flex>
-        <Text fontSize="53px" fontWeight="400" letterSpacing="-1.5px" color="#8082ff" style={{ opacity: 0 }}>Hello, I'm</Text>
+        <Text
+          fontSize="53px"
+          fontWeight="400"
+          letterSpacing="-1.5px"
+          color="#8082ff"
+          style={{ opacity: 0 }}
+        >
+          Hello, I'm
+        </Text>
         <LogoContainer style={{ opacity: 0 }}>
           <Logo />
         </LogoContainer>
-        <Title textTransform="lowercase" fontWeight="400" letterSpacing="-2.25px" color="#a52a2a">- pet lover 🐕</Title>
+        <Title
+          textTransform="lowercase"
+          fontWeight="400"
+          letterSpacing="-2.25px"
+          color="#a52a2a"
+        >
+          - pet lover 🐕
+        </Title>
       </Flex>
       <Flex>
-        <Text fontSize="53px" fontWeight="400" letterSpacing="-1.5px" color="#8082ff" style={{ opacity: 0 }}>Hello, I'm</Text>
+        <Text
+          fontSize="53px"
+          fontWeight="400"
+          letterSpacing="-1.5px"
+          color="#8082ff"
+          style={{ opacity: 0 }}
+        >
+          Hello, I'm
+        </Text>
         <LogoContainer style={{ opacity: 0 }}>
           <Logo />
         </LogoContainer>
-        <Title textTransform="lowercase" fontWeight="400" letterSpacing="-2.25px" color="#ff251e">- car racer</Title>
-          <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/racing-car_1f3ce-fe0f.png" style={{ width: '64px', marginBottom: '20px'}} />
+        <Title
+          textTransform="lowercase"
+          fontWeight="400"
+          letterSpacing="-2.25px"
+          color="#ff251e"
+        >
+          - car racer
+        </Title>
+        <img
+          src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/racing-car_1f3ce-fe0f.png"
+          style={{ width: '64px', marginBottom: '20px' }}
+        />
       </Flex>
     </>
   )

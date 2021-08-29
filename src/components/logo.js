@@ -50,7 +50,7 @@ const Space = styled.span`
 const Logo = ({ shift }) => {
   return (
     <Translate
-      layoutId={"jvd-logo"}
+      layoutId={'jvd-logo'}
       initial={{ x: shift ? 300 : 0, y: -48, opacity: 0 }}
       animate={{ x: 0, y: -48, opacity: 1 }}
       transition={{ duration: 0.5 }}
