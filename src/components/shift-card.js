@@ -22,12 +22,7 @@ const Block = styled(motion.div)`
   cursor: pointer;
   position: relative;
   width: 585px;
-  height: 80px;
   padding: 0;
-  ${props => props.active && `
-    margin-top: 20px;
-    height: 250px;
-  `}
 `
 
 const setColor = setCSSVar('hover-color')
@@ -66,6 +61,10 @@ const ShiftCard = ({
       onMouseEnter={onHover}
       onMouseLeave={removeColor}
       active={active}
+      initial={false}
+      layout
+      animate={{ marginTop: active ? 20 : 0, height: active ? 250 : 80 }}
+      key={active}
       {...rest}
     >
       {active && <Color layoutId="card" color={color} />}
