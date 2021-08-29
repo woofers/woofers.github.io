@@ -20,24 +20,32 @@ const IconContainer = styled.div`
 
 const Block = styled(motion.div)`
   cursor: pointer;
-  background-color: ${props => props.color};
-  border-radius: 25px;
+  position: relative;
   width: 585px;
+  padding: 0;
   height: 250px;
-  padding: 15px 30px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
-  ${props =>
-    !props.active &&
-    `
-    padding: 0;
-    background-color: rgba(0, 0, 0, 0);
-    height: 80px;
-    box-shadow: none;
-  `}
 `
 
 const setColor = setCSSVar('hover-color')
 const removeColor = removeCSSVar('hover-color')
+
+const Color = styled(motion.div)`
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: ${props => props.color || 'none'};
+  border-radius: 25px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
+`
+
+const Inner = styled.div`
+  padding: 15px 30px;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+`
 
 const ShiftCard = ({
   color,
@@ -50,34 +58,36 @@ const ShiftCard = ({
   const onHover = setColor(color)
   return (
     <Block
-      layoutId="card"
       color={color}
-      active={active}
       onMouseEnter={onHover}
       onMouseLeave={removeColor}
+      active={active}
       {...rest}
     >
-      <HeadingContainer>
-        <Title
-          textTransform="lowercase"
-          fontSize="45px"
-          fontWeight="400"
-          letterSpacing="-2.25px"
-          color={!active ? color : contrast}
-        >
-          › {children}
-        </Title>
-        <IconContainer fontSize="45px">
-          <Icon />
-        </IconContainer>
-      </HeadingContainer>
-      {active && (
-        <Text color={contrast}>
-          This is text. This is text. This is text. This is text. This is text.
-          This is text. This is text. This is text. This is text. This is text.
-          This is text. This is text. This is text.
-        </Text>
-      )}
+      {active && <Color layoutId="card" color={color} />}
+      <Inner>
+        <HeadingContainer>
+          <Title
+            textTransform="lowercase"
+            fontSize="45px"
+            fontWeight="400"
+            letterSpacing="-2.25px"
+            color={!active ? color : contrast}
+          >
+            › {children}
+          </Title>
+          <IconContainer fontSize="45px">
+            <Icon />
+          </IconContainer>
+        </HeadingContainer>
+        {active && (
+          <Text color={contrast} as={motion.div} layoutId="text">
+            This is text. This is text. This is text. This is text. This is
+            text. This is text. This is text. This is text. This is text. This
+            is text. This is text. This is text. This is text.
+          </Text>
+        )}
+      </Inner>
     </Block>
   )
 }
