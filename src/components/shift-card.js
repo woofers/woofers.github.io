@@ -51,6 +51,10 @@ const TitleTransition = styled(Title)`
   transition: color 4s ease-in-out 1s;
 `
 
+const ContentWrapper = styled(motion.div)`
+
+`
+
 const ShiftCard = ({
   color,
   active,
@@ -89,11 +93,11 @@ const ShiftCard = ({
           </IconContainer>
         </HeadingContainer>
         {active && (
-          <Text color={contrast} as={motion.div} layoutId="text">
-            This is text. This is text. This is text. This is text. This is
-            text. This is text. This is text. This is text. This is text. This
-            is text. This is text. This is text. This is text.
-          </Text>
+          <ContentWrapper as={motion.div} layoutId="content">
+            <Text color={contrast} >
+              text text
+            </Text>
+          </ContentWrapper>
         )}
       </Inner>
     </Block>

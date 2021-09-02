@@ -6,14 +6,31 @@ import Text from 'components/text'
 import { styled } from 'emotion'
 import ShiftCard from 'components/shift-card'
 import ShiftCards from 'components/shift-cards'
+import Page from './'
 
 const Grid = styled.div`
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  grid-auto-rows: 175px;
+  grid-template-rows: 175px 400px;
+  margin-bottom: 50px;
+  grid-template-areas: "name cards"
+                       "avatar cards";
+  @media only screen and (max-width: 1360px) {
+    align-self: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 175px 400px 600px;
+    grid-template-areas: "name"
+                         "avatar"
+                         "cards";
+  }
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    width: 100%;
+  }
 `
 
 const Flex = styled.div`
+  grid-area: name;
   margin-top: 50px;
   display: flex;
   width: 100%;
@@ -24,8 +41,12 @@ const Flex = styled.div`
 `
 
 const List = styled.div`
-  padding-top: 55px;
-  grid-row: span 2;
+  grid-area: cards;
+  margin-top: 55px;
+  height: max-content;
+  @media only screen and (max-width: 1360px) {
+    grid-row: unset;
+  }
 `
 
 const LogoContainer = styled.div`
@@ -33,10 +54,14 @@ const LogoContainer = styled.div`
   transform: translate(14px, 10px);
 `
 
+const StyledAvatar = styled(Avatar)`
+  grid-area: avatar;
+`
+
 const items = [
   {
     id: 'intro',
-    color: '#fa743e',
+    color: '#fe9c55',
     icon: () => '🧙',
     children: 'Software Developer',
   },
@@ -66,6 +91,7 @@ const items = [
 
 const Me = () => {
   return (
+    <>
     <Grid>
       <div>
         <Flex>
@@ -85,8 +111,10 @@ const Me = () => {
       <List>
         <ShiftCards items={items} />
       </List>
-      <Avatar />
+      <StyledAvatar />
     </Grid>
+    <Page />
+    </>
   )
 }
 

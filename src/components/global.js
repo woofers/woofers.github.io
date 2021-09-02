@@ -1,11 +1,6 @@
 import { createGlobal } from 'emotion'
 
 const Global = createGlobal`
-  html {
-    overflow-x: visible;
-    overflow-y: hidden;
-  }
-
   html,
   h1,
   h2,

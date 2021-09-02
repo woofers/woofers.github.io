@@ -6,7 +6,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 const Wrapper = styled.div`
   > div {
     border-radius: 50%;
-    background-color: #f7a28d;
+    background-color: #feb37d;
     box-shadow: inset 0.3px -0.4px 8px 2px #00000030;
   }
 `
