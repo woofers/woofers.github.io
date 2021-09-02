@@ -5,7 +5,7 @@ import Title from 'components/title'
 import Text from 'components/text'
 import { setCSSVar, removeCSSVar } from 'utils/css-var'
 
-const HeadingContainer = styled.div`
+const HeadingContainer = styled(motion.div)`
   display: flex;
   align-items: stretch;
   height: 80px;
@@ -23,6 +23,7 @@ const Block = styled(motion.div)`
   position: relative;
   width: 585px;
   padding: 0;
+  z-index: ${props => props.active ? 10 : 5};
 `
 
 const setColor = setCSSVar('hover-color')
@@ -46,6 +47,10 @@ const Inner = styled.div`
   position: absolute;
 `
 
+const TitleTransition = styled(Title)`
+  transition: color 4s ease-in-out 1s;
+`
+
 const ShiftCard = ({
   color,
   active,
@@ -61,16 +66,16 @@ const ShiftCard = ({
       onMouseEnter={onHover}
       onMouseLeave={removeColor}
       active={active}
-      initial={false}
       layout
-      animate={{ marginTop: active ? 20 : 0, height: active ? 250 : 80 }}
+      initial={false}
+      animate={{ marginTop: active ? '20px' : '0px', height: active ? '250px' : '80px' }}
       key={active}
       {...rest}
     >
       {active && <Color layoutId="card" color={color} />}
       <Inner>
-        <HeadingContainer>
-          <Title
+        <HeadingContainer as={motion.div} layoutId={active ? "header" : undefined} layout="position">
+          <TitleTransition
             textTransform="lowercase"
             fontSize="45px"
             fontWeight="400"
@@ -78,7 +83,7 @@ const ShiftCard = ({
             color={!active ? color : contrast}
           >
             › {children}
-          </Title>
+          </TitleTransition>
           <IconContainer fontSize="45px">
             <Icon />
           </IconContainer>

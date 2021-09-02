@@ -6,14 +6,8 @@ import Card from './shift-card'
 const Grid = styled.div``
 
 const Cards = ({ items = [], location }) => {
-  const [selectedId, setSelectedId] = useState()
+  const [selectedId, setSelectedId] = useState(items?.[0]?.id)
   const item = items.find(({ id }) => id === selectedId)
-  let index = items.findIndex(({ id }) => id === selectedId)
-  if (index === -1) {
-    index = items.length
-  }
-  console.log(index)
-  const shift = useMediaQuery('@media only screen and (max-width: 1360px)')
   return (
     <Grid>
       <AnimateSharedLayout>
