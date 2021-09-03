@@ -23,7 +23,7 @@ const Block = styled(motion.div)`
   position: relative;
   width: 585px;
   padding: 0;
-  z-index: ${props => props.active ? 10 : 5};
+  z-index: ${props => (props.active ? 10 : 5)};
 `
 
 const setColor = setCSSVar('hover-color')
@@ -51,9 +51,7 @@ const TitleTransition = styled(Title)`
   transition: color 4s ease-in-out 1s;
 `
 
-const ContentWrapper = styled(motion.div)`
-
-`
+const ContentWrapper = styled(motion.div)``
 
 const ShiftCard = ({
   color,
@@ -72,13 +70,20 @@ const ShiftCard = ({
       active={active}
       layout
       initial={false}
-      animate={{ marginTop: active ? '20px' : '0px', height: active ? '250px' : '80px' }}
+      animate={{
+        marginTop: active ? '20px' : '0px',
+        height: active ? '250px' : '80px',
+      }}
       key={active}
       {...rest}
     >
       {active && <Color layoutId="card" color={color} />}
       <Inner>
-        <HeadingContainer as={motion.div} layoutId={active ? "header" : undefined} layout="position">
+        <HeadingContainer
+          as={motion.div}
+          layoutId={active ? 'header' : undefined}
+          layout="position"
+        >
           <TitleTransition
             textTransform="lowercase"
             fontSize="45px"
@@ -94,9 +99,7 @@ const ShiftCard = ({
         </HeadingContainer>
         {active && (
           <ContentWrapper as={motion.div} layoutId="content">
-            <Text color={contrast} >
-              text text
-            </Text>
+            <Text color={contrast}>text text</Text>
           </ContentWrapper>
         )}
       </Inner>

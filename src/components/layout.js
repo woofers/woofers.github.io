@@ -63,9 +63,6 @@ const Layout = ({ children, location, ...rest }) => {
       />
       <Global />
       <AnimateSharedLayout type="crossfade">
-        <Container>
-          <Header items={items} />
-        </Container>
         <AnimatePresence exitBeforeEnter>
           <Main
             key={location.pathname}

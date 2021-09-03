@@ -54,6 +54,7 @@ const Logo = ({ shift }) => {
       initial={{ x: shift ? 300 : 0, y: -48, opacity: 0 }}
       animate={{ x: 0, y: -48, opacity: 1 }}
       transition={{ duration: 0.5 }}
+      layout="position"
     >
       <Container>
         <Primary>Jaxson</Primary>

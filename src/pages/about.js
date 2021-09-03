@@ -6,22 +6,35 @@ import Text from 'components/text'
 import { styled } from 'emotion'
 import ShiftCard from 'components/shift-card'
 import ShiftCards from 'components/shift-cards'
+import { motion, useTransform, useViewportScroll } from 'framer-motion'
+import useScrollPosition from 'hooks/use-scroll-position'
 import Page from './'
 
+const Header = styled.header`
+  width: 100%;
+  position: fixed;
+  top: 40px;
+  left: 20px;
+  height: 320px;
+`
+
 const Grid = styled.div`
+  margin-top: calc((100vh - 575px) / 2 - 70px);
+  margin-bottom: calc((100vh - 575px) / 2 + 70px);
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
   grid-template-rows: 175px 400px;
-  margin-bottom: 50px;
-  grid-template-areas: "name cards"
-                       "avatar cards";
+  grid-template-areas:
+    'name cards'
+    'avatar cards';
   @media only screen and (max-width: 1360px) {
     align-self: center;
     grid-template-columns: 1fr;
     grid-template-rows: 175px 400px 600px;
-    grid-template-areas: "name"
-                         "avatar"
-                         "cards";
+    grid-template-areas:
+      'name'
+      'avatar'
+      'cards';
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
@@ -31,7 +44,6 @@ const Grid = styled.div`
 
 const Flex = styled.div`
   grid-area: name;
-  margin-top: 50px;
   display: flex;
   width: 100%;
   align-items: flex-end;
@@ -44,9 +56,6 @@ const List = styled.div`
   grid-area: cards;
   margin-top: 55px;
   height: max-content;
-  @media only screen and (max-width: 1360px) {
-    grid-row: unset;
-  }
 `
 
 const LogoContainer = styled.div`
@@ -89,31 +98,47 @@ const items = [
   },
 ]
 
+
 const Me = () => {
+  const { scrollYProgress } = useViewportScroll()
+  const { y } = useScrollPosition()
+  const showHeader = y > 275
+  const t = useTransform(scrollYProgress, [0, 0.5, 1], [0, 20, 40])
   return (
     <>
-    <Grid>
-      <div>
+      <Header>
+        {showHeader && <Logo />}
+      </Header>
+      <Grid>
         <Flex>
-          <Text
-            fontSize="53px"
-            fontWeight="400"
-            letterSpacing="-1.5px"
-            color="#27292b"
-          >
-            Hello, I'm
-          </Text>
+          {!showHeader &&
+            <Text
+              fontSize="53px"
+              fontWeight="400"
+              letterSpacing="-1.5px"
+              color="#27292b"
+              as={motion.div}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                type: 'spring',
+                duration: 0.8,
+                delay: 0.5
+              }}
+            >
+              Hello, I'm
+            </Text>
+          }
           <LogoContainer>
-            <Logo />
+            {!showHeader && <Logo />}
           </LogoContainer>
         </Flex>
-      </div>
-      <List>
-        <ShiftCards items={items} />
-      </List>
-      <StyledAvatar />
-    </Grid>
-    <Page />
+        <List>
+          <ShiftCards items={items} />
+        </List>
+        <StyledAvatar />
+      </Grid>
+      <Page />
     </>
   )
 }
