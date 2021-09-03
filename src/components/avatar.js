@@ -2,8 +2,9 @@ import React from 'react'
 import { GatsbyImage } from 'gatsby-plugin-image'
 import { styled } from 'emotion'
 import { useStaticQuery, graphql } from 'gatsby'
+import { motion, AnimatePresence } from 'framer-motion'
 
-const Wrapper = styled.div`
+const Wrapper = styled(motion.div)`
   > div {
     border-radius: 50%;
     background-color: #feb37d;
@@ -11,7 +12,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Avatar = () => {
+const Avatar = ({ show = true, ...rest }) => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "jaxson.png" }) {
@@ -26,13 +27,24 @@ const Avatar = () => {
       }
     }
   `)
+
   return (
-    <Wrapper>
-      <GatsbyImage
-        image={data.file.childImageSharp.gatsbyImageData}
-        alt="A Jaxson"
-      />
-    </Wrapper>
+    <AnimatePresence exitBeforeEnter>
+      {show && (
+        <Wrapper
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.15 }}
+          {...rest}
+        >
+          <GatsbyImage
+            image={data.file.childImageSharp.gatsbyImageData}
+            alt="A Jaxson"
+          />
+        </Wrapper>
+      )}
+    </AnimatePresence>
   )
 }
 

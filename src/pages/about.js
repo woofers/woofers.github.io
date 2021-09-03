@@ -6,7 +6,7 @@ import Text from 'components/text'
 import { styled } from 'emotion'
 import ShiftCard from 'components/shift-card'
 import ShiftCards from 'components/shift-cards'
-import { motion, useTransform, useViewportScroll } from 'framer-motion'
+import { motion, AnimatePresence, useTransform, useViewportScroll } from 'framer-motion'
 import useScrollPosition from 'hooks/use-scroll-position'
 import Page from './'
 
@@ -50,6 +50,9 @@ const Flex = styled.div`
   > div {
     margin: 0;
   }
+  @media only screen and (max-width: 1360px) {
+    justify-content: center;
+  }
 `
 
 const List = styled.div`
@@ -65,6 +68,9 @@ const LogoContainer = styled.div`
 
 const StyledAvatar = styled(Avatar)`
   grid-area: avatar;
+  @media only screen and (max-width: 1360px) {
+    margin: auto auto;
+  }
 `
 
 const items = [
@@ -136,7 +142,7 @@ const Me = () => {
         <List>
           <ShiftCards items={items} />
         </List>
-        <StyledAvatar />
+        <StyledAvatar show={!showHeader} />
       </Grid>
       <Page />
     </>
