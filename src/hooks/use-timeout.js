@@ -12,5 +12,4 @@ const useTimeout = (callback, delay) => {
   }, [delay])
 }
 
-
 export default useTimeout

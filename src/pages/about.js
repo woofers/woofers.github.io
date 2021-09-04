@@ -6,7 +6,12 @@ import Text from 'components/text'
 import { styled } from 'emotion'
 import ShiftCard from 'components/shift-card'
 import ShiftCards from 'components/shift-cards'
-import { motion, AnimatePresence, useTransform, useViewportScroll } from 'framer-motion'
+import {
+  motion,
+  AnimatePresence,
+  useTransform,
+  useViewportScroll,
+} from 'framer-motion'
 import useScrollPosition from 'hooks/use-scroll-position'
 import useTimeout from 'hooks/use-timeout'
 import Page from './'
@@ -105,7 +110,6 @@ const items = [
   },
 ]
 
-
 const Me = () => {
   const [hasScrolled, setScrolled] = useState()
   const { scrollYProgress } = useViewportScroll()
@@ -114,12 +118,10 @@ const Me = () => {
   useTimeout(() => setScrolled(true), 2600)
   return (
     <>
-      <Header>
-        {showHeader && <Logo />}
-      </Header>
+      <Header>{showHeader && <Logo />}</Header>
       <Grid>
         <Flex>
-          {!showHeader &&
+          {!showHeader && (
             <Text
               fontSize="53px"
               fontWeight="400"
@@ -131,18 +133,18 @@ const Me = () => {
               transition={{
                 type: 'spring',
                 duration: 0.8,
-                delay: 0.5
+                delay: 0.5,
               }}
             >
               Hello, I'm
             </Text>
-          }
+          )}
           <LogoContainer>
             {!showHeader && <Logo delay={hasScrolled ? 0 : 1.3} />}
           </LogoContainer>
         </Flex>
         <List>
-          <ShiftCards items={items} />
+          <ShiftCards items={items} show={!showHeader} intro={!hasScrolled} />
         </List>
         <StyledAvatar show={!showHeader} intro={!hasScrolled} />
       </Grid>

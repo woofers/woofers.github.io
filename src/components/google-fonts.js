@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 const GoogleFonts = ({ fonts }) => {
   const href = `https://fonts.googleapis.com/css2?family=${fonts.join(
     '&family='
-  )}`
+  )}&display=swap`
   return (
     <Helmet>
       <link

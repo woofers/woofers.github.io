@@ -30,7 +30,7 @@ const Wrapper = styled.div`
   color: #000;
 `
 
-const Main = styled(motion.main)`
+const Main = styled.main`
   min-height: calc(100vh - 225px);
 `
 
@@ -64,18 +64,7 @@ const Layout = ({ children, location, ...rest }) => {
       <Global />
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence exitBeforeEnter>
-          <Main
-            key={location.pathname}
-            initial={{ opacity: 0, x: -200 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 200 }}
-            transition={{
-              type: 'spring',
-              mass: 0.35,
-              stiffness: 75,
-              duration: 0.3,
-            }}
-          >
+          <Main>
             <Container>{children}</Container>
           </Main>
         </AnimatePresence>
