@@ -47,13 +47,13 @@ const Space = styled.span`
   display: none;
 `
 
-const Logo = ({ shift }) => {
+const Logo = ({ shift, delay = 0 }) => {
   return (
     <Translate
       layoutId={'jvd-logo'}
-      initial={{ x: shift ? 300 : 0, y: -48, opacity: 0 }}
+      initial={{ x: 0, y: -48, opacity: 0 }}
       animate={{ x: 0, y: -48, opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ delay: delay, duration: 0.5 }}
       layout="position"
     >
       <Container>
@@ -61,7 +61,7 @@ const Logo = ({ shift }) => {
         <Secondary
           initial={{ x: -15, y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.9, duration: 0.2 }}
+          transition={{ delay: 1.1 + delay, duration: 0.2 }}
         >
           <span>Van</span>
           <Space> </Space>

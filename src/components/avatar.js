@@ -12,7 +12,7 @@ const Wrapper = styled(motion.div)`
   }
 `
 
-const Avatar = ({ show = true, ...rest }) => {
+const Avatar = ({ intro = true, show = true, ...rest }) => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "jaxson.png" }) {
@@ -35,7 +35,7 @@ const Avatar = ({ show = true, ...rest }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.15 }}
+          transition={{ duration: intro ? 0.5 : 0.15, delay: intro ? 1.3 : 0 }}
           {...rest}
         >
           <GatsbyImage

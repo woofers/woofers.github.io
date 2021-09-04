@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Avatar from 'components/avatar'
 import Logo from 'components/logo'
 import Title from 'components/title'
@@ -8,6 +8,7 @@ import ShiftCard from 'components/shift-card'
 import ShiftCards from 'components/shift-cards'
 import { motion, AnimatePresence, useTransform, useViewportScroll } from 'framer-motion'
 import useScrollPosition from 'hooks/use-scroll-position'
+import useTimeout from 'hooks/use-timeout'
 import Page from './'
 
 const Header = styled.header`
@@ -106,10 +107,11 @@ const items = [
 
 
 const Me = () => {
+  const [hasScrolled, setScrolled] = useState()
   const { scrollYProgress } = useViewportScroll()
   const { y } = useScrollPosition()
   const showHeader = y > 275
-  const t = useTransform(scrollYProgress, [0, 0.5, 1], [0, 20, 40])
+  useTimeout(() => setScrolled(true), 2600)
   return (
     <>
       <Header>
@@ -136,13 +138,13 @@ const Me = () => {
             </Text>
           }
           <LogoContainer>
-            {!showHeader && <Logo />}
+            {!showHeader && <Logo delay={hasScrolled ? 0 : 1.3} />}
           </LogoContainer>
         </Flex>
         <List>
           <ShiftCards items={items} />
         </List>
-        <StyledAvatar show={!showHeader} />
+        <StyledAvatar show={!showHeader} intro={!hasScrolled} />
       </Grid>
       <Page />
     </>
