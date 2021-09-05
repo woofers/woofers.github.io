@@ -124,11 +124,11 @@ const items = [
 
 const nav = [
   {
-    to: '/about/',
+    to: '/work/',
     children: 'Me',
   },
   {
-    to: '/',
+    to: '/about/',
     children: 'Work',
   },
   {

@@ -22,6 +22,7 @@ const Avatar = ({ intro = true, show = true, ...rest }) => {
             width: 400
             height: 400
             placeholder: TRACED_SVG
+            quality: 90
           )
         }
       }
