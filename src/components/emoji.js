@@ -27,7 +27,7 @@ const toUnicodeBytes = value => {
   return bytes
 }
 
-const img = code => `//github.githubassets.com/images/icons/emoji/unicode/${code}.png`
+const img = code => `https://github.githubassets.com/images/icons/emoji/unicode/${code}.png`
 const border = css`
   border-radius: 0 !important;
   margin-bottom: 0;
