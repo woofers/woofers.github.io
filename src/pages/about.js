@@ -4,6 +4,7 @@ import Logo from 'components/logo'
 import Title from 'components/title'
 import Text from 'components/text'
 import { styled } from 'emotion'
+import Nav from 'components/nav'
 import ShiftCard from 'components/shift-card'
 import ShiftCards from 'components/shift-cards'
 import {
@@ -20,13 +21,24 @@ const Header = styled.header`
   width: 100%;
   position: fixed;
   top: 40px;
-  left: 20px;
+  left: 0;
   height: 320px;
+  display: flex;
+  padding: 0 20px;
+`
+
+const RightHeader = styled(Header)`
+  justify-content: flex-end;
+`
+
+const pageHeight = '575px'
+const topShift = '70px'
+const Spacer = styled.div`
+  height: calc((100vh - ${pageHeight}) / 2 + ${topShift});
 `
 
 const Grid = styled.div`
-  margin-top: calc((100vh - 575px) / 2 - 70px);
-  margin-bottom: calc((100vh - 575px) / 2 + 70px);
+  margin-top: calc((100vh - ${pageHeight}) / 2 - ${topShift});
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
   grid-template-rows: 175px 400px;
@@ -110,6 +122,21 @@ const items = [
   },
 ]
 
+const nav = [
+  {
+    to: '/about/',
+    children: 'Me',
+  },
+  {
+    to: '/',
+    children: 'Work',
+  },
+  {
+    to: '/me/',
+    children: 'Contact',
+  },
+]
+
 const Me = () => {
   const [hasScrolled, setScrolled] = useState()
   const { scrollYProgress } = useViewportScroll()
@@ -119,35 +146,37 @@ const Me = () => {
   return (
     <>
       <Header>{showHeader && <Logo />}</Header>
-      <Grid>
-        <Flex>
-          {!showHeader && (
-            <Text
-              fontSize="53px"
-              fontWeight="400"
-              letterSpacing="-1.5px"
-              color="#27292b"
-              as={motion.div}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                type: 'spring',
-                duration: 0.8,
-                delay: 0.5,
-              }}
-            >
-              Hello, I'm
-            </Text>
-          )}
-          <LogoContainer>
-            {!showHeader && <Logo delay={hasScrolled ? 0 : 1.3} />}
-          </LogoContainer>
-        </Flex>
-        <List>
-          <ShiftCards items={items} show={!showHeader} intro={!hasScrolled} />
-        </List>
-        <StyledAvatar show={!showHeader} intro={!hasScrolled} />
-      </Grid>
+        <Grid layoutId="grid">
+          <Flex>
+            {!showHeader && (
+              <Text
+                fontSize="53px"
+                fontWeight="400"
+                letterSpacing="-1.5px"
+                color="#27292b"
+                as={motion.div}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  type: 'spring',
+                  duration: 0.8,
+                  delay: 0.5,
+                }}
+              >
+                Hello, I'm
+              </Text>
+            )}
+            <LogoContainer>
+              {!showHeader && <Logo delay={hasScrolled ? 0 : 1.3} />}
+            </LogoContainer>
+          </Flex>
+          <List>
+            <ShiftCards items={items} show={!showHeader} intro={!hasScrolled} />
+          </List>
+          <StyledAvatar show={!showHeader} intro={!hasScrolled} />
+        </Grid>
+      <Spacer />
+      <Nav items={nav} />
       <Page />
     </>
   )
