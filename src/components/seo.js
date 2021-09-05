@@ -11,7 +11,7 @@ import { useStaticQuery, graphql } from 'gatsby'
 
 const openGraphImage = title => {
   const size = 300
-  const url = 'https://opengraph.vandoorn.ca'
+  const url = 'https://og.jaxs.onl'
   const image = `${url}/jvd.png`
   return `${url}/**${title}**.png?&md=1&images=${image}&widths=${size}&heights=${size}`
 }
