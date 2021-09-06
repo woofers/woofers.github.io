@@ -15,6 +15,7 @@ import {
 } from 'framer-motion'
 import useScrollPosition from 'hooks/use-scroll-position'
 import useTimeout from 'hooks/use-timeout'
+import icon from 'icons/mail.svg'
 import Page from './'
 
 const Header = styled.header`
@@ -90,6 +91,39 @@ const StyledAvatar = styled(Avatar)`
     margin: auto auto;
   }
 `
+
+const Mail = styled.img`
+  margin-top: 50px;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  align-self: center;
+`
+
+const Email = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const Grey = styled.span`
+  color: #d2d8e0;
+`
+
+const Bubble = styled.span`
+  color: #fff;
+  background: #d2d8e0;
+  border-radius: 18px;
+  padding: 0px 8px 5px;
+  margin-left: 6px;
+`
+
+const EmailContainer = styled.div`
+  display: flex;
+  > span:first-of-type {
+    padding-top: 0;
+  }
+`
+
 
 const items = [
   {
@@ -178,6 +212,21 @@ const Me = () => {
       <Spacer />
       <Nav items={nav} />
       <Page />
+      <Email>
+        <Title paddingX="0" paddingY="0" fontSize="25px" fontWeight="500" letterSpacing="1.5px" color="#c9c9c9">Reach out</Title>
+        <EmailContainer>
+          <Title
+            fontSize="45px"
+            fontWeight="400"
+            letterSpacing="-1.5px"
+            color="#fe9c55"
+            as="span"
+          >
+            <span>jaxson.</span><Grey>vandoorn</Grey><Bubble>@gmail.com</Bubble>
+          </Title>
+          <Mail src={icon} />
+        </EmailContainer>
+      </Email>
     </>
   )
 }
