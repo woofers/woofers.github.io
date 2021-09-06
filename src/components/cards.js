@@ -20,7 +20,7 @@ const Grid = styled.div`
   grid-gap: ${CARD_GAP};
   grid-template-rows: repeat(4, ${CARD_HEIGHT});
   height: ${HEIGHT};
-  margin-bottom: 1300px;
+  margin-bottom: 500px;
   @media only screen and (max-width: 1360px) {
     align-self: center;
   }

@@ -16,6 +16,8 @@ import {
 import useScrollPosition from 'hooks/use-scroll-position'
 import useTimeout from 'hooks/use-timeout'
 import icon from 'icons/mail.svg'
+import Input from 'components/input'
+import TextArea from 'components/text-area'
 import Page from './'
 
 const Header = styled.header`
@@ -101,12 +103,14 @@ const Mail = styled.img`
 `
 
 const Email = styled.div`
+  margin-top: 300px;
   display: flex;
   flex-direction: column;
 `
 
 const Grey = styled.span`
   color: #d2d8e0;
+  font-family: Cantarell, sans-serif;
 `
 
 const Bubble = styled.span`
@@ -122,6 +126,10 @@ const EmailContainer = styled.div`
   > span:first-of-type {
     padding-top: 0;
   }
+`
+
+const InputContainer = styled.div`
+  margin-bottom: 800px;
 `
 
 
@@ -227,6 +235,11 @@ const Me = () => {
           <Mail src={icon} />
         </EmailContainer>
       </Email>
+      <InputContainer>
+        <Input value="" placeholder="Name" />
+        <Input value="" placeholder="Email" />
+        <TextArea />
+      </InputContainer>
     </>
   )
 }
