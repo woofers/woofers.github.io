@@ -98,15 +98,17 @@ const StyledAvatar = styled(Avatar)`
 `
 
 const Icon = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   > svg {
     width: 100%;
     height: 100%;
   }
   margin-top: 50px;
   margin: 0;
-  align-self: center;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
 `
 
 const Email = styled.div`
