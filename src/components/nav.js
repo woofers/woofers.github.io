@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from 'emotion'
 import withLocation from './with-location'
 import Title from './title'
-import { Link } from 'gatsby'
+import Link from 'link'
 
 const head = arr => arr[0]
 const last = arr => arr[arr.length - 1]

@@ -1,12 +1,11 @@
 import React from 'react'
-import { Location } from '@reach/router'
+import { useRouter } from 'next/router'
 
 const withLocation = Component => {
-  return props => (
-    <Location>
-      {({ location }) => <Component location={location} {...props} />}
-    </Location>
-  )
+  return props => {
+    const router = useRouter()
+    return <Component location={router?.location} {...props} />
+  }
 }
 
 export default withLocation

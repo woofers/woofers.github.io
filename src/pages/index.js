@@ -1,5 +1,4 @@
 import React from 'react'
-import { StaticImage } from 'gatsby-plugin-image'
 import { styled } from 'emotion'
 import Cards from 'components/cards'
 import Title from 'components/title'
