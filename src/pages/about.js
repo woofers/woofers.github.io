@@ -87,7 +87,7 @@ const List = styled.div`
 
 const LogoContainer = styled.div`
   padding: 0 10px;
-  transform: translate(14px, 10px);
+  transform: translate(14px, 20px);
 `
 
 const StyledAvatar = styled(Avatar)`
