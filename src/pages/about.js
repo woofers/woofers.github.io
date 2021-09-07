@@ -20,7 +20,7 @@ import { ReactComponent as MailIcon } from 'icons/mail.svg'
 import { ReactComponent as PageIcon } from 'icons/page.svg'
 import Input from 'components/input'
 import TextArea from 'components/text-area'
-import Page from './'
+import Work from 'components/work'
 
 const Header = styled.header`
   width: 100%;
@@ -240,7 +240,7 @@ const Me = () => {
       </Grid>
       <Spacer />
       <Nav items={nav} />
-      <Page />
+      <Work />
       <Email>
         <Title
           paddingX="0"
