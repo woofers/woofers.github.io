@@ -10,6 +10,8 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
+  white-space: pre;
+  display: inline-block;
   width: 100%;
   min-height: ${props => props.$height};
   font-size: 18px;
