@@ -15,9 +15,9 @@ import {
 } from 'framer-motion'
 import useScrollPosition from 'hooks/use-scroll-position'
 import useTimeout from 'hooks/use-timeout'
-import mail from 'icons/mail.svg'
-import user from '../icons/user.svg'
-import page from 'icons/page.svg'
+import { ReactComponent as UserIcon } from '../icons/user.svg'
+import { ReactComponent as MailIcon } from 'icons/mail.svg'
+import { ReactComponent as PageIcon } from 'icons/page.svg'
 import Input from 'components/input'
 import TextArea from 'components/text-area'
 import Page from './'
@@ -97,10 +97,14 @@ const StyledAvatar = styled(Avatar)`
   }
 `
 
-const Mail = styled.img`
-  margin-top: 50px;
+const Icon = styled.div`
   width: 50px;
   height: 50px;
+  > svg {
+    width: 100%;
+    height: 100%;
+  }
+  margin-top: 50px;
   margin: 0;
   align-self: center;
 `
@@ -181,15 +185,15 @@ const items = [
 
 const nav = [
   {
-    to: '/work/',
+    to: '/work',
     children: 'Me',
   },
   {
-    to: '/about/',
+    to: '/about',
     children: 'Work',
   },
   {
-    to: '/me/',
+    to: '/me',
     children: 'Contact',
   },
 ]
@@ -262,10 +266,10 @@ const Me = () => {
       </Email>
       <InputContainer>
         <Input placeholder="Name" iconWidth="36px" iconPadding="3px">
-          <Mail src={user} />
+          <Icon><UserIcon /></Icon>
         </Input>
         <Input placeholder="Email" iconWidth="36px" iconPadding="5px">
-          <Mail src={mail} />
+          <Icon><MailIcon /></Icon>
         </Input>
         <Message
           placeholder="Message"
@@ -273,7 +277,7 @@ const Me = () => {
           iconWidth="36px"
           iconPadding="5px"
         >
-          <Mail src={page} />
+          <Icon><PageIcon /></Icon>
         </Message>
       </InputContainer>
     </>

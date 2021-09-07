@@ -2,9 +2,7 @@ import React from 'react'
 import { styled } from 'emotion'
 import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
-import withLocation from './with-location'
-
-// #fff9fb
+import { useRouter } from 'next/router'
 
 const Button = styled(Link)`
   text-decoration: none;
@@ -54,8 +52,9 @@ const Container = styled(motion.nav)`
   }
 `
 
-const Nav = ({ location, items }) => {
-  const { pathname } = location
+const Nav = ({ items }) => {
+  const router = useRouter()
+  const { pathname } = router
   return (
     <Container
       initial={{ opacity: 0 }}
@@ -71,4 +70,4 @@ const Nav = ({ location, items }) => {
   )
 }
 
-export default withLocation(Nav)
+export default Nav

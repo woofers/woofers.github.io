@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from 'emotion'
-import withLocation from './with-location'
+import { useRouter } from 'next/router'
 import Title from './title'
 import Link from 'link'
 
@@ -38,8 +38,9 @@ const Menu = styled.div`
   }
 `
 
-const Nav = ({ items, location }) => {
-  const path = location?.pathname
+const Nav = ({ items }) => {
+  const router = useRouter()
+  const path = router?.pathname
   return (
     <Menu left={head(items).to === path} right={last(items).to === path}>
       {items.map(({ children, to, ...rest }) => (
@@ -58,4 +59,4 @@ const Nav = ({ items, location }) => {
   )
 }
 
-export default withLocation(Nav)
+export default Nav
