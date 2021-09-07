@@ -1,28 +1,20 @@
 import React from 'react'
 import { styled } from 'emotion'
-import Label from './label'
-
+import Label, { shift } from './label'
 
 const Wrapper = styled.div`
   position: relative;
-  padding-top: 28px;
-  > ${props => !props.$hasPlaceholder ? ':is(input:valid, input:focus) ~ label' : 'label'} {
-    transform: translate(12px, 0);
-  }
-  > input:valid ~ span {
-    transform: translate(-55px, calc(12px + 28px));
-    z-index: 0;
-  }
+  padding-top: ${props => props.$labelHeight};
   overflow: hidden;
+  ${shift};
 `
-
 
 const Field = styled.input`
   flex: 0 0 50%;
   font-size: 18px;
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
-  padding: 12px;
+  padding: ${props => `${props.$paddingY} ${props.$paddingX}`};
   border: none;
   outline: none;
   width: 100%;
@@ -41,16 +33,42 @@ const Field = styled.input`
   }
 `
 
-const Input = ({ children, label, placeholder, ...rest }) => {
+const Input = ({
+  children,
+  label,
+  placeholder,
+  paddingX = '12px',
+  paddingY = '12px',
+  labelHeight = '28px',
+  placeholderWidth = '65px',
+  ...rest
+}) => {
   const hasBothLabels = label && placeholder
   const hasAnyLabel = label || placeholder
-  const firstLabel = hasAnyLabel ? (label ?? placeholder) : false
+  const firstLabel = hasAnyLabel ? label ?? placeholder : false
   const secondLabel = hasBothLabels ? placeholder : undefined
+  const padding = {
+    $paddingX: paddingX,
+    $paddingY: paddingY,
+    $labelHeight: labelHeight,
+    $placeholderWidth: placeholderWidth,
+  }
   return (
-    <Wrapper $hasPlaceholder={secondLabel}>
-      <Field type="text" {...rest} placeholder={secondLabel} required pattern="\S*+" />
-      {!!firstLabel && <Label>{firstLabel}</Label>}
-      {!!secondLabel && <Label aria-hidden as="span" delay="0.12s">{secondLabel}</Label>}
+    <Wrapper $hasPlaceholder={secondLabel} {...padding}>
+      <Field
+        type="text"
+        {...rest}
+        placeholder={secondLabel}
+        required
+        pattern="\S*+"
+        {...padding}
+      />
+      {!!firstLabel && <Label {...padding}>{firstLabel}</Label>}
+      {!!secondLabel && (
+        <Label aria-hidden as="span" delay="0.12s" {...padding}>
+          {secondLabel}
+        </Label>
+      )}
     </Wrapper>
   )
 }

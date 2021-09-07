@@ -260,7 +260,7 @@ const Me = () => {
         </EmailContainer>
       </Email>
       <InputContainer>
-        <Input placeholder="Name" label="Enter name: "/>
+        <Input placeholder="John Smith" label="Name" />
         <Input placeholder="Email" />
         <Message height="200px" />
       </InputContainer>
