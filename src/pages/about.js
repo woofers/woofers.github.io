@@ -28,6 +28,7 @@ const Header = styled.header`
   height: 320px;
   display: flex;
   padding: 0 20px;
+  pointer-events: none;
 `
 
 const RightHeader = styled(Header)`
@@ -130,6 +131,7 @@ const EmailContainer = styled.div`
 `
 
 const InputContainer = styled.div`
+  margin-top: 40px;
   display: grid;
   grid-gap: 24px 30px;
   grid-template-columns: repeat(2, 0.5fr);
@@ -258,7 +260,7 @@ const Me = () => {
         </EmailContainer>
       </Email>
       <InputContainer>
-        <Input placeholder="Name" />
+        <Input placeholder="Name" label="Enter name: "/>
         <Input placeholder="Email" />
         <Message height="200px" />
       </InputContainer>
