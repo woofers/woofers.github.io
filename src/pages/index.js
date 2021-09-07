@@ -1,158 +1,295 @@
-import React from 'react'
-import { styled } from 'emotion'
-import Cards from 'components/cards'
+import React, { useEffect, useState } from 'react'
+import Avatar from 'components/avatar'
+import Logo from 'components/logo'
 import Title from 'components/title'
 import Text from 'components/text'
-import { WaveIcon, LivRent, Fts360, AlienExpansion } from 'logos'
-import Wave from 'react-wavify'
+import { styled } from 'emotion'
+import Nav from 'components/nav'
+import ShiftCard from 'components/shift-card'
+import ShiftCards from 'components/shift-cards'
+import {
+  motion,
+  AnimatePresence,
+  useTransform,
+  useViewportScroll,
+} from 'framer-motion'
+import useScrollPosition from 'hooks/use-scroll-position'
+import useTimeout from 'hooks/use-timeout'
+import { ReactComponent as UserIcon } from '../icons/user.svg'
+import { ReactComponent as MailIcon } from 'icons/mail.svg'
+import { ReactComponent as PageIcon } from 'icons/page.svg'
+import Input from 'components/input'
+import TextArea from 'components/text-area'
+import Work from 'components/work'
 
-const Right = styled.span`
-  align-self: flex-end;
-  margin-right: 15px;
-`
-
-const Box = styled.div`
-  width: 100px;
-  height: 200px;
+const Header = styled.header`
+  width: 100%;
+  position: fixed;
+  top: 40px;
+  left: 0;
+  height: 320px;
+  display: flex;
+  padding: 0 20px;
   pointer-events: none;
 `
 
-const LivLogo = styled(Box)`
-  margin-left: 20px;
-  margin-top: 20px;
+const RightHeader = styled(Header)`
+  justify-content: flex-end;
 `
 
-const WavifyLogo = styled(Box)`
-  margin-left: 20px;
-  margin-top: 19px;
+const pageHeight = '575px'
+const topShift = '70px'
+const Spacer = styled.div`
+  height: calc((100vh - ${pageHeight}) / 2 + ${topShift});
 `
 
-const WavifyBar = styled.div`
-  position: absolute;
+const Grid = styled.div`
+  margin-top: calc((100vh - ${pageHeight}) / 2 - ${topShift});
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  grid-template-rows: 175px 400px;
+  grid-template-areas:
+    'name cards'
+    'avatar cards';
+  @media only screen and (max-width: 1360px) {
+    align-self: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 175px 400px 600px;
+    grid-template-areas:
+      'name'
+      'avatar'
+      'cards';
+  }
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    width: 100%;
+  }
+`
+
+const Flex = styled.div`
+  grid-area: name;
+  display: flex;
   width: 100%;
-  height: 40px;
-  bottom: 0px;
-  background: #5e9ef1;
-  clip-path: inset(0% 0 0% 0 round 25px);
+  align-items: flex-end;
+  > div {
+    margin: 0;
+  }
+  @media only screen and (max-width: 1360px) {
+    justify-content: center;
+  }
+`
+
+const List = styled.div`
+  grid-area: cards;
+  margin-top: 55px;
+  height: max-content;
+`
+
+const LogoContainer = styled.div`
+  padding: 0 10px;
+  transform: translate(14px, 20px);
+`
+
+const StyledAvatar = styled(Avatar)`
+  grid-area: avatar;
+  @media only screen and (max-width: 1360px) {
+    margin: auto auto;
+  }
+`
+
+const Icon = styled.div`
+  width: 100%;
+  height: 46px;
+  > svg {
+    width: 100%;
+    height: 100%;
+  }
+  margin-top: 50px;
+  margin: 0;
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+`
+
+const Email = styled.div`
+  flex-flow: row wrap;
+  margin-top: 300px;
+  display: flex;
+  flex-direction: column;
+`
+
+const Grey = styled.span`
+  color: #d2d8e0;
+  font-family: Cantarell, sans-serif;
+`
+
+const Bubble = styled.span`
+  color: #fff;
+  background: #d2d8e0;
+  border-radius: 18px;
+  padding: 0px 8px 5px;
+  margin-left: 6px;
+`
+
+const EmailContainer = styled.div`
+  display: flex;
+  > span:first-of-type {
+    padding-top: 0;
+  }
+`
+
+const InputContainer = styled.div`
+  margin-top: 40px;
+  display: grid;
+  grid-gap: 10px 30px;
+  grid-template-columns: repeat(2, 0.5fr);
+  margin-bottom: 800px;
+`
+
+const Message = styled(TextArea)`
+  grid-column: span 2;
+`
+
+const Row = styled.div`
+  display: flex;
 `
 
 const items = [
   {
-    id: 'liv.rent',
-    background: '#fe5f55',
-    logo: (
-      <LivLogo>
-        <LivRent />
-      </LivLogo>
-    ),
-    children: ({ isOpen }) =>
-      !isOpen ? (
-        <Text color="#973838">
-          Junior Software Developer at{' '}
-          <Title paddingX="0" paddingY="10px" color="#fff" fontSize="32px">
-            Machobear Studios Inc.
-          </Title>{' '}
-          <Right>working on liv.rent</Right>
-        </Text>
-      ) : null,
+    id: 'intro',
+    color: '#fe9c55',
+    icon: () => '🧙',
+    children: 'Software Developer',
   },
   {
-    id: 'fts',
-    color: '#38976a',
-    background: '#ddffb4',
-    logo: (
-      <Box>
-        <Fts360 />
-      </Box>
+    id: 'tech',
+    color: '#1a8bed',
+    icon: () => (
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/71/Safari_14_icon.png" alt="" />
     ),
-    children: ({ isOpen }) =>
-      !isOpen ? (
-        <Text color="#38976a" width="100%">
-          Former Software Developer at{' '}
-          <Title
-            paddingX="0"
-            paddingY="10px"
-            color="#231f20"
-            fontSize="32px"
-            transform="translateX(102%)"
-            width="max-content"
-          >
-            FTS Inc.
-          </Title>{' '}
-          <Right>who worked on FTS 360</Right>
-        </Text>
-      ) : null,
+    children: 'Safari Navigator',
   },
   {
-    id: 'react-wavify',
-    background: '#fadc96',
-    color: '#5e9ef1',
-    justifyContent: 'flex-end',
-    logo: (
-      <div>
-        <WavifyLogo>
-          <WaveIcon width={50} height={50} />
-        </WavifyLogo>
-        <Wave
-          style={{
-            position: 'absolute',
-            width: '100%',
-            bottom: '0px',
-            clipPath: 'inset(0% 0 0% 0 round 25px)',
-            color: '#5E9EF1',
-          }}
-          fill="#5E9EF1"
-          options={{
-            height: 20,
-            amplitude: 20,
-            speed: 0.2,
-            points: 4,
-          }}
-        />
-        <WavifyBar />
-      </div>
-    ),
-    children: () => (
-      <Title
-        paddingX="30px"
-        paddingY="10px"
-        color="#226699"
-        fontSize="32px"
-        transform="translateX(0)"
-      >
-        react-wavify
-      </Title>
-    ),
+    id: 'hobby-1',
+    color: '#a52a2a',
+    icon: () => '🐕',
+    children: 'Pet Lover',
   },
   {
-    id: 'alien-expansion',
-    background:
-      'url(https://cdn.jsdelivr.net/gh/woofers/ludum-dare-44/screenshots/title-screen.gif)',
-    color: '#83769c',
-    logo: (
-      <div>
-        <div
-          style={{
-            width: '100px',
-            height: '200px',
-            marginLeft: '9px',
-            marginTop: '5px',
-          }}
-        >
-          <AlienExpansion />
-        </div>
-      </div>
+    id: 'hobby-2',
+    color: '#ff251e',
+    icon: () => (
+      <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/racing-car_1f3ce-fe0f.png" alt="" />
     ),
-    children: () => null,
+    children: 'Car Racer',
   },
 ]
 
-const Index = props => {
+const nav = [
+  {
+    to: '/work',
+    children: 'Me',
+  },
+  {
+    to: '/about',
+    children: 'Work',
+  },
+  {
+    to: '/me',
+    children: 'Contact',
+  },
+]
+
+const Me = () => {
+  const [hasScrolled, setScrolled] = useState()
+  const { scrollYProgress } = useViewportScroll()
+  const { y } = useScrollPosition()
+  const showHeader = y > 275
+  useTimeout(() => setScrolled(true), 2600)
   return (
     <>
-      <Cards items={items} />
+      <Header>{showHeader && <Logo />}</Header>
+      <Grid layoutId="grid">
+        <Flex>
+          {!showHeader && (
+            <Text
+              fontSize="53px"
+              fontWeight="400"
+              letterSpacing="-1.5px"
+              color="#27292b"
+              as={motion.div}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                type: 'spring',
+                duration: 0.8,
+                delay: 0.5,
+              }}
+            >
+                Hello, I{"'"}m
+            </Text>
+          )}
+          <LogoContainer>
+            {!showHeader && <Logo delay={hasScrolled ? 0 : 1.3} />}
+          </LogoContainer>
+        </Flex>
+        <List>
+          <ShiftCards items={items} show={!showHeader} intro={!hasScrolled} />
+        </List>
+        <StyledAvatar show={!showHeader} intro={!hasScrolled} />
+      </Grid>
+      <Spacer />
+      <Nav items={nav} />
+      <Work />
+      <Email>
+        <Title
+          paddingX="0"
+          paddingY="0"
+          fontSize="25px"
+          fontWeight="500"
+          letterSpacing="-0.5px"
+          color="#c9c9c9"
+        >
+          Reach out
+        </Title>
+        <EmailContainer>
+          <Title
+            fontSize="45px"
+            fontWeight="400"
+            letterSpacing="-1.5px"
+            color="#fe9c55"
+            as="span"
+          >
+            <span>jaxson.</span>
+            <Grey>vandoorn</Grey>
+            <Bubble>@gmail.com</Bubble>
+          </Title>
+        </EmailContainer>
+      </Email>
+      <InputContainer>
+        <Input placeholder="Name" iconWidth="36px" iconPadding="3px">
+          <Icon>
+            <UserIcon />
+          </Icon>
+        </Input>
+        <Input placeholder="Email" iconWidth="36px" iconPadding="5px">
+          <Icon>
+            <MailIcon />
+          </Icon>
+        </Input>
+        <Message
+          placeholder="Message"
+          height="200px"
+          iconWidth="36px"
+          iconPadding="5px"
+        >
+          <Icon>
+            <PageIcon />
+          </Icon>
+        </Message>
+      </InputContainer>
     </>
   )
 }
 
-export default Index
+export default Me
