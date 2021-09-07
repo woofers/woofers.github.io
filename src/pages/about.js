@@ -132,7 +132,6 @@ const InputContainer = styled.div`
   margin-bottom: 800px;
 `
 
-
 const items = [
   {
     id: 'intro',
@@ -188,40 +187,49 @@ const Me = () => {
   return (
     <>
       <Header>{showHeader && <Logo />}</Header>
-        <Grid layoutId="grid">
-          <Flex>
-            {!showHeader && (
-              <Text
-                fontSize="53px"
-                fontWeight="400"
-                letterSpacing="-1.5px"
-                color="#27292b"
-                as={motion.div}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{
-                  type: 'spring',
-                  duration: 0.8,
-                  delay: 0.5,
-                }}
-              >
-                Hello, I'm
-              </Text>
-            )}
-            <LogoContainer>
-              {!showHeader && <Logo delay={hasScrolled ? 0 : 1.3} />}
-            </LogoContainer>
-          </Flex>
-          <List>
-            <ShiftCards items={items} show={!showHeader} intro={!hasScrolled} />
-          </List>
-          <StyledAvatar show={!showHeader} intro={!hasScrolled} />
-        </Grid>
+      <Grid layoutId="grid">
+        <Flex>
+          {!showHeader && (
+            <Text
+              fontSize="53px"
+              fontWeight="400"
+              letterSpacing="-1.5px"
+              color="#27292b"
+              as={motion.div}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                type: 'spring',
+                duration: 0.8,
+                delay: 0.5,
+              }}
+            >
+              Hello, I'm
+            </Text>
+          )}
+          <LogoContainer>
+            {!showHeader && <Logo delay={hasScrolled ? 0 : 1.3} />}
+          </LogoContainer>
+        </Flex>
+        <List>
+          <ShiftCards items={items} show={!showHeader} intro={!hasScrolled} />
+        </List>
+        <StyledAvatar show={!showHeader} intro={!hasScrolled} />
+      </Grid>
       <Spacer />
       <Nav items={nav} />
       <Page />
       <Email>
-        <Title paddingX="0" paddingY="0" fontSize="25px" fontWeight="500" letterSpacing="-0.5px" color="#c9c9c9">Reach out</Title>
+        <Title
+          paddingX="0"
+          paddingY="0"
+          fontSize="25px"
+          fontWeight="500"
+          letterSpacing="-0.5px"
+          color="#c9c9c9"
+        >
+          Reach out
+        </Title>
         <EmailContainer>
           <Title
             fontSize="45px"
@@ -230,14 +238,16 @@ const Me = () => {
             color="#fe9c55"
             as="span"
           >
-            <span>jaxson.</span><Grey>vandoorn</Grey><Bubble>@gmail.com</Bubble>
+            <span>jaxson.</span>
+            <Grey>vandoorn</Grey>
+            <Bubble>@gmail.com</Bubble>
           </Title>
           <Mail src={icon} />
         </EmailContainer>
       </Email>
       <InputContainer>
-        <Input value="" placeholder="Name" />
-        <Input value="" placeholder="Email" />
+        <Input placeholder="Name" />
+        <Input placeholder="Email" />
         <TextArea />
       </InputContainer>
     </>
