@@ -103,6 +103,7 @@ const Mail = styled.img`
 `
 
 const Email = styled.div`
+  flex-flow: row wrap;
   margin-top: 300px;
   display: flex;
   flex-direction: column;
@@ -129,7 +130,18 @@ const EmailContainer = styled.div`
 `
 
 const InputContainer = styled.div`
+  display: grid;
+  grid-gap: 24px 30px;
+  grid-template-columns: repeat(2, 0.5fr);
   margin-bottom: 800px;
+`
+
+const Message = styled(TextArea)`
+  grid-column: span 2;
+`
+
+const Row = styled.div`
+  display: flex;
 `
 
 const items = [
@@ -248,7 +260,7 @@ const Me = () => {
       <InputContainer>
         <Input placeholder="Name" />
         <Input placeholder="Email" />
-        <TextArea />
+        <Message height="200px" />
       </InputContainer>
     </>
   )

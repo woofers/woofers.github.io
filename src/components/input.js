@@ -2,15 +2,14 @@ import React from 'react'
 import { styled } from 'emotion'
 
 const Field = styled.input`
-  font-size: 16px;
+  flex: 0 0 50%;
+  font-size: 18px;
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
   padding: 12px;
-  margin: 12px;
   border: none;
   outline: none;
   width: 100%;
-  max-width: 240px;
   border-radius: 8px;
   background: #fff;
   color: #646b8c;
@@ -22,7 +21,7 @@ const Field = styled.input`
   }
   &:focus {
     --border-width: 1.5px;
-    --border: #275EFE;
+    --border: #feb37d;
   }
 `
 
