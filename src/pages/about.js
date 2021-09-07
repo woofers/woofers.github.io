@@ -267,7 +267,12 @@ const Me = () => {
         <Input placeholder="Email" iconWidth="36px" iconPadding="5px">
           <Mail src={mail} />
         </Input>
-        <Message placeholder="Message" height="200px" iconWidth="36px" iconPadding="5px">
+        <Message
+          placeholder="Message"
+          height="200px"
+          iconWidth="36px"
+          iconPadding="5px"
+        >
           <Mail src={page} />
         </Message>
       </InputContainer>

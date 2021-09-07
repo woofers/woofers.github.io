@@ -17,7 +17,8 @@ const Container = styled.div`
   font-size: 18px;
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
-  padding: ${props => `${props.$paddingY} ${props.$paddingX} ${props.$paddingY} calc(${props.$iconWidth} + ${props.$paddingX})`};
+  padding: ${props =>
+    `${props.$paddingY} ${props.$paddingX} ${props.$paddingY} calc(${props.$iconWidth} + ${props.$paddingX})`};
   border: none;
   outline: none;
   width: 100%;
