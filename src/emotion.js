@@ -5,7 +5,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const createGlobal = val => {
   const style = css(`${val}`)
-  return () => <Global styles={style} />
+  const Component = () => <Global styles={style} />
+  return Component
 }
 
 export { styled, Global, css, createGlobal, useMediaQuery }

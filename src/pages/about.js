@@ -165,7 +165,7 @@ const items = [
     id: 'tech',
     color: '#1a8bed',
     icon: () => (
-      <img src="https://upload.wikimedia.org/wikipedia/en/7/71/Safari_14_icon.png" />
+      <img src="https://upload.wikimedia.org/wikipedia/en/7/71/Safari_14_icon.png" alt="" />
     ),
     children: 'Safari Navigator',
   },
@@ -179,7 +179,7 @@ const items = [
     id: 'hobby-2',
     color: '#ff251e',
     icon: () => (
-      <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/racing-car_1f3ce-fe0f.png" />
+      <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/google/298/racing-car_1f3ce-fe0f.png" alt="" />
     ),
     children: 'Car Racer',
   },
@@ -226,7 +226,7 @@ const Me = () => {
                 delay: 0.5,
               }}
             >
-              Hello, I'm
+                Hello, I{"'"}m
             </Text>
           )}
           <LogoContainer>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { styled, useMediaQuery } from 'emotion'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-import withLocation from './with-location'
 import Card from './card'
 
 const ROWS = 2
@@ -59,7 +58,7 @@ const Overlay = styled(motion.div)`
   z-index: 1;
 `
 
-const Cards = ({ items = [], location }) => {
+const Cards = ({ items = [] }) => {
   const [selectedId, setSelectedId] = useState()
   const item = items.find(({ id }) => id === selectedId)
   const shift = useMediaQuery('@media only screen and (max-width: 1360px)')
@@ -106,4 +105,4 @@ const Cards = ({ items = [], location }) => {
   )
 }
 
-export default withLocation(Cards)
+export default Cards
