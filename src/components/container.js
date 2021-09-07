@@ -13,7 +13,6 @@ const mq = breakpoints =>
     )
     .join('\n')
 
-
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -26,6 +25,8 @@ const Wrapper = styled.div`
   ${({ theme }) => mq(theme.breakpoints)}
 `
 
-const Container = ({ children, ...rest }) => <Wrapper {...rest}>{children}</Wrapper>
+const Container = ({ children, ...rest }) => (
+  <Wrapper {...rest}>{children}</Wrapper>
+)
 
 export default Container

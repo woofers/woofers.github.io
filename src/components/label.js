@@ -3,7 +3,7 @@ import { styled, css } from 'emotion'
 
 export const shift = props => css`
   > ${!props.$hasPlaceholder
-      ? ':is(input:valid, input:focus, div[role="textbox"]:not(:empty)) ~ label'
+      ? ':is(input:valid, input:focus, div[role="textbox"]:not(:empty), div:focus) ~ label'
       : 'label'} {
     transform: translate(calc(${props.$iconWidth} + ${props.$paddingX}), 0);
     pointer-events: all;

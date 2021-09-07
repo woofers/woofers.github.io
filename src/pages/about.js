@@ -99,7 +99,7 @@ const StyledAvatar = styled(Avatar)`
 
 const Icon = styled.div`
   width: 100%;
-  height: 100%;
+  height: 46px;
   > svg {
     width: 100%;
     height: 100%;
@@ -268,10 +268,14 @@ const Me = () => {
       </Email>
       <InputContainer>
         <Input placeholder="Name" iconWidth="36px" iconPadding="3px">
-          <Icon><UserIcon /></Icon>
+          <Icon>
+            <UserIcon />
+          </Icon>
         </Input>
         <Input placeholder="Email" iconWidth="36px" iconPadding="5px">
-          <Icon><MailIcon /></Icon>
+          <Icon>
+            <MailIcon />
+          </Icon>
         </Input>
         <Message
           placeholder="Message"
@@ -279,7 +283,9 @@ const Me = () => {
           iconWidth="36px"
           iconPadding="5px"
         >
-          <Icon><PageIcon /></Icon>
+          <Icon>
+            <PageIcon />
+          </Icon>
         </Message>
       </InputContainer>
     </>

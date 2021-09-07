@@ -1,6 +1,10 @@
 import { createGlobal } from 'emotion'
 
 const Global = createGlobal`
+  * {
+    box-sizing: inherit;
+  }
+
   html,
   h1,
   h2,
