@@ -1,5 +1,13 @@
 import React, { useRef } from 'react'
 import { styled } from 'emotion'
+import Label, { shift } from './label'
+
+const Wrapper = styled.div`
+  position: relative;
+  padding-top: ${props => props.$labelHeight};
+  overflow: hidden;
+  ${shift};
+`
 
 const Container = styled.div`
   width: 100%;
@@ -27,7 +35,14 @@ const Container = styled.div`
   }
 `
 
-const TextArea = ({ height, ...rest }) => {
+const TextArea = ({
+  height,
+  placeholder,
+  paddingX = '12px',
+  paddingY = '12px',
+  labelHeight = '28px',
+  ...rest
+}) => {
   const container = useRef()
   const onPaste = e => {
     e.stopPropagation()
@@ -37,16 +52,23 @@ const TextArea = ({ height, ...rest }) => {
     const content = clipboardData.getData('Text')
     document.execCommand('insertText', false, content)
   }
+  const padding = {
+    $paddingX: paddingX,
+    $paddingY: paddingY,
+    $labelHeight: labelHeight,
+  }
   return (
-    <Container
-      $height={height}
-      {...rest}
-      contentEditable
-      tabIndex="0"
-      role="textbox"
-      onPaste={onPaste}
-      ref={container}
-    />
+    <Wrapper {...padding} {...rest}>
+      <Container
+        $height={height}
+        contentEditable
+        tabIndex="0"
+        role="textbox"
+        onPaste={onPaste}
+        ref={container}
+      />
+      {!!placeholder && <Label {...padding}>{placeholder}</Label>}
+    </Wrapper>
   )
 }
 

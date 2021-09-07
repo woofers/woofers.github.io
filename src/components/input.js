@@ -10,7 +10,6 @@ const Wrapper = styled.div`
 `
 
 const Field = styled.input`
-  flex: 0 0 50%;
   font-size: 18px;
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
