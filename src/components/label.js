@@ -5,12 +5,12 @@ export const shift = props => css`
   > ${!props.$hasPlaceholder
       ? ':is(input:valid, input:focus, div[role="textbox"]:not(:empty)) ~ label'
       : 'label'} {
-    transform: translate(${props.$paddingX}, 0);
+    transform: translate(calc(${props.$iconWidth} + ${props.$paddingX}), 0);
     pointer-events: all;
   }
   > input:valid ~ span {
     transform: translate(
-      -${props.$placeholderWidth || 0},
+      calc((${props.$iconWidth} + ${props.$placeholderWidth || 0}) * -1),
       calc(${props.$paddingY} + ${props.$labelHeight})
     );
   }
@@ -24,7 +24,7 @@ const Field = styled.label`
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
   transform: translate(
-    ${props => props.$paddingX},
+    calc(${props => props.$iconWidth} + ${props => props.$paddingX}),
     calc(${props => props.$paddingY} + ${props => props.$labelHeight})
   );
   color: #bbc1e1;

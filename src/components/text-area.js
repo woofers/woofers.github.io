@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { Children, useRef } from 'react'
 import { styled } from 'emotion'
 import Label, { shift } from './label'
 
@@ -15,7 +15,7 @@ const Container = styled.div`
   font-size: 18px;
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
-  padding: 12px;
+  padding: ${props => `${props.$paddingY} ${props.$paddingX} ${props.$paddingY} calc(${props.$iconWidth} + ${props.$paddingX})`};
   border: none;
   outline: none;
   width: 100%;
@@ -35,12 +35,26 @@ const Container = styled.div`
   }
 `
 
+const Icon = styled.div`
+  position: absolute;
+  top: ${props => props.$labelHeight};
+  left: calc(${props => props.$paddingX} / 2);
+  height: calc(100% - ${props => props.$labelHeight});
+  width: ${props => props.$iconWidth};
+  padding: 0 ${props => props.$iconPadding};
+  pointer-events: none;
+  user-select: none;
+`
+
 const TextArea = ({
+  children,
   height,
   placeholder,
   paddingX = '12px',
   paddingY = '12px',
   labelHeight = '28px',
+  iconWidth = '0px',
+  iconPadding = '5px',
   ...rest
 }) => {
   const container = useRef()
@@ -56,10 +70,14 @@ const TextArea = ({
     $paddingX: paddingX,
     $paddingY: paddingY,
     $labelHeight: labelHeight,
+    $placeholderWidth: '0px',
+    $iconWidth: iconWidth,
+    $iconPadding: iconPadding,
   }
   return (
     <Wrapper {...padding} {...rest}>
       <Container
+        {...padding}
         $height={height}
         contentEditable
         tabIndex="0"
@@ -68,6 +86,7 @@ const TextArea = ({
         ref={container}
       />
       {!!placeholder && <Label {...padding}>{placeholder}</Label>}
+      {Children.count(children) > 0 && <Icon {...padding}>{children}</Icon>}
     </Wrapper>
   )
 }

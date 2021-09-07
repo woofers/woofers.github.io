@@ -15,7 +15,9 @@ import {
 } from 'framer-motion'
 import useScrollPosition from 'hooks/use-scroll-position'
 import useTimeout from 'hooks/use-timeout'
-import icon from 'icons/mail.svg'
+import mail from 'icons/mail.svg'
+import user from '../icons/user.svg'
+import page from 'icons/page.svg'
 import Input from 'components/input'
 import TextArea from 'components/text-area'
 import Page from './'
@@ -256,13 +258,18 @@ const Me = () => {
             <Grey>vandoorn</Grey>
             <Bubble>@gmail.com</Bubble>
           </Title>
-          <Mail src={icon} />
         </EmailContainer>
       </Email>
       <InputContainer>
-        <Input placeholder="Name" />
-        <Input placeholder="Email" />
-        <Message placeholder="Message" height="200px" />
+        <Input placeholder="Name" iconWidth="36px" iconPadding="3px">
+          <Mail src={user} />
+        </Input>
+        <Input placeholder="Email" iconWidth="36px" iconPadding="5px">
+          <Mail src={mail} />
+        </Input>
+        <Message placeholder="Message" height="200px" iconWidth="36px" iconPadding="5px">
+          <Mail src={page} />
+        </Message>
       </InputContainer>
     </>
   )

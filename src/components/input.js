@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import { styled } from 'emotion'
 import Label, { shift } from './label'
 
@@ -13,7 +13,7 @@ const Field = styled.input`
   font-size: 18px;
   font-weight: 700;
   font-family: 'Cabin', sans-serif;
-  padding: ${props => `${props.$paddingY} ${props.$paddingX}`};
+  padding: ${props => `${props.$paddingY} ${props.$paddingX} ${props.$paddingY} calc(${props.$iconWidth} + ${props.$paddingX})`};
   border: none;
   outline: none;
   width: 100%;
@@ -32,6 +32,17 @@ const Field = styled.input`
   }
 `
 
+const Icon = styled.div`
+  position: absolute;
+  top: ${props => props.$labelHeight};
+  left: calc(${props => props.$paddingX} / 2);
+  height: calc(100% - ${props => props.$labelHeight});
+  width: ${props => props.$iconWidth};
+  padding: 0 ${props => props.$iconPadding};
+  pointer-events: none;
+  user-select: none;
+`
+
 const Input = ({
   children,
   label,
@@ -39,6 +50,8 @@ const Input = ({
   paddingX = '12px',
   paddingY = '12px',
   labelHeight = '28px',
+  iconWidth = '0px',
+  iconPadding = '5px',
   placeholderWidth = '65px',
   ...rest
 }) => {
@@ -51,6 +64,8 @@ const Input = ({
     $paddingY: paddingY,
     $labelHeight: labelHeight,
     $placeholderWidth: placeholderWidth,
+    $iconWidth: iconWidth,
+    $iconPadding: iconPadding
   }
   return (
     <Wrapper $hasPlaceholder={secondLabel} {...padding}>
@@ -68,6 +83,7 @@ const Input = ({
           {secondLabel}
         </Label>
       )}
+      {Children.count(children) > 0 && <Icon {...padding}>{children}</Icon>}
     </Wrapper>
   )
 }
