@@ -13,4 +13,4 @@ const Img = styled.img`
   height: 80px;
 `
 
-export const AlienExpansion = () => <Img src={ship.src} />
+export const AlienExpansion = () => <Img src={ship.src} alt="" />

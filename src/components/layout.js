@@ -5,6 +5,7 @@ import Global from './global'
 import Container from './container'
 import GoogleFonts from './google-fonts'
 import Header from './header'
+import Meta from './meta'
 
 const Text = styled(motion.h1)`
   margin: 0;
@@ -52,6 +53,7 @@ const items = [
 const Layout = ({ children, location, ...rest }) => {
   return (
     <Wrapper {...rest} id="root-layout-wrapper">
+      <Meta />
       <GoogleFonts
         fonts={[
           'Mulish:wght@900',
