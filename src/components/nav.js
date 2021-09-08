@@ -40,7 +40,7 @@ const Menu = styled.div`
 
 const Nav = ({ items }) => {
   const router = useRouter()
-  const path = router?.pathname
+  const path = router?.asPath
   return (
     <Menu left={head(items).to === path} right={last(items).to === path}>
       {items.map(({ children, to, ...rest }) => (

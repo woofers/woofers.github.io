@@ -188,15 +188,15 @@ const items = [
 
 const nav = [
   {
-    to: '/intro',
+    to: '/',
     children: 'Me',
   },
   {
-    to: '/about',
+    to: '/work',
     children: 'Work',
   },
   {
-    to: '/me',
+    to: '/contact',
     children: 'Contact',
   },
 ]
@@ -221,8 +221,8 @@ const Me = () => {
     }
   })()
   useEffect(() => {
-    router.push(slug, undefined, { shallow: true })
-  }, [slug])
+    router.replace(slug, undefined, { shallow: true })
+  }, [slug, router])
   return (
     <>
       <Header>{showHeader && <Logo />}</Header>
