@@ -21,6 +21,7 @@ import { ReactComponent as PageIcon } from 'icons/page.svg'
 import Input from 'components/input'
 import TextArea from 'components/text-area'
 import Work from 'components/work'
+import { useRouter } from 'next/router'
 
 const Header = styled.header`
   width: 100%;
@@ -187,7 +188,7 @@ const items = [
 
 const nav = [
   {
-    to: '/work',
+    to: '/intro',
     children: 'Me',
   },
   {
@@ -206,6 +207,22 @@ const Me = () => {
   const { y } = useScrollPosition()
   const showHeader = y > 275
   useTimeout(() => setScrolled(true), 2600)
+  const router = useRouter()
+  const section = router?.query?.section?.[0] || 'intro'
+  const slug = (() => {
+    if (y > 2015) {
+      return '/contact'
+    }
+    else if (y > 275) {
+      return '/work'
+    }
+    else {
+      return '/'
+    }
+  })()
+  useEffect(() => {
+    router.push(slug, undefined, { shallow: true })
+  }, [slug])
   return (
     <>
       <Header>{showHeader && <Logo />}</Header>
