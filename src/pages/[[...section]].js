@@ -4,9 +4,9 @@ import useScrollPosition from 'hooks/use-scroll-position'
 import useTimeout from 'hooks/use-timeout'
 import { useRouter } from 'next/router'
 import Logo from 'components/logo'
-import Intro from 'components/intro'
-import Work from 'components/work'
-import Contact from 'components/contact'
+import Me from 'sections/me'
+import Work from 'sections/work'
+import Contact from 'sections/contact'
 
 const Header = styled.header`
   width: 100%;
@@ -19,13 +19,13 @@ const Header = styled.header`
   pointer-events: none;
 `
 
-const Me = () => {
+const Index = () => {
   const [hasScrolled, setScrolled] = useState()
   const { y } = useScrollPosition()
   const showHeader = y > 275
   useTimeout(() => setScrolled(true), 2600)
   const router = useRouter()
-  const section = router?.query?.section?.[0] || 'intro'
+  const section = router?.query?.section?.[0] || 'me'
   const slug = (() => {
     if (y > 2015) {
       return '/contact'
@@ -42,11 +42,11 @@ const Me = () => {
   return (
     <>
       <Header>{showHeader && <Logo />}</Header>
-      <Intro showHeader={showHeader} hasScrolled={hasScrolled} />
+      <Me showHeader={showHeader} hasScrolled={hasScrolled} />
       <Work />
       <Contact />
     </>
   )
 }
 
-export default Me
+export default Index
