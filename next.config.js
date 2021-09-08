@@ -15,5 +15,15 @@ module.exports = {
       use: ['@svgr/webpack', 'file-loader'],
     })
     return config
+  },
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      '/': { page: '/[[...section]]' },
+      '/work': { page: '/[[...section]]' },
+      '/contact': { page: '/[[...section]]' }
+    }
   }
 }
