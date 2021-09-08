@@ -5,8 +5,8 @@ const Anchor = styled.a`
   text-underline: none;
 `
 
-const Link = ({ to, children, ...rest }) => (
-  <NextLink href={to} passHref>
+const Link = ({ to, children, scroll = false, ...rest }) => (
+  <NextLink href={to} scroll={scroll} passHref>
     <Anchor {...rest}>{children}</Anchor>
   </NextLink>
 )

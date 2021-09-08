@@ -3,6 +3,7 @@ import { styled } from 'emotion'
 import Cards from 'components/cards'
 import Title from 'components/title'
 import Text from 'components/text'
+import Nav from 'components/nav'
 import { WaveIcon, LivRent, Fts360, AlienExpansion } from 'logos'
 import Wave from 'react-wavify'
 
@@ -147,9 +148,27 @@ const items = [
   },
 ]
 
+const nav = [
+  {
+    to: '/',
+    children: 'Me',
+  },
+  {
+    to: '/work',
+    children: 'Work',
+  },
+  {
+    to: '/contact',
+    children: 'Contact',
+  },
+]
+
 const Work = props => {
   return (
-    <Cards items={items} />
+    <>
+      <Nav items={nav} />
+      <Cards items={items} />
+    </>
   )
 }
 
