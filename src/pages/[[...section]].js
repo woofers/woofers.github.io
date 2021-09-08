@@ -36,6 +36,19 @@ const Index = () => {
     }
   })()
   useEffect(() => {
+    if (!router.isReady || typeof window === 'undefined') return
+    const scrollTo = (x, y) => window.scrollTo({ left: x, top: y, behavior: 'smooth' })
+    if (section === 'me') {
+      scrollTo(0, 0)
+    }
+    else if (section === 'work') {
+      scrollTo(0, 275 + (1440/2))
+    }
+    else if (section === 'contact') {
+      scrollTo(0, 2315)
+    }
+  }, [router.isReady, section])
+  useEffect(() => {
     if (!router.isReady) return
     router.replace(slug, undefined, { shallow: true })
   }, [slug])
