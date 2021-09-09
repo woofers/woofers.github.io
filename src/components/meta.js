@@ -8,6 +8,7 @@ const Meta = () => {
       <meta charSet="utf-8" />
       <meta name="description" content="Jaxson Van Doorn's Site" />
       <meta name="viewport" content="width=device-width" />
+      <meta name="robots" content="noindex, nofollow" />
     </Head>
   )
 }
