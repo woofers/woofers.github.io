@@ -163,10 +163,10 @@ const nav = [
   },
 ]
 
-const Work = props => {
+const Work = ({ setLoaded }) => {
   return (
     <>
-      <Nav items={nav} />
+      <Nav items={nav} setLoaded={setLoaded} />
       <Cards items={items} />
     </>
   )

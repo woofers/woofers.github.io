@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { styled } from 'emotion'
 import useScrollPosition from 'hooks/use-scroll-position'
 import useTimeout from 'hooks/use-timeout'
@@ -20,6 +20,7 @@ const Header = styled.header`
 `
 
 const Index = () => {
+  const [hasLoaded, setLoaded] = useState()
   const [hasScrolled, setScrolled] = useState()
   const { y } = useScrollPosition()
   const showHeader = y > 275
@@ -36,8 +37,8 @@ const Index = () => {
     }
   })()
   useEffect(() => {
-    if (!router.isReady || typeof window === 'undefined') return
-    const scrollTo = (x, y) => window.scrollTo({ left: x, top: y, behavior: 'smooth' })
+    if (!router.isReady || typeof window === 'undefined' || hasLoaded) return
+    const scrollTo = (x, y) => window.scrollTo({ left: x, top: y, behavior: 'auto' })
     if (section === 'me') {
       scrollTo(0, 0)
     }
@@ -47,6 +48,7 @@ const Index = () => {
     else if (section === 'contact') {
       scrollTo(0, 2315)
     }
+    setLoaded(true)
   }, [router.isReady, section])
   useEffect(() => {
     if (!router.isReady) return
@@ -56,7 +58,7 @@ const Index = () => {
     <>
       <Header>{showHeader && <Logo />}</Header>
       <Me showHeader={showHeader} hasScrolled={hasScrolled} />
-      <Work />
+      <Work setLoaded={setLoaded} />
       <Contact />
     </>
   )

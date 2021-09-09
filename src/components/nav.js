@@ -38,7 +38,7 @@ const Menu = styled.div`
   }
 `
 
-const Nav = ({ items }) => {
+const Nav = ({ items, setLoaded }) => {
   const router = useRouter()
   const path = router?.asPath
   return (
@@ -51,6 +51,7 @@ const Nav = ({ items }) => {
           as={Link}
           aria-current={path === to ? 'page' : undefined}
           color="#c9c9c9"
+          onClick={() => setLoaded(false)}
         >
           {children}
         </Title>
