@@ -15,7 +15,7 @@ const Text = styled.div`
 Text.defaultProps = {
   color: '#27292b',
   fontSize: '20px',
-  fontWeight: '900',
+  fontWeight: '700',
   left: 0,
   right: 0,
   top: 0,

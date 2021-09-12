@@ -8,7 +8,7 @@ const Button = styled(Link)`
   text-decoration: none;
   font-size: 15px;
   line-height: 18px;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 8px;
   border: medium none;
   background: transparent none repeat scroll 0% 0%;

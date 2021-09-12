@@ -1,0 +1,38 @@
+/*
+ See http://jaxs.onl/fonts/cantarell/LICENSE
+  or https://gitlab.gnome.org/GNOME/cantarell-fonts/-/blob/6ef7a12a75fc3907531c1ba57741e4b1ba496d01/COPYING
+  This Font Software is licensed under the SIL Open Font License, Version 1.1.
+  CHANGES: Converted to WOFF2 from OTF.
+*/
+
+@font-face {
+    font-family: 'Cantarell';
+    src: url('Cantarell-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cantarell';
+    src: url('Cantarell-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cantarell';
+    src: url('Cantarell-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Cantarell';
+    src: url('Cantarell-ExtraBold.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

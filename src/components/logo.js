@@ -10,7 +10,7 @@ const Container = styled.div`
   color: #000;
   display: flex;
   flex-direction: column-reverse;
-  font-family: Cantarell;
+  font-family: Cantarell, sans-serif;
 `
 
 const Translate = styled(motion.div)`
@@ -22,7 +22,7 @@ const Primary = styled.div`
   line-height: 20px;
   color: var(--hover-color, #fe9c55);
   transition: color 0.5s ease;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: -1px;
   font-size: 64px;
   transform: skew(172deg, 0deg);

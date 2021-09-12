@@ -70,7 +70,6 @@ const Contact = () => (
         paddingX="0"
         paddingY="0"
         fontSize="25px"
-        fontWeight="500"
         letterSpacing="-0.5px"
         color="#c9c9c9"
       >
