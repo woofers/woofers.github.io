@@ -37,8 +37,8 @@ const Layout = ({ children, location, ...rest }) => {
       <Meta />
       <GoogleFonts
         fonts={[
-          'Mulish:wght@900',
-          'Cabin:wght@400;700'
+          'Cabin:wght@400;700',
+          'Mulish:wght@900'
         ]}
       >
         <link href="/fonts/cantarell/font.css" rel="stylesheet" />

@@ -99,7 +99,7 @@ const StyledAvatar = styled(Avatar)`
 
 const LogoContainer = styled.div`
   padding: 0 10px;
-  transform: translate(14px, 20px);
+  transform: translate(14px, 15px);
 `
 
 const Intro = ({ showHeader, hasScrolled }) => (
