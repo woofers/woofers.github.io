@@ -30,6 +30,7 @@ const Email = styled.div`
 const Grey = styled.span`
   color: #d2d8e0;
   font-family: Cantarell, sans-serif;
+  font-weight: 400;
 `
 
 const Bubble = styled.span`
@@ -78,7 +79,7 @@ const Contact = () => (
       <EmailContainer>
         <Title
           fontSize="45px"
-          fontWeight="400"
+          fontWeight="900"
           letterSpacing="-1.5px"
           color="#fe9c55"
           as="span"
