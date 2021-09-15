@@ -2,7 +2,7 @@ import React from 'react'
 import Title from 'components/title'
 import { styled } from 'emotion'
 import { motion } from 'framer-motion'
-import Link from 'link'
+import { SectionLink } from 'link'
 
 const Container = styled.div`
   width: 210px;
@@ -50,7 +50,7 @@ const Space = styled.span`
 
 const Logo = ({ shift, delay = 0 }) => {
   return (
-    <Link to="/">
+    <SectionLink href="/">
       <Translate
         layoutId={'jvd-logo'}
         initial={{ x: 0, y: -48, opacity: 0 }}
@@ -73,7 +73,7 @@ const Logo = ({ shift, delay = 0 }) => {
           </Secondary>
         </Container>
       </Translate>
-    </Link>
+    </SectionLink>
   )
 }
 

@@ -20,13 +20,14 @@ const Header = styled.header`
 `
 
 const Index = () => {
-  const [hasLoaded, setLoaded] = useState()
-  const [hasScrolled, setScrolled] = useState()
+  const [timer, setTimer] = useState()
   const { y } = useScrollPosition()
   const showHeader = y > 275
-  useTimeout(() => setScrolled(true), 2600)
+  useTimeout(() => setTimer(true), 2600)
   const router = useRouter()
+  const hasLoaded = router?.query?.reset === 'true' || !router?.query?.reset  ? false : true
   const section = router?.query?.section?.[0] || 'me'
+  const hasScrolled = section !== 'me' || timer
   const slug = (() => {
     if (y > 2015) {
       return '/contact'
@@ -48,17 +49,18 @@ const Index = () => {
     else if (section === 'contact') {
       scrollTo(0, 2315)
     }
-    setLoaded(true)
   }, [router.isReady, section])
   useEffect(() => {
     if (!router.isReady) return
-    router.replace(slug, undefined, { shallow: true })
+    const query = router?.query
+    const pathname = router?.pathname
+    router.replace("/[[...section]]?reset=false", slug, { shallow: true })
   }, [slug])
   return (
     <>
       <Header>{showHeader && <Logo />}</Header>
       <Me showHeader={showHeader} hasScrolled={hasScrolled} />
-      <Work setLoaded={setLoaded} />
+      <Work />
       <Contact />
     </>
   )

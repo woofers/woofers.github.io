@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from 'emotion'
 import { useRouter } from 'next/router'
 import Title from './title'
-import Link from 'link'
+import { SectionLink } from 'link'
 
 const head = arr => arr[0]
 const last = arr => arr[arr.length - 1]
@@ -40,20 +40,19 @@ const Menu = styled.div`
   }
 `
 
-const Nav = ({ items, setLoaded }) => {
+const Nav = ({ items }) => {
   const router = useRouter()
   const path = router?.asPath
   return (
-    <Menu left={head(items).to === path} right={last(items).to === path}>
-      {items.map(({ children, to, ...rest }) => (
+    <Menu left={head(items).href === path} right={last(items).href === path}>
+      {items.map(({ children, href, ...rest }) => (
         <Title
           {...rest}
-          key={`menu-nav-${to}`}
-          to={to}
-          as={Link}
-          aria-current={path === to ? 'page' : undefined}
+          key={`menu-nav-${href}`}
+          href={href}
+          as={SectionLink}
+          aria-current={path === href ? 'page' : undefined}
           color="#c9c9c9"
-          onClick={() => setLoaded(false)}
         >
           {children}
         </Title>

@@ -150,15 +150,15 @@ const items = [
 
 const nav = [
   {
-    to: '/',
+    href: '/',
     children: 'Me',
   },
   {
-    to: '/work',
+    href: '/work',
     children: 'Work',
   },
   {
-    to: '/contact',
+    href: '/contact',
     children: 'Contact',
   },
 ]

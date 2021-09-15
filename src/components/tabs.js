@@ -1,8 +1,8 @@
 import React from 'react'
 import { styled } from 'emotion'
-import { Link } from 'gatsby'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
+import Link from 'link'
 
 const Button = styled(Link)`
   text-decoration: none;
@@ -61,8 +61,8 @@ const Nav = ({ items }) => {
       animate={{ opacity: 1 }}
       transition={{ delay: 0.7 }}
     >
-      {items.map(({ to, children }) => (
-        <Button to={to} key={`link-${to}`} aria-current={to === pathname}>
+      {items.map(({ href, children }) => (
+        <Button href={href} key={`link-${href}`} aria-current={href === pathname}>
           {children}
         </Button>
       ))}
