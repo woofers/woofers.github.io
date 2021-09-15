@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import Title from 'components/title'
 import Text from 'components/text'
 import { setCSSVar, removeCSSVar } from 'utils/css-var'
+import Link from 'link'
 
 const HeadingContainer = styled(motion.div)`
   display: flex;
@@ -63,50 +64,54 @@ const ShiftCard = ({
   icon: Icon,
   contrast = '#fff',
   children,
+  onClick,
+  id,
   ...rest
 }) => {
   const onHover = setColor(color)
   return (
-    <Block
-      color={color}
-      onMouseEnter={onHover}
-      onMouseLeave={removeColor}
-      active={active}
-      layout
-      initial={false}
-      animate={{
-        marginTop: active ? '20px' : '0px',
-        height: active ? '250px' : '80px',
-      }}
-      key={active}
-      {...rest}
-    >
-      {active && <Color layoutId="card" color={color} />}
-      <Inner>
-        <HeadingContainer
-          as={motion.div}
-          layoutId={active ? 'header' : undefined}
-          layout="position"
-        >
-          <TitleTransition
-            textTransform="lowercase"
-            fontSize="45px"
-            letterSpacing="-2.25px"
-            color={!active ? color : contrast}
+    <Link href={id !== 'intro' ? `/me/${id}` : '/'} onClick={onClick} shallow>
+      <Block
+        color={color}
+        onMouseEnter={onHover}
+        onMouseLeave={removeColor}
+        active={active}
+        layout
+        initial={false}
+        animate={{
+          marginTop: active ? '20px' : '0px',
+          height: active ? '250px' : '80px',
+        }}
+        key={active}
+        {...rest}
+      >
+        {active && <Color layoutId="card" color={color} />}
+        <Inner>
+          <HeadingContainer
+            as={motion.div}
+            layoutId={active ? 'header' : undefined}
+            layout="position"
           >
-            › {children}
-          </TitleTransition>
-          <IconContainer fontSize="45px">
-            <Icon />
-          </IconContainer>
-        </HeadingContainer>
-        {active && (
-          <ContentWrapper as={motion.div} layoutId="content">
-            <Text color={contrast}>text text</Text>
-          </ContentWrapper>
-        )}
-      </Inner>
-    </Block>
+            <TitleTransition
+              textTransform="lowercase"
+              fontSize="45px"
+              letterSpacing="-2.25px"
+              color={!active ? color : contrast}
+            >
+              › {children}
+            </TitleTransition>
+            <IconContainer fontSize="45px">
+              <Icon />
+            </IconContainer>
+          </HeadingContainer>
+          {active && (
+            <ContentWrapper as={motion.div} layoutId="content">
+              <Text color={contrast}>text text</Text>
+            </ContentWrapper>
+          )}
+        </Inner>
+      </Block>
+    </Link>
   )
 }
 

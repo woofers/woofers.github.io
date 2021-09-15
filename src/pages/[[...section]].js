@@ -51,7 +51,9 @@ const Index = () => {
     }
   }, [router.isReady, section, hasLoaded])
   useEffect(() => {
-    if (!router.isReady || router.asPath === slug) return
+    const section = router?.query?.section?.[0] || 'me'
+    const actualSection = slug !== '/' ? slug : '/me'
+    if (!router.isReady || `/${section}`.startsWith(actualSection)) return
     const query = router?.query
     const pathname = router?.pathname
     router.replace("/[[...section]]?reset=false", slug, { shallow: true })

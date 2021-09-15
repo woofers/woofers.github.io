@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { styled, useMediaQuery } from 'emotion'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { useRouter } from 'next/router'
 import Card from './shift-card'
 
 const Wrapper = styled(motion.div)`
@@ -14,8 +15,12 @@ const Wrapper = styled(motion.div)`
 `
 
 const Cards = ({ show = true, intro, items = [], location }) => {
-  const [selectedId, setSelectedId] = useState(items?.[0]?.id)
+  const router = useRouter()
+  const selectedId = router?.query?.section?.[1] || 'intro'
   const item = items.find(({ id }) => id === selectedId)
+  const setSelectedId = id => {
+    router.replace(`/me/${id}`, undefined, { shallow: true })
+  }
   return (
     <AnimateSharedLayout>
       <AnimatePresence exitBeforeEnter>
@@ -38,6 +43,7 @@ const Cards = ({ show = true, intro, items = [], location }) => {
                 onClick={() => setSelectedId(id)}
                 active={id === selectedId}
                 key={id}
+                id={id}
                 {...rest}
               >
                 {children}
