@@ -28,11 +28,9 @@ const Email = styled.div`
 `
 
 const EmailContainer = styled.div`
+  padding-left: 10px;
   display: flex;
-  > span:first-of-type {
-    padding-top: 0;
-    padding-left: 10px;
-  }
+  align-items: baseline;
 `
 
 const InputContainer = styled.div`
@@ -75,6 +73,8 @@ const Bubble = styled(First)`
   border-radius: 18px;
   padding: 0px 8px 5px;
   margin-left: 6px;
+  height: 61px;
+  align-items: center;
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
     display: block;
@@ -94,11 +94,9 @@ const Contact = () => (
         Reach out
       </Title>
       <EmailContainer>
-        <span>
-          <First>jaxson.</First>
-          <Last>vandoorn</Last>
-          <Bubble>@gmail.com</Bubble>
-        </span>
+        <First>jaxson.</First>
+        <Last>vandoorn</Last>
+        <Bubble>@gmail.com</Bubble>
       </EmailContainer>
     </Email>
     <InputContainer>
