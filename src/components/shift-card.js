@@ -24,6 +24,10 @@ const Block = styled(motion.div)`
   width: 585px;
   padding: 0;
   z-index: ${props => (props.active ? 10 : 5)};
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    width: 100%;
+  }
 `
 
 const setColor = setCSSVar('hover-color')

@@ -5,6 +5,11 @@ const Global = createGlobal`
     box-sizing: inherit;
   }
 
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
   html,
   h1,
   h2,

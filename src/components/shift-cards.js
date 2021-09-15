@@ -3,7 +3,15 @@ import { styled, useMediaQuery } from 'emotion'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import Card from './shift-card'
 
-const Wrapper = styled(motion.div)``
+const Wrapper = styled(motion.div)`
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`
 
 const Cards = ({ show = true, intro, items = [], location }) => {
   const [selectedId, setSelectedId] = useState(items?.[0]?.id)

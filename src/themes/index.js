@@ -38,7 +38,7 @@ const colors = {
 }
 
 const breakpoints = {
-  nav: {
+  smallMobile: {
     breakpoint: '575px',
     size: '90%',
   },

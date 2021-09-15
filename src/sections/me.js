@@ -46,6 +46,9 @@ const pageHeight = '575px'
 const topShift = '70px'
 const Spacer = styled.div`
   height: calc((100vh - ${pageHeight}) / 2 + ${topShift});
+  @media only screen and (max-width: 1360px) {
+    height: 75px;
+  }
 `
 
 const Grid = styled.div`
@@ -57,6 +60,7 @@ const Grid = styled.div`
     'name cards'
     'avatar cards';
   @media only screen and (max-width: 1360px) {
+    margin-top: 0;
     align-self: center;
     grid-template-columns: 1fr;
     grid-template-rows: 175px 400px 600px;
