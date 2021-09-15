@@ -27,24 +27,11 @@ const Email = styled.div`
   flex-direction: column;
 `
 
-const Grey = styled.span`
-  color: #d2d8e0;
-  font-family: Cantarell, sans-serif;
-  font-weight: 400;
-`
-
-const Bubble = styled.span`
-  color: #fff;
-  background: #d2d8e0;
-  border-radius: 18px;
-  padding: 0px 8px 5px;
-  margin-left: 6px;
-`
-
 const EmailContainer = styled.div`
   display: flex;
   > span:first-of-type {
     padding-top: 0;
+    padding-left: 10px;
   }
 `
 
@@ -64,6 +51,36 @@ const Row = styled.div`
   display: flex;
 `
 
+const First = props =>
+  <Title
+    fontSize="45px"
+    fontWeight="900"
+    paddingX="0"
+    paddingY="0"
+    letterSpacing="-1.5px"
+    color="#fe9c55"
+    as="span"
+    {...props}
+  />
+
+const Last = styled(First)`
+  color: #d2d8e0;
+  font-family: Cantarell, sans-serif;
+  font-weight: 400;
+`
+
+const Bubble = styled(First)`
+  color: #fff;
+  background: #d2d8e0;
+  border-radius: 18px;
+  padding: 0px 8px 5px;
+  margin-left: 6px;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    display: block;
+  }
+`
+
 const Contact = () => (
   <>
     <Email>
@@ -77,17 +94,11 @@ const Contact = () => (
         Reach out
       </Title>
       <EmailContainer>
-        <Title
-          fontSize="45px"
-          fontWeight="900"
-          letterSpacing="-1.5px"
-          color="#fe9c55"
-          as="span"
-        >
-          <span>jaxson.</span>
-          <Grey>vandoorn</Grey>
+        <span>
+          <First>jaxson.</First>
+          <Last>vandoorn</Last>
           <Bubble>@gmail.com</Bubble>
-        </Title>
+        </span>
       </EmailContainer>
     </Email>
     <InputContainer>
