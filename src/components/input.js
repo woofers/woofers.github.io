@@ -28,7 +28,7 @@ const Field = styled.input`
     opacity: 0;
   }
   &:focus {
-    --border-width: 1.5px;
+    --border-width: 2px;
     --border: #feb37d;
   }
 `

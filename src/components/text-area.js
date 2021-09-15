@@ -33,7 +33,7 @@ const Container = styled.div`
     opacity: 1;
   }
   &:focus {
-    --border-width: 1.5px;
+    --border-width: 2px;
     --border: #feb37d;
   }
 `
