@@ -40,10 +40,12 @@ const Message = styled(TextArea)`
 `
 
 
-const EmailContainer = styled.div`
+const EmailLink = styled.a`
   padding-left: 10px;
   display: flex;
   align-items: baseline;
+  text-decoration: none;
+  width: max-content;
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mini.breakpoint}) {
     flex-direction: column;
@@ -119,13 +121,13 @@ const Contact = () => (
       >
         Reach out
       </Title>
-      <EmailContainer>
+      <EmailLink href="mailto:jaxson.vandoorn@gmail.com">
         <Name>
           <First>jaxson.</First>
           <Last>vandoorn</Last>
         </Name>
         <Bubble>@gmail.com</Bubble>
-      </EmailContainer>
+      </EmailLink>
     </Email>
     <InputContainer>
       <Input placeholder="Name" iconWidth="36px" iconPadding="3px">
