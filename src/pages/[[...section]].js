@@ -49,13 +49,13 @@ const Index = () => {
     else if (section === 'contact') {
       scrollTo(0, 2315)
     }
-  }, [router.isReady, section])
+  }, [router.isReady, section, hasLoaded])
   useEffect(() => {
-    if (!router.isReady) return
+    if (!router.isReady || router.asPath === slug) return
     const query = router?.query
     const pathname = router?.pathname
     router.replace("/[[...section]]?reset=false", slug, { shallow: true })
-  }, [slug])
+  }, [slug, router])
   return (
     <>
       <Header>{showHeader && <Logo />}</Header>
