@@ -27,12 +27,6 @@ const Email = styled.div`
   flex-direction: column;
 `
 
-const EmailContainer = styled.div`
-  padding-left: 10px;
-  display: flex;
-  align-items: baseline;
-`
-
 const InputContainer = styled.div`
   margin-top: 40px;
   display: grid;
@@ -45,11 +39,21 @@ const Message = styled(TextArea)`
   grid-column: span 2;
 `
 
-const Row = styled.div`
+
+const EmailContainer = styled.div`
+  padding-left: 10px;
   display: flex;
+  align-items: baseline;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mini.breakpoint}) {
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 300px;
+  }
 `
 
-const First = props =>
+const LargeText = props =>
   <Title
     fontSize="45px"
     fontWeight="900"
@@ -57,9 +61,17 @@ const First = props =>
     paddingY="0"
     letterSpacing="-1.5px"
     color="#fe9c55"
-    as="span"
+    as="div"
     {...props}
   />
+
+
+const First = styled(LargeText)`
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile.breakpoint}) {
+    font-size: 33px;
+  }
+`
 
 const Last = styled(First)`
   color: #d2d8e0;
@@ -74,11 +86,25 @@ const Bubble = styled(First)`
   padding: 0px 8px 5px;
   margin-left: 6px;
   height: 61px;
+  display: flex;
   align-items: center;
+  width: max-content;
+  max-width: 100%;
   @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoints.small.breakpoint}) {
-    display: block;
+      theme.breakpoints.mobile.breakpoint}) {
+    border-radius: 13px;
+    height: 45px;
+    height: unset;
   }
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mini.breakpoint}) {
+    margin: 0 0 0 auto;
+  }
+`
+
+const Name = styled.div`
+  display: flex;
+  margin-bottom: 10px;
 `
 
 const Contact = () => (
@@ -94,8 +120,10 @@ const Contact = () => (
         Reach out
       </Title>
       <EmailContainer>
-        <First>jaxson.</First>
-        <Last>vandoorn</Last>
+        <Name>
+          <First>jaxson.</First>
+          <Last>vandoorn</Last>
+        </Name>
         <Bubble>@gmail.com</Bubble>
       </EmailContainer>
     </Email>

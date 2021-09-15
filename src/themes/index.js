@@ -38,8 +38,8 @@ const colors = {
 }
 
 const breakpoints = {
-  smallMobile: {
-    breakpoint: '575px',
+  mini: {
+    breakpoint: '499px',
     size: '90%',
   },
   mobile: {
