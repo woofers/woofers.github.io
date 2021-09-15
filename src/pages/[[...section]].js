@@ -11,12 +11,12 @@ import Contact from 'sections/contact'
 const Header = styled.header`
   width: 100%;
   position: fixed;
-  top: 40px;
+  top: 0;
   left: 0;
-  height: 320px;
+  height: 130px;
+  width: 210px;
   display: flex;
-  padding: 0 20px;
-  pointer-events: none;
+  padding: 40px 20px 0;
 `
 
 const Index = () => {

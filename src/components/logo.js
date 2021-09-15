@@ -2,6 +2,7 @@ import React from 'react'
 import Title from 'components/title'
 import { styled } from 'emotion'
 import { motion } from 'framer-motion'
+import Link from 'link'
 
 const Container = styled.div`
   width: 210px;
@@ -49,28 +50,30 @@ const Space = styled.span`
 
 const Logo = ({ shift, delay = 0 }) => {
   return (
-    <Translate
-      layoutId={'jvd-logo'}
-      initial={{ x: 0, y: -48, opacity: 0 }}
-      animate={{ x: 0, y: -48, opacity: 1 }}
-      transition={{ delay: delay, duration: 0.5 }}
-      layout="position"
-    >
-      <Container>
-        <Primary>Jaxson</Primary>
-        <Secondary
-          initial={{ x: -15, y: 50, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1.1 + delay, duration: 0.2 }}
-        >
-          <span>Van</span>
-          <Space> </Space>
-          <span>
-            Door<N>n</N>
-          </span>
-        </Secondary>
-      </Container>
-    </Translate>
+    <Link to="/">
+      <Translate
+        layoutId={'jvd-logo'}
+        initial={{ x: 0, y: -48, opacity: 0 }}
+        animate={{ x: 0, y: -48, opacity: 1 }}
+        transition={{ delay: delay, duration: 0.5 }}
+        layout="position"
+      >
+        <Container>
+          <Primary>Jaxson</Primary>
+          <Secondary
+            initial={{ x: -15, y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1.1 + delay, duration: 0.2 }}
+          >
+            <span>Van</span>
+            <Space> </Space>
+            <span>
+              Door<N>n</N>
+            </span>
+          </Secondary>
+        </Container>
+      </Translate>
+    </Link>
   )
 }
 

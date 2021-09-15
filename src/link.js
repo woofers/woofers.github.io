@@ -2,7 +2,7 @@ import NextLink from 'next/link'
 import { styled } from 'emotion'
 
 const Anchor = styled.a`
-  text-underline: none;
+  text-decoration: none;
 `
 
 const Link = ({ to, children, scroll = false, ...rest }) => (
