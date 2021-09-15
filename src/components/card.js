@@ -6,6 +6,7 @@ import Text from './text'
 import { setCSSVar, removeCSSVar } from 'utils/css-var'
 
 const Wrapper = styled(motion.div)`
+  overflow: hidden;
   position: relative;
   cursor: pointer;
   border-radius: 25px;

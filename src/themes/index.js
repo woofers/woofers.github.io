@@ -58,6 +58,10 @@ const breakpoints = {
     breakpoint: '1170px',
     size: '90%',
   },
+  wide: {
+    breakpoint: '1800px',
+    size: '90%',
+  }
 }
 
 const theme = {

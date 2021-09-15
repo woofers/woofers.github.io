@@ -25,7 +25,9 @@ const makeGradient = (left, right) => `
 
 const Menu = styled.div`
   display: flex;
+  flex-wrap: wrap;
   width: max-content;
+  max-width: 100%;
   position: relative;
   padding: 0 0 10px;
   &:after {
