@@ -29,6 +29,7 @@ const Index = () => {
   const section = router?.query?.section?.[0] || 'me'
   const hasScrolled = section !== 'me' || timer
   const slug = (() => {
+    if (typeof y === 'undefined') return ''
     if (y > 2015) {
       return '/contact'
     } else if (y > 275) {
@@ -51,9 +52,10 @@ const Index = () => {
     }
   }, [router.isReady, section, hasLoaded])
   useEffect(() => {
+    if (!slug) return
     const section = router?.query?.section?.[0] || 'me'
-    const actualSection = slug !== '/' ? slug : '/me'
-    if (!router.isReady || `/${section}`.startsWith(actualSection)) return
+    const actualSlug = slug !== '/' ? slug : '/me'
+    if (!router.isReady || `/${section}`.startsWith(actualSlug)) return
     const query = router?.query
     const pathname = router?.pathname
     router.replace("/[[...section]]?reset=false", slug, { shallow: true })

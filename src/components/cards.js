@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { styled, useMediaQuery } from 'emotion'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { useRouter } from 'next/router'
 import Card from './card'
 
 const ROWS = 2
@@ -59,7 +60,11 @@ const Overlay = styled(motion.div)`
 `
 
 const Cards = ({ items = [] }) => {
-  const [selectedId, setSelectedId] = useState()
+  const router = useRouter()
+  const selectedId = router?.query?.section?.[0] === 'work' ? router?.query?.section?.[1] : null
+  const setSelectedId = id => {
+    router.replace(id ? `/work/${id}` : `/work`, undefined, { shallow: true })
+  }
   const item = items.find(({ id }) => id === selectedId)
   const shift = useMediaQuery('@media only screen and (max-width: 1360px)')
   return (
