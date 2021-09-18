@@ -17,7 +17,7 @@ module.exports = {
     return config
   },
   trailingSlash: true,
-  basePath: '/new',
+  basePath: '/jx-next',
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
