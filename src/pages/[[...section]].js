@@ -19,6 +19,8 @@ const Header = styled.header`
   padding: 40px 20px 0;
 `
 
+const normalize = href => href !== '/' ? href : '/me'
+
 const Index = () => {
   const [timer, setTimer] = useState()
   const { y } = useScrollPosition()
@@ -54,8 +56,7 @@ const Index = () => {
   useEffect(() => {
     if (!slug) return
     const section = router?.query?.section?.[0] || 'me'
-    const actualSlug = slug !== '/' ? slug : '/me'
-    if (!router.isReady || `/${section}`.startsWith(actualSlug)) return
+    if (!router.isReady || `/${section}`.startsWith(normalize(slug))) return
     const query = router?.query
     const pathname = router?.pathname
     router.replace("/[[...section]]?reset=false", slug, { shallow: true })
