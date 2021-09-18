@@ -4,7 +4,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next export",
+    "static": "serve -s out",
     "start": "next start",
     "lint": "next lint",
     "format": "prettier --write \"src/**/*.js\""
@@ -28,6 +29,7 @@
     "eslint-config-next": "11.1.2",
     "eslint-webpack-plugin": "^3.0.1",
     "file-loader": "^6.2.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "serve": "^12.0.1"
   }
 }

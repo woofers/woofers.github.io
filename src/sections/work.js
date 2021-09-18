@@ -39,7 +39,7 @@ const WavifyBar = styled.div`
 
 const items = [
   {
-    id: 'liv.rent',
+    id: 'liv-rent',
     background: '#fe5f55',
     logo: (
       <LivLogo>
