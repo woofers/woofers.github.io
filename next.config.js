@@ -18,6 +18,7 @@ module.exports = {
   },
   trailingSlash: true,
   basePath: '/jx-next',
+  assetPrefix: '/jx-next/',
   exportPathMap: async function (
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
