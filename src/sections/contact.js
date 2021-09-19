@@ -39,7 +39,6 @@ const Message = styled(TextArea)`
   grid-column: span 2;
 `
 
-
 const EmailLink = styled.a`
   padding-left: 10px;
   display: flex;
@@ -55,7 +54,7 @@ const EmailLink = styled.a`
   }
 `
 
-const LargeText = props =>
+const LargeText = props => (
   <Title
     fontSize="45px"
     fontWeight="900"
@@ -66,7 +65,7 @@ const LargeText = props =>
     as="div"
     {...props}
   />
-
+)
 
 const First = styled(LargeText)`
   @media only screen and (max-width: ${({ theme }) =>

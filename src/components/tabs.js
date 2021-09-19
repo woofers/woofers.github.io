@@ -62,7 +62,11 @@ const Nav = ({ items }) => {
       transition={{ delay: 0.7 }}
     >
       {items.map(({ href, children }) => (
-        <Button href={href} key={`link-${href}`} aria-current={href === pathname}>
+        <Button
+          href={href}
+          key={`link-${href}`}
+          aria-current={href === pathname}
+        >
           {children}
         </Button>
       ))}

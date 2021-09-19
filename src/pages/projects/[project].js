@@ -7,7 +7,10 @@ import Title from 'components/title'
 import { styled } from 'emotion'
 import dynamic from 'next/dynamic'
 
-const Markdown = dynamic(() => import('components/markdown').then(el => el.Markdown), { ssr: false })
+const Markdown = dynamic(
+  () => import('components/markdown').then(el => el.Markdown),
+  { ssr: false }
+)
 
 const exclude = [
   ['discord-jam-2', 'DOGE: BOIS'],
@@ -33,7 +36,7 @@ const exclude = [
   ['noto-emoji-react'],
   ['react-chameleon-theme-color'],
   ['qmk-indicator'],
-  ['quefrency-case']
+  ['quefrency-case'],
 ]
 
 const Flex = styled.div`
@@ -54,14 +57,17 @@ const Projects = ({ project, repo }) => {
         <Title>{fullName}</Title>
         <div>
           <ProjectLink href={repo.url} type="github" />
-          { repo.homepage && <ProjectLink href={repo.homepage} type={type(repo)} /> }
+          {repo.homepage && (
+            <ProjectLink href={repo.homepage} type={type(repo)} />
+          )}
         </div>
       </Flex>
       <div>
-        { org && !md ?
-            <Org content={org} repo={repo} />
-          : <Markdown content={md.text} repo={repo} filters={[removeBadges]} />
-        }
+        {org && !md ? (
+          <Org content={org} repo={repo} />
+        ) : (
+          <Markdown content={md.text} repo={repo} filters={[removeBadges]} />
+        )}
       </div>
     </>
   )
@@ -80,8 +86,8 @@ export const getStaticPaths = async () => {
   const repos = data.user.repositories.edges.map(({ node }) => node)
   const names = repos.map(({ name }) => name)
   return {
-    paths: names.map(name => ({ params: { project: name }})),
-    fallback: false
+    paths: names.map(name => ({ params: { project: name } })),
+    fallback: false,
   }
 }
 

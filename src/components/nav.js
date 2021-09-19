@@ -40,7 +40,7 @@ const Menu = styled.div`
   }
 `
 
-const normalize = href => href !== '/' ? href : '/me'
+const normalize = href => (href !== '/' ? href : '/me')
 
 const Nav = ({ items }) => {
   const router = useRouter()
@@ -53,7 +53,9 @@ const Nav = ({ items }) => {
           key={`menu-nav-${href}`}
           href={href}
           as={SectionLink}
-          aria-current={normalize(path).startsWith(normalize(href))  ? 'page' : undefined}
+          aria-current={
+            normalize(path).startsWith(normalize(href)) ? 'page' : undefined
+          }
           color="#c9c9c9"
         >
           {children}

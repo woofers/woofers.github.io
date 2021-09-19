@@ -18,15 +18,15 @@ const Align = p => {
 
 const ProjectLink = p => {
   const { type, children, ...rest } = p
-  if (type === 'github') return (<Align {...rest}>View on GitHub</Align>)
-  else if (type === 'game') return (<Align {...rest}>Play</Align>)
-  else if (type === 'react') return (<Align {...rest}>View Demo</Align>)
-  else if (type === 'resume') return (<Align {...rest}>View Resume</Align>)
-  else return (<Align {...rest}>View Site</Align>)
+  if (type === 'github') return <Align {...rest}>View on GitHub</Align>
+  else if (type === 'game') return <Align {...rest}>Play</Align>
+  else if (type === 'react') return <Align {...rest}>View Demo</Align>
+  else if (type === 'resume') return <Align {...rest}>View Resume</Align>
+  else return <Align {...rest}>View Site</Align>
 }
 
 ProjectLink.defaultProps = {
-  align: 'right'
+  align: 'right',
 }
 
 export default ProjectLink

@@ -61,7 +61,8 @@ const Overlay = styled(motion.div)`
 
 const Cards = ({ items = [] }) => {
   const router = useRouter()
-  const selectedId = router?.query?.section?.[0] === 'work' ? router?.query?.section?.[1] : null
+  const selectedId =
+    router?.query?.section?.[0] === 'work' ? router?.query?.section?.[1] : null
   const setSelectedId = id => {
     router.replace(id ? `/work/${id}` : `/work`, undefined, { shallow: true })
   }

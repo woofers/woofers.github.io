@@ -16,7 +16,6 @@ export const mutateRepoNames = (repos, exclude) => {
   }
 }
 
-
 export const type = repo => {
   let labels = repo.topics
   if (labels) {

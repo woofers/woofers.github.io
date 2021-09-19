@@ -40,7 +40,7 @@ const global = theme => css`
     color: ${theme.colors.text.light};
   }
 
-  pre[class*="language-"] {
+  pre[class*='language-'] {
     background: ${theme.colors.code} !important;
     font-size: 0.95em !important;
     color: ${theme.colors.text.code};
@@ -55,7 +55,9 @@ const global = theme => css`
   .hljs-string {
     color: ${theme.colors.text.string};
   }
-  .hljs-keyword, .hljs-name, .hljs-link {
+  .hljs-keyword,
+  .hljs-name,
+  .hljs-link {
     color: ${theme.colors.text.tag};
   }
   .hljs-attr {

@@ -19,7 +19,7 @@ const Header = styled.header`
   padding: 40px 20px 0;
 `
 
-const normalize = href => href !== '/' ? href : '/me'
+const normalize = href => (href !== '/' ? href : '/me')
 
 const Index = () => {
   const [timer, setTimer] = useState()
@@ -27,7 +27,8 @@ const Index = () => {
   const showHeader = y > 275
   useTimeout(() => setTimer(true), 2600)
   const router = useRouter()
-  const hasLoaded = router?.query?.reset === 'true' || !router?.query?.reset  ? false : true
+  const hasLoaded =
+    router?.query?.reset === 'true' || !router?.query?.reset ? false : true
   const section = router?.query?.section?.[0] || 'me'
   const hasScrolled = section !== 'me' || timer
   const slug = (() => {
@@ -42,14 +43,13 @@ const Index = () => {
   })()
   useEffect(() => {
     if (!router.isReady || typeof window === 'undefined' || hasLoaded) return
-    const scrollTo = (x, y) => window.scrollTo({ left: x, top: y, behavior: 'auto' })
+    const scrollTo = (x, y) =>
+      window.scrollTo({ left: x, top: y, behavior: 'auto' })
     if (section === 'me') {
       scrollTo(0, 0)
-    }
-    else if (section === 'work') {
-      scrollTo(0, 275 + (1440/2))
-    }
-    else if (section === 'contact') {
+    } else if (section === 'work') {
+      scrollTo(0, 275 + 1440 / 2)
+    } else if (section === 'contact') {
       scrollTo(0, 2315)
     }
   }, [router.isReady, section, hasLoaded])
@@ -59,7 +59,7 @@ const Index = () => {
     if (!router.isReady || `/${section}`.startsWith(normalize(slug))) return
     const query = router?.query
     const pathname = router?.pathname
-    router.replace("/[[...section]]?reset=false", slug, { shallow: true })
+    router.replace('/[[...section]]?reset=false', slug, { shallow: true })
   }, [slug, router])
   return (
     <>

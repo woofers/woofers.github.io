@@ -37,7 +37,6 @@ query GetRepo($name: String!) {
 }
 `
 
-
 const query = `
 {
   user(login: "woofers") {
@@ -55,10 +54,13 @@ const query = `
 const fromGithub = async ({ query, variables }) => {
   const token = process.env.GH_TOKEN
   const headers = {
-    'Authorization': `bearer ${token}`,
-    'Content-Type': 'application/json'
+    Authorization: `bearer ${token}`,
+    'Content-Type': 'application/json',
   }
-  const data = await post('https://api.github.com/graphql', { headers, body: { query, variables } })
+  const data = await post('https://api.github.com/graphql', {
+    headers,
+    body: { query, variables },
+  })
   return data?.data
 }
 
