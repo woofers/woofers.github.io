@@ -28,6 +28,18 @@ const global = theme => css`
     padding: 0;
   }
 
+  pre {
+    margin: 0;
+    margin-bottom: 1.6rem;
+    font-size: 0.85rem;
+    line-height: 1.42;
+    overflow: auto;
+    word-wrap: normal;
+    padding: 1.6rem;
+    background: ${theme.colors.code};
+    color: ${theme.colors.text.light};
+  }
+
   pre[class*="language-"] {
     background: ${theme.colors.code} !important;
     font-size: 0.95em !important;

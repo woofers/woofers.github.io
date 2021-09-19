@@ -1,10 +1,13 @@
 import { getRepo, getRepos } from 'data/github'
-import { Markdown, removeBadges } from '../../components/markdown'
+import { removeBadges } from '../../components/markdown'
 import Org from 'components/org'
 import ProjectLink from 'components/project-link'
 import { mutateRepoNames, type } from 'utils/repo'
 import Title from 'components/title'
 import { styled } from 'emotion'
+import dynamic from 'next/dynamic'
+
+const Markdown = dynamic(() => import('components/markdown').then(el => el.Markdown), { ssr: false })
 
 const exclude = [
   ['discord-jam-2', 'DOGE: BOIS'],
