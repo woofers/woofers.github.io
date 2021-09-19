@@ -43,8 +43,8 @@ const Flex = styled.div`
 const Projects = ({ project, repo }) => {
   const { fullName } = repo
   mutateRepoNames([{ node: repo }], exclude)
-  const md = repo?.readme
-  const org = repo?.readmeOrg
+  const md = repo?.readme?.text
+  const org = repo?.readmeOrg?.text
   return (
     <>
       <Flex>
@@ -60,7 +60,7 @@ const Projects = ({ project, repo }) => {
         {org && !md ? (
           <Org content={org} repo={repo} />
         ) : (
-          <Markdown content={md.text} repo={repo} filters={[removeBadges]} />
+          <Markdown content={md} repo={repo} filters={[removeBadges]} />
         )}
       </div>
     </>
