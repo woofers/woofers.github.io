@@ -75,7 +75,7 @@ const Input = ({
         {...rest}
         placeholder={secondLabel}
         required
-        pattern="\S*+"
+        pattern="^(?!\s*$).+"
         {...padding}
       />
       {!!firstLabel && <Label {...padding}>{firstLabel}</Label>}
