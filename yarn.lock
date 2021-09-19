@@ -1282,7 +1282,7 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@orgajs/reorg-parse@3.1.1":
+"@orgajs/reorg-parse@3.1.1", "@orgajs/reorg-parse@^3.1.1":
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/@orgajs/reorg-parse/-/reorg-parse-3.1.1.tgz#b1e3f0fa8e7fdd36ce344728b76b6f897af10adf"
   integrity sha512-hZ28Oz4un+twOYKdB2aex+l2djLlVSD0hq83UCyoX09nFZyYX53xlgjLohQPAYjRPN4USbVVe6wJKGmKgcN2IA==
