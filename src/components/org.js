@@ -2,10 +2,7 @@ import toHast from 'oast-to-hast'
 import hastToHtml from 'hast-util-to-html'
 import { parse as orga } from 'orga'
 import { toGitHubLink } from 'utils/link'
-
-const Content = ({ html, ...rest }) => (
-  <div {...rest} dangerouslySetInnerHTML={{ __html: html }} />
-)
+import Content from './content'
 
 const Org = p => {
   const parse = content => {

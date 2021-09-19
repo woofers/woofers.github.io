@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import CodeBlock from './code-block'
 //import unist from 'unist-builder'
 import { visit } from 'unist-util-visit'
 import { filter } from 'unist-util-filter'
@@ -16,7 +17,6 @@ import remarkSlug from 'remark-slug'
 import remarkToc from 'remark-toc'
 import remarkGithub from 'remark-github'
 import remarkRehype from 'remark-rehype'
-import rehypeHighlight from 'rehype-highlight'
 import rehypeReact from 'rehype-react'
 import javascript from 'highlight.js/lib/languages/javascript'
 
@@ -103,11 +103,10 @@ export const Markdown = p => {
       .use(remarkToc)
       .use(remarkGithub, { repository: `woofers/${p.repo.name}` })
       .use(remarkRehype)
-      .use(rehypeHighlight, { languages: { javascript } })
       .use(rehypeReact, {
         createElement: React.createElement,
-
         components: {
+          pre: CodeBlock,
           a: p => (
             <Link href={p.href} underline>
               {p.children}
