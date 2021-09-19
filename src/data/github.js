@@ -58,7 +58,7 @@ const fromGithub = async ({ query, variables }) => {
     'Authorization': `bearer ${token}`,
     'Content-Type': 'application/json'
   }
-  const data = await post('https://api.github.com/graphql', { headers, body: JSON.stringify({ query, variables }) })
+  const data = await post('https://api.github.com/graphql', { headers, body: { query, variables } })
   return data?.data
 }
 
