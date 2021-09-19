@@ -19,6 +19,9 @@ jobs:
       run: echo "$GITHUB_CONTEXT"
     - name: Install
       run: yarn install
+    - name: Add token
+      run: |
+        echo "GH_TOKEN=${{ secrets.GITHUB_TOKEN }}" >> $GITHUB_ENV
     - name: Build
       run: yarn build
       env:
