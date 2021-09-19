@@ -1,4 +1,5 @@
 const ESLintPlugin = require('eslint-webpack-plugin')
+const path = require('path')
 
 module.exports = {
   distDir: 'build',
@@ -10,6 +11,15 @@ module.exports = {
   },
   webpack(config) {
     config.plugins.push(new ESLintPlugin())
+    const image = config.module.rules.find(({ loader }) => loader === 'next-image-loader')
+    const options = image.options
+    image.test = /\.(png|jpg|jpeg|gif|webp|ico|bmp)$/i
+    image.use = [
+      { loader: path.resolve('image.js') },
+      { loader: 'next-image-loader', options }
+    ]
+    delete image.loader
+    delete image.options
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack', 'file-loader'],
