@@ -35,7 +35,7 @@ module.exports = {
   ) {
     return {
       '/': { page: '/[[...section]]' },
-      '/me.': { page: '/[[...section]]' },
+      '/me': { page: '/[[...section]]' },
       '/me/intro/': { page: '/[[...section]]' },
       '/me/tech/': { page: '/[[...section]]' },
       '/me/hobby-1/': { page: '/[[...section]]' },
