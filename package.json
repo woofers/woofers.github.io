@@ -1,6 +1,8 @@
 {
   "name": "jx-next",
   "version": "0.1.0",
+  "author": "Jaxson Van Doorn",
+  "homepage": "https://jaxs.onl/jx-next/",
   "license": "UNLICENSED",
   "scripts": {
     "dev": "node server.js",
@@ -9,6 +11,7 @@
     "deploy": "yarn gh-pages -t -d out",
     "start": "next start",
     "lint": "next lint",
+    "test": "echo 'No tests'",
     "format": "prettier --write \"src/**/*.js\""
   },
   "dependencies": {
