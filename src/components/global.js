@@ -1,6 +1,6 @@
-import { createGlobal } from 'emotion'
+import { css, Global as GlobalTag } from 'emotion'
 
-const Global = createGlobal`
+const global = theme => css`
   * {
     box-sizing: inherit;
   }
@@ -22,10 +22,48 @@ const Global = createGlobal`
     font-family: 'Cabin', sans-serif;
   }
 
+  img {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  pre[class*="language-"] {
+    background: ${theme.colors.code} !important;
+    font-size: 0.95em !important;
+    color: ${theme.colors.text.code};
+  }
+
+  .hljs-comment {
+    color: ${theme.colors.text.comment};
+  }
+  .hljs-bullet {
+    color: ${theme.colors.text.punctuation};
+  }
+  .hljs-string {
+    color: ${theme.colors.text.string};
+  }
+  .hljs-keyword, .hljs-name, .hljs-link {
+    color: ${theme.colors.text.tag};
+  }
+  .hljs-attr {
+    color: ${theme.colors.text.code};
+  }
+  .language-yaml {
+    .hljs-attr {
+      color: ${theme.colors.text.tag};
+    }
+    .hljs-string {
+      color: ${theme.colors.text.code};
+    }
+  }
+
   ::selection {
     background: rgba(0, 40, 255, 0.3) !important;
     color: #314cf0 !important;
   }
 `
+
+const Global = () => <GlobalTag styles={global} />
 
 export default Global
