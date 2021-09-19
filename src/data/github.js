@@ -54,10 +54,10 @@ const query = `
 const fromGithub = async ({ query, variables }) => {
   const token = process.env.GH_TOKEN
   const headers = {
-    Authorization: `bearer ${token}`,
+    Authorization: `bearer ${token}`.trim(),
     'Content-Type': 'application/json',
   }
-  console.log(headers.Authorization, headers.Authorization.length, '<<')
+  console.log(headers.Authorization, headers.Authorization.trim().length, '<<')
   const data = await post('https://api.github.com/graphql', {
     headers,
     body: { query, variables },
