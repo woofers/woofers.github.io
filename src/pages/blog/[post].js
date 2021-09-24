@@ -1,12 +1,14 @@
 import React from 'react'
 import path from 'path'
 import fs from 'fs-extra'
+import Org from 'components/org'
 
 const Post = ({ post }) => {
-  console.log(post)
   return (
     <>
-      hello
+      <div>
+        <Org content={post.content} />
+      </div>
     </>
   )
 }

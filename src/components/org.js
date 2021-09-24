@@ -22,23 +22,17 @@ const t = name => () => {
   return tree => visit(tree, node => node.type === 'link', visitor)
 }
 
-const out = () => {
-  return out => {
-    console.log(out)
-    return out
-  }
-}
+const noop = () => out => out
 
-const Org = p => {
+const Org = ({ content, repo }) => {
   const processor = unified()
     .use(parse)
-    .use(t(p.repo.name))
-    .use(out)
+    .use(repo?.name ? t(repo.name) : noop)
     .use(mutate)
     .use(html)
   return (
     <div>
-      <Content html={processor.processSync(p.content).value} />
+      <Content html={processor.processSync(content).value} />
     </div>
   )
 }
