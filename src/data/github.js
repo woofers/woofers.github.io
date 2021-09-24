@@ -1,5 +1,34 @@
 import fetch from 'isomorphic-unfetch'
+import { mutateRepoNames, type } from 'utils/repo'
 import { post } from './http'
+
+const exclude = {
+  'discord-jam-2': 'DOGE: BOIS',
+  'woofers3d': 'Woofers 3D',
+  'ludum-dare-44': 'ALIEN, e x p a n s i o n .',
+  'react-pico-8': 'React PICO-8',
+  'react-yat': 'React YAT',
+  'opengraph-api': true,
+  'org-invoice-template': true,
+  'react-ludum-dare': true,
+  'woofers.github.io': true,
+  'kangaroo-country': true,
+  'chess': true,
+  'resume': true,
+  'java-formatter': true,
+  'battlesnake-2018': true,
+  'battlesnake-java-template': true,
+  'libgdx-tools-installer': true,
+  'challenger-deep-rofi': true,
+  'dotfiles': true,
+  'k9-krew': true,
+  'course-codes-bugs': true,
+  'noto-emoji-react': true,
+  'react-chameleon-theme-color': true,
+  'qmk-indicator': true,
+  'quefrency-case': true
+}
+
 
 const repoQuery = `
 query GetRepo($name: String!) {
@@ -57,7 +86,6 @@ const fromGithub = async ({ query, variables }) => {
     Authorization: `bearer ${token}`.trim(),
     'Content-Type': 'application/json',
   }
-  console.log(headers.Authorization, headers.Authorization.trim().length, '<<')
   const data = await post('https://api.github.com/graphql', {
     headers,
     body: { query, variables },
@@ -67,10 +95,14 @@ const fromGithub = async ({ query, variables }) => {
 
 export const getRepo = async name => {
   const data = await fromGithub({ query: repoQuery, variables: { name } })
-  return data
+  const repo = data.user.repository
+  mutateRepoNames(repo, exclude)
+  return repo
 }
 
 export const getRepos = async () => {
   const data = await fromGithub({ query })
-  return data
+  const repos = data.user.repositories.edges.map(({ node }) => node).filter(repo => typeof exclude?.[repo?.name] !== 'boolean')
+
+  return repos
 }
