@@ -1,12 +1,13 @@
 import React from 'react'
 import Org from 'components/org'
-import { Markdown, removeBadges } from 'components/markdown'
+import { useMarkdown, Markdown } from 'components/markdown'
 import { getMarkdownFile, getMarkdownFileNames } from 'data/local'
 
 const Post = ({ post }) => {
+  const { content } = useMarkdown(post.content)
   return (
     <>
-      <Markdown content={post.content} />
+      <Markdown content={content} />
     </>
   )
 }

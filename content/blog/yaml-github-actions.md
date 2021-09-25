@@ -1,7 +1,7 @@
 ---
 layout: post
 title: NPM package deployment using YAML GitHub Actions
-date: <2019-08-21 Wed>
+date: 2019-08-21
 ---
 
 # NPM package deployment using YAML GitHub Actions

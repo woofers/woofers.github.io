@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Using Anchors in Bitbucket Markdown Documents
-date: <2018-10-23 Tue>
+date: 2018-10-23
 ---
 
 # Using Anchors in Bitbucket Markdown Documents

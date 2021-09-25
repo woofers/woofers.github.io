@@ -1,5 +1,5 @@
 import { getRepo, getRepos } from 'data/github'
-import { Markdown, removeBadges } from 'components/markdown'
+import { useMarkdown, Markdown, removeBadges } from 'components/markdown'
 import Org from 'components/org'
 import ProjectLink from 'components/project-link'
 import { mutateRepoNames, type } from 'utils/repo'
@@ -17,6 +17,7 @@ const Projects = ({ project, repo }) => {
   const { fullName } = repo
   const md = repo?.readme?.text
   const org = repo?.readmeOrg?.text
+  const { content } = useMarkdown(md, { repo, filters: [removeBadges] })
   return (
     <>
       <Flex>
@@ -32,7 +33,7 @@ const Projects = ({ project, repo }) => {
         {org && !md ? (
           <Org content={org} repo={repo} />
         ) : (
-          <Markdown content={md} repo={repo} filters={[removeBadges]} />
+          <Markdown content={content} />
         )}
       </div>
     </>

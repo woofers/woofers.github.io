@@ -59,47 +59,50 @@ export const removeBadges = () => {
   }
 }
 
-export const Markdown = ({ content, repo, alt, filters }) => {
-  const hasRepo = !!repo
-  const getContent = () => {
-    let meta = {}
-    let processor = unified()
-      .use(remarkParse)
-      .use(remarkFrontmatter, ['yaml'])
-      .use(() => (tree) => {
-        const first = tree?.children?.[0]
-        if (first?.type === 'yaml') meta = first.value
-      })
-      .use(remarkSlug)
-      .use(hasRepo ? remarkGithub : noop, { repository: `woofers/${repo?.name}` })
-      .use(remarkRehype)
-      .use(rehypeReact, {
-        createElement: React.createElement,
-        components: {
-          pre: CodeBlock,
-            a: ({ href, children }) => (
-            <Link href={href} underline>
-              {children}
-            </Link>
-          ),
-        },
-      })
-    processor = processor.use(() => links({ alt, repo }))
-    for (const filter of filters) {
-      processor = processor.use(filter)
-    }
-    const data = processor.processSync(content).result
-    return [data, meta]
-  }
-  const [data, meta] = getContent()
-  console.log(meta)
-  return (
-    <Wrapper>{data}</Wrapper>
-  )
-}
+export const Markdown = ({ content }) => (
+  <Wrapper>{content}</Wrapper>
+)
 
 Markdown.defaultProps = {
   filters: [],
   repo: '',
-  centerImages: true,
+}
+
+const parseMeta = meta => {
+  const parts = meta.split('\n')
+  return parts.map(part => part.split(': ')).reduce((acc, [key, value]) => {
+    return { ...acc, [key]: value }
+  }, {})
+}
+
+export const useMarkdown = (data, { repo = '', alt = '', filters = [] } = {}) => {
+  const hasRepo = !!repo
+  let meta = {}
+  let processor = unified()
+    .use(remarkParse)
+    .use(remarkFrontmatter, ['yaml'])
+    .use(() => (tree) => {
+      const first = tree?.children?.[0]
+      if (first?.type === 'yaml') meta = parseMeta(first.value)
+    })
+    .use(remarkSlug)
+    .use(hasRepo ? remarkGithub : noop, { repository: `woofers/${repo?.name}` })
+    .use(remarkRehype)
+    .use(rehypeReact, {
+      createElement: React.createElement,
+      components: {
+        pre: CodeBlock,
+          a: ({ href, children }) => (
+          <Link href={href} underline>
+            {children}
+          </Link>
+        ),
+      },
+    })
+  processor = processor.use(() => links({ alt, repo }))
+  for (const filter of filters) {
+    processor = processor.use(filter)
+  }
+  const content = processor.processSync(data).result
+  return { content, meta }
 }
