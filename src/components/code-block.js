@@ -19,7 +19,7 @@ const CodeBlock = ({ children, ...rest }) => {
   return (
     <pre>
       <Content
-        className="hljs language-jsx"
+        className={`hljs language-${lang}`}
         as="code"
         html={toHtml(lowlight.highlight(id ? lang : 'c', child))}
       />

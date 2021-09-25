@@ -1,0 +1,135 @@
+---
+layout: post
+title: Using Anchors in Bitbucket Markdown Documents
+date: <2018-10-23 Tue>
+---
+
+# Using Anchors in Bitbucket Markdown Documents
+
+Using [Markdown](https://daringfireball.net/projects/markdown/syntax) to write content is a joy; gone are the days of clunky and [slow word processors](https://support.microsoft.com/en-ca/help/918793/how-to-optimize-word-2007-and-word-2010).  Leveraging *HTML* tags for complete control over your document when needed and falling back to a simple and constant syntax for simpler operations works great.  Most [VCS](https://en.wikipedia.org/wiki/Version_control) hosting platforms will recognize the extension and render it. For larger documents typically organizing sections using a table of contents with anchors is an easy and streamlined process.
+
+
+<a id="org5d8e85b"></a>
+
+## Leveraging HTML Anchors
+
+In most documents I find myself doing something like this:
+
+```markdown
+# Table of Contents
+
+- [Battle Snake 2019](#orgf9ab559)
+    -   [Strategy](#org889b147)
+        -   [Drawbacks](#orgfb85c54)
+    -   [Battle History](#orgcfa9a90)
+    -   [Screenshots](#orgc2991ca)
+    -   [Usage](#org7bfc615)
+        -   [Prerequisites](#orge6d4f36)
+        -   [Test Server](#orgf8ef52a)
+        -   [Run Locally](#org73d091b)
+        -   [Deployment](#org3a27619)
+    -   [Acknowledgments](#org4a0f7fb)
+```
+
+And then later on linking the header to an *HTML* anchor:
+
+```markdown
+<a id="org889b147"></a>
+
+## Strategy
+```
+
+Then any other place you want to refer to a section can be done using that ID:
+
+```markdown
+Another drawback of our [strategy](#org889b147) was ...
+```
+
+This renders great in [Github](https://github.com/woofers/battle-snake-2018/blob/master/README.md#table-of-contents) and is done automatically when using [Org mode](https://orgmode.org/)'s Markdown exporter.
+
+
+<a id="org2c309d3"></a>
+
+## This Should Work in Bitbucket Cloud Right?
+
+<h4 style='padding-left: 35px'><i class="fas fa-exclamation-triangle"></i> You would be wrong</h4>
+
+Bitbucket Cloud very closely follows [John Gruber](https://daringfireball.net/projects/markdown/syntax)'s original Markdown specification with the exception of *HTML* tags.  Attempting to use *HTML* anchors will simply display the escaped *HTML* along with broken links.
+
+
+<a id="org920925d"></a>
+
+### Why?
+
+Straight from [Atlassian](https://confluence.atlassian.com/bitbucket/readme-content-221449772.html#READMEcontent-ExtensionsandLanguages):
+
+> We don't support arbitrary HTML in Markdown, for example <table> tags.
+
+Bitbucket Cloud uses [Python Markdown](https://github.com/Python-Markdown/markdown) to render its Markdown files with the [Safe Mode](https://github.com/Python-Markdown/markdown/blob/b62ddeda02fadcd09def9354eb2ef46a7562a106/docs/reference.md#the-details) option **escape** enabled.  This option simply escapes all *HTML* tags to `plain text`.
+
+This is inconvenient as it greatly limits the customizability of Bitbucket Markdown documents however it prevents Bitbucket from needing to worry about malicious *HTML* and *scripts* being injected.
+
+I have seen [claims](https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html#Markdownsyntaxguide-readmeREADMEfiles) that *HTML* tags on the self-hosted Bitbucket Server are enabled however I am not able to confirm this.
+
+
+<a id="orgcf677b8"></a>
+
+## How Does Github Handle It Then?
+
+Github uses [CommonMarker](https://github.com/gjtorikian/commonmarker) which is a Ruby wrapper of [cmark](https://github.com/commonmark/cmark), a C implementation of the [CommonMark](https://commonmark.org/) spec which whitelists [some HTML tags](https://spec.commonmark.org/0.21/#raw-html).
+
+You won't be able to [embed Youtube videos](https://stackoverflow.com/a/14945782) however the spec for Github's markup rendering is [documented](https://github.com/github/markup) to a much greater extent than that of Bitbucket.
+
+
+<a id="orgfe3586a"></a>
+
+## Exploiting HTML IDs
+
+While there is no solution to allow the use of raw *HTML* in Bitbucket documents, anchors to headers and table of contents can still be displayed in Bitbucket Cloud.
+
+
+<a id="orga315bae"></a>
+
+### Anchors
+
+This can be done by utilizing the fact that all Markdown headers when rendered in Bitbucket will contain an *HTML ID* in the form:
+
+`markdown-header-[kebab-case-header]`
+
+For example anchoring to this section in Bitbucket would be done with:
+
+`markdown-header-anchors`
+
+All **spaces** will be replaced with **hyphens** and all **special characters** (*including dots*) will be **removed**.  The ID will also be all **lower-case**.
+
+Linking to the **strategy** section from our previous example would look like:
+
+```markdown
+Another drawback of our [strategy](#markdown-header-strategy) was ...
+```
+
+This is not ideal as it won't work in other Markdown renderers however it does allow the use of anchors for those who plan to display content exclusively in Bitbucket.  An *HTML* anchor tag can't be enterted for compatibility since Bitbucket will render it as plain-text.
+
+
+<a id="org3053679"></a>
+
+### Table of Contents
+
+While the above technique of using anchors could be employed to manually generate a table of contents, a better solution does exist.  By simply inserting the TOC directive as follows, a table of contents should be generated in-place:
+
+```markdown
+[TOC]
+```
+
+<a id="org574c01b"></a>
+
+### Why Does This Work?
+
+The short answer is that the [Bitbucket Wiki](https://confluence.atlassian.com/bitbucket/add-a-table-of-contents-to-a-wiki-221451163.html) documents this directive.  The more in-depth answer is that the Python Markdown extension [TOC](https://github.com/Python-Markdown/markdown/blob/master/docs/extensions/toc.md) is being used.  This means that this solution will only work for any renderers powered by Python Markdown.
+
+
+<a id="org154d3d7"></a>
+
+## Too Much Trouble for Anchors?
+
+For those who were hoping Markdown would be the one true universal format, **its not there** *yet*.  For now to avoid all of this craziness I would recommend simply using Github.  However if you are really stuck with the Bitbucket ecosystem, *as I am at work*, the following should do the trick.

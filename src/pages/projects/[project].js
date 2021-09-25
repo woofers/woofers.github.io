@@ -1,11 +1,10 @@
 import { getRepo, getRepos } from 'data/github'
-import { Markdown, removeBadges } from '../../components/markdown'
+import { Markdown, removeBadges } from 'components/markdown'
 import Org from 'components/org'
 import ProjectLink from 'components/project-link'
 import { mutateRepoNames, type } from 'utils/repo'
 import Title from 'components/title'
 import { styled } from 'emotion'
-
 
 const Flex = styled.div`
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile.breakpoint}) {

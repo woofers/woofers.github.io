@@ -18,37 +18,8 @@ import remarkToc from 'remark-toc'
 import remarkGithub from 'remark-github'
 import remarkRehype from 'remark-rehype'
 import rehypeReact from 'rehype-react'
+import remarkFrontmatter from 'remark-frontmatter'
 import javascript from 'highlight.js/lib/languages/javascript'
-
-function attacher({ include, exclude, prefix } = {}) {
-  //return (ast) => visit(ast, 'code', visitor)
-  //function visitor(node) {
-  //  let {lang, data} = node
-  //  if (
-  //    !lang ||
-  //    (include && !include.includes(lang)) ||
-  //    (exclude && exclude.includes(lang))
-  //  ) {
-  //    return
-  //  }
-  //  if (!data) {
-  //    data = {}
-  //    node.data = data
-  //  }
-  //  if (!data.hProperties) {
-  //    data.hProperties = {}
-  //  }
-  //  data.hChildren = low.highlight(lang, node.value, {prefix: 'hljs-'}).children
-  //  data.hProperties.className = [
-  //    'hljs',
-  //    ...(data.hProperties.className || []),
-  //    'language-' + lang
-  //  ]
-  //  console.log(node)
-  //}
-}
-
-//const schema = merge(github, { attributes: { '*': ['className', 'type'] } })
 
 const Wrapper = styled.div`
   h1:first-of-type {
@@ -56,16 +27,28 @@ const Wrapper = styled.div`
   }
 `
 
-//export const onlyImages = () => {
-//  return (tree) => unist('paragraph', selectAll('image', tree))
-//}
-//
-//export const firstImage = () => {
-//  return (tree) => {
-//    const image = select('image', tree)
-//    return image ? image : unist('paragraph', '')
-//  }
-//}
+const noop = item => item => item
+
+const links = (options = {}) => {
+  const { alt, repo } = options
+  const visitor = node => {
+    const githubLink = /^\.\//g
+    const setAlt = alt => {
+      node.properties.title = alt
+      node.properties.alt = alt
+    }
+    if (githubLink.test(node.properties.src)) {
+      node.properties.src = toGitHubLink(node.properties.src, repo.name)
+    }
+    if (options.alt) {
+      setAlt(alt)
+    } else if (node.title && node.type === 'image') {
+      setAlt(`${repo.fullName} ${node.title}`)
+    }
+  }
+  return tree => visit(tree, node => node.tagName === 'img', visitor)
+}
+
 
 export const removeBadges = () => {
   return tree => {
@@ -76,51 +59,43 @@ export const removeBadges = () => {
   }
 }
 
-export const Markdown = p => {
-  const links = options => {
-    options = options || {}
-    const visitor = node => {
-      const githubLink = /^\.\//g
-      const setAlt = alt => {
-        node.properties.title = alt
-        node.properties.alt = alt
-      }
-      if (githubLink.test(node.properties.src)) {
-        node.properties.src = toGitHubLink(node.properties.src, p.repo.name)
-      }
-      if (options.alt) {
-        setAlt(options.alt)
-      } else if (node.title && node.type === 'image') {
-        setAlt(`${p.repo.fullName} ${node.title}`)
-      }
-    }
-    return tree => visit(tree, node => node.tagName === 'img', visitor)
-  }
-  const content = () => {
+export const Markdown = ({ content, repo, alt, filters }) => {
+  const hasRepo = !!repo
+  const getContent = () => {
+    let meta = {}
     let processor = unified()
       .use(remarkParse)
+      .use(remarkFrontmatter, ['yaml'])
+      .use(() => (tree) => {
+        const first = tree?.children?.[0]
+        if (first?.type === 'yaml') meta = first.value
+      })
       .use(remarkSlug)
-      .use(remarkToc)
-      .use(remarkGithub, { repository: `woofers/${p.repo.name}` })
+      .use(hasRepo ? remarkGithub : noop, { repository: `woofers/${repo?.name}` })
       .use(remarkRehype)
       .use(rehypeReact, {
         createElement: React.createElement,
         components: {
           pre: CodeBlock,
-          a: p => (
-            <Link href={p.href} underline>
-              {p.children}
+            a: ({ href, children }) => (
+            <Link href={href} underline>
+              {children}
             </Link>
           ),
         },
       })
-    processor = processor.use(() => links({ alt: p.alt }))
-    for (const filter of p.filters) {
+    processor = processor.use(() => links({ alt, repo }))
+    for (const filter of filters) {
       processor = processor.use(filter)
     }
-    return processor.processSync(p.content).result
+    const data = processor.processSync(content).result
+    return [data, meta]
   }
-  return <Wrapper>{content()}</Wrapper>
+  const [data, meta] = getContent()
+  console.log(meta)
+  return (
+    <Wrapper>{data}</Wrapper>
+  )
 }
 
 Markdown.defaultProps = {

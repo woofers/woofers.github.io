@@ -2,12 +2,13 @@ import React from 'react'
 import path from 'path'
 import fs from 'fs-extra'
 import Org from 'components/org'
+import { Markdown, removeBadges } from 'components/markdown'
 
 const Post = ({ post }) => {
   return (
     <>
       <div>
-        <Org content={post.content} />
+        <Markdown content={post.content} />
       </div>
     </>
   )
@@ -16,9 +17,9 @@ const Post = ({ post }) => {
 export const getStaticProps = async ({ params, ...rest }) => {
   const { post } = params
   const getPost = () => {
-    const filePath = path.join('./content/blog', `${post}.org`)
+    const filePath = path.join('./content/blog', `${post}.md`)
     const { ext, name } = path.parse(filePath)
-    if (ext.startsWith('.org')) {
+    if (ext.startsWith('.md')) {
       try {
         const content = fs.readFileSync(filePath, 'utf8')
         const post = {
@@ -26,7 +27,7 @@ export const getStaticProps = async ({ params, ...rest }) => {
           date: '',
           post: filePath
             .replace(/^content\/blog\//, '')
-            .replace(/.org?$/, '')
+            .replace(/.md?$/, '')
         }
         return post
       }
@@ -40,7 +41,7 @@ export const getStaticProps = async ({ params, ...rest }) => {
 }
 
 export const getStaticPaths = () => {
-  const files = fs.readdirSync('./content/blog').map(name => name.replace(/.org?$/, ''))
+  const files = fs.readdirSync('./content/blog').map(name => name.replace(/.md?$/, ''))
   return {
     paths: files.map(post => ({ params: { post } })),
     fallback: false

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import toHast from 'oast-to-hast'
 import { toHtml } from 'hast-util-to-html'
 import { parse as orga } from 'orga'
@@ -11,6 +12,7 @@ import parse from '@orgajs/reorg-parse'
 import { unified } from 'unified'
 import reorg2rehype from '@orgajs/reorg-rehype'
 import { visit } from 'unist-util-visit'
+import highlight from '@orgajs/reorg-shiki'
 
 const t = name => () => {
   const visitor = node => {
@@ -24,15 +26,28 @@ const t = name => () => {
 
 const noop = () => out => out
 
-const Org = ({ content, repo }) => {
+const getContent = async (repo, content) => {
   const processor = unified()
     .use(parse)
     .use(repo?.name ? t(repo.name) : noop)
     .use(mutate)
     .use(html)
+  const data = await processor.process(content)
+  return data
+}
+
+const Org = ({ content, repo }) => {
+  const [data, setData] = useState()
+  useEffect(() => {
+    const load = async () => {
+      const d = await getContent(repo, content)
+      setData(d)
+    }
+    load()
+  }, [repo, content])
   return (
     <div>
-      <Content html={processor.processSync(content).value} />
+      <Content html={data?.value} />
     </div>
   )
 }
