@@ -1,7 +1,7 @@
 import fs from 'fs-extra'
 import { parse, join } from 'path'
 
-const getTypeGlob = type =>  new RegExp(`.${type}?$`, '')
+const getTypeGlob = type => new RegExp(`.${type}?$`, '')
 
 const getPathGlob = path => {
   const re = path.split('/').map(folder => `${folder}\\/`).join('')
@@ -30,10 +30,19 @@ export const getFile = (path, file, type) => {
   }
 }
 
+export const getFiles = (path, type) => {
+  const names = getFileNames(path, getTypeGlob(type))
+  return names.map(file => getFile(path, file, type))
+}
+
 export const getFileNames = (path, glob) => {
-  return fs.readdirSync(`./${path}`).map(name => name.replace(glob, ''))
+  const files = fs.readdirSync(`./${path}`)
+  if (!glob) return files
+  return files.map(name => name.replace(glob, ''))
 }
 
 export const getMarkdownFile = (path, name) => getFile(path, name, 'md')
+
+export const getMarkdownFiles = path => getFiles(path, 'md')
 
 export const getMarkdownFileNames = path => getFileNames(path, getTypeGlob('md'))
