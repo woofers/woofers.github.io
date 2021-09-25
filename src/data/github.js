@@ -1,4 +1,3 @@
-import fetch from 'isomorphic-unfetch'
 import { mutateRepoNames, type } from 'utils/repo'
 import { post } from './http'
 

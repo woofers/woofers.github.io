@@ -11,7 +11,7 @@ const Post = ({ post }) => {
   )
 }
 
-export const getStaticProps = async ({ params, ...rest }) => {
+export const getStaticProps = ({ params, ...rest }) => {
   const { post } = params
   return { props: { post: getMarkdownFile('content/blog', post)  } }
 }

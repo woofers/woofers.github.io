@@ -1,7 +1,7 @@
 export const toGitHubLink = (link, repo) => {
   return toAbsoluteLink(
     link,
-    `//raw.githubusercontent.com/woofers/${repo}/main/`
+    `https://raw.githubusercontent.com/woofers/${repo}/main/`
   )
 }
 
