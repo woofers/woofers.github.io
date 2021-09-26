@@ -28,6 +28,12 @@ const global = theme => css`
     padding: 0;
   }
 
+  a {
+    display: inline-block;
+    color: #f27052;
+    text-decoration: none;
+  }
+
   pre {
     margin: 0;
     margin-bottom: 1.6rem;

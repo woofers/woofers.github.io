@@ -1,11 +1,11 @@
 import React from 'react'
-import { useMarkdown, Markdown } from 'components/markdown'
+import { useMarkdown, Markdown, summary } from 'components/markdown'
 import Title from 'components/title'
 import Link from 'link'
 import { getMarkdownFiles } from 'data/local'
 
 const Post = ({ post }) => {
-  const { content, meta } = useMarkdown(post.content)
+  const { content, meta } = useMarkdown(post.content, { filters: [summary] })
   const continueReading = 'Continue reading'
   const title = meta.title
   const slug = `/blog/${post.post}`
@@ -44,7 +44,7 @@ const Blog = ({ data }) => {
   })
   return (
     <>
-      <Title>Posts</Title>
+      <Title paddingX="0">Posts</Title>
       {posts.map(post => <Post key={`post-preview-${post.post}`} post={post} />)}
     </>
   )

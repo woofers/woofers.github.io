@@ -21,7 +21,7 @@ const Projects = ({ project, repo }) => {
   return (
     <>
       <Flex>
-        <Title>{fullName}</Title>
+        <Title paddingX="0">{fullName}</Title>
         <div>
           <ProjectLink href={repo.url} type="github" />
           {repo.homepage && (

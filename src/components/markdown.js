@@ -50,6 +50,11 @@ const links = (options = {}) => {
 }
 
 
+export const summary = () => tree => {
+  const text = tree?.children?.find(el => el.tagName === 'p')
+  if (text) tree.children = [text]
+}
+
 export const removeBadges = () => {
   return tree => {
     return filter(tree, node => {

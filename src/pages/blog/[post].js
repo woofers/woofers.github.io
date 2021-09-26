@@ -1,12 +1,14 @@
 import React from 'react'
 import Org from 'components/org'
+import Title from 'components/title'
 import { useMarkdown, Markdown } from 'components/markdown'
 import { getMarkdownFile, getMarkdownFileNames } from 'data/local'
 
 const Post = ({ post }) => {
-  const { content } = useMarkdown(post.content)
+  const { content, meta } = useMarkdown(post.content)
   return (
     <>
+      <Title paddingX="0">{meta.title}</Title>
       <Markdown content={content} />
     </>
   )
