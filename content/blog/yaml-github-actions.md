@@ -169,5 +169,4 @@ To make it even nicer we can link the badge to our repo's actions page:
 
 It will look something like this:
 
-
 [![img](https://github.com/woofers/ludum-dare-badges/workflows/build/badge.svg)](https://github.com/woofers/ludum-dare-badges/actions)

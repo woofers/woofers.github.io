@@ -14,10 +14,11 @@ const Header = styled.header`
   top: 0;
   left: 0;
   height: 130px;
-  width: 210px;
+  width: 240px;
   display: flex;
-  padding: 40px 20px 0;
+  padding: 20px 20px 0;
   z-index: 20;
+
 `
 
 const normalize = href => (href !== '/' ? href : '/me')

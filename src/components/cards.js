@@ -82,7 +82,7 @@ const Cards = ({ items = [] }) => {
           </Card>
         ))}
         <AnimatePresence>
-          {(selectedId || selectedId === 0) &&
+          {item &&
             (({ id, children, ...rest }) => (
               <>
                 <Overlay

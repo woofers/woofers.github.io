@@ -8,23 +8,15 @@ lang: frame
 game: game/index.html
 ---
 
-<a id="org925b6ce"></a>
-
 # Instructions
 
 Play as a fox who has *super digging abilities* and dig through a world invaded by robot crocodiles to reach the end of the level.
-
-
-<a id="orgfe03f8a"></a>
 
 ## Hints
 
 -   Totem poles will save your progress.
 -   Rock tiles will block your fox from digging.
 -   Digging up on un-suspecting enemies will *disable them* however tread lightly as they may start following you.
-
-
-<a id="org568124b"></a>
 
 ## Controls
 

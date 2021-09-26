@@ -10,8 +10,6 @@ landscape: nil
 game: game/index.js
 ---
 
-<a id="org8699bc5"></a>
-
 # Story
 
 Commander DB (Dog Bonez) is in a pickle. He left his Nano-Bulbous-Gravitron-Phaser v3, a cosmic dog toy, at home.
@@ -19,8 +17,6 @@ His issue is that his home, the kennel planet, is on the other side of the galax
 
 Using nearby planets' gravitational pull, DB aims to use the power of ORBITing gravity to make it home a couple of dog years shorter.
 
-
-<a id="orgee6c864"></a>
 
 # Instructions
 
@@ -31,14 +27,10 @@ You can not move to planets in the opposite direction of travel as the gravitati
 and attempting to move against it will result in the shuttle doing a flip.
 
 
-<a id="orgf0753ec"></a>
-
 ## Controls
 
 -   **Space** - Jump planets / menu
 
-
-<a id="org568337a"></a>
 
 ## About
 

@@ -3,7 +3,7 @@ import CodeBlock from './code-block'
 import { visit } from 'unist-util-visit'
 import { filter } from 'unist-util-filter'
 import { toGitHubLink } from 'utils/link'
-import Link from 'link'
+import { MarkdownLink } from 'link'
 import { styled } from 'emotion'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -92,9 +92,9 @@ export const useMarkdown = (
       components: {
         pre: CodeBlock,
         a: ({ href, children }) => (
-          <Link href={href} underline>
+          <MarkdownLink href={href}>
             {children}
-          </Link>
+          </MarkdownLink>
         ),
       },
     })

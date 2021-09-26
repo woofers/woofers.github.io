@@ -1,4 +1,4 @@
-import Link from 'link'
+import { MarkdownLink } from 'link'
 import { styled } from 'emotion'
 
 const Wrapper = styled.div`
@@ -8,10 +8,10 @@ const Wrapper = styled.div`
 
 const Align = p => {
   const { inline, align, children, ...rest } = p
-  if (inline) return <Link {...rest}>{children}</Link>
+  if (inline) return <MarkdownLink {...rest}>{children}</MarkdownLink>
   return (
     <Wrapper align={p.align}>
-      <Link {...rest}>{children}</Link>
+      <MarkdownLink {...rest}>{children}</MarkdownLink>
     </Wrapper>
   )
 }
