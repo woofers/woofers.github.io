@@ -1,8 +1,10 @@
-const Content = ({ html, as = 'div', ...rest }) =>
-  as === 'div' ? (
-    <div {...rest} dangerouslySetInnerHTML={{ __html: html }} />
-  ) : (
-    <code {...rest} dangerouslySetInnerHTML={{ __html: html }} />
-  )
+import { styled } from 'emotion'
+
+const Element = styled.div`
+`
+
+const Content = ({ html, as = 'div', ...rest }) => (
+  <Element {...rest} as={as} dangerouslySetInnerHTML={{ __html: html }} />
+)
 
 export default Content

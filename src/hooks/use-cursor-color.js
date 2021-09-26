@@ -17,7 +17,6 @@ const useCursorColor = () => {
       const background = style?.getPropertyValue('background-color')
       const hasColor = color => color !== 'rgba(0, 0, 0, 0)'
       const result = hasColor(background) ? background : color
-      console.log(result)
       document.documentElement.style.setProperty('--mouse-color', result)
     }
     document.addEventListener('mousemove', onMove, false)
