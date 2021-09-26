@@ -6,6 +6,10 @@ import Text from 'components/text'
 import { setCSSVar, removeCSSVar } from 'utils/css-var'
 import Link from 'link'
 
+const CardLink = styled(Link)`
+  width: 100%;
+`
+
 const HeadingContainer = styled(motion.div)`
   display: flex;
   align-items: stretch;
@@ -70,7 +74,7 @@ const ShiftCard = ({
 }) => {
   const onHover = setColor(color)
   return (
-    <Link href={id !== 'intro' ? `/me/${id}` : '/'} onClick={onClick} shallow>
+    <CardLink href={id !== 'intro' ? `/me/${id}` : '/'} onClick={onClick} shallow>
       <Block
         color={color}
         onMouseEnter={onHover}
@@ -111,7 +115,7 @@ const ShiftCard = ({
           )}
         </Inner>
       </Block>
-    </Link>
+    </CardLink>
   )
 }
 

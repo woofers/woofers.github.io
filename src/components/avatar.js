@@ -7,9 +7,14 @@ const Wrapper = styled(motion.div)`
   border-radius: 50%;
   background-color: #feb37d;
   box-shadow: inset 0.3px -0.4px 8px 2px #00000030;
-  width: 400px;
-  height: 400px;
+  max-width: 400px;
+  max-height: 400px;
   overflow: hidden;
+  aspect-ratio: 1;
+`
+
+const Inner = styled.img`
+  max-height: 100%;
 `
 
 const Avatar = ({ intro = true, show = true, ...rest }) => {
@@ -23,7 +28,7 @@ const Avatar = ({ intro = true, show = true, ...rest }) => {
           transition={{ duration: intro ? 0.5 : 0.15, delay: intro ? 1.3 : 0 }}
           {...rest}
         >
-          <img
+          <Inner
             src={jaxson.src}
             width={400}
             height={400}

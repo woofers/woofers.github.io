@@ -5,12 +5,12 @@ import { useRouter } from 'next/router'
 import Card from './shift-card'
 
 const Wrapper = styled(motion.div)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 `
 
