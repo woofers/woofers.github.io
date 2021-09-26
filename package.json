@@ -7,7 +7,7 @@
   "scripts": {
     "clean": "rimraf public/projects",
     "dev": "node server.js",
-    "build": "./dist-games.sh && next build && next export",
+    "build": "./dist-games.sh && next build && next export && ./move-404.sh",
     "static": "serve -s out",
     "deploy": "yarn gh-pages -t -d out",
     "start": "next start",
