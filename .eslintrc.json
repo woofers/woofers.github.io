@@ -1,5 +1,5 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": ["react-app", "plugin:@next/next/recommended"],
   "rules": {
     "react/display-name": 0
   }
