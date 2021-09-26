@@ -1,5 +1,4 @@
 import React from 'react'
-import Title from 'components/title'
 import { styled } from 'emotion'
 import { motion } from 'framer-motion'
 import { SectionLink } from 'link'

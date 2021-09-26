@@ -17,6 +17,7 @@ const Header = styled.header`
   width: 210px;
   display: flex;
   padding: 40px 20px 0;
+  z-index: 20;
 `
 
 const normalize = href => (href !== '/' ? href : '/me')

@@ -41,7 +41,7 @@ const Container = styled.div`
     );
   width: 100%;
   height: calc(100vh - 225px);
-  z-index: 2;
+  z-index: 60;
   left: 0;
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
@@ -56,7 +56,7 @@ const Overlay = styled(motion.div)`
   position: fixed;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  z-index: 50;
 `
 
 const Cards = ({ items = [] }) => {

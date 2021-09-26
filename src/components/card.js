@@ -25,7 +25,6 @@ const Wrapper = styled(motion.div)`
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
   }
   box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
   background: ${props => props.background || '#fff'};
