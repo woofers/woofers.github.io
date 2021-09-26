@@ -1,13 +1,14 @@
 import React from 'react'
 import { styled } from 'emotion'
-import Content from './content'
 import Frame from './frame'
 import Pico8 from './pico-8'
 import Widget from '@ludum-dare-badges/react'
 import { Markdown } from 'components/markdown'
 
 const Wrapper = styled.div`
-  ${props => props.portrait && `
+  ${props =>
+    props.portrait &&
+    `
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(0px, 463px));
     grid-column-gap: 50px;
@@ -21,14 +22,19 @@ const Game = p => {
   const isPico = lang === 'pico'
   return (
     <Wrapper portrait={portrait && !isPico}>
-      {
-        isPico
-          ? <Pico8 src={src} placeholder={placeholder} />
-          : <Frame aspectRatio={portrait ? (9 / 16) : (16 / 9)}
-                   title={title} src={src} />
-      }
+      {isPico ? (
+        <Pico8 src={src} placeholder={placeholder} />
+      ) : (
+        <Frame
+          aspectRatio={portrait ? 9 / 16 : 16 / 9}
+          title={title}
+          src={src}
+        />
+      )}
       <Markdown content={instruction} />
-      { ludumDare && <Widget host="https://badges.jaxs.onl/" game={p.ludumDare} /> }
+      {ludumDare && (
+        <Widget host="https://badges.jaxs.onl/" game={p.ludumDare} />
+      )}
     </Wrapper>
   )
 }

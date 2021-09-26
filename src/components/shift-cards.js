@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { styled, useMediaQuery } from 'emotion'
+import React from 'react'
+import { styled } from 'emotion'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { useRouter } from 'next/router'
 import Card from './shift-card'
@@ -17,7 +17,6 @@ const Wrapper = styled(motion.div)`
 const Cards = ({ show = true, intro, items = [], location }) => {
   const router = useRouter()
   const selectedId = router?.query?.section?.[1] || 'intro'
-  const item = items.find(({ id }) => id === selectedId)
   const setSelectedId = id => {
     router.replace(`/me/${id}`, undefined, { shallow: true })
   }

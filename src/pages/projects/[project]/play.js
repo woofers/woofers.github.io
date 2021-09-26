@@ -1,12 +1,7 @@
-import { getRepo, getRepos } from 'data/github'
 import { useMarkdown } from 'components/markdown'
 import { getMarkdownFile, getMarkdownFileNames } from 'data/local'
-import ProjectLink from 'components/project-link'
-import { mutateRepoNames, type } from 'utils/repo'
-import Title from 'components/title'
 import Game from 'components/game'
 import GameTitle from 'components/game-title'
-import { styled } from 'emotion'
 
 const Projects = ({ project }) => {
   const { content, meta } = useMarkdown(project.content)
@@ -16,27 +11,35 @@ const Projects = ({ project }) => {
   const ludumDare = meta.ludum_dare
   return (
     <>
-      <GameTitle title={title} icon={icon} iconMode={iconMode} iconType={iconType} />
-      <Game title={title} src={game}
-            portrait={landscape === 'nil'}
-            instruction={content}
-            lang={lang}
-            ludumDare={ludumDare}
-            placeholder={placeholder} />
+      <GameTitle
+        title={title}
+        icon={icon}
+        iconMode={iconMode}
+        iconType={iconType}
+      />
+      <Game
+        title={title}
+        src={game}
+        portrait={landscape === 'nil'}
+        instruction={content}
+        lang={lang}
+        ludumDare={ludumDare}
+        placeholder={placeholder}
+      />
     </>
   )
 }
 
 export const getStaticProps = ({ params, ...rest }) => {
   const { project } = params
-  return { props: { project: getMarkdownFile('content/projects', project)  } }
+  return { props: { project: getMarkdownFile('content/projects', project) } }
 }
 
 export const getStaticPaths = () => {
   const files = getMarkdownFileNames('content/projects')
   return {
     paths: files.map(project => ({ params: { project } })),
-    fallback: false
+    fallback: false,
   }
 }
 

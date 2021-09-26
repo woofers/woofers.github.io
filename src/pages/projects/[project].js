@@ -1,7 +1,7 @@
 import { getRepo, getRepos } from 'data/github'
 import { useMarkdown, Markdown, removeBadges } from 'components/markdown'
 import ProjectLink from 'components/project-link'
-import { mutateRepoNames, type } from 'utils/repo'
+import { type } from 'utils/repo'
 import Title from 'components/title'
 import { styled } from 'emotion'
 
@@ -32,7 +32,6 @@ const Projects = ({ project, repo }) => {
       </div>
     </>
   )
-  return `name: ${project}`
 }
 
 export const getStaticProps = async ({ params, ...rest }) => {

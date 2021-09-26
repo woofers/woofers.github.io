@@ -1,9 +1,9 @@
-import { mutateRepoNames, type } from 'utils/repo'
+import { mutateRepoNames } from 'utils/repo'
 import { post } from './http'
 
 const exclude = {
   'discord-jam-2': 'DOGE: BOIS',
-  'woofers3d': 'Woofers 3D',
+  woofers3d: 'Woofers 3D',
   'ludum-dare-44': 'ALIEN, e x p a n s i o n .',
   'react-pico-8': 'React PICO-8',
   'react-yat': 'React YAT',
@@ -12,22 +12,21 @@ const exclude = {
   'react-ludum-dare': true,
   'woofers.github.io': true,
   'kangaroo-country': true,
-  'chess': true,
-  'resume': true,
+  chess: true,
+  resume: true,
   'java-formatter': true,
   'battlesnake-2018': true,
   'battlesnake-java-template': true,
   'libgdx-tools-installer': true,
   'challenger-deep-rofi': true,
-  'dotfiles': true,
+  dotfiles: true,
   'k9-krew': true,
   'course-codes-bugs': true,
   'noto-emoji-react': true,
   'react-chameleon-theme-color': true,
   'qmk-indicator': true,
-  'quefrency-case': true
+  'quefrency-case': true,
 }
-
 
 const repoQuery = `
 query GetRepo($name: String!) {
@@ -101,7 +100,9 @@ export const getRepo = async name => {
 
 export const getRepos = async () => {
   const data = await fromGithub({ query })
-  const repos = data.user.repositories.edges.map(({ node }) => node).filter(repo => typeof exclude?.[repo?.name] !== 'boolean')
+  const repos = data.user.repositories.edges
+    .map(({ node }) => node)
+    .filter(repo => typeof exclude?.[repo?.name] !== 'boolean')
 
   return repos
 }

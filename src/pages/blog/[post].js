@@ -15,14 +15,14 @@ const Post = ({ post }) => {
 
 export const getStaticProps = ({ params, ...rest }) => {
   const { post } = params
-  return { props: { post: getMarkdownFile('content/blog', post)  } }
+  return { props: { post: getMarkdownFile('content/blog', post) } }
 }
 
 export const getStaticPaths = () => {
   const files = getMarkdownFileNames('content/blog')
   return {
     paths: files.map(post => ({ params: { post } })),
-    fallback: false
+    fallback: false,
   }
 }
 

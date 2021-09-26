@@ -9,7 +9,6 @@ const Iframe = styled.iframe`
   height: 100%;
 `
 
-
 const Container = styled.div`
   text-align: center;
   margin: 2px 0 23px 0;
@@ -27,7 +26,7 @@ const Frame = p => {
 }
 
 Frame.defaultProps = {
-  aspectRatio: 16 / 9
+  aspectRatio: 16 / 9,
 }
 
 export default Frame

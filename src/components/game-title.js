@@ -1,8 +1,8 @@
 import React from 'react'
-import { styled, css } from 'emotion'
+import { styled } from 'emotion'
 
 const Header = styled.h1`
-  display: ${props => props.icon ? 'inline' : 'block'};
+  display: ${props => (props.icon ? 'inline' : 'block')};
 `
 
 const GameIcon = styled.img`
@@ -30,19 +30,24 @@ const GameTitle = p => {
   return (
     <Wrapper {...rest}>
       <Header icon={icon}>{title}</Header>
-      {
-        icon &&
-          <IconWrapper>
-            <GameIcon src={icon} alt="" draggable="false" iconSize={iconSize} iconType={iconType} />
-          </IconWrapper>
-      }
+      {icon && (
+        <IconWrapper>
+          <GameIcon
+            src={icon}
+            alt=""
+            draggable="false"
+            iconSize={iconSize}
+            iconType={iconType}
+          />
+        </IconWrapper>
+      )}
       {children}
     </Wrapper>
   )
 }
 
 GameTitle.defaultProps = {
-  iconSize: 45
+  iconSize: 45,
 }
 
 export default GameTitle

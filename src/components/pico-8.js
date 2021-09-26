@@ -1,4 +1,3 @@
-import React from 'react'
 import P8 from 'react-pico-8'
 import { styled } from 'emotion'
 
@@ -21,14 +20,14 @@ const Pico8 = styled(P8)`
   #p8_container {
     > button {
       img {
-       margin-bottom: auto;
+        margin-bottom: auto;
       }
     }
   }
 `
 
 Pico8.defaultProps = {
-  center: true
+  center: true,
 }
 
 export default Pico8

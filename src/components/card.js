@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
-import { styled, createGlobal, css } from 'emotion'
+import React from 'react'
+import { styled, createGlobal } from 'emotion'
 import { motion } from 'framer-motion'
-import Title from './title'
-import Text from './text'
 import { setCSSVar, removeCSSVar } from 'utils/css-var'
 
 const Wrapper = styled(motion.div)`

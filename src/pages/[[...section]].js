@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { styled } from 'emotion'
 import useScrollPosition from 'hooks/use-scroll-position'
 import useTimeout from 'hooks/use-timeout'
@@ -57,8 +57,6 @@ const Index = () => {
     if (!slug) return
     const section = router?.query?.section?.[0] || 'me'
     if (!router.isReady || `/${section}`.startsWith(normalize(slug))) return
-    const query = router?.query
-    const pathname = router?.pathname
     router.replace('/[[...section]]?reset=false', slug, { shallow: true })
   }, [slug, router])
   return (

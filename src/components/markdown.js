@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import CodeBlock from './code-block'
 import { visit } from 'unist-util-visit'
 import { filter } from 'unist-util-filter'
 import { toGitHubLink } from 'utils/link'
 import Link from 'link'
 import { styled } from 'emotion'
-import { css } from '@emotion/react'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkSlug from 'remark-slug'
@@ -42,7 +41,6 @@ const links = (options = {}) => {
   return tree => visit(tree, node => node.tagName === 'img', visitor)
 }
 
-
 export const summary = () => tree => {
   const text = tree?.children?.find(el => el.tagName === 'p')
   if (text) tree.children = [text]
@@ -57,9 +55,7 @@ export const removeBadges = () => {
   }
 }
 
-export const Markdown = ({ content }) => (
-  <Wrapper>{content}</Wrapper>
-)
+export const Markdown = ({ content }) => <Wrapper>{content}</Wrapper>
 
 Markdown.defaultProps = {
   filters: [],
@@ -68,18 +64,23 @@ Markdown.defaultProps = {
 
 const parseMeta = meta => {
   const parts = meta.split('\n')
-  return parts.map(part => part.split(': ')).reduce((acc, [key, value]) => {
-    return { ...acc, [key]: value }
-  }, {})
+  return parts
+    .map(part => part.split(': '))
+    .reduce((acc, [key, value]) => {
+      return { ...acc, [key]: value }
+    }, {})
 }
 
-export const useMarkdown = (data, { repo = '', alt = '', filters = [] } = {}) => {
+export const useMarkdown = (
+  data,
+  { repo = '', alt = '', filters = [] } = {}
+) => {
   const hasRepo = !!repo
   let meta = {}
   let processor = unified()
     .use(remarkParse)
     .use(remarkFrontmatter, ['yaml'])
-    .use(() => (tree) => {
+    .use(() => tree => {
       const first = tree?.children?.[0]
       if (first?.type === 'yaml') meta = parseMeta(first.value)
     })
@@ -90,7 +91,7 @@ export const useMarkdown = (data, { repo = '', alt = '', filters = [] } = {}) =>
       createElement: React.createElement,
       components: {
         pre: CodeBlock,
-          a: ({ href, children }) => (
+        a: ({ href, children }) => (
           <Link href={href} underline>
             {children}
           </Link>

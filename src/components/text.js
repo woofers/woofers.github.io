@@ -1,4 +1,3 @@
-import React from 'react'
 import { styled } from 'emotion'
 
 const Text = styled.div`
@@ -24,8 +23,3 @@ Text.defaultProps = {
 }
 
 export default Text
-
-// font-size: 20px;
-// line-height: 41px;
-// color: #973838;
-// margin-top: 82px;

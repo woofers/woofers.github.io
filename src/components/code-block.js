@@ -1,5 +1,4 @@
-import React, { useState, Children, useEffect, useRef } from 'react'
-import js from 'highlight.js/lib/languages/javascript'
+import React, { useState, Children, useEffect } from 'react'
 import { lowlight } from 'lowlight'
 import { toHtml } from 'hast-util-to-html'
 import Content from './content'
@@ -8,7 +7,7 @@ const CodeBlock = ({ children, ...rest }) => {
   const flat = Children.map(children, el => el)
   const first = flat?.[0]
   const lang = (first?.props?.className || 'language-jsx').replace(
-    /language\-/g,
+    /language-/g,
     ''
   )
   const child = first?.props?.children?.[0]

@@ -1,6 +1,5 @@
 import React from 'react'
 import { styled } from 'emotion'
-import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import jaxson from 'images/jaxson.webp'
 

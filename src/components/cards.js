@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { styled, useMediaQuery } from 'emotion'
 import { motion, AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { useRouter } from 'next/router'
