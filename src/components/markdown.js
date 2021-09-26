@@ -1,25 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import CodeBlock from './code-block'
-//import unist from 'unist-builder'
 import { visit } from 'unist-util-visit'
 import { filter } from 'unist-util-filter'
-//import { selectAll, select } from 'unist-util-select'
 import { toGitHubLink } from 'utils/link'
-//import github from 'hast-util-sanitize/lib/github'
-//import merge from 'lodash.merge'
 import Link from 'link'
 import { styled } from 'emotion'
 import { css } from '@emotion/react'
-
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkSlug from 'remark-slug'
-import remarkToc from 'remark-toc'
 import remarkGithub from 'remark-github'
 import remarkRehype from 'remark-rehype'
 import rehypeReact from 'rehype-react'
 import remarkFrontmatter from 'remark-frontmatter'
-import javascript from 'highlight.js/lib/languages/javascript'
 
 const Wrapper = styled.div`
   h1:first-of-type {

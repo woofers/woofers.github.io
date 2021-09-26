@@ -7,7 +7,6 @@ export const mutateRepoNames = (repo, excluded) => {
     return camelCaseToPascalCase(name)
   }
   repo.fullName = replace(repo.name)
-  console.log(repo)
 }
 
 export const type = repo => {
