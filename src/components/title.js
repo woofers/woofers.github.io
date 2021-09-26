@@ -1,4 +1,3 @@
-import React from 'react'
 import { styled } from 'emotion'
 
 const Title = styled.h1`

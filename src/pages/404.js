@@ -1,5 +1,7 @@
-const NotFound = () => {
-  return <h1>404 - Page Not Found</h1>
-}
+
+// Not used for static export
+// but suppresses warning about
+// static optimization
+const NotFound = () => <></>
 
 export default NotFound
