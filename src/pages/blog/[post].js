@@ -1,5 +1,4 @@
 import React from 'react'
-import Org from 'components/org'
 import Title from 'components/title'
 import { useMarkdown, Markdown } from 'components/markdown'
 import { getMarkdownFile, getMarkdownFileNames } from 'data/local'
