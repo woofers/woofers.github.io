@@ -19,6 +19,11 @@ const Header = styled.header`
   padding: 20px 20px 0;
   z-index: 20;
 
+  --glass-lightness: 100%;
+  --on-glass-primary: hsl(220 50% 20%);
+  --on-glass-secondary: hsl(220 40% 30%);
+  backdrop-filter: blur(40px);
+  background: hsl(0 0% var(--glass-lightness) / 90%);
 `
 
 const normalize = href => (href !== '/' ? href : '/me')
