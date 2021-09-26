@@ -5,8 +5,8 @@ const Anchor = styled.a`
   text-decoration: none;
 `
 
-const Link = ({ href, as, children, scroll = false, ...rest }) => (
-  <NextLink href={href} as={as} scroll={scroll} passHref>
+const Link = ({ href, as, children, scroll = false, shallow, ...rest }) => (
+  <NextLink href={href} as={as} scroll={scroll} shallow={shallow} passHref>
     <Anchor {...rest}>{children}</Anchor>
   </NextLink>
 )

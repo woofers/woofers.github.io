@@ -74,7 +74,6 @@ const Cards = ({ items = [] }) => {
         {items.map(({ id, children, ...rest }) => (
           <Card
             layoutId={id}
-            onClick={() => setSelectedId(id)}
             data-hide={shift && id === selectedId}
             key={id}
             {...rest}

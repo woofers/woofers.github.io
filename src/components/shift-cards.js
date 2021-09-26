@@ -17,9 +17,6 @@ const Wrapper = styled(motion.div)`
 const Cards = ({ show = true, intro, items = [], location }) => {
   const router = useRouter()
   const selectedId = router?.query?.section?.[1] || 'intro'
-  const setSelectedId = id => {
-    router.replace(`/me/${id}`, undefined, { shallow: true })
-  }
   return (
     <AnimateSharedLayout>
       <AnimatePresence exitBeforeEnter>
@@ -39,7 +36,6 @@ const Cards = ({ show = true, intro, items = [], location }) => {
           >
             {items.map(({ id, children, ...rest }) => (
               <Card
-                onClick={() => setSelectedId(id)}
                 active={id === selectedId}
                 key={id}
                 id={id}

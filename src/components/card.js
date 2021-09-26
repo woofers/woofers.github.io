@@ -2,8 +2,15 @@ import React from 'react'
 import { styled, createGlobal } from 'emotion'
 import { motion } from 'framer-motion'
 import { setCSSVar, removeCSSVar } from 'utils/css-var'
+import Link from 'link'
+
+const CardLink = styled(Link)`
+  width: 100%;
+`
 
 const Wrapper = styled(motion.div)`
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   position: relative;
   cursor: pointer;
@@ -45,6 +52,8 @@ const HideOverflow = createGlobal`
 const setColor = setCSSVar('hover-color')
 const removeColor = removeCSSVar('hover-color')
 
+const OuterLink = ({ isOpen, children, ...rest }) => (!isOpen ? <CardLink {...rest}>{children}</CardLink> : <>{children}</>)
+
 const Card = ({
   logo,
   children: Child,
@@ -52,12 +61,15 @@ const Card = ({
   isOpen,
   background,
   color,
+  layoutId,
   ...rest
 }) => {
   const onHover = setColor(color ?? background)
   return (
+  <OuterLink href={`/work/${layoutId}`} shallow isOpen={isOpen}>
     <Wrapper
       {...rest}
+      layoutId={layoutId}
       background={background}
       data-open={isOpen}
       onMouseEnter={onHover}
@@ -69,6 +81,7 @@ const Card = ({
         <Child isOpen={isOpen} />
       </Content>
     </Wrapper>
+    </OuterLink>
   )
 }
 
