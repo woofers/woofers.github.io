@@ -24,6 +24,7 @@ const IconContainer = styled.div`
 `
 
 const Block = styled(motion.div)`
+  margin-left: auto;
   cursor: pointer;
   position: relative;
   width: 585px;
@@ -54,6 +55,10 @@ const Inner = styled.div`
   width: 100%;
   height: 100%;
   position: absolute;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    padding: 7px 10px;
+  }
 `
 
 const TitleTransition = styled(Title)`
@@ -76,8 +81,8 @@ const ShiftCard = ({
   const theme = useTheme()
 
   const small = useMediaQuery(`@media only screen and (max-width: ${theme.breakpoints.small.breakpoint})`)
-  console.log(`@media only screen and (max-width: ${theme.breakpoints.small.breakpoint})`)
   const size = !small ? '250px' : '175px'
+  const link = !small ? '80px' : '56px'
   return (
     <CardLink href={id !== 'intro' ? `/me/${id}` : '/'} onClick={onClick} shallow>
       <Block
@@ -89,7 +94,7 @@ const ShiftCard = ({
         initial={false}
         animate={{
           marginTop: active ? '20px' : '0px',
-          height: active ? size : '80px',
+          height: active ? size : link,
         }}
         key={active}
         {...rest}
@@ -103,7 +108,7 @@ const ShiftCard = ({
           >
             <TitleTransition
               textTransform="lowercase"
-              fontSize="45px"
+              fontSize={!small ? '45px' : '25px'}
               letterSpacing="-2.25px"
               color={!active ? color : contrast}
             >
