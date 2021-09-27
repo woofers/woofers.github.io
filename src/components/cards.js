@@ -7,7 +7,9 @@ import Card from './card'
 const ROWS = 2
 const CARD_WIDTH = '585px'
 const CARD_HEIGHT = '250px'
+const CARD_HEIGHT_MOBILE = '175px'
 const CARD_GAP = '30px'
+const CARD_GAP_MOBILE = '20px'
 const HEIGHT = `calc(${ROWS} * ${CARD_HEIGHT} + ((${ROWS} - 1) * ${CARD_GAP}))`
 
 const EXPANDED_WIDTH = '300px'
@@ -27,6 +29,8 @@ const Grid = styled.div`
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
     grid-template-columns: 1fr;
+    grid-gap: ${CARD_GAP_MOBILE};
+    grid-template-rows: repeat(4, ${CARD_HEIGHT_MOBILE});
     width: 100%;
   }
 `

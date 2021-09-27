@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { Global, css } from '@emotion/react'
+import { Global, useTheme, css } from '@emotion/react'
 import useMediaQuery from '@material-ui/core/useMediaQuery'
 
 const createGlobal = val => {
@@ -9,4 +9,4 @@ const createGlobal = val => {
   return Component
 }
 
-export { styled, Global, css, createGlobal, useMediaQuery }
+export { styled, Global, css, createGlobal, useMediaQuery, useTheme }

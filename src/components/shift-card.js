@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'emotion'
+import { styled, useTheme, useMediaQuery } from 'emotion'
 import { motion } from 'framer-motion'
 import Title from 'components/title'
 import Text from 'components/text'
@@ -73,6 +73,11 @@ const ShiftCard = ({
   ...rest
 }) => {
   const onHover = setColor(color)
+  const theme = useTheme()
+
+  const small = useMediaQuery(`@media only screen and (max-width: ${theme.breakpoints.small.breakpoint})`)
+  console.log(`@media only screen and (max-width: ${theme.breakpoints.small.breakpoint})`)
+  const size = !small ? '250px' : '175px'
   return (
     <CardLink href={id !== 'intro' ? `/me/${id}` : '/'} onClick={onClick} shallow>
       <Block
@@ -84,7 +89,7 @@ const ShiftCard = ({
         initial={false}
         animate={{
           marginTop: active ? '20px' : '0px',
-          height: active ? '250px' : '80px',
+          height: active ? size : '80px',
         }}
         key={active}
         {...rest}

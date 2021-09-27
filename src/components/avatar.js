@@ -11,6 +11,11 @@ const Wrapper = styled(motion.div)`
   max-height: 400px;
   overflow: hidden;
   aspect-ratio: 1;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    max-width: 300px;
+    max-height: 300px;
+  }
 `
 
 const Inner = styled.img`

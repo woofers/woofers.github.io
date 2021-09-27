@@ -71,6 +71,7 @@ const Grid = styled.div`
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
+    grid-template-rows: 175px 300px 600px;
     width: 100%;
   }
 `
