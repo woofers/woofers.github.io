@@ -32,9 +32,16 @@ const InputContainer = styled.div`
 const Message = styled(TextArea)`
   grid-column: span 2;
 `
+
+const EmailWrapper = styled.div`
+  margin-top: 300px;
+`
+
 const Contact = () => (
   <>
-    <Email />
+    <EmailWrapper>
+      <Email />
+    </EmailWrapper>
     <InputContainer>
       <Input placeholder="Name" iconWidth="36px" iconPadding="3px">
         <Icon>

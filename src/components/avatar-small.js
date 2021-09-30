@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import jaxson from 'images/jaxson.webp'
 
 const Wrapper = styled(motion.div)`
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
   border-bottom-left-radius: 7px;
   left: 8px;
   position: absolute;

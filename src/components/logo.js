@@ -50,8 +50,8 @@ const Logo = ({ shift, delay = 0 }) => {
     <SectionLink href="/">
       <Translate
         layoutId={'jvd-logo'}
-        initial={{ x: 0, y: 0, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
+        initial={{ x: 0, y: -26, opacity: 0 }}
+        animate={{ x: 0, y: -26, opacity: 1 }}
         transition={{ delay: delay, duration: 0.5 }}
         layout="position"
       >

@@ -43,7 +43,7 @@ const breakpoints = {
     size: '90%',
   },
   mobile: {
-    breakpoint: '650px',
+    breakpoint: '675px',
     size: '90%',
   },
   small: {

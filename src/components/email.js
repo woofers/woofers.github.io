@@ -3,7 +3,6 @@ import Title from 'components/title'
 
 const Wrapper = styled.div`
   flex-flow: row wrap;
-  margin-top: 300px;
   display: flex;
   flex-direction: column;
 `
