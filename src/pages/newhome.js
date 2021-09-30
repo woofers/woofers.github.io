@@ -2,7 +2,7 @@ import Logo from 'components/logo'
 import { styled } from 'emotion'
 import Email from 'components/email'
 import Title from 'components/title'
-import { GitHubIcon, Machobear, LivRent, Fts360, Fts } from 'logos'
+import { EarthIcon, GitHubIcon, Machobear, LivRent, Fts360, Fts } from 'logos'
 
 const Text = styled.p`
   font-size: 22px;
@@ -37,7 +37,7 @@ const Card = styled.a`
   }
   overflow: hidden;
   ${props => props.$border && `
-    border: 1px solid #000;
+    border: 1px solid #c9c9c9;
   `}
 `
 
@@ -104,7 +104,7 @@ const NewHome = () => {
       </Text>
       <Text>
         B.Sc. in Computer Science but most of my education comes from <Tag href="https://github.com/woofers" $color="#24292f" $width="35px" $height="24px"><GitHubIcon />GitHub</Tag> and
-        the real world.
+      the <Tag href="https://github.com/woofers" $color="#1a8fff" $width="24px" $height="24px"><EarthIcon />{'\u00A0'}real world</Tag>.
       </Text>
       <Email />
     </>
