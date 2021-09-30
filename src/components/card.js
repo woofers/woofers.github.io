@@ -51,7 +51,8 @@ const HideOverflow = createGlobal`
 const setColor = setCSSVar('hover-color')
 const removeColor = removeCSSVar('hover-color')
 
-const OuterLink = ({ isOpen, children, ...rest }) => (!isOpen ? <CardLink {...rest}>{children}</CardLink> : <>{children}</>)
+const OuterLink = ({ isOpen, children, ...rest }) =>
+  !isOpen ? <CardLink {...rest}>{children}</CardLink> : <>{children}</>
 
 const Card = ({
   logo,
@@ -65,21 +66,21 @@ const Card = ({
 }) => {
   const onHover = setColor(color ?? background)
   return (
-  <OuterLink href={`/work/${layoutId}`} shallow isOpen={isOpen}>
-    <Wrapper
-      {...rest}
-      layoutId={layoutId}
-      background={background}
-      data-open={isOpen}
-      onMouseEnter={onHover}
-      onMouseLeave={removeColor}
-    >
-      {isOpen && <HideOverflow />}
-      {logo}
-      <Content justifyContent={justifyContent}>
-        <Child isOpen={isOpen} />
-      </Content>
-    </Wrapper>
+    <OuterLink href={`/work/${layoutId}`} shallow isOpen={isOpen}>
+      <Wrapper
+        {...rest}
+        layoutId={layoutId}
+        background={background}
+        data-open={isOpen}
+        onMouseEnter={onHover}
+        onMouseLeave={removeColor}
+      >
+        {isOpen && <HideOverflow />}
+        {logo}
+        <Content justifyContent={justifyContent}>
+          <Child isOpen={isOpen} />
+        </Content>
+      </Wrapper>
     </OuterLink>
   )
 }

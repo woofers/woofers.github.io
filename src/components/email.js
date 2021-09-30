@@ -77,7 +77,6 @@ const EmailLink = styled.a`
   }
 `
 
-
 const Email = () => (
   <Wrapper>
     <Title

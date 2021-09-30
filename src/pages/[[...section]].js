@@ -19,7 +19,7 @@ const Header = styled.header`
   padding: 20px 20px 0;
   z-index: 20;
 
-/*
+  /*
   --glass-lightness: 100%;
   --on-glass-primary: hsl(220 50% 20%);
   --on-glass-secondary: hsl(220 40% 30%);

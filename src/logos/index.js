@@ -1,7 +1,7 @@
 import { styled } from 'emotion'
 import React from 'react'
 import ship from './ship.png'
-import fts from './fts_logo.png'
+import fts from './dark-fts.png'
 
 export { ReactComponent as Machobear } from './machobear.svg'
 export { ReactComponent as Fts360 } from './fts-360.svg'
@@ -9,6 +9,7 @@ export { ReactComponent as LivRentLight } from './liv.rent.svg'
 export { ReactComponent as LivRentDark } from './liv.rent-dark.svg'
 export { ReactComponent as LivRent } from './liv.svg'
 export { ReactComponent as WaveIcon } from './wave.svg'
+export { ReactComponent as GitHubIcon } from './github.svg'
 
 const Img = styled.img`
   width: 80px;
@@ -16,10 +17,10 @@ const Img = styled.img`
 `
 
 const FtsImg = styled.div`
-  width: 47px;
-  height: 22.5px;
+  width: 65px;
+  height: 30px;
   background-image: url(${fts.src});
-  background-size: 100% auto;
+  background-size: 148% auto;
   background-repeat: no-repeat;
   display: inline-block;
 `

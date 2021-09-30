@@ -13,8 +13,7 @@ const Container = styled.div`
   font-family: Cantarell, sans-serif;
 `
 
-const Translate = styled(motion.div)`
-`
+const Translate = styled(motion.div)``
 
 const Primary = styled.div`
   z-index: 10;

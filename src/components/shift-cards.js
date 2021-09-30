@@ -35,12 +35,7 @@ const Cards = ({ show = true, intro, items = [], location }) => {
             }}
           >
             {items.map(({ id, children, ...rest }) => (
-              <Card
-                active={id === selectedId}
-                key={id}
-                id={id}
-                {...rest}
-              >
+              <Card active={id === selectedId} key={id} id={id} {...rest}>
                 {children}
               </Card>
             ))}

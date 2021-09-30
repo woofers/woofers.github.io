@@ -11,14 +11,13 @@ const Wrapper = styled.div`
   color: #000;
 `
 
-const Main = styled.main`
-`
+const Main = styled.main``
 
 const Layout = ({ children, location, ...rest }) => {
   return (
     <Wrapper {...rest} id="root-layout-wrapper">
       <Meta />
-        <GoogleFonts fonts={['Cabin:wght@400;700', 'Mulish:wght@500;900']}>
+      <GoogleFonts fonts={['Cabin:wght@400;700', 'Mulish:wght@500;900']}>
         <link href="/jx-next/fonts/cantarell/font.css" rel="stylesheet" />
       </GoogleFonts>
       <Global />

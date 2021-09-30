@@ -92,9 +92,7 @@ export const useMarkdown = (
       components: {
         pre: CodeBlock,
         a: ({ href, children }) => (
-          <MarkdownLink href={href}>
-            {children}
-          </MarkdownLink>
+          <MarkdownLink href={href}>{children}</MarkdownLink>
         ),
       },
     })

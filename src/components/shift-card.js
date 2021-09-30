@@ -80,11 +80,17 @@ const ShiftCard = ({
   const onHover = setColor(color)
   const theme = useTheme()
 
-  const small = useMediaQuery(`@media only screen and (max-width: ${theme.breakpoints.small.breakpoint})`)
+  const small = useMediaQuery(
+    `@media only screen and (max-width: ${theme.breakpoints.small.breakpoint})`
+  )
   const size = !small ? '250px' : '175px'
   const link = !small ? '80px' : '56px'
   return (
-    <CardLink href={id !== 'intro' ? `/me/${id}` : '/'} onClick={onClick} shallow>
+    <CardLink
+      href={id !== 'intro' ? `/me/${id}` : '/'}
+      onClick={onClick}
+      shallow
+    >
       <Block
         color={color}
         onMouseEnter={onHover}
