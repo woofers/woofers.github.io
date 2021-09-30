@@ -2,6 +2,7 @@ import Logo from 'components/logo'
 import { styled } from 'emotion'
 import Email from 'components/email'
 import Title from 'components/title'
+import Avatar from 'components/avatar-small'
 import { EarthIcon, GitHubIcon, Machobear, LivRent, Fts360, Fts } from 'logos'
 
 const Text = styled.p`
@@ -11,11 +12,14 @@ const Text = styled.p`
 `
 
 const Header = styled(props => <Text {...props} as="header" />)`
+  position: relative;
   border-radius: 20px;
-  padding: 0 20px 10px;
+  padding: 50px 20px 10px;
   padding-bottom: 20px;
   border-bottom: 1px solid #d2d8e0;
   width: max-content;
+  display: flex;
+  padding-left: 200px;
 `
 
 const Container = styled.div`
@@ -81,7 +85,7 @@ const NewHome = () => {
         <LogoWrapper>
           <Logo />
         </LogoWrapper>{' '}
-        and I make software
+        <Avatar />
       </Header>
       <Container>
       <Text>
