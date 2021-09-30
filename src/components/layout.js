@@ -12,14 +12,13 @@ const Wrapper = styled.div`
 `
 
 const Main = styled.main`
-  min-height: calc(100vh - 225px);
 `
 
 const Layout = ({ children, location, ...rest }) => {
   return (
     <Wrapper {...rest} id="root-layout-wrapper">
       <Meta />
-      <GoogleFonts fonts={['Cabin:wght@400;700', 'Mulish:wght@900']}>
+        <GoogleFonts fonts={['Cabin:wght@400;700', 'Mulish:wght@500;900']}>
         <link href="/jx-next/fonts/cantarell/font.css" rel="stylesheet" />
       </GoogleFonts>
       <Global />

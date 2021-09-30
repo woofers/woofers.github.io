@@ -107,7 +107,6 @@ const ShiftCard = ({
             layout="position"
           >
             <TitleTransition
-              textTransform="lowercase"
               fontSize={!small ? '45px' : '25px'}
               letterSpacing="-2.25px"
               color={!active ? color : contrast}

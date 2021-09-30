@@ -1,7 +1,9 @@
 import { styled } from 'emotion'
 import React from 'react'
 import ship from './ship.png'
+import fts from './fts_logo.png'
 
+export { ReactComponent as Machobear } from './machobear.svg'
 export { ReactComponent as Fts360 } from './fts-360.svg'
 export { ReactComponent as LivRentLight } from './liv.rent.svg'
 export { ReactComponent as LivRentDark } from './liv.rent-dark.svg'
@@ -13,4 +15,15 @@ const Img = styled.img`
   height: 80px;
 `
 
+const FtsImg = styled.div`
+  width: 47px;
+  height: 22.5px;
+  background-image: url(${fts.src});
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+  display: inline-block;
+`
+
 export const AlienExpansion = () => <Img src={ship.src} alt="" />
+
+export const Fts = () => <FtsImg />
