@@ -6,8 +6,20 @@ import { EarthIcon, GitHubIcon, Machobear, LivRent, Fts360, Fts } from 'logos'
 
 const Text = styled.p`
   font-size: 22px;
-  font-family: 'Mulish', sans-serif;
   align-items: ${props => props.$alignItems || 'center'};
+  font-family: 'Montserrat', sans-serif;
+`
+
+const Header = styled(props => <Text {...props} as="header" />)`
+  border-radius: 20px;
+  padding: 0 20px 10px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #d2d8e0;
+  width: max-content;
+`
+
+const Container = styled.div`
+  padding-left: 18px;
 `
 
 const LogoWrapper = styled.span`
@@ -25,7 +37,7 @@ const Card = styled.a`
   padding: 10px;
   height: 48px;
   align-items: center;
-  margin: 0 8px;
+  margin: 0 6px;
   font-family: 'Mulish', sans-serif;
   position: relative;
   svg {
@@ -42,6 +54,7 @@ const Card = styled.a`
 `
 
 const Big = styled.span`
+  font-family: 'Mulish', sans-serif;
   font-size: 50px;
   font-weight: 900;
 `
@@ -63,13 +76,14 @@ const Tag = ({ children, ...rest }) => (
 const NewHome = () => {
   return (
     <>
-      <Text $alignItems="baseline">
+      <Header $alignItems="baseline" as="header">
         <Big>Hey I{`'`}m</Big>{' '}
         <LogoWrapper>
           <Logo />
         </LogoWrapper>{' '}
-        and I make software.
-      </Text>
+        and I make software
+      </Header>
+      <Container>
       <Text>
         Currently working on{' '}
         <Tag
@@ -104,9 +118,10 @@ const NewHome = () => {
       </Text>
       <Text>
         B.Sc. in Computer Science but most of my education comes from <Tag href="https://github.com/woofers" $color="#24292f" $width="35px" $height="24px"><GitHubIcon />GitHub</Tag> and
-      the <Tag href="https://github.com/woofers" $color="#1a8fff" $width="24px" $height="24px"><EarthIcon />{'\u00A0'}real world</Tag>.
+      the <Tag href="https://github.com/woofers" $color="#1a8fff" $width="24px" $height="24px"><EarthIcon />{'\u00A0'}real world</Tag>
       </Text>
       <Email />
+      </Container>
     </>
   )
 }
