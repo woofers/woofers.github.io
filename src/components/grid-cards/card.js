@@ -17,16 +17,6 @@ const Wrapper = styled(motion.div)`
   cursor: pointer;
   border-radius: calc(25px / var(--scale-card));
   display: inline-flex;
-  &[data-hide='true'] {
-    display: none;
-  }
-  &[data-open='true'] {
-    cursor: default;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
   box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
   background: ${props => props.background || '#fff'};
   background-size: 100% auto;
@@ -75,7 +65,7 @@ const Card = ({
 }) => {
   const onHover = setColor(color ?? background)
   return (
-    <OuterLink href={`/work/${layoutId}`} shallow isOpen={isOpen}>
+    <OuterLink href={isOpen ? '/' : `/work/${layoutId}`} shallow>
       <Wrapper
         {...rest}
         layoutId={layoutId}

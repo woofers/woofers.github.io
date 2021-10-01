@@ -52,6 +52,11 @@ const Grid = styled.div`
 
 const Cards = ({ items = [], children }) => {
   const router = useRouter()
+  const selectedId =
+    router?.query?.section?.[0] === 'work' ? router?.query?.section?.[1] : null
+  const setSelectedId = id => {
+    router.replace(id ? `/work/${id}` : `/work`, undefined, { shallow: true })
+  }
   return (
       <FullWidth
         layoutId={'cards'}
@@ -62,7 +67,7 @@ const Cards = ({ items = [], children }) => {
       {children}
       <Grid>
         {items.map(({ id, children, ...rest }) => (
-          <Card layoutId={id} key={id} {...rest}>
+          <Card layoutId={id} key={id} {...rest} isOpen={selectedId === id}>
             {children}
           </Card>
         ))}
