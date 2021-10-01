@@ -11,14 +11,16 @@ const Grid = styled.div`
   flex-direction: column;
   align-items: flex-end;
   justify-content: flex-end;
+  @media only screen and (max-width: 950px) {
+    align-items: center;
+    width: 100%;
+  }
 `
 
 const Flex = styled.div`
   margin: 0;
-  margin-left: 20px;
   margin-bottom: 50px;
   display: flex;
-  width: 455px;
   align-items: flex-end;
   > div {
     margin: 0;
@@ -37,17 +39,25 @@ const List = styled.div`
 const StyledAvatar = styled(Avatar)``
 
 const LogoContainer = styled.div`
-  padding: 0 10px;
+  padding-left: 10px;
 `
 
 const Hello = styled.div`
   display: flex;
 `
 
+const Container = styled.div`
+  max-width: 455px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const delay = 1.3
 
 const Intro = ({ showHeader, hasScrolled }) => (
   <Grid layoutId="grid">
+    <Container>
     <Flex>
       <Hello>
       <Text
@@ -85,6 +95,7 @@ const Intro = ({ showHeader, hasScrolled }) => (
       <LogoContainer>{!showHeader && <Logo delay={delay} />}</LogoContainer>
     </Flex>
     <StyledAvatar show={!showHeader} intro={!hasScrolled} />
+    </Container>
   </Grid>
 )
 

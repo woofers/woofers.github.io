@@ -22,6 +22,9 @@ const FullWidth = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media only screen and (max-width: 950px) {
+    align-items: center;
+  }
 `
 
 const Grid = styled.div`
@@ -37,6 +40,9 @@ const Grid = styled.div`
     grid-gap: ${CARD_GAP_MOBILE};
     grid-template-rows: repeat(4, 193.5px);
     grid-template-columns: 450px;
+  }
+  @media only screen and (max-width: 950px) {
+    margin-right: 0;
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mobile.breakpoint}) {

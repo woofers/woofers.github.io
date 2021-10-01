@@ -16,6 +16,12 @@ const Grid = styled.div`
   @media only screen and (max-width: 1500px) {
     grid-gap: 0 7.8vw;
   }
+  @media only screen and (max-width: 950px) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'sidebar'
+      'cards';
+  }
 `
 
 const Sidebar = styled.div`
@@ -30,6 +36,13 @@ const Sidebar = styled.div`
   position: sticky;
   top: 0;
   max-height: 100vh;
+  @media only screen and (max-width: 950px) {
+    width: 100%;
+    position: static;
+    max-height: none;
+    grid-template-rows: auto;
+    grid-gap: 0;
+  }
 `
 
 const Cards = styled.div`
