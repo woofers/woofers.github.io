@@ -30,7 +30,7 @@ const Layout = ({ children, location, ...rest }) => {
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence exitBeforeEnter>
           <Main>
-            <Container>{children}</Container>
+            {children}
           </Main>
         </AnimatePresence>
       </AnimateSharedLayout>

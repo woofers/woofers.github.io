@@ -1,80 +1,47 @@
 import React, { useEffect, useState } from 'react'
 import { styled } from 'emotion'
-import useScrollPosition from 'hooks/use-scroll-position'
-import useTimeout from 'hooks/use-timeout'
-import { useRouter } from 'next/router'
 import Logo from 'components/logo'
 import Me from 'sections/me'
-import Work from 'sections/work'
 import Contact from 'sections/contact'
+import { ContentCards } from 'components/grid-cards'
 
-const Header = styled.header`
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 130px;
-  width: 240px;
-  display: flex;
-  padding: 20px 20px 0;
-  z-index: 20;
-
-  /*
-  --glass-lightness: 100%;
-  --on-glass-primary: hsl(220 50% 20%);
-  --on-glass-secondary: hsl(220 40% 30%);
-  backdrop-filter: blur(40px);
-  background: hsl(0 0% var(--glass-lightness) / 90%);
-*/
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  grid-template-areas:
+    'sidebar cards'
+    'sidebar cards';
 `
 
-const normalize = href => (href !== '/' ? href : '/me')
+const Sidebar = styled.div`
+  grid-area: sidebar;
+  grid-template-areas:
+    'splash'
+    'contact';
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 50vh 50vh;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+`
+
+const Cards = styled.div`
+  grid-area: cards;
+`
 
 const Index = () => {
-  const [timer, setTimer] = useState()
-  const { y } = useScrollPosition()
-  const showHeader = y > 275
-  useTimeout(() => setTimer(true), 2600)
-  const router = useRouter()
-  const hasLoaded =
-    router?.query?.reset === 'true' || !router?.query?.reset ? false : true
-  const section = router?.query?.section?.[0] || 'me'
-  const hasScrolled = section !== 'me' || timer
-  const slug = (() => {
-    if (typeof y === 'undefined') return ''
-    if (y > 2015) {
-      return '/contact'
-    } else if (y > 275) {
-      return '/work'
-    } else {
-      return '/'
-    }
-  })()
-  useEffect(() => {
-    if (!router.isReady || typeof window === 'undefined' || hasLoaded) return
-    const scrollTo = (x, y) =>
-      window.scrollTo({ left: x, top: y, behavior: 'auto' })
-    if (section === 'me') {
-      scrollTo(0, 0)
-    } else if (section === 'work') {
-      scrollTo(0, 275 + 1440 / 2)
-    } else if (section === 'contact') {
-      scrollTo(0, 2315)
-    }
-  }, [router.isReady, section, hasLoaded])
-  useEffect(() => {
-    if (!slug) return
-    const section = router?.query?.section?.[0] || 'me'
-    if (!router.isReady || `/${section}`.startsWith(normalize(slug))) return
-    router.replace('/[[...section]]?reset=false', slug, { shallow: true })
-  }, [slug, router])
   return (
-    <>
-      <Header>{showHeader && <Logo />}</Header>
-      <Me showHeader={showHeader} hasScrolled={hasScrolled} />
-      <Work />
-      <Contact />
-    </>
+    <Grid>
+      <Sidebar>
+        <Me />
+        <Contact />
+      </Sidebar>
+      <Cards>
+        <ContentCards />
+      </Cards>
+    </Grid>
   )
 }
 

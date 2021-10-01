@@ -7,6 +7,10 @@ import { ReactComponent as UserIcon } from 'icons/user.svg'
 import { ReactComponent as MailIcon } from 'icons/mail.svg'
 import { ReactComponent as PageIcon } from 'icons/page.svg'
 
+const Wrapper = styled.div`
+  grid-area: contact;
+`
+
 const Icon = styled.div`
   width: 100%;
   height: 46px;
@@ -38,33 +42,9 @@ const EmailWrapper = styled.div`
 `
 
 const Contact = () => (
-  <>
-    <EmailWrapper>
-      <Email />
-    </EmailWrapper>
-    <InputContainer>
-      <Input placeholder="Name" iconWidth="36px" iconPadding="3px">
-        <Icon>
-          <UserIcon />
-        </Icon>
-      </Input>
-      <Input placeholder="Email" iconWidth="36px" iconPadding="5px">
-        <Icon>
-          <MailIcon />
-        </Icon>
-      </Input>
-      <Message
-        placeholder="Message"
-        height="200px"
-        iconWidth="36px"
-        iconPadding="5px"
-      >
-        <Icon>
-          <PageIcon />
-        </Icon>
-      </Message>
-    </InputContainer>
-  </>
+  <Wrapper>
+    <Email />
+  </Wrapper>
 )
 
 export default Contact
