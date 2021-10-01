@@ -16,11 +16,10 @@ const StyledLink = styled(Link)`
 `
 
 const Container = styled.div`
-  padding-left: 14px;
-  width: 224px;
-  height: 98px;
+  padding-left: calc(14px / var(--scale-logo));
+  width: calc(224px / var(--scale-logo));
+  height: calc(98px / var(--scale-logo));
   font-weight: 700;
-  color: #000;
   display: flex;
   flex-direction: column-reverse;
   font-family: Cantarell, sans-serif;
@@ -31,26 +30,25 @@ const Translate = styled(motion.div)``
 
 const Primary = styled.div`
   position: absolute;
-  bottom: -10px;
+  bottom: calc(-10px / var(--scale-logo));
+  font-size: calc(64px / var(--scale-logo));
+  letter-spacing: calc(-1px / var(--scale-logo));
   z-index: 10;
   color: #fe9c55;
   transition: color 0.5s ease;
   font-weight: 900;
-  letter-spacing: -1px;
-  font-size: 64px;
   transform: skew(172deg, 0deg);
 `
 
 const Secondary = styled(motion.div)`
-  transform: translateX(-15px);
+  letter-spacing: calc(-2px / var(--scale-logo));
+  font-size: calc(33px / var(--scale-logo));
   position: absolute;
   top: 0;
+  right: calc(13px / var(--scale-logo));
   z-index: 5;
   font-weight: 400;
-  letter-spacing: -2px;
-  margin-left: 12px;
   color: #d2d8e0;
-  font-size: 33px;
   align-self: flex-end;
   text-transform: lowercase;
 `
@@ -76,8 +74,8 @@ const Logo = ({ shift, delay = 0 }) => {
         <Container>
           <Primary>Jaxson</Primary>
           <Secondary
-            initial={{ x: -15, y: 50, opacity: 0 }}
-            animate={{ x: -15, y: 0, opacity: 1 }}
+            initial={{ y: 50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 1.1 + delay, duration: 0.2 }}
           >
             <span>Van</span>
