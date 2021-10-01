@@ -165,10 +165,11 @@ const nav = [
 
 const Work = ({ setLoaded }) => {
   return (
-    <div>
-      <Nav items={nav} setLoaded={setLoaded} />
-      <Cards items={items} />
-    </div>
+    <>
+      <Cards items={items}>
+        <Nav items={nav} setLoaded={setLoaded} />
+      </Cards>
+    </>
   )
 }
 

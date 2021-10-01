@@ -21,11 +21,12 @@ import {
 
 const TextContainer = styled.div`
   max-width: 700px;
+  visibility: hidden;
 `
 
 const Text = styled.div`
   margin: 20px 0 20px;
-  font-size: 22px;
+  font-size: 25px;
   line-height: 50px;
   font-family: 'Montserrat', sans-serif;
 `

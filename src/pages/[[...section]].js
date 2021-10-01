@@ -29,10 +29,12 @@ const Sidebar = styled.div`
 `
 
 const Cards = styled.div`
+  width: 100%;
   grid-area: cards;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `
 
 const Index = () => {

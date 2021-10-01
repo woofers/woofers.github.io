@@ -16,11 +16,19 @@ const EXPANDED_WIDTH = '300px'
 const EXPANDED_TOP = '40px'
 const EXPANDED_BOTTOM = '70px'
 
+const FullWidth = styled(motion.div)`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
 const Grid = styled.div`
   display: grid;
   grid-template-columns: ${CARD_WIDTH};
   grid-gap: ${CARD_GAP};
   grid-template-rows: repeat(4, ${CARD_HEIGHT});
+  justify-items: center;
   @media only screen and (max-width: 1360px) {
     align-self: center;
   }
@@ -33,18 +41,24 @@ const Grid = styled.div`
   }
 `
 
-const Cards = ({ items = [] }) => {
+const Cards = ({ items = [], children }) => {
   const router = useRouter()
   return (
-    <Grid>
-      <AnimateSharedLayout type="crossfade">
+      <FullWidth
+        layoutId={'cards'}
+        initial={{ x: 0, y: -500, opacity: 0 }}
+        animate={{ x: 0, y: 0, opacity: 1 }}
+        transition={{ delay: 3, duration: 0.5 }}
+      >
+      {children}
+      <Grid>
         {items.map(({ id, children, ...rest }) => (
           <Card layoutId={id} key={id} {...rest}>
             {children}
           </Card>
         ))}
-      </AnimateSharedLayout>
-    </Grid>
+      </Grid>
+    </FullWidth>
   )
 }
 
