@@ -19,8 +19,12 @@ import {
   Fts,
 } from 'logos'
 
+const TextContainer = styled.div`
+  max-width: 700px;
+`
+
 const Text = styled.div`
-  margin: 0;
+  margin: 20px 0 20px;
   font-size: 22px;
   line-height: 50px;
   font-family: 'Montserrat', sans-serif;
@@ -99,7 +103,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
 `
 
@@ -135,6 +139,7 @@ const Message = styled(TextArea)`
 
 const Contact = () => (
   <Wrapper>
+    <TextContainer>
     <Text>
       I help craft{' '}
       <Tag
@@ -147,20 +152,6 @@ const Contact = () => (
         {'\u00A0'}real world
       </Tag>
       software
-    </Text>
-    <Text>
-      Check out{' '}
-      <Tag
-        href="https://github.com/woofers"
-        $color="#24292f"
-        $width="35px"
-        $height="24px"
-        $width2="81px"
-        $height2="24px"
-      >
-        <GitHubIcon />
-        <GitHubText />
-      </Tag>
     </Text>
     <Text>
       Currently working on{' '}
@@ -195,7 +186,21 @@ const Contact = () => (
         <Fts />
       </Tag>
     </Text>
-
+    <Text>
+      Check out{' '}
+      <Tag
+        href="https://github.com/woofers"
+        $color="#24292f"
+        $width="35px"
+        $height="24px"
+        $width2="81px"
+        $height2="24px"
+      >
+        <GitHubIcon />
+        <GitHubText />
+      </Tag>
+    </Text>
+    </TextContainer>
     <Container>
       <Email />
     </Container>
