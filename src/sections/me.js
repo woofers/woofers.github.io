@@ -9,7 +9,7 @@ const Grid = styled.div`
   grid-area: splash;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-end;
 `
 
@@ -23,8 +23,8 @@ const Flex = styled.div`
   > div {
     margin: 0;
   }
-  @media only screen and (max-width: 1360px) {
-    justify-content: center;
+  @media only screen and (max-width: 1250px) {
+    flex-wrap: wrap;
   }
 `
 
@@ -41,11 +41,16 @@ const LogoContainer = styled.div`
   transform: translate(14px, 15px);
 `
 
+const Hello = styled.div`
+  display: flex;
+`
+
 const delay = 1.3
 
 const Intro = ({ showHeader, hasScrolled }) => (
   <Grid layoutId="grid">
     <Flex>
+      <Hello>
       <Text
         fontSize="53px"
         fontWeight="400"
@@ -77,6 +82,7 @@ const Intro = ({ showHeader, hasScrolled }) => (
       >
         {', '}I{"'"}m
       </Text>
+      </Hello>
       <LogoContainer>{!showHeader && <Logo delay={delay} />}</LogoContainer>
     </Flex>
     <StyledAvatar show={!showHeader} intro={!hasScrolled} />

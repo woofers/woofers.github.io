@@ -9,6 +9,8 @@ const Wrapper = styled(motion.div)`
   box-shadow: inset 0.3px -0.4px 8px 2px #00000030;
   overflow: hidden;
   aspect-ratio: 1;
+  max-width: 400px;
+  max-height: 400px;
 `
 
 const Inner = styled.img`

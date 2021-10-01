@@ -55,7 +55,7 @@ const breakpoints = {
     size: '920px',
   },
   large: {
-    breakpoint: '1170px',
+    breakpoint: '1200px',
     size: '90%',
   },
   wide: {

@@ -1,3 +1,6 @@
+// ~1.2 from 160
+// 372x160  - Bigger 374x160 Smaller 372x159
+// 585x250
 import { styled } from 'emotion'
 import Input from 'components/input'
 import TextArea from 'components/text-area'
@@ -21,7 +24,7 @@ import {
 
 const TextContainer = styled.div`
   max-width: 700px;
-  visibility: hidden;
+  display: none;
 `
 
 const Text = styled.div`
@@ -104,12 +107,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-end;
+  justify-content: flex-start;
 `
 
 const Container = styled.div`
   padding-bottom: 100px;
+  display: none;
 `
 
 const Icon = styled.div`
