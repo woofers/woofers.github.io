@@ -1,7 +1,20 @@
 import React from 'react'
 import { styled } from 'emotion'
 import { motion } from 'framer-motion'
-import { SectionLink } from 'link'
+import Link from 'link'
+
+const StyledLink = styled(Link)`
+  --scale-logo: 1;
+  transform: scale(calc(1 / var(--scale-logo)));
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    --scale-logo: 1.2;
+  }
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile.breakpoint}) {
+    --scale-logo: 1.5;
+  }
+`
 
 const Container = styled.div`
   width: 210px;
@@ -47,7 +60,7 @@ const Space = styled.span`
 
 const Logo = ({ shift, delay = 0 }) => {
   return (
-    <SectionLink href="/">
+    <StyledLink href="/">
       <Translate
         layoutId={'jvd-logo'}
         initial={{ x: 0, y: -26, opacity: 0 }}
@@ -70,7 +83,7 @@ const Logo = ({ shift, delay = 0 }) => {
           </Secondary>
         </Container>
       </Translate>
-    </SectionLink>
+    </StyledLink>
   )
 }
 

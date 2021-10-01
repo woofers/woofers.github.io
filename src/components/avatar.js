@@ -4,13 +4,22 @@ import { motion, AnimatePresence } from 'framer-motion'
 import jaxson from 'images/jaxson.webp'
 
 const Wrapper = styled(motion.div)`
+  --scale-avatar: 1;
   border-radius: 50%;
   background-color: #feb37d;
   box-shadow: inset 0.3px -0.4px 8px 2px #00000030;
   overflow: hidden;
   aspect-ratio: 1;
-  max-width: 400px;
-  max-height: 400px;
+  max-width: calc(400px / var(--scale-avatar));
+  max-height: calc(400px / var(--scale-avatar));
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    --scale-avatar: 1.2;
+  }
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile.breakpoint}) {
+    --scale-avatar: 1.5;
+  }
 `
 
 const Inner = styled.img`
