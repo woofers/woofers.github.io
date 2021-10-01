@@ -21,7 +21,7 @@ const Layout = ({ children, location, ...rest }) => {
         fonts={[
           'Cabin:wght@400;700',
           'Mulish:wght@500;900',
-          'Montserrat:wght@400',
+          'Montserrat:wght@500',
         ]}
       >
         <link href="/jx-next/fonts/cantarell/font.css" rel="stylesheet" />
@@ -29,9 +29,7 @@ const Layout = ({ children, location, ...rest }) => {
       <Global />
       <AnimateSharedLayout type="crossfade">
         <AnimatePresence exitBeforeEnter>
-          <Main>
-            {children}
-          </Main>
+          <Main>{children}</Main>
         </AnimatePresence>
       </AnimateSharedLayout>
     </Wrapper>

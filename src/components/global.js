@@ -3,6 +3,7 @@ import { css, Global as GlobalTag } from 'emotion'
 const global = theme => css`
   * {
     box-sizing: inherit;
+    box-sizing: border-box;
   }
 
   body {

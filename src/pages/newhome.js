@@ -3,7 +3,15 @@ import { styled } from 'emotion'
 import Email from 'components/email'
 import Title from 'components/title'
 import Avatar from 'components/avatar-small'
-import { EarthIcon, GitHubText, GitHubIcon, Machobear, LivRent, Fts360, Fts } from 'logos'
+import {
+  EarthIcon,
+  GitHubText,
+  GitHubIcon,
+  Machobear,
+  LivRent,
+  Fts360,
+  Fts,
+} from 'logos'
 
 const Text = styled.div`
   margin: 40px 0 40px;
@@ -189,7 +197,9 @@ const NewHome = () => {
           </Tag>
         </Text>
       </Container>
-      <EmailWrapper><Email /></EmailWrapper>
+      <EmailWrapper>
+        <Email />
+      </EmailWrapper>
     </>
   )
 }

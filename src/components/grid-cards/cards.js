@@ -39,11 +39,7 @@ const Cards = ({ items = [] }) => {
     <Grid>
       <AnimateSharedLayout type="crossfade">
         {items.map(({ id, children, ...rest }) => (
-          <Card
-            layoutId={id}
-            key={id}
-            {...rest}
-          >
+          <Card layoutId={id} key={id} {...rest}>
             {children}
           </Card>
         ))}
