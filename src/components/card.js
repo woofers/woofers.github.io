@@ -9,12 +9,13 @@ const CardLink = styled(Link)`
 `
 
 const Wrapper = styled(motion.div)`
+  --scale-card: 1;
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: calc(25px / var(--scale-card));
   display: inline-flex;
   &[data-hide='true'] {
     display: none;

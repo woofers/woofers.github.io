@@ -9,12 +9,13 @@ const CardLink = styled(Link)`
 `
 
 const Wrapper = styled(motion.div)`
+  --scale-card: 1;
   width: 100%;
   height: 100%;
   overflow: hidden;
   position: relative;
   cursor: pointer;
-  border-radius: 25px;
+  border-radius: calc(25px / var(--scale-card));
   display: inline-flex;
   &[data-hide='true'] {
     display: none;
@@ -31,12 +32,20 @@ const Wrapper = styled(motion.div)`
   background-size: 100% auto;
   background-position: center;
   justify-content: space-between;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    --scale-card: 1.2;
+  }
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile.breakpoint}) {
+    --scale-card: 1.5;
+  }
 `
 
 const Content = styled.div`
   pointer-events: none;
-  width: calc(100% - 170px);
-  height: calc(100% - 25px);
+  width: calc(100% - (170px / var(--scale-card)));
+  height: calc(100% - (25px / var(--scale-card)));
   display: flex;
   align-items: flex-end;
   justify-content: ${props => props.justifyContent};
