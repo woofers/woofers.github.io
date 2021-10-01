@@ -9,7 +9,6 @@ const Wrapper = styled(motion.div)`
   background-color: #feb37d;
   box-shadow: inset 0.3px -0.4px 8px 2px #00000030;
   overflow: hidden;
-  aspect-ratio: 1;
   max-width: calc(400px / var(--scale-avatar));
   max-height: calc(400px / var(--scale-avatar));
   @media only screen and (max-width: ${({ theme }) =>
@@ -25,6 +24,7 @@ const Wrapper = styled(motion.div)`
 const Inner = styled.img`
   max-height: 100%;
   object-fit: contain;
+  object-position: top;
 `
 
 const Avatar = ({ intro = true, show = true, ...rest }) => {

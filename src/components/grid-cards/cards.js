@@ -24,6 +24,7 @@ const FullWidth = styled(motion.div)`
   align-items: flex-start;
   @media only screen and (max-width: 950px) {
     align-items: center;
+    transform: none !important;
   }
 `
 
