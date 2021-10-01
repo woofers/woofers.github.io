@@ -42,7 +42,7 @@ const Grid = styled.div`
     grid-template-columns: 450px;
   }
   @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoints.small.breakpoint}) {
+      theme.breakpoints.mobile.breakpoint}) {
     grid-template-columns: 1fr;
     grid-gap: ${CARD_GAP_MOBILE};
     grid-template-rows: repeat(4, ${CARD_HEIGHT_MOBILE});
