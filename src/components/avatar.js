@@ -24,6 +24,7 @@ const Wrapper = styled(motion.div)`
 
 const Inner = styled.img`
   max-height: 100%;
+  object-fit: contain;
 `
 
 const Avatar = ({ intro = true, show = true, ...rest }) => {
