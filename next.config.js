@@ -22,7 +22,19 @@ module.exports = {
     delete image.options
     config.module.rules.push({
       test: /\.svg$/,
-      use: ['@svgr/webpack', 'file-loader'],
+        use: [
+          {
+            loader: '@svgr/webpack',
+            options: {
+              svgoConfig: {
+                plugins: {
+                  removeViewBox: false
+                }
+              }
+            }
+          },
+          'file-loader'
+        ],
     })
     return config
   },

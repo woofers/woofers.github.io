@@ -3,7 +3,7 @@ import { styled } from 'emotion'
 import Email from 'components/email'
 import Title from 'components/title'
 import Avatar from 'components/avatar-small'
-import { EarthIcon, GitHubIcon, Machobear, LivRent, Fts360, Fts } from 'logos'
+import { EarthIcon, GitHubText, GitHubIcon, Machobear, LivRent, Fts360, Fts } from 'logos'
 
 const Text = styled.div`
   margin: 40px 0 40px;
@@ -53,12 +53,20 @@ const Card = styled.a`
   margin: 0 6px;
   font-family: 'Mulish', sans-serif;
   position: relative;
-  svg {
+  svg:first-of-type {
     display: inline-flex;
     align-self: center;
     position: absolute;
     width: ${props => props.$width};
     height: ${props => props.$height};
+  }
+  svg:nth-of-type(2) {
+    left: calc(${props => props.$width} + 10px);
+    display: inline-flex;
+    align-self: center;
+    position: absolute;
+    width: ${props => props.$width2};
+    height: ${props => props.$height2};
   }
   overflow: hidden;
   ${props =>
@@ -78,7 +86,7 @@ const Big = styled.span`
 `
 
 const Spacer = styled.span`
-  width: ${props => props.$width};
+  width: calc(${props => `${props.$width} + ${props.$width2 || '0px'}`});
   user-select: none;
 `
 
@@ -163,9 +171,11 @@ const NewHome = () => {
             $color="#24292f"
             $width="35px"
             $height="24px"
+            $width2="81px"
+            $height2="24px"
           >
             <GitHubIcon />
-            GitHub
+            <GitHubText />
           </Tag>{' '}
           and the{' '}
           <Tag

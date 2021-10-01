@@ -10,6 +10,7 @@ export { ReactComponent as LivRentDark } from './liv.rent-dark.svg'
 export { ReactComponent as LivRent } from './liv.svg'
 export { ReactComponent as WaveIcon } from './wave.svg'
 export { ReactComponent as GitHubIcon } from './github.svg'
+export { ReactComponent as GitHubText } from './github-text.svg'
 export { ReactComponent as EarthIcon } from './earth.svg'
 
 const Img = styled.img`
