@@ -31,9 +31,6 @@ const Grid = styled.div`
   grid-gap: ${CARD_GAP};
   grid-template-rows: repeat(4, ${CARD_HEIGHT});
   justify-items: center;
-  @media only screen and (max-width: 1360px) {
-    align-self: center;
-  }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
     grid-template-columns: 1fr;

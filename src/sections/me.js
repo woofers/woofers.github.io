@@ -18,7 +18,7 @@ const Flex = styled.div`
   margin-left: 20px;
   margin-bottom: 50px;
   display: flex;
-  width: 450px;
+  width: 455px;
   align-items: flex-end;
   > div {
     margin: 0;
@@ -38,7 +38,6 @@ const StyledAvatar = styled(Avatar)``
 
 const LogoContainer = styled.div`
   padding: 0 10px;
-  transform: translate(14px, 15px);
 `
 
 const Hello = styled.div`
