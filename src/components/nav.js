@@ -30,14 +30,6 @@ const Menu = styled.div`
   max-width: 100%;
   position: relative;
   padding: 0 0 10px;
-  &:after {
-    content: '';
-    pointer-events: none;
-    background-image: ${props => makeGradient(props.left, props.right)};
-    position: absolute;
-    height: 100%;
-    width: 100%;
-  }
 `
 
 const normalize = href => (href !== '/' ? href : '/me')

@@ -17,7 +17,6 @@ const Wrapper = styled(motion.div)`
   cursor: pointer;
   border-radius: calc(25px / var(--scale-card));
   display: inline-flex;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 15px 0px;
   background: ${props => props.background || '#fff'};
   background-size: 100% auto;
   background-position: center;
