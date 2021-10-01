@@ -7,33 +7,18 @@ import Logo from 'components/logo'
 
 const Grid = styled.div`
   grid-area: splash;
-  display: grid;
-  grid-template-columns: 0.5fr 0.5fr;
-  grid-template-rows: 175px 400px;
-  grid-template-areas:
-    'name cards'
-    'avatar cards';
-  @media only screen and (max-width: 1360px) {
-    margin-top: 0;
-    align-self: center;
-    grid-template-columns: 1fr;
-    grid-template-rows: 175px 400px 600px;
-    grid-template-areas:
-      'name'
-      'avatar'
-      'cards';
-  }
-  @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoints.small.breakpoint}) {
-    grid-template-rows: 175px 300px 600px;
-    width: 100%;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
 `
 
 const Flex = styled.div`
-  grid-area: name;
+  margin: 0;
+  margin-left: 20px;
+  margin-bottom: 50px;
   display: flex;
-  width: 100%;
+  width: 450px;
   align-items: flex-end;
   > div {
     margin: 0;
@@ -50,10 +35,6 @@ const List = styled.div`
 `
 
 const StyledAvatar = styled(Avatar)`
-  grid-area: avatar;
-  @media only screen and (max-width: 1360px) {
-    margin: auto auto;
-  }
 `
 
 const LogoContainer = styled.div`
@@ -61,10 +42,11 @@ const LogoContainer = styled.div`
   transform: translate(14px, 15px);
 `
 
+const delay = 1.3
+
 const Intro = ({ showHeader, hasScrolled }) => (
   <Grid layoutId="grid">
     <Flex>
-      {!showHeader && (
         <Text
           fontSize="53px"
           fontWeight="400"
@@ -79,11 +61,25 @@ const Intro = ({ showHeader, hasScrolled }) => (
             delay: 0.5,
           }}
         >
-          Hello, I{"'"}m
+          Hello
         </Text>
-      )}
+        <Text
+          fontSize="53px"
+          fontWeight="400"
+          letterSpacing="-1.5px"
+          color="#27292b"
+          as={motion.div}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            duration: 0.5,
+            delay: delay,
+          }}
+        >
+          {', '}I{"'"}m
+        </Text>
       <LogoContainer>
-        {!showHeader && <Logo delay={hasScrolled ? 0 : 1.3} />}
+        {!showHeader && <Logo delay={delay} />}
       </LogoContainer>
     </Flex>
     <StyledAvatar show={!showHeader} intro={!hasScrolled} />

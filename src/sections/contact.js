@@ -9,6 +9,15 @@ import { ReactComponent as PageIcon } from 'icons/page.svg'
 
 const Wrapper = styled.div`
   grid-area: contact;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+`
+
+const Container = styled.div`
+  padding-bottom: 100px;
 `
 
 const Icon = styled.div`
@@ -43,7 +52,7 @@ const EmailWrapper = styled.div`
 
 const Contact = () => (
   <Wrapper>
-    <Email />
+    <Container><Email /></Container>
   </Wrapper>
 )
 

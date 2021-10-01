@@ -7,15 +7,8 @@ const Wrapper = styled(motion.div)`
   border-radius: 50%;
   background-color: #feb37d;
   box-shadow: inset 0.3px -0.4px 8px 2px #00000030;
-  max-width: 400px;
-  max-height: 400px;
   overflow: hidden;
   aspect-ratio: 1;
-  @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoints.small.breakpoint}) {
-    max-width: 300px;
-    max-height: 300px;
-  }
 `
 
 const Inner = styled.img`
