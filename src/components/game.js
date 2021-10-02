@@ -33,7 +33,7 @@ const Game = p => {
       )}
       <Markdown content={instruction} />
       {ludumDare && (
-        <Widget host="https://badges.jaxs.onl/" game={p.ludumDare} />
+        <Widget game={p.ludumDare} />
       )}
     </Wrapper>
   )

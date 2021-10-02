@@ -18,7 +18,7 @@
   "dependencies": {
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@ludum-dare-badges/react": "^1.1.0",
+    "@ludum-dare-badges/react": "^2.0.0",
     "@material-ui/core": "^4.12.3",
     "alien-expansion": "^1.2.0",
     "doge-bois": "^1.0.1",

@@ -21,10 +21,11 @@ export const MarkdownLink = ({ href, ...rest }) => {
   const siteUrl = 'https://jaxs.onl'
   const urlNoHttps = siteUrl.replace('https://', '')
   const urlHttp = siteUrl.replace('https://', 'http://')
+  const plain = new RegExp(`^${urlNoHttps}`)
   const route = href
     .replace(siteUrl, '')
     .replace(urlHttp, '')
-    .replace(urlNoHttps, '')
+    .replace(plain, '')
   const path = route ?? '/'
   return <Link href={path} {...rest} />
 }

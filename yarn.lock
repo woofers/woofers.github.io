@@ -1189,10 +1189,10 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.0.tgz#87de7af9c231826fdd68ac7258f77c429e0e5fcf"
   integrity sha512-wdppn25U8z/2yiaT6YGquE6X8sSv7hNMWSXYSSU1jGv/yd6XqjXgTDJ8KP4NgjTXfJ3GbRjeeb8RTV7a/VpM+w==
 
-"@ludum-dare-badges/react@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@ludum-dare-badges/react/-/react-1.1.0.tgz#117b10f3cbfb8daef4941f53fea5977678e273b0"
-  integrity sha512-/LKPPg68jkKXyR4hh7pxcbVq7JDXgo0b7tzh5XlXSsJc9aq3OzgQw9vYCy0ZJAcb52Fv55u94YOHZVrMGcRdow==
+"@ludum-dare-badges/react@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@ludum-dare-badges/react/-/react-2.0.0.tgz#2fa2a819e8fabf23a031775bf7409dac7e6f66eb"
+  integrity sha512-oSx+K29uOeuAjp6kPQ/i0d1fmp2SU7W8EYOQ+Jb9DemCPRr7kFqz3wJXW34GP7OmEzuMDHHuL+MOi4WzJyxlXQ==
 
 "@mapbox/hast-util-table-cell-style@^0.2.0":
   version "0.2.0"
