@@ -23,16 +23,40 @@ const global = theme => css`
     font-family: 'Cabin', sans-serif;
   }
 
+  p {
+    margin: 0 0 1.6rem;
+    padding: 0;
+  }
+
   img {
     max-width: 100%;
     margin: 0;
     padding: 0;
+    border-radius: 25px;
   }
 
   a {
     display: inline-block;
     color: #f27052;
     text-decoration: none;
+  }
+
+  ul {
+    margin-left: 1.6rem;
+    margin-right: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    margin-bottom: 1.6rem;
+    list-style-position: outside;
+    list-style-image: none;
+  }
+
+  li {
+    padding-left: 0;
+    margin-bottom: 0.8rem;
   }
 
   pre {
@@ -51,6 +75,16 @@ const global = theme => css`
     background: ${theme.colors.code} !important;
     font-size: 0.95em !important;
     color: ${theme.colors.text.code};
+  }
+
+  blockquote {
+    padding: 0 0 0 20px;
+    margin: 0 28px 28px 28px;
+    border-left: 4px solid ${theme.colors.accent};
+    *:last-of-type {
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .hljs-comment {
