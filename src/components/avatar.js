@@ -5,6 +5,7 @@ import jaxson from 'images/jaxson.webp'
 
 const Wrapper = styled(motion.div)`
   --scale-avatar: 1;
+  aspect-ratio: 1;
   border-radius: 50%;
   background-color: #feb37d;
   box-shadow: inset 0.3px -0.4px 8px 2px #00000030;

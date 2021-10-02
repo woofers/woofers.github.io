@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from 'components/container'
 import { useMarkdown, Markdown, summary } from 'components/markdown'
 import Title from 'components/title'
 import Link from 'link'
@@ -12,7 +13,7 @@ const Post = ({ post }) => {
   const date = new Date(meta.date)
   const formatter = new Intl.DateTimeFormat('en', { dateStyle: 'long' })
   return (
-    <div>
+    <>
       <h1>
         <Link href={slug}>{title}</Link>
       </h1>
@@ -23,7 +24,7 @@ const Post = ({ post }) => {
       <Link href={slug} aria-label={`${continueReading} ${title}`}>
         {continueReading} . . .
       </Link>
-    </div>
+    </>
   )
 }
 
@@ -46,12 +47,12 @@ const Blog = ({ data }) => {
       return post
     })
   return (
-    <>
+    <Container>
       <Title paddingX="0">Posts</Title>
       {posts.map(post => (
         <Post key={`post-preview-${post.post}`} post={post} />
       ))}
-    </>
+    </Container>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled, createGlobal } from 'emotion'
+import { styled } from 'emotion'
 import { motion } from 'framer-motion'
 import { setCSSVar, removeCSSVar } from 'utils/css-var'
 import Link from 'link'
@@ -41,12 +41,6 @@ const Content = styled.div`
   justify-content: ${props => props.justifyContent};
 `
 
-const HideOverflow = createGlobal`
-  body, #root-layout-wrapper {
-    overflow-y: hidden;
-  }
-`
-
 const setColor = setCSSVar('hover-color')
 const removeColor = removeCSSVar('hover-color')
 
@@ -74,7 +68,6 @@ const Card = ({
         onMouseEnter={onHover}
         onMouseLeave={removeColor}
       >
-        {isOpen && <HideOverflow />}
         {logo}
         <Content justifyContent={justifyContent}>
           <Child isOpen={isOpen} />

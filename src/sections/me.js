@@ -47,10 +47,13 @@ const Hello = styled.div`
 `
 
 const Container = styled.div`
+  padding-top: 20px;
+  height: 100%;
   max-width: 455px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
 `
 
 const delay = 1.3

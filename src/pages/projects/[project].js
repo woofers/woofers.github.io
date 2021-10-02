@@ -1,3 +1,4 @@
+import Container from 'components/container'
 import { getRepo, getRepos } from 'data/github'
 import { useMarkdown, Markdown, removeBadges } from 'components/markdown'
 import ProjectLink from 'components/project-link'
@@ -17,7 +18,7 @@ const Projects = ({ project, repo }) => {
   const md = repo?.readme?.text
   const { content } = useMarkdown(md, { repo, filters: [removeBadges] })
   return (
-    <>
+    <Container>
       <Flex>
         <Title paddingX="0">{fullName}</Title>
         <div>
@@ -30,7 +31,7 @@ const Projects = ({ project, repo }) => {
       <div>
         <Markdown content={content} />
       </div>
-    </>
+    </Container>
   )
 }
 

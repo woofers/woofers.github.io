@@ -18,13 +18,23 @@ const EXPANDED_TOP = '40px'
 const EXPANDED_BOTTOM = '70px'
 
 const FullWidth = styled(motion.div)`
+  --scale-card-space: 1;
+  margin: calc(52px / var(--scale-card-space))  0 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    --scale-card-space: 1.2;
+  }
   @media only screen and (max-width: 950px) {
     align-items: center;
     transform: none !important;
+  }
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mobile.breakpoint}) {
+      margin: 10px 0 70px;
   }
 `
 
@@ -38,7 +48,7 @@ const Grid = styled.div`
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
     grid-template-columns: 1fr;
-    grid-gap: ${CARD_GAP_MOBILE};
+    grid-gap: 25px;
     grid-template-rows: repeat(4, 193.5px);
     grid-template-columns: 450px;
   }

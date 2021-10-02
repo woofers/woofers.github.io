@@ -1,4 +1,5 @@
 import React from 'react'
+import Container from 'components/container'
 import Title from 'components/title'
 import { useMarkdown, Markdown } from 'components/markdown'
 import { getMarkdownFile, getMarkdownFileNames } from 'data/local'
@@ -6,10 +7,10 @@ import { getMarkdownFile, getMarkdownFileNames } from 'data/local'
 const Post = ({ post }) => {
   const { content, meta } = useMarkdown(post.content)
   return (
-    <>
+    <Container>
       <Title paddingX="0">{meta.title}</Title>
       <Markdown content={content} />
-    </>
+    </Container>
   )
 }
 
