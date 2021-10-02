@@ -154,11 +154,11 @@ const nav = [
     children: 'Me',
   },
   {
-    href: '/work',
+    href: '/work/',
     children: 'Work',
   },
   {
-    href: '/contact',
+    href: '/contact/',
     children: 'Contact',
   },
 ]

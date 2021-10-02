@@ -10,17 +10,15 @@ const last = arr => arr[arr.length - 1]
 const color = (alpha = 1) => `rgba(255, 255, 255, ${alpha})`
 const edge = color(1)
 const fade = color(0.36)
-const none = 'rgba(0, 0, 0, 0)'
+const none = color(0)
 
 const makeGradient = (left, right) => `
-  linear-gradient(
-    90deg,
+  linear-gradient(90deg,
     ${!left ? edge : none} 0%,
     ${!left ? fade : none} 5%,
     ${none} 50%,
     ${!right ? fade : none} 95%,
-    ${!right ? edge : none} 100%
-  );
+    ${!right ? edge : none} 100%);
 `
 
 const Menu = styled.div`
