@@ -7,9 +7,19 @@ import Title from 'components/title'
 import { styled } from 'emotion'
 
 const Flex = styled.div`
+  padding: 20px 0;
   @media (min-width: ${({ theme }) => theme.breakpoints.mobile.breakpoint}) {
     display: flex;
     justify-content: space-between;
+  }
+`
+
+const Buttons = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  > a:not(:last-of-type) {
+    margin-right: 15px;
   }
 `
 
@@ -20,13 +30,13 @@ const Projects = ({ project, repo }) => {
   return (
     <Page title={fullName}>
       <Flex>
-        <Title paddingX="0">{fullName}</Title>
-        <div>
+        <Title paddingX="0" paddingY="0">{fullName}</Title>
+        <Buttons>
           <ProjectLink href={repo.url} type="github" />
           {repo.homepage && (
             <ProjectLink href={repo.homepage} type={type(repo)} />
           )}
-        </div>
+        </Buttons>
       </Flex>
       <div>
         <Markdown content={content} />

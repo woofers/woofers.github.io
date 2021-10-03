@@ -2,6 +2,7 @@ import { styled } from 'emotion'
 
 const Title = styled.h1`
   --scale-title: 1;
+  display: ${props => props.display};
   margin: 0;
   color: ${props => props.color};
   padding: ${props => `${props.paddingY} ${props.paddingX}`};
@@ -31,6 +32,7 @@ const Title = styled.h1`
 `
 
 Title.defaultProps = {
+  display: 'block',
   color: '#000',
   fontSize: '45px',
   paddingX: '10px',

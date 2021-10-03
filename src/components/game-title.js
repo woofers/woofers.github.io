@@ -1,5 +1,6 @@
 import React from 'react'
 import { styled } from 'emotion'
+import Title from 'components/title'
 
 const Header = styled.h1`
   display: ${props => (props.icon ? 'inline' : 'block')};
@@ -22,14 +23,14 @@ const IconWrapper = styled.span`
 `
 
 const Wrapper = styled.div`
-  margin: 0 0 15px 0;
+  padding: 20px 0;
 `
 
 const GameTitle = p => {
   const { children, title, icon, iconMode, iconType, iconSize, ...rest } = p
   return (
     <Wrapper {...rest}>
-      <Header icon={icon}>{title}</Header>
+      <Title paddingX="0" paddingY="0" display={icon ? 'inline' : 'block'}>{title}</Title>
       {icon && (
         <IconWrapper>
           <GameIcon

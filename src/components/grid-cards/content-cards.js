@@ -49,7 +49,7 @@ const items = [
     children: ({ isOpen }) =>
       !isOpen ? (
         <Text color="#973838">
-          Junior Software Developer at{' '}
+          Software Developer at{' '}
           <Title paddingX="0" paddingY="10px" color="#fff" fontSize="32px">
             Machobear Studios Inc.
           </Title>{' '}
