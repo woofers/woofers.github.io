@@ -61,11 +61,11 @@ const Space = styled.span`
   display: none;
 `
 
-const Logo = ({ shift, delay = 0 }) => {
+const Logo = ({ id, shift, delay = 0 }) => {
   return (
     <StyledLink href="/">
       <Translate
-        layoutId={'jvd-logo'}
+        layoutId={id}
         initial={{ x: 0, y: 0, opacity: 0 }}
         animate={{ x: 0, y: 0, opacity: 1 }}
         transition={{ delay: delay, duration: 0.5 }}
