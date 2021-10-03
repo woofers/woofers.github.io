@@ -94,6 +94,15 @@ const SEO = ({ description, lang, meta, title }) => {
       <title>{tab !== siteMetadata.title ? `${tab} | ${siteMetadata.title}` : tab}</title>
       {data.map(({ name, property, content }) => <link key={name ?? property} name={name} property={property} content={content} />)}
       <link rel="manifest" href="/jx-next/manifest.webmanifest" crossorigin="anonymous" />
+      <link rel="apple-touch-icon" sizes="32x32" href="/jx-next/icons/mask-32x32.png" />
+      <link rel="apple-touch-icon" sizes="48x48" href="/jx-next/icons/mask-48x48.png" />
+      <link rel="apple-touch-icon" sizes="72x72" href="/jx-next/icons/mask-72x72.png" />
+      <link rel="apple-touch-icon" sizes="96x96" href="/jx-next/icons/mask-96x96.png" />
+      <link rel="apple-touch-icon" sizes="144x144" href="/jx-next/icons/mask-144x144.png" />
+      <link rel="apple-touch-icon" sizes="192x192" href="/jx-next/icons/mask-192x192.png" />
+      <link rel="apple-touch-icon" sizes="256x256" href="/jx-next/icons/mask-256x256.png" />
+      <link rel="apple-touch-icon" sizes="384x384" href="/jx-next/icons/mask-384x384.png" />
+      <link rel="apple-touch-icon" sizes="512x512" href="/jx-next/icons/mask-512x512.png" />
     </Head>
   )
 }
