@@ -72,4 +72,6 @@ const Index = () => {
   )
 }
 
+Index.nav = false
+
 export default Index

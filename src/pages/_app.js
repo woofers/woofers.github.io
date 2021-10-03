@@ -2,7 +2,10 @@ import { ThemeProvider } from '@emotion/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { styled } from 'emotion'
 import { useRouter } from 'next/router'
-import Layout from '../components/layout'
+import Layout from 'components/layout'
+import Logo from 'components/logo'
+import Container from 'components/container'
+import BackButton from 'components/back-button'
 import theme from '../themes'
 
 
@@ -28,8 +31,25 @@ const variants = {
   }
 }
 
+const NavHide = styled.div`
+  transition: opacity 0.3s ease;
+  opacity: 1;
+  &[aria-hidden="true"] {
+    opacity: 0;
+    pointer-events: none;
+  }
+`
+
 const Main = styled(motion.div)`
 
+`
+
+const Header = styled.header`
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
 `
 
 const key = path => {
@@ -42,9 +62,12 @@ const key = path => {
 const App = ({ Component, pageProps: props }) => {
   const router = useRouter()
   const path = key(router.asPath)
-
+  const nav = typeof Component.nav === 'boolean' ? Component.nav : true
   return (
     <ThemeProvider theme={theme}>
+       <NavHide aria-hidden={!nav}>
+        <Container><Header><BackButton /><Logo id="header-logo" /></Header></Container>
+        </NavHide>
       <AnimatePresence exitBeforeEnter>
         <Main
           key={path}
