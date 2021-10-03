@@ -1,3 +1,4 @@
+import Page from 'components/page'
 import React from 'react'
 import Container from 'components/container'
 import { useMarkdown, Markdown, summary } from 'components/markdown'
@@ -47,12 +48,12 @@ const Blog = ({ data }) => {
       return post
     })
   return (
-    <Container>
+    <Page title="Blog">
       <Title paddingX="0">Posts</Title>
       {posts.map(post => (
         <Post key={`post-preview-${post.post}`} post={post} />
       ))}
-    </Container>
+    </Page>
   )
 }
 

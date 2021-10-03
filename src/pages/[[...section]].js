@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import SEO from 'components/seo'
 import { styled } from 'emotion'
 import Logo from 'components/logo'
 import Me from 'sections/me'
@@ -56,15 +57,18 @@ const Cards = styled.div`
 
 const Index = () => {
   return (
-    <Grid>
-      <Sidebar>
-        <Me />
-        <Contact />
-      </Sidebar>
-      <Cards>
-        <ContentCards />
-      </Cards>
-    </Grid>
+    <>
+      <SEO />
+      <Grid>
+        <Sidebar>
+          <Me />
+          <Contact />
+        </Sidebar>
+        <Cards>
+          <ContentCards />
+        </Cards>
+      </Grid>
+    </>
   )
 }
 

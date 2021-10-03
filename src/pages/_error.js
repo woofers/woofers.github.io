@@ -1,9 +1,9 @@
-import Container from 'components/container'
+import Page from 'components/page'
 
 const Error = () => (
-  <Container>
+  <Page>
     <h1>404 - Page Not Found</h1>
-  </Container>
+  </Page>
 )
 
 export default Error

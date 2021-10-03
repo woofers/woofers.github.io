@@ -1,3 +1,4 @@
+import Page from 'components/page'
 import React from 'react'
 import Container from 'components/container'
 import Title from 'components/title'
@@ -7,10 +8,10 @@ import { getMarkdownFile, getMarkdownFileNames } from 'data/local'
 const Post = ({ post }) => {
   const { content, meta } = useMarkdown(post.content)
   return (
-    <Container>
+    <Page title={meta.title}>
       <Title paddingX="0">{meta.title}</Title>
       <Markdown content={content} />
-    </Container>
+    </Page>
   )
 }
 

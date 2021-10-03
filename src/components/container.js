@@ -1,6 +1,5 @@
 // Adapted from https://github.com/nvandoorn/portfolio/blob/master/src/components/container.js
 import React from 'react'
-import BackButton from 'components/back-button'
 import { styled } from 'emotion'
 
 const mq = breakpoints =>
@@ -27,7 +26,7 @@ const Wrapper = styled.div`
 `
 
 const Container = ({ children, ...rest }) => (
-  <Wrapper {...rest}><BackButton href="/" />{children}</Wrapper>
+  <Wrapper {...rest}>{children}</Wrapper>
 )
 
 export default Container

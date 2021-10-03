@@ -1,4 +1,4 @@
-import Container from 'components/container'
+import Page from 'components/page'
 import { useMarkdown } from 'components/markdown'
 import { getMarkdownFile, getMarkdownFileNames } from 'data/local'
 import Game from 'components/game'
@@ -11,7 +11,7 @@ const Projects = ({ project }) => {
   const iconType = meta.icon_type
   const ludumDare = meta.ludum_dare
   return (
-    <Container>
+    <Page title={title}>
       <GameTitle
         title={title}
         icon={icon}
@@ -27,7 +27,7 @@ const Projects = ({ project }) => {
         ludumDare={ludumDare}
         placeholder={placeholder}
       />
-    </Container>
+    </Page>
   )
 }
 
