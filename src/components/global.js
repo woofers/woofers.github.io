@@ -37,8 +37,8 @@ const global = theme => css`
 
   a {
     display: inline-block;
-    color: #f27052;
     text-decoration: none;
+    color: #000;
   }
 
   ul {

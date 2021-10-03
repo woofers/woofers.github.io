@@ -5,6 +5,14 @@ import { useMarkdown, Markdown, summary } from 'components/markdown'
 import Title from 'components/title'
 import Link from 'link'
 import { getMarkdownFiles } from 'data/local'
+import { styled } from 'emotion'
+
+const Heading = styled.h2`
+  font-family: Cantarell, sans-serif;
+  color: #fe7255;
+  font-size: 30px;
+`
+
 
 const Post = ({ post }) => {
   const { content, meta } = useMarkdown(post.content, { filters: [summary] })
@@ -15,9 +23,11 @@ const Post = ({ post }) => {
   const formatter = new Intl.DateTimeFormat('en', { dateStyle: 'long' })
   return (
     <>
-      <h1>
-        <Link href={slug}>{title}</Link>
-      </h1>
+      <Link href={slug}>
+      <Heading>
+          {title}
+      </Heading>
+      </Link>
       {date && <div>{formatter.format(date)}</div>}
       <div>
         <Markdown content={content} />

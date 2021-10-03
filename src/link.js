@@ -17,7 +17,20 @@ export const SectionLink = ({ href, as, ...rest }) => (
   <Link href="/[[...section]]?reset=true" as={href} {...rest} />
 )
 
-export const MarkdownLink = ({ href, ...rest }) => {
+const BubbleLink = styled(Link)`
+  ${props => props.$enable && `
+    padding: 4px 8px;
+    background: #fe9f5a;
+    border-radius: 7px;
+    border: 25px;
+    margin: 2px 2px;
+    font-weight: 900;
+    color: #fff;
+ `};
+
+`
+
+export const MarkdownLink = ({ href, noStyle, ...rest }) => {
   const siteUrl = 'https://jaxs.onl'
   const urlNoHttps = siteUrl.replace('https://', '')
   const urlHttp = siteUrl.replace('https://', 'http://')
@@ -27,5 +40,5 @@ export const MarkdownLink = ({ href, ...rest }) => {
     .replace(urlHttp, '')
     .replace(plain, '')
   const path = route ?? '/'
-  return <Link href={path} {...rest} />
+  return <BubbleLink $enable={!noStyle} href={path} {...rest} />
 }

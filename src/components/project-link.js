@@ -45,7 +45,7 @@ const Align = p => {
   const { inline, align, children, color, ...rest } = p
   if (inline) return <MarkdownLink {...rest}>{children}</MarkdownLink>
   return (
-    <MarkdownLink {...rest}>
+    <MarkdownLink {...rest} noStyle>
       <Badge align={p.align} $color={color}>
         {children}
       </Badge>
