@@ -32,9 +32,7 @@ const Game = p => {
         />
       )}
       <Markdown content={instruction} />
-      {ludumDare && (
-        <Widget game={p.ludumDare} />
-      )}
+      {ludumDare && <Widget game={p.ludumDare} />}
     </Wrapper>
   )
 }

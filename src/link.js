@@ -18,7 +18,9 @@ export const SectionLink = ({ href, as, ...rest }) => (
 )
 
 const BubbleLink = styled(Link)`
-  ${props => props.$enable && `
+  ${props =>
+    props.$enable &&
+    `
     padding: 4px 8px;
     background: #fe9f5a;
     border-radius: 7px;
@@ -27,7 +29,6 @@ const BubbleLink = styled(Link)`
     font-weight: 900;
     color: #fff;
  `};
-
 `
 
 export const MarkdownLink = ({ href, noStyle, ...rest }) => {

@@ -17,7 +17,7 @@ const Wrapper = styled.div`
 `
 
 const Badge = styled.div`
-  letter-spacing: 0.30px;
+  letter-spacing: 0.3px;
   height: 48px;
   line-height: 18.5px;
   font-size: 21px;
@@ -36,7 +36,7 @@ const Badge = styled.div`
     height: 21.5px;
     transform: scale(0.9);
   }
-  font-family: 'Mulish',sans-serif;
+  font-family: 'Mulish', sans-serif;
   color: #fff;
   font-weight: 900;
 `
@@ -55,12 +55,38 @@ const Align = p => {
 
 const ProjectLink = p => {
   const { type, children, ...rest } = p
-  if (type === 'github') return <Align color="#24292f" {...rest}>        <GitHubIcon />
-        <GitHubText /></Align>
-  else if (type === 'game') return <Align color="#fe9c55" {...rest}>Play</Align>
-  else if (type === 'react') return <Align color="#fe9c55" {...rest}>View Demo</Align>
-  else if (type === 'resume') return <Align color="#fe9c55" {...rest}>View Resume</Align>
-  else return <Align color="#fe9c55" {...rest}>View Site</Align>
+  if (type === 'github')
+    return (
+      <Align color="#24292f" {...rest}>
+        {' '}
+        <GitHubIcon />
+        <GitHubText />
+      </Align>
+    )
+  else if (type === 'game')
+    return (
+      <Align color="#fe9c55" {...rest}>
+        Play
+      </Align>
+    )
+  else if (type === 'react')
+    return (
+      <Align color="#fe9c55" {...rest}>
+        View Demo
+      </Align>
+    )
+  else if (type === 'resume')
+    return (
+      <Align color="#fe9c55" {...rest}>
+        View Resume
+      </Align>
+    )
+  else
+    return (
+      <Align color="#fe9c55" {...rest}>
+        View Site
+      </Align>
+    )
 }
 
 ProjectLink.defaultProps = {

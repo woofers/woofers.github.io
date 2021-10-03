@@ -30,7 +30,9 @@ const Projects = ({ project, repo }) => {
   return (
     <Page title={fullName}>
       <Flex>
-        <Title paddingX="0" paddingY="0">{fullName}</Title>
+        <Title paddingX="0" paddingY="0">
+          {fullName}
+        </Title>
         <Buttons>
           <ProjectLink href={repo.url} type="github" />
           {repo.homepage && (

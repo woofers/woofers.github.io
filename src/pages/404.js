@@ -1,4 +1,3 @@
-
 // Not used for static export
 // but suppresses warning about
 // static optimization

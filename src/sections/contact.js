@@ -145,66 +145,66 @@ const Message = styled(TextArea)`
 const Contact = () => (
   <Wrapper>
     <TextContainer>
-    <Text>
-      I help craft{' '}
-      <Tag
-        href="https://github.com/woofers"
-        $color="#1a8fff"
-        $width="24px"
-        $height="24px"
-      >
-        <EarthIcon />
-        {'\u00A0'}real world
-      </Tag>
-      software
-    </Text>
-    <Text>
-      Currently working on{' '}
-      <Tag
-        href="https://beta.liv.rent/"
-        $color="#fe5f55"
-        $width="40px"
-        $height="28px"
-      >
-        <LivRent />
-        liv.rent
-      </Tag>{' '}
-      at
-      <Tag
-        href="https://machobear.ca"
-        $color="#1a1a1a"
-        $width="110px"
-        $height="31px"
-      >
-        <Machobear />
-      </Tag>
-    </Text>
-    <Text>
-      Previously at
-      <Tag
-        href="https://ftsinc.com/"
-        $color="#fff"
-        $width="0"
-        $height="0"
-        $border
-      >
-        <Fts />
-      </Tag>
-    </Text>
-    <Text>
-      Check out{' '}
-      <Tag
-        href="https://github.com/woofers"
-        $color="#24292f"
-        $width="35px"
-        $height="24px"
-        $width2="81px"
-        $height2="24px"
-      >
-        <GitHubIcon />
-        <GitHubText />
-      </Tag>
-    </Text>
+      <Text>
+        I help craft{' '}
+        <Tag
+          href="https://github.com/woofers"
+          $color="#1a8fff"
+          $width="24px"
+          $height="24px"
+        >
+          <EarthIcon />
+          {'\u00A0'}real world
+        </Tag>
+        software
+      </Text>
+      <Text>
+        Currently working on{' '}
+        <Tag
+          href="https://beta.liv.rent/"
+          $color="#fe5f55"
+          $width="40px"
+          $height="28px"
+        >
+          <LivRent />
+          liv.rent
+        </Tag>{' '}
+        at
+        <Tag
+          href="https://machobear.ca"
+          $color="#1a1a1a"
+          $width="110px"
+          $height="31px"
+        >
+          <Machobear />
+        </Tag>
+      </Text>
+      <Text>
+        Previously at
+        <Tag
+          href="https://ftsinc.com/"
+          $color="#fff"
+          $width="0"
+          $height="0"
+          $border
+        >
+          <Fts />
+        </Tag>
+      </Text>
+      <Text>
+        Check out{' '}
+        <Tag
+          href="https://github.com/woofers"
+          $color="#24292f"
+          $width="35px"
+          $height="24px"
+          $width2="81px"
+          $height2="24px"
+        >
+          <GitHubIcon />
+          <GitHubText />
+        </Tag>
+      </Text>
     </TextContainer>
     <Container>
       <Email />

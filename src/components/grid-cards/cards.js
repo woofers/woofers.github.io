@@ -19,7 +19,7 @@ const EXPANDED_BOTTOM = '70px'
 
 const FullWidth = styled(motion.div)`
   --scale-card-space: 1;
-  margin: calc(52px / var(--scale-card-space))  0 20px;
+  margin: calc(52px / var(--scale-card-space)) 0 20px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@ const FullWidth = styled(motion.div)`
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mobile.breakpoint}) {
-      margin: 10px 0 70px;
+    margin: 10px 0 70px;
   }
 `
 
@@ -72,12 +72,12 @@ const Cards = ({ items = [], children }) => {
     router.replace(id ? `/work/${id}` : `/work`, undefined, { shallow: true })
   }
   return (
-      <FullWidth
-        layoutId={'cards'}
-        initial={{ x: 0, y: -500, opacity: 0 }}
-        animate={{ x: 0, y: 0, opacity: 1 }}
-        transition={{ delay: 3, duration: 0.5 }}
-      >
+    <FullWidth
+      layoutId={'cards'}
+      initial={{ x: 0, y: -500, opacity: 0 }}
+      animate={{ x: 0, y: 0, opacity: 1 }}
+      transition={{ delay: 3, duration: 0.5 }}
+    >
       {children}
       <Grid>
         {items.map(({ id, children, ...rest }) => (

@@ -30,7 +30,9 @@ const GameTitle = p => {
   const { children, title, icon, iconMode, iconType, iconSize, ...rest } = p
   return (
     <Wrapper {...rest}>
-      <Title paddingX="0" paddingY="0" display={icon ? 'inline' : 'block'}>{title}</Title>
+      <Title paddingX="0" paddingY="0" display={icon ? 'inline' : 'block'}>
+        {title}
+      </Title>
       {icon && (
         <IconWrapper>
           <GameIcon

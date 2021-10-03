@@ -13,7 +13,6 @@ const Heading = styled.h2`
   font-size: 30px;
 `
 
-
 const Post = ({ post }) => {
   const { content, meta } = useMarkdown(post.content, { filters: [summary] })
   const continueReading = 'Continue reading'
@@ -24,9 +23,7 @@ const Post = ({ post }) => {
   return (
     <>
       <Link href={slug}>
-      <Heading>
-          {title}
-      </Heading>
+        <Heading>{title}</Heading>
       </Link>
       {date && <div>{formatter.format(date)}</div>}
       <div>

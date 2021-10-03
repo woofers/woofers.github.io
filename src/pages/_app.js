@@ -8,6 +8,17 @@ import Container from 'components/container'
 import BackButton from 'components/back-button'
 import theme from '../themes'
 
+const opacity = {
+  initial: {
+    opacity: 0,
+  },
+  enter: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+}
 
 const variants = {
   initial: {
@@ -27,22 +38,13 @@ const variants = {
   exit: {
     opacity: 0,
     x: -8,
-    y: 0
-  }
+    y: 0,
+  },
 }
 
-const NavHide = styled.div`
-  transition: opacity 0.3s ease;
-  opacity: 1;
-  &[aria-hidden="true"] {
-    opacity: 0;
-    pointer-events: none;
-  }
-`
+const NavHide = styled(motion.div)``
 
-const Main = styled(motion.div)`
-
-`
+const Main = styled(motion.div)``
 
 const Header = styled.header`
   margin-top: 30px;
@@ -63,11 +65,26 @@ const App = ({ Component, pageProps: props }) => {
   const router = useRouter()
   const path = key(router.asPath)
   const nav = typeof Component.nav === 'boolean' ? Component.nav : true
+  const navKey = path === 'home' ? path : 'other'
   return (
     <ThemeProvider theme={theme}>
-       <NavHide aria-hidden={!nav}>
-        <Container><Header><BackButton /><Logo id="header-logo" /></Header></Container>
+      <AnimatePresence exitBeforeEnter>
+        <NavHide
+          key={navKey}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          {nav && (
+            <Container>
+              <Header>
+                <BackButton />
+                <Logo id="header-logo" />
+              </Header>
+            </Container>
+          )}
         </NavHide>
+      </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
         <Main
           key={path}
