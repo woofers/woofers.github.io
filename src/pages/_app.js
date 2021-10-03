@@ -9,11 +9,13 @@ import theme from '../themes'
 const variants = {
   initial: {
     opacity: 0,
-    x: 8,
+    x: 0,
+    y: -16,
   },
   enter: {
     opacity: 1,
     x: 0,
+    y: 0,
     transition: {
       duration: 0.15,
       ease: [0.61, 1, 0.88, 1],
@@ -22,6 +24,7 @@ const variants = {
   exit: {
     opacity: 0,
     x: -8,
+    y: 0
   }
 }
 
