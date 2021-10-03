@@ -48,7 +48,7 @@ const siteMetadata = {
   }
 }
 
-const SEO = ({ description, lang, meta, title }) => {
+const SEO = ({ description, lang, meta, title, noIndex }) => {
   const metaDescription = description || siteMetadata.description
   const tab = title || siteMetadata.title || 'Jaxson Van Doorn'
   const data = [
@@ -103,6 +103,7 @@ const SEO = ({ description, lang, meta, title }) => {
       <link rel="apple-touch-icon" sizes="256x256" href="/jx-next/icons/mask-256x256.png" />
       <link rel="apple-touch-icon" sizes="384x384" href="/jx-next/icons/mask-384x384.png" />
       <link rel="apple-touch-icon" sizes="512x512" href="/jx-next/icons/mask-512x512.png" />
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
     </Head>
   )
 }
@@ -110,7 +111,8 @@ const SEO = ({ description, lang, meta, title }) => {
 SEO.defaultProps = {
   meta: [],
   description: '',
-  title: ''
+  title: '',
+  noIndex: false
 }
 
 export default SEO
