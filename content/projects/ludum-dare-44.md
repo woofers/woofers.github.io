@@ -11,9 +11,6 @@ ludum_dare: 44/alien-e-x-p-a-n-s-i-o-n
 lang: pico
 ---
 
-
-<a id="org43875e2"></a>
-
 # Instructions
 
 Play as an alien bounty hunter attempting to amass a small fortune by capturing human manned ships using a state-of-the-art vortex laser.
@@ -26,17 +23,11 @@ However capturing a human will restore a small amount of life and the increase y
 
 Capture as many ships as possible to achieve a high payday and satisfy the scientists.
 
-
-<a id="org4260b09"></a>
-
 ## Controls
 
 -   **Arrows Keys** - Control your ship
 -   **X Key** - Fire vortex laser / Advance menus
 -   **Z Key** - Change camera settings (menu)
-
-
-<a id="org244d89a"></a>
 
 ## About
 

@@ -35,6 +35,15 @@ const global = theme => css`
     border-radius: 25px;
   }
 
+  p {
+    img:first-of-type {
+      margin-right: 1.6rem;
+    }
+    img:last-of-type {
+      margin-right: 0px;
+    }
+  }
+
   a {
     display: inline-block;
     text-decoration: none;

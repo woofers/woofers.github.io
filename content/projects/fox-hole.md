@@ -20,16 +20,10 @@ Play as a fox who has *super digging abilities* and dig through a world invaded 
 
 ## Controls
 
-<ul>
-  <li><strong>A</strong> and <strong>D</strong> to move <strong>left</strong> and <strong>right</strong> respectivly.</li>
-  <li><strong>W</strong> and <strong>S</strong> to dig <strong>up</strong> and <strong>down</strong> respectivly.</li>
-  <li><strong>R</strong> to perform a kick-flip attack.</li>
-  <li><strong>Space</strong> to jump.</li>
-  <li><i class="fas fa-arrow-up"></i>
-      <i class="fas fa-arrow-left"></i>
-      <i class="fas fa-arrow-down"></i>
-      <i class="fas fa-arrow-right"></i> to navigate menus.</li>
-
-  <li><strong>Escape</strong> <i class="far fa-times-circle"></i> to pause or return to the previous menu page.</li>
-  <li><strong>Enter</strong> <i class="far fa-check-circle"></i> to select the active menu item.</li>
-</ul>
+-   **A** and **D** to move <strong>left</strong> and <strong>right</strong> respectively.
+-   **W** and **S** to dig <strong>up</strong> and <strong>down</strong> respectively.
+-   **R** to perform a kick-flip attack.
+-   **Space** to jump.
+-   **Arrow Keys** to navigate menus.
+-   **Escape** to pause or return to the previous menu page.
+-   **Enter** to select the active menu item.
