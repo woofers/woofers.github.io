@@ -17,35 +17,30 @@ import {
   GitHubText,
   GitHubIcon,
   Machobear,
-  LivRent,
+  LivRentRed,
   Fts360,
   Fts,
 } from 'logos'
 
 const TextContainer = styled.div`
   max-width: 700px;
-  display: none;
 `
 
 const Text = styled.div`
-  margin: 20px 0 20px;
-  font-size: 25px;
-  line-height: 50px;
-  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
 `
 
 const Card = styled.a`
   display: inline-block;
   font-size: 22px;
-  background: ${props => props.$color};
+  color: ${props => props.$color};
   border-radius: 5px;
   display: inline-flex;
   font-weight: 900;
-  color: ${props => props.$text || '#fff'};
-  padding: 10px;
+  padding: 0px 5px;
   height: 48px;
   align-items: center;
-  margin: 0 6px;
   font-family: 'Mulish', sans-serif;
   position: relative;
   svg:first-of-type {
@@ -75,9 +70,6 @@ const Big = styled.span`
   font-family: 'Mulish', sans-serif;
   font-size: 50px;
   font-weight: 900;
-  @media (max-width: 767px) {
-    display: none;
-  }
 `
 
 const Spacer = styled.span`
@@ -103,17 +95,13 @@ const Tag = ({ children, ...rest }) => (
 )
 
 const Wrapper = styled.div`
-  grid-area: contact;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-start;
 `
 
 const Container = styled.div`
-  padding-bottom: 100px;
-  display: none;
 `
 
 const Icon = styled.div`
@@ -143,7 +131,7 @@ const Message = styled(TextArea)`
 `
 
 const Contact = () => (
-  <Wrapper>
+  <>
     <TextContainer>
       <Text>
         I help craft{' '}
@@ -161,12 +149,13 @@ const Contact = () => (
       <Text>
         Currently working on{' '}
         <Tag
-          href="https://beta.liv.rent/"
+          href="https://beta.liv.rent"
           $color="#fe5f55"
           $width="40px"
           $height="28px"
+          $width2="17px * -1"
         >
-          <LivRent />
+          <LivRentRed />
           liv.rent
         </Tag>{' '}
         at
@@ -180,22 +169,10 @@ const Contact = () => (
         </Tag>
       </Text>
       <Text>
-        Previously at
-        <Tag
-          href="https://ftsinc.com/"
-          $color="#fff"
-          $width="0"
-          $height="0"
-          $border
-        >
-          <Fts />
-        </Tag>
-      </Text>
-      <Text>
-        Check out{' '}
+        Check out my{' '}
         <Tag
           href="https://github.com/woofers"
-          $color="#24292f"
+          $color="#0f0e0f"
           $width="35px"
           $height="24px"
           $width2="81px"
@@ -209,7 +186,7 @@ const Contact = () => (
     <Container>
       <Email />
     </Container>
-  </Wrapper>
+  </>
 )
 
 export default Contact

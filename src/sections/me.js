@@ -4,13 +4,14 @@ import { motion } from 'framer-motion'
 import Text from 'components/text'
 import ShiftCards from 'components/shift-cards'
 import Logo from 'components/logo'
+import Contact from './contact'
 
 const Grid = styled.div`
-  grid-area: splash;
+  grid-area: sidebar;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  justify-content: flex-end;
+  align-items: center;
+  justify-content: center;
   @media only screen and (max-width: 950px) {
     align-items: center;
     width: 100%;
@@ -30,12 +31,6 @@ const Flex = styled.div`
   }
 `
 
-const List = styled.div`
-  grid-area: cards;
-  margin-top: 55px;
-  height: max-content;
-`
-
 const StyledAvatar = styled(Avatar)``
 
 const LogoContainer = styled.div`
@@ -48,12 +43,11 @@ const Hello = styled.div`
 
 const Container = styled.div`
   padding-top: 20px;
-  height: 100%;
   max-width: 455px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
 `
 
 const delay = 1.3
@@ -71,7 +65,7 @@ const Intro = ({ showHeader, hasScrolled }) => (
             as={motion.div}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{
+            transitiocentern={{
               type: 'spring',
               duration: 0.8,
               delay: 0.5,
@@ -99,6 +93,7 @@ const Intro = ({ showHeader, hasScrolled }) => (
       </Flex>
       <StyledAvatar show={!showHeader} intro={!hasScrolled} />
     </Container>
+    <Contact />
   </Grid>
 )
 

@@ -5,6 +5,8 @@ import Logo from 'components/logo'
 import Me from 'sections/me'
 import Contact from 'sections/contact'
 import { ContentCards } from 'components/grid-cards'
+import { getRepos } from 'data/github'
+import Nav from 'components/nav'
 
 const Grid = styled.div`
   display: grid;
@@ -55,21 +57,50 @@ const Cards = styled.div`
   align-items: flex-start;
 `
 
-const Index = () => {
+const blog = [
+  {
+    href: '/blog/',
+    children: 'Blog',
+  }
+]
+
+const nav = [
+  {
+    href: '/projects/',
+    children: 'Projects',
+  }
+]
+
+const projectsNav = repos => repos.map(({ name, fullName }) => ({ href: `/projects/${name}/`, children: fullName }))
+
+const Index = ({ repos }) => {
+  const projects = projectsNav(repos || [])
   return (
     <>
       <SEO />
       <Grid>
-        <Sidebar>
-          <Me />
-          <Contact />
-        </Sidebar>
+        <Me />
         <Cards>
-          <ContentCards />
+          <Nav items={nav} />
+          <Nav items={projects} />
+          <Nav items={blog} />
         </Cards>
       </Grid>
     </>
   )
+}
+
+export const getStaticProps = async () => {
+  const repos = await getRepos()
+  const names = repos.map(({ name, fullName }) => ({ fullName, name }))
+    console.log(names)
+  return {
+    props: { repos: names }
+  }
+}
+
+export const getStaticPaths = async () => {
+  return { paths: [{ params: { section: [] }}], fallback: false }
 }
 
 Index.nav = false

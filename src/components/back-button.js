@@ -12,7 +12,7 @@ const ButtonLink = styled(Link)`
   > div {
     width: 87px;
     ${radius}
-    background: linear-gradient(110deg, #fe5f55 10%, #fe5f55);
+    background: linear-gradient(110deg, #fe7255 10%, #fe5f55);
     & > div {
       ${radius}
       display: flex;

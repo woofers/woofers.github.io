@@ -103,6 +103,7 @@ export const getRepos = async () => {
   const repos = data.user.repositories.edges
     .map(({ node }) => node)
     .filter(repo => typeof exclude?.[repo?.name] !== 'boolean')
+    .map(repo => { mutateRepoNames(repo, exclude); return repo })
 
   return repos
 }
