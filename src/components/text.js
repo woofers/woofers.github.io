@@ -10,7 +10,9 @@ const Text = styled.div`
     `${top} ${right} ${bottom} ${left}`};
   width: ${props => props.width};
 
-  ${props => props.fontFamily && `
+  ${props =>
+    props.fontFamily &&
+    `
     font-family: ${props.fontFamily}, sans-serif;
   `};
 

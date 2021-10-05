@@ -1,6 +1,7 @@
 // ~1.2 from 160
 // 372x160  - Bigger 374x160 Smaller 372x159
 // 585x250
+import { motion } from 'framer-motion'
 import { styled } from 'emotion'
 import Input from 'components/input'
 import TextArea from 'components/text-area'
@@ -41,7 +42,7 @@ const Card = styled.a`
   padding: 0 ${props => props.$paddingRight} 0 ${props => props.$paddingLeft};
   height: 48px;
   align-items: center;
-  font-family: 'Cabin',sans-serif;
+  font-family: 'Cabin', sans-serif;
   position: relative;
   svg:first-of-type {
     display: inline-flex;
@@ -101,8 +102,7 @@ const Wrapper = styled.div`
   justify-content: flex-start;
 `
 
-const Container = styled.div`
-`
+const Container = styled(motion.div)``
 
 const Icon = styled.div`
   width: 100%;
@@ -134,14 +134,23 @@ const SimpleText = styled.p`
   margin: 0;
   font-size: 24px;
   color: #233044bd;
-  font-family: 'Mulish',sans-serif;
+  font-family: 'Mulish', sans-serif;
   font-weight: 400;
   letter-spacing: -0.35px;
 `
 
 const Contact = () => (
   <>
-    <TextContainer>
+    <TextContainer
+      as={motion.div}
+      initial={{ height: '0px', opacity: 0 }}
+      animate={{ height: '160px', opacity: 1 }}
+      transition={{
+        type: 'spring',
+        duration: 0.42,
+        delay: 1.3 + 2 + 0.7,
+      }}
+    >
       <SimpleText>
         I help craft{' '}
         <Tag
@@ -200,7 +209,15 @@ const Contact = () => (
         </Tag>
       </SimpleText>
     </TextContainer>
-    <Container>
+    <Container
+      initial={{ bottom: 0, opacity: 0 }}
+      animate={{ bottom: 500, opacity: 1 }}
+      transition={{
+        type: 'spring',
+        duration: 0.42,
+        delay: 1.3 + 2 + 0.7,
+      }}
+    >
       <Email />
     </Container>
   </>

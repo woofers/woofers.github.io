@@ -61,17 +61,21 @@ const blog = [
   {
     href: '/blog/',
     children: 'Blog',
-  }
+  },
 ]
 
 const nav = [
   {
     href: '/projects/',
     children: 'Projects',
-  }
+  },
 ]
 
-const projectsNav = repos => repos.map(({ name, fullName }) => ({ href: `/projects/${name}/`, children: fullName }))
+const projectsNav = repos =>
+  repos.map(({ name, fullName }) => ({
+    href: `/projects/${name}/`,
+    children: fullName,
+  }))
 
 const Index = ({ repos }) => {
   const projects = projectsNav(repos || [])
@@ -93,14 +97,14 @@ const Index = ({ repos }) => {
 export const getStaticProps = async () => {
   const repos = await getRepos()
   const names = repos.map(({ name, fullName }) => ({ fullName, name }))
-    console.log(names)
+  console.log(names)
   return {
-    props: { repos: names }
+    props: { repos: names },
   }
 }
 
 export const getStaticPaths = async () => {
-  return { paths: [{ params: { section: [] }}], fallback: false }
+  return { paths: [{ params: { section: [] } }], fallback: false }
 }
 
 Index.nav = false

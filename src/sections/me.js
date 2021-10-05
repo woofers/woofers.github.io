@@ -61,7 +61,7 @@ const Box = styled.div`
   color: #5d5d5d;
   border: 1px solid #ccc;
   padding: 10px;
-  font-family: 'Mulish',sans-serif;
+  font-family: 'Mulish', sans-serif;
   border-radius: 5px;
   font-size: 16px;
 `
@@ -71,6 +71,23 @@ const delay = 1.3
 const Intro = ({ showHeader, hasScrolled }) => (
   <Grid layoutId="grid">
     <Container>
+      <Title
+        width="450px"
+        fontSize="60px"
+        color="#fe7255"
+        lineHeight="57px"
+        paddingX="0"
+        as={motion.div}
+        initial={{ x: -400, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          duration: 0.8,
+          delay: delay + 2,
+        }}
+      >
+        Software Developer
+      </Title>
       <Flex>
         <Hello>
           <Text
@@ -109,22 +126,6 @@ const Intro = ({ showHeader, hasScrolled }) => (
         </Hello>
         <LogoContainer>{!showHeader && <Logo delay={delay} />}</LogoContainer>
       </Flex>
-      <Title
-        width="450px"
-        fontSize="60px"
-        color="#fe7255"
-        lineHeight="57px"
-        as={motion.div}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{
-          type: 'spring',
-          duration: 0.8,
-          delay: delay + 2,
-        }}
-      >
-        Software Developer
-      </Title>
     </Container>
     <Contact />
   </Grid>
