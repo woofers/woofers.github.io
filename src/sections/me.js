@@ -5,6 +5,7 @@ import Text from 'components/text'
 import Title from 'components/title'
 import ShiftCards from 'components/shift-cards'
 import Logo from 'components/logo'
+import Email from 'components/email'
 import Contact from './contact'
 
 const SimpleText = styled.p`
@@ -14,11 +15,11 @@ const SimpleText = styled.p`
 `
 
 const Grid = styled.div`
-  grid-area: sidebar;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  height: 100vh;
   @media only screen and (max-width: 950px) {
     align-items: center;
     width: 100%;
@@ -49,12 +50,13 @@ const Hello = styled.div`
 `
 
 const Container = styled.div`
+  grid-area: sidebar;
   padding-top: 20px;
-  max-width: 475px;
+  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 `
 
 const Box = styled.div`
@@ -66,10 +68,13 @@ const Box = styled.div`
   font-size: 16px;
 `
 
+const EmailContainer = styled(motion.div)`
+`
+
 const delay = 1.3
 
 const Intro = ({ showHeader, hasScrolled }) => (
-  <Grid layoutId="grid">
+  <Grid>
     <Container>
       <Title
         width="450px"
@@ -126,8 +131,19 @@ const Intro = ({ showHeader, hasScrolled }) => (
         </Hello>
         <LogoContainer>{!showHeader && <Logo delay={delay} />}</LogoContainer>
       </Flex>
+      <Contact />
     </Container>
-    <Contact />
+    <EmailContainer
+      initial={{ bottom: 0, opacity: 0 }}
+      animate={{ bottom: 500, opacity: 1 }}
+      transition={{
+        type: 'spring',
+        duration: 0.42,
+        delay: 1.3 + 2 + 0.7,
+      }}
+    >
+      <Email />
+    </EmailContainer>
   </Grid>
 )
 

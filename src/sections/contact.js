@@ -209,17 +209,6 @@ const Contact = () => (
         </Tag>
       </SimpleText>
     </TextContainer>
-    <Container
-      initial={{ bottom: 0, opacity: 0 }}
-      animate={{ bottom: 500, opacity: 1 }}
-      transition={{
-        type: 'spring',
-        duration: 0.42,
-        delay: 1.3 + 2 + 0.7,
-      }}
-    >
-      <Email />
-    </Container>
   </>
 )
 
