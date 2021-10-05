@@ -18,7 +18,7 @@ const Grid = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   height: 100vh;
   @media only screen and (max-width: 950px) {
     align-items: center;
@@ -69,6 +69,7 @@ const Box = styled.div`
 `
 
 const EmailContainer = styled(motion.div)`
+  padding-bottom: 300px;
 `
 
 const delay = 1.3
@@ -132,10 +133,9 @@ const Intro = ({ showHeader, hasScrolled }) => (
         <LogoContainer>{!showHeader && <Logo delay={delay} />}</LogoContainer>
       </Flex>
       <Contact />
-    </Container>
     <EmailContainer
-      initial={{ bottom: 0, opacity: 0 }}
-      animate={{ bottom: 500, opacity: 1 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{
         type: 'spring',
         duration: 0.42,
@@ -144,6 +144,7 @@ const Intro = ({ showHeader, hasScrolled }) => (
     >
       <Email />
     </EmailContainer>
+    </Container>
   </Grid>
 )
 
