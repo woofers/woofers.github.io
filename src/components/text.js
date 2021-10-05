@@ -10,6 +10,10 @@ const Text = styled.div`
     `${top} ${right} ${bottom} ${left}`};
   width: ${props => props.width};
 
+  ${props => props.fontFamily && `
+    font-family: ${props.fontFamily}, sans-serif;
+  `};
+
   font-size: calc(${props => props.fontSize} / var(--scale-text));
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {

@@ -16,7 +16,7 @@ const Title = styled.h1`
 
   letter-spacing: calc(${props => props.letterSpacing} / var(--scale-title));
   font-size: calc(${props => props.fontSize} / var(--scale-title));
-  line-height: calc(40px / var(--scale-title));
+  line-height: calc(${props => props.lineHeight} / var(--scale-title));
 
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
@@ -34,6 +34,7 @@ const Title = styled.h1`
 Title.defaultProps = {
   display: 'block',
   color: '#000',
+  lineHeight: '40px',
   fontSize: '45px',
   paddingX: '10px',
   paddingY: '20px',

@@ -28,7 +28,7 @@ const TextContainer = styled.div`
 
 const Text = styled.div`
   font-size: 16px;
-  font-weight: 700;
+  color: #233044;
 `
 
 const Card = styled.a`
@@ -38,10 +38,10 @@ const Card = styled.a`
   border-radius: 5px;
   display: inline-flex;
   font-weight: 900;
-  padding: 0px 5px;
+  padding: 0 ${props => props.$paddingRight} 0 ${props => props.$paddingLeft};
   height: 48px;
   align-items: center;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Cabin',sans-serif;
   position: relative;
   svg:first-of-type {
     display: inline-flex;
@@ -130,23 +130,34 @@ const Message = styled(TextArea)`
   grid-column: span 2;
 `
 
+const SimpleText = styled.p`
+  margin: 0;
+  font-size: 24px;
+  color: #233044bd;
+  font-family: 'Mulish',sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.35px;
+`
+
 const Contact = () => (
   <>
     <TextContainer>
-      <Text>
+      <SimpleText>
         I help craft{' '}
         <Tag
           href="https://github.com/woofers"
           $color="#1a8fff"
           $width="24px"
           $height="24px"
+          $paddingLeft="4px"
+          $paddingRight="7px"
         >
           <EarthIcon />
           {'\u00A0'}real world
         </Tag>
         software
-      </Text>
-      <Text>
+      </SimpleText>
+      <SimpleText>
         Currently working on{' '}
         <Tag
           href="https://beta.liv.rent"
@@ -154,6 +165,8 @@ const Contact = () => (
           $width="40px"
           $height="28px"
           $width2="17px * -1"
+          $paddingLeft="5px"
+          $paddingRight="4px"
         >
           <LivRentRed />
           liv.rent
@@ -164,11 +177,13 @@ const Contact = () => (
           $color="#1a1a1a"
           $width="110px"
           $height="31px"
+          $paddingLeft="12px"
+          $paddingRight="12px"
         >
           <Machobear />
         </Tag>
-      </Text>
-      <Text>
+      </SimpleText>
+      <SimpleText>
         Check out my{' '}
         <Tag
           href="https://github.com/woofers"
@@ -177,11 +192,13 @@ const Contact = () => (
           $height="24px"
           $width2="81px"
           $height2="24px"
+          $paddingLeft="0px"
+          $paddingRight="14px"
         >
           <GitHubIcon />
           <GitHubText />
         </Tag>
-      </Text>
+      </SimpleText>
     </TextContainer>
     <Container>
       <Email />
