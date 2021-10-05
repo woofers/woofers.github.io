@@ -6,6 +6,9 @@ import jaxson from 'images/jaxson.webp'
 const Wrapper = styled(motion.div)`
   --scale-avatar: 1;
   aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #feb37d;
+  box-shadow: inset 0.3px -0.4px 8px 2px #00000030;
   overflow: hidden;
   max-width: calc(400px / var(--scale-avatar));
   max-height: calc(400px / var(--scale-avatar));
@@ -21,7 +24,6 @@ const Wrapper = styled(motion.div)`
 
 const Inner = styled.img`
   max-height: 100%;
-  border-radius: 0;
   object-fit: contain;
   object-position: top;
 `

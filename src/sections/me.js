@@ -19,7 +19,6 @@ const Grid = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 100vh;
   @media only screen and (max-width: 950px) {
     align-items: center;
     width: 100%;
@@ -50,7 +49,6 @@ const Hello = styled.div`
 `
 
 const Container = styled.div`
-  grid-area: sidebar;
   padding-top: 20px;
   max-width: 500px;
   display: flex;
@@ -69,12 +67,20 @@ const Box = styled.div`
 `
 
 const EmailContainer = styled(motion.div)`
-  padding-bottom: 300px;
 `
 
 const delay = 1.3
 
+const Wrapper = styled.div`
+  grid-area: sidebar;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+`
+
 const Intro = ({ showHeader, hasScrolled }) => (
+  <Wrapper>
   <Grid>
     <Container>
       <Title
@@ -146,6 +152,8 @@ const Intro = ({ showHeader, hasScrolled }) => (
     </EmailContainer>
     </Container>
   </Grid>
+    <Avatar />
+  </Wrapper>
 )
 
 export default Intro

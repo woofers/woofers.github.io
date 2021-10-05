@@ -10,10 +10,10 @@ import Nav from 'components/nav'
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-items: flex-end;
   grid-template-areas:
-    'sidebar cards';
+    'sidebar' 'cards';
   grid-gap: 0 15vw;
   @media only screen and (max-width: 1500px) {
     grid-template-columns: 1fr;
