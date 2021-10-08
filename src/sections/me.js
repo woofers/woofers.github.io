@@ -26,7 +26,6 @@ const Grid = styled.div`
 `
 
 const Flex = styled.div`
-  margin: 0;
   margin-bottom: 50px;
   display: flex;
   align-items: flex-end;
@@ -53,7 +52,7 @@ const Container = styled.div`
   max-width: 500px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 `
 
@@ -67,6 +66,7 @@ const Box = styled.div`
 `
 
 const EmailContainer = styled(motion.div)`
+  margin-top: 40px;
 `
 
 const delay = 1.3
@@ -90,12 +90,14 @@ const Intro = ({ showHeader, hasScrolled }) => (
         lineHeight="57px"
         paddingX="0"
         as={motion.div}
-        initial={{ x: -400, opacity: 0 }}
-        animate={{ x: 0, opacity: 1 }}
+        initial={{ x: -400, opacity: 0, color: '#fe6255' }}
+        animate={{ x: [null, 0, 0], opacity: [null, 1, 1], color: [null, '#fe7255', '#c9c9c9'] }}
+        textTransform="lowercase"
         transition={{
           type: 'spring',
-          duration: 0.8,
+          duration: 0.8 * 1.2,
           delay: delay + 2,
+          times: [0, 0.25, 1]
         }}
       >
         Software Developer
@@ -111,7 +113,7 @@ const Intro = ({ showHeader, hasScrolled }) => (
             as={motion.div}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transitiocentern={{
+            transition={{
               type: 'spring',
               duration: 0.8,
               delay: 0.5,
@@ -140,19 +142,19 @@ const Intro = ({ showHeader, hasScrolled }) => (
       </Flex>
       <Contact />
     <EmailContainer
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
       transition={{
         type: 'spring',
-        duration: 0.42,
-        delay: 1.3 + 2 + 0.7,
+        duration: 0.42 * 2,
+        delay: 1.3 + 2 + 0.7 + 0.2,
       }}
     >
       <Email />
     </EmailContainer>
     </Container>
   </Grid>
-    <Avatar />
+    <div></div>
   </Wrapper>
 )
 

@@ -148,7 +148,7 @@ const Contact = () => (
       transition={{
         type: 'spring',
         duration: 0.42,
-        delay: 1.3 + 2 + 0.7,
+        delay: 1.3 + 2 + 0.7 + 0.2,
       }}
     >
       <SimpleText>

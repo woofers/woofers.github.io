@@ -52,19 +52,22 @@ const projectsNav = repos =>
     children: fullName,
   }))
 
+const Page = styled.div`
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
+
 const Index = ({ repos }) => {
   const projects = projectsNav(repos || [])
   return (
     <>
       <SEO />
-      <Grid>
+      <Page>
         <Me />
-        <Cards>
-          <Nav items={nav} />
-          <Nav items={projects} />
-          <Nav items={blog} />
-        </Cards>
-      </Grid>
+      </Page>
     </>
   )
 }
