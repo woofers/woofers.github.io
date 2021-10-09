@@ -154,7 +154,7 @@ const Contact = () => (
       }}
     >
       <SimpleText>
-        I help craft{' '}
+        I help design and ship{' '}
         <Tag
           href="https://github.com/woofers"
           $color="#1a8fff"
@@ -167,8 +167,9 @@ const Contact = () => (
           <EarthIcon />
           {'\u00A0'}real world
         </Tag>
-        {' '}software
+        {' '}apps and software.
       </SimpleText>
+      <SimpleText>I've authored _ (mostly React) libraries with _ cumulative downloads on NPM</SimpleText>
       <SimpleText>
         Currently working on{' '}
         <Tag
