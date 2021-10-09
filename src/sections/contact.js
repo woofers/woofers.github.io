@@ -169,7 +169,6 @@ const Contact = () => (
         </Tag>
         {' '}apps and software.
       </SimpleText>
-      <SimpleText>I've authored _ (mostly React) libraries with _ cumulative downloads on NPM</SimpleText>
       <SimpleText>
         Currently working on{' '}
         <Tag
