@@ -11,7 +11,7 @@ const Wrapper = styled(motion.div)`
   max-height: calc(800px / var(--scale-avatar));
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
-    --scale-avatar: 1.2;
+    --scale-avatar: 1.5;
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mobile.breakpoint}) {

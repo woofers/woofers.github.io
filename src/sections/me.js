@@ -51,11 +51,14 @@ const Hello = styled.div`
 
 const Container = styled.div`
   padding-top: 20px;
-  max-width: 500px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mini.breakpoint}) {
+      padding: 0;
+  }
 `
 
 const Box = styled.div`
@@ -79,10 +82,22 @@ const Wrapper = styled.div`
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 15vh;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    margin: 0;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+  }
 `
 
 const NavAlign = styled(motion.div)`
   display: flex;
+  max-width: 585px;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mini.breakpoint}) {
+    flex-direction: column-reverse;
+  }
 `
 
 const Body = styled(motion.div)``

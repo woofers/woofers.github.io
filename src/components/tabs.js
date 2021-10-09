@@ -36,9 +36,10 @@ const Button = styled(Link)`
 const Container = styled(motion.nav)`
   display: flex;
   margin: 10px 0 0;
-  padding: ${props => props.$wrap ? '0' : '10px 50px 0'};
+  padding: ${props => props.$wrap ? '0' : '10px 0 0 10px'};
   height: ${props => props.$wrap ? 'unset' : '60px'};
   flex-wrap: ${props => props.$wrap ? 'wrap' : 'nowrap'};
+  max-width: 613px;
 `
 
 const Nav = ({ items, wrap, ...rest }) => {

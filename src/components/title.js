@@ -24,7 +24,7 @@ const Title = styled.h1`
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mobile.breakpoint}) {
-    --scale-title: 1.5;
+    --scale-title: ${props => props.mobileScale};
   }
   &[aria-current='page'] {
     color: #27292b;
@@ -43,6 +43,7 @@ Title.defaultProps = {
   fontWeight: '900',
   letterSpacing: '0.65px',
   textTransform: 'none',
+  mobileScale: 1.5
 }
 
 export default Title

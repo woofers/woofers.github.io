@@ -52,11 +52,17 @@ const projectsNav = repos =>
   }))
 
 const Page = styled.div`
-  height: calc(100vh - 100px);
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    justify-content: flex-start;
+    padding: 20px 20px 0;
+  }
 `
 
 const Index = ({ repos }) => {

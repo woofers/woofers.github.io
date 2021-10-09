@@ -132,7 +132,6 @@ const Message = styled(TextArea)`
 `
 
 const SimpleText = styled.p`
-  height: 40px;
   margin: 0;
   font-size: 18px;
   color: #233044bd;
