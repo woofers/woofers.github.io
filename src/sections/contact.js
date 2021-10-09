@@ -143,16 +143,7 @@ const SimpleText = styled.p`
 
 const Contact = () => (
   <>
-    <TextContainer
-      as={motion.div}
-      initial={{ height: '0px', opacity: 0 }}
-      animate={{ height: '160px', opacity: 1 }}
-      transition={{
-        type: 'spring',
-        duration: 0.42,
-        delay: 1.3 + 2 + 0.7 + 0.2,
-      }}
-    >
+    <TextContainer>
       <SimpleText>
         I help design and ship{' '}
         <Tag

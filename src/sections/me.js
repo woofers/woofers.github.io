@@ -1,11 +1,12 @@
 import { styled } from 'emotion'
 import Avatar from 'components/avatar'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import Text from 'components/text'
 import Title from 'components/title'
 import ShiftCards from 'components/shift-cards'
 import Logo from 'components/logo'
 import Email from 'components/email'
+import { useRouter } from 'next/router'
 import Contact from './contact'
 import Tabs from 'components/tabs'
 
@@ -84,6 +85,10 @@ const NavAlign = styled(motion.div)`
   display: flex;
 `
 
+const Body = styled(motion.div)``
+
+const Inner = styled(motion.div)``
+
 const nav = [
   {
     href: '/',
@@ -101,101 +106,129 @@ const nav = [
   },
 ]
 
-const Intro = ({ showHeader, hasScrolled }) => (
-  <Wrapper>
-    <Grid>
-      <Container>
-        <NavAlign
-          initial={{ x: -400, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{
-            type: 'spring',
-            duration: 0.8,
-            delay: delay + 2,
-          }}
-        >
-          <Title
-            as={motion.div}
-            fontSize="62px"
-            color="#fe7255"
-            lineHeight="57px"
-            paddingX="0"
-            initial={{ color: '#fe6255' }}
-            animate={{ color: '#c9c9c9' }}
-            textTransform="lowercase"
-            transition={{
-              type: 'spring',
-              duration: 0.4,
-              delay: delay + 2 + 0.8,
-            }}
-          >
-            Software Developer
-          </Title>
-          <Tabs
-            items={nav}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+const Intro = ({ projects, showHeader, hasScrolled }) => {
+  const router = useRouter()
+  const isProjects = router?.asPath === '/projects/'
+  return (
+    <Wrapper>
+      <Grid>
+        <Container>
+          <NavAlign
+            initial={{ x: -400, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
             transition={{
               type: 'spring',
               duration: 0.8,
-              delay: delay + 3,
+              delay: delay + 2,
             }}
-          />
-        </NavAlign>
-        <Flex>
-          <Hello>
-            <Text
-              fontFamily="Cantarell"
-              fontSize="53px"
-              fontWeight="700"
-              letterSpacing="-1.5px"
-              color="#27292b"
+          >
+            <Title
               as={motion.div}
+              fontSize="62px"
+              color="#fe7255"
+              lineHeight="57px"
+              paddingX="0"
+              initial={{ color: '#fe6255' }}
+              animate={{ color: '#c9c9c9' }}
+              textTransform="lowercase"
+              transition={{
+                type: 'spring',
+                duration: 0.4,
+                delay: delay + 2 + 0.8,
+              }}
+            >
+              Software Developer
+            </Title>
+            <Tabs
+              items={nav}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{
                 type: 'spring',
                 duration: 0.8,
-                delay: 0.5,
+                delay: delay + 3,
               }}
-            >
-              Hello
-            </Text>
-            <Text
-              fontFamily="Cantarell"
-              fontSize="53px"
-              fontWeight="700"
-              letterSpacing="-1.5px"
-              color="#27292b"
-              as={motion.div}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.5,
-                delay: delay,
-              }}
-            >
-              {', '}I{"'"}m
-            </Text>
-          </Hello>
-          <LogoContainer>{!showHeader && <Logo delay={delay} />}</LogoContainer>
-        </Flex>
-        <Contact />
-        <EmailContainer
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            type: 'spring',
-            duration: 0.42 * 2,
-            delay: 1.3 + 2 + 0.7 + 0.2,
-          }}
-        >
-          <Email />
-        </EmailContainer>
-      </Container>
-    </Grid>
-    <Avatar />
-  </Wrapper>
-)
+            />
+          </NavAlign>
+          <Flex>
+            <Hello>
+              <Text
+                fontFamily="Cantarell"
+                fontSize="53px"
+                fontWeight="700"
+                letterSpacing="-1.5px"
+                color="#27292b"
+                as={motion.div}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  type: 'spring',
+                  duration: 0.8,
+                  delay: 0.5,
+                }}
+              >
+                Hello
+              </Text>
+              <Text
+                fontFamily="Cantarell"
+                fontSize="53px"
+                fontWeight="700"
+                letterSpacing="-1.5px"
+                color="#27292b"
+                as={motion.div}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  duration: 0.5,
+                  delay: delay,
+                }}
+              >
+                {', '}I{"'"}m
+              </Text>
+            </Hello>
+            <LogoContainer>
+              {!showHeader && <Logo delay={delay} />}
+            </LogoContainer>
+          </Flex>
+          <Body
+            initial={{ height: '0px', opacity: 0 }}
+            animate={{ height: '265px', opacity: 1 }}
+            transition={{
+              type: 'spring',
+              duration: 0.42,
+              delay: 1.3 + 2 + 0.7 + 0.2,
+            }}
+          >
+            <AnimatePresence exitBeforeEnter>
+              <Inner
+                key={router.asPath}
+                initial={{ opacity: 0, y: -100, x: 0 }}
+                animate={{ opacity: 1, y: 0, x: 0 }}
+                exit={{ opacity: 0, y: 0, x: -200 }}
+                transition={{
+                  type: 'spring',
+                  duration: 0.5,
+                  bounce: 0.3
+                }}
+              >
+                {isProjects ? (
+                  <><Tabs wrap items={projects} /></>
+                ) : (
+                  <>
+                    <Contact />
+                    <EmailContainer>
+                      <Email />
+                    </EmailContainer>
+                  </>
+                )}
+              </Inner>
+            </AnimatePresence>
+          </Body>
+        </Container>
+      </Grid>
+      <Avatar />
+    </Wrapper>
+  )
+}
 
 export default Intro

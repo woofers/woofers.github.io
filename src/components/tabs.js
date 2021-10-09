@@ -36,21 +36,24 @@ const Button = styled(Link)`
 const Container = styled(motion.nav)`
   display: flex;
   margin: 10px 0 0;
-  padding: 10px 50px 0;
-  height: 60px;
-  > a:first-of-type {
-    margin-left: -10px;
-  }
+  padding: ${props => props.$wrap ? '0' : '10px 50px 0'};
+  height: ${props => props.$wrap ? 'unset' : '60px'};
+  flex-wrap: ${props => props.$wrap ? 'wrap' : 'nowrap'};
 `
 
-const Nav = ({ items, ...rest }) => {
+const Nav = ({ items, wrap, ...rest }) => {
   const router = useRouter()
   const { asPath } = router
   console.log(rest)
   return (
-    <Container {...rest}>
+    <Container {...rest} $wrap={wrap}>
       {items.map(({ href, children, ...props }) => (
-        <Button href={href} key={`link-${href}`} aria-current={href === asPath} {...props}>
+        <Button
+          href={href}
+          key={`link-${href}`}
+          aria-current={href === asPath}
+          {...props}
+        >
           {children}
         </Button>
       ))}

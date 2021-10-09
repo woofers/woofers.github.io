@@ -13,13 +13,11 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   justify-items: flex-end;
-  grid-template-areas:
-    'sidebar' 'cards';
+  grid-template-areas: 'sidebar' 'cards';
   grid-gap: 0 15vw;
   @media only screen and (max-width: 1500px) {
     grid-template-columns: 1fr;
-    grid-template-areas:
-    'sidebar' 'cards';
+    grid-template-areas: 'sidebar' 'cards';
     grid-gap: 0 7.8vw;
   }
 `
@@ -54,7 +52,7 @@ const projectsNav = repos =>
   }))
 
 const Page = styled.div`
-  height: calc(100vh - 200px);
+  height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,7 +65,7 @@ const Index = ({ repos }) => {
     <>
       <SEO />
       <Page>
-        <Me />
+        <Me projects={projects} />
       </Page>
     </>
   )
@@ -82,7 +80,10 @@ export const getStaticProps = async () => {
 }
 
 export const getStaticPaths = async () => {
-  return { paths: [{ params: { section: [] } }, { params: { section: ['projects'] } }], fallback: false }
+  return {
+    paths: [{ params: { section: [] } }, { params: { section: ['projects'] } }],
+    fallback: false,
+  }
 }
 
 Index.nav = false
