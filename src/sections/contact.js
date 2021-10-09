@@ -166,8 +166,8 @@ const Contact = () => (
         >
           <EarthIcon />
           {'\u00A0'}real world
-        </Tag>
-        {' '}apps and software.
+        </Tag>{' '}
+        apps and software.
       </SimpleText>
       <SimpleText>
         Currently working on{' '}

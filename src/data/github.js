@@ -71,6 +71,7 @@ const query = `
       edges {
         node {
           name
+          description
         }
       }
     }

@@ -36,10 +36,7 @@ const Avatar = ({ intro = true, show = true, ...rest }) => {
           transition={{ duration: intro ? 0.5 : 0.15, delay: intro ? 1.3 : 0 }}
           {...rest}
         >
-          <Inner
-            src={jaxson.src}
-            alt="A Jaxson"
-          />
+          <Inner src={jaxson.src} alt="A Jaxson" />
         </Wrapper>
       )}
     </AnimatePresence>

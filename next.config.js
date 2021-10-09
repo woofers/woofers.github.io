@@ -9,7 +9,7 @@ module.exports = {
     loader: 'imgix',
     path: 'https://example.com/myaccount/',
   },
-  webpack(config) {
+  webpack(config, { isServer }) {
     config.plugins.push(new ESLintPlugin())
     const image = config.module.rules.find(({ loader }) => loader === 'next-image-loader')
     const options = image.options
@@ -47,17 +47,17 @@ module.exports = {
   ) {
     return {
       '/': { page: '/[[...section]]' },
-      '/me': { page: '/[[...section]]' },
-      '/me/intro/': { page: '/[[...section]]' },
-      '/me/tech/': { page: '/[[...section]]' },
-      '/me/hobby-1/': { page: '/[[...section]]' },
-      '/me/hobby-2/': { page: '/[[...section]]' },
-      '/work/': { page: '/[[...section]]' },
-      '/work/liv-rent/': { page: '/[[...section]]' },
-      '/work/fts/': { page: '/[[...section]]' },
-      '/work/react-wavify/': { page: '/[[...section]]' },
-      '/work/alien-expansion/': { page: '/[[...section]]' },
-      '/contact/': { page: '/[[...section]]' }
+      '/projects/': { page: '/[[...section]]' },
+      //'/me/intro/': { page: '/[[...section]]' },
+      //'/me/tech/': { page: '/[[...section]]' },
+      //'/me/hobby-1/': { page: '/[[...section]]' },
+      //'/me/hobby-2/': { page: '/[[...section]]' },
+      //'/work/': { page: '/[[...section]]' },
+      //'/work/liv-rent/': { page: '/[[...section]]' },
+      //'/work/fts/': { page: '/[[...section]]' },
+      //'/work/react-wavify/': { page: '/[[...section]]' },
+      //'/work/alien-expansion/': { page: '/[[...section]]' },
+      //'/contact/': { page: '/[[...section]]' }
     }
   }
 }

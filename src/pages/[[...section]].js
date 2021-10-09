@@ -76,14 +76,13 @@ const Index = ({ repos }) => {
 export const getStaticProps = async () => {
   const repos = await getRepos()
   const names = repos.map(({ name, fullName }) => ({ fullName, name }))
-  console.log(names)
   return {
     props: { repos: names },
   }
 }
 
 export const getStaticPaths = async () => {
-  return { paths: [{ params: { section: [] } }], fallback: false }
+  return { paths: [{ params: { section: [] } }, { params: { section: ['projects'] } }], fallback: false }
 }
 
 Index.nav = false

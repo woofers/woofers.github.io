@@ -24,15 +24,6 @@ const Button = styled(Link)`
   cursor: pointer;
   &[aria-current='true'] {
     color: #222222;
-    &:after {
-      position: absolute;
-      content: '';
-      background-color: #222222;
-      bottom: -6px;
-      left: 10px;
-      width: calc(100% - 20px);
-      height: 2px;
-    }
   }
   &:hover {
     background: #f7f7f7 none repeat scroll 0% 0%;
@@ -45,28 +36,21 @@ const Button = styled(Link)`
 const Container = styled(motion.nav)`
   display: flex;
   margin: 10px 0 0;
-  box-shadow: inset 0px -2px 0px -1px #dddddd;
-  padding: 0 50px;
+  padding: 10px 50px 0;
+  height: 60px;
   > a:first-of-type {
     margin-left: -10px;
   }
 `
 
-const Nav = ({ items }) => {
+const Nav = ({ items, ...rest }) => {
   const router = useRouter()
-  const { pathname } = router
+  const { asPath } = router
+  console.log(rest)
   return (
-    <Container
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 0.7 }}
-    >
-      {items.map(({ href, children }) => (
-        <Button
-          href={href}
-          key={`link-${href}`}
-          aria-current={href === pathname}
-        >
+    <Container {...rest}>
+      {items.map(({ href, children, ...props }) => (
+        <Button href={href} key={`link-${href}`} aria-current={href === asPath} {...props}>
           {children}
         </Button>
       ))}

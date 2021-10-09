@@ -23,7 +23,7 @@ const Buttons = styled.div`
   }
 `
 
-const Projects = ({ project, repo }) => {
+const Project = ({ project, repo }) => {
   const { fullName } = repo
   const md = repo?.readme?.text
   const { content } = useMarkdown(md, { repo, filters: [removeBadges] })
@@ -62,4 +62,4 @@ export const getStaticPaths = async () => {
   }
 }
 
-export default Projects
+export default Project

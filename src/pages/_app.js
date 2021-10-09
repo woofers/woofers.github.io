@@ -56,6 +56,7 @@ const Header = styled.header`
 
 const key = path => {
   if (path === '/') return 'home'
+  if (path === '/projects/') return 'home'
   if (path.startsWith('/work')) return 'home'
   if (path.startsWith('/contact')) return 'home'
   return path
