@@ -45,6 +45,7 @@ const Card = styled.a`
   font-family: 'Cabin', sans-serif;
   position: relative;
   svg:first-of-type {
+    margin-top: ${props => props.$marginTop || 0};
     display: inline-flex;
     align-self: center;
     position: absolute;
@@ -52,7 +53,7 @@ const Card = styled.a`
     height: ${props => props.$height};
   }
   svg:nth-of-type(2) {
-    left: calc(${props => props.$width} + 10px);
+    left: calc(${props => props.$width} + ${props => props.$spacing || '10px'});
     display: inline-flex;
     align-self: center;
     position: absolute;
@@ -131,10 +132,11 @@ const Message = styled(TextArea)`
 `
 
 const SimpleText = styled.p`
+  height: 40px;
   margin: 0;
-  font-size: 24px;
+  font-size: 18px;
   color: #233044bd;
-  font-family: 'Mulish', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   letter-spacing: -0.35px;
 `
@@ -158,13 +160,14 @@ const Contact = () => (
           $color="#1a8fff"
           $width="24px"
           $height="24px"
+          $width2="2px"
           $paddingLeft="4px"
-          $paddingRight="7px"
+          $paddingRight="2px"
         >
           <EarthIcon />
           {'\u00A0'}real world
         </Tag>
-        software
+        {' '}software
       </SimpleText>
       <SimpleText>
         Currently working on{' '}
@@ -180,14 +183,15 @@ const Contact = () => (
           <LivRentRed />
           liv.rent
         </Tag>{' '}
-        at
+        at{' '}
         <Tag
           href="https://machobear.ca"
           $color="#1a1a1a"
           $width="110px"
           $height="31px"
-          $paddingLeft="12px"
+          $paddingLeft="4px"
           $paddingRight="12px"
+          $marginTop="3px"
         >
           <Machobear />
         </Tag>
@@ -201,8 +205,9 @@ const Contact = () => (
           $height="24px"
           $width2="81px"
           $height2="24px"
+          $spacing="4px"
           $paddingLeft="0px"
-          $paddingRight="14px"
+          $paddingRight="10px"
         >
           <GitHubIcon />
           <GitHubText />

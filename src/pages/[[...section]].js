@@ -7,6 +7,7 @@ import Contact from 'sections/contact'
 import { ContentCards } from 'components/grid-cards'
 import { getRepos } from 'data/github'
 import Nav from 'components/nav'
+import Tabs from 'components/tabs'
 
 const Grid = styled.div`
   display: grid;

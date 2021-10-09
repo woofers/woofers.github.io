@@ -84,7 +84,6 @@ const Intro = ({ showHeader, hasScrolled }) => (
   <Grid>
     <Container>
       <Title
-        width="450px"
         fontSize="60px"
         color="#fe7255"
         lineHeight="57px"
