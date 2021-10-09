@@ -1,17 +1,14 @@
 import React from 'react'
 import { styled } from 'emotion'
 import { motion, AnimatePresence } from 'framer-motion'
-import jaxson from 'images/jaxson.webp'
+import jaxson from 'images/IMG_0252.jpg'
 
 const Wrapper = styled(motion.div)`
   --scale-avatar: 1;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background-color: #feb37d;
-  box-shadow: inset 0.3px -0.4px 8px 2px #00000030;
   overflow: hidden;
-  max-width: calc(400px / var(--scale-avatar));
-  max-height: calc(400px / var(--scale-avatar));
+  transform: scale(-1, 1);
+  max-width: calc(600px / var(--scale-avatar));
+  max-height: calc(800px / var(--scale-avatar));
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
     --scale-avatar: 1.2;
@@ -41,9 +38,6 @@ const Avatar = ({ intro = true, show = true, ...rest }) => {
         >
           <Inner
             src={jaxson.src}
-            width={400}
-            height={400}
-            placeholder="blur"
             alt="A Jaxson"
           />
         </Wrapper>

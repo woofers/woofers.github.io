@@ -84,7 +84,7 @@ const Intro = ({ showHeader, hasScrolled }) => (
   <Grid>
     <Container>
       <Title
-        fontSize="60px"
+        fontSize="62px"
         color="#fe7255"
         lineHeight="57px"
         paddingX="0"
@@ -153,7 +153,7 @@ const Intro = ({ showHeader, hasScrolled }) => (
     </EmailContainer>
     </Container>
   </Grid>
-    <div></div>
+    <Avatar />
   </Wrapper>
 )
 
