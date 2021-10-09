@@ -21,7 +21,8 @@ const Grid = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  @media only screen and (max-width: 950px) {
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
     align-items: center;
     width: 100%;
   }
@@ -34,8 +35,13 @@ const Flex = styled.div`
   > div {
     margin: 0;
   }
-  @media only screen and (max-width: 1250px) {
-    flex-wrap: wrap;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    margin-bottom: 30px;
+  }
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.mini.breakpoint}) {
+    margin-bottom: 20px;
   }
 `
 
@@ -56,8 +62,14 @@ const Container = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mini.breakpoint}) {
-      padding: 0;
+    padding: 0;
   }
 `
 
@@ -83,6 +95,13 @@ const Wrapper = styled.div`
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 15vh;
+  > div:first-of-type {
+    margin-left: 40px;
+  }
+  > div:last-of-type {
+    margin-left: 30px;
+    margin-right: 30px;
+  }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
     margin: 0;
@@ -100,7 +119,12 @@ const NavAlign = styled(motion.div)`
   }
 `
 
-const Body = styled(motion.div)``
+const Body = styled(motion.div)`
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.large.breakpoint}) {
+    margin-bottom: 40px;
+  }
+`
 
 const Inner = styled(motion.div)``
 

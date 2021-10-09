@@ -138,6 +138,10 @@ const SimpleText = styled.p`
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
   letter-spacing: -0.35px;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    font-size: 16px;
+  }
 `
 
 const Contact = () => (

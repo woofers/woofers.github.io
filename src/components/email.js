@@ -48,7 +48,6 @@ const Bubble = styled(First)`
       theme.breakpoints.mobile.breakpoint}) {
     border-radius: 13px;
     height: 45px;
-    height: unset;
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mini.breakpoint}) {
@@ -70,7 +69,7 @@ const EmailLink = styled.a`
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mini.breakpoint}) {
     flex-direction: column;
-    margin: 0 auto;
+    margin: 10px auto 0;
     width: 100%;
     max-width: 300px;
   }
