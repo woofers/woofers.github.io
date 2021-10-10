@@ -104,6 +104,9 @@ const Wrapper = styled.div`
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
+    > div {
+      margin: 0 !important;
+    }
     margin: 0;
     flex-direction: column-reverse;
     justify-content: flex-start;
@@ -122,7 +125,7 @@ const NavAlign = styled(motion.div)`
 const Body = styled(motion.div)`
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
-    margin-bottom: 40px;
+    margin-bottom: calc(40px + env(safe-area-inset-left, 0px));
   }
 `
 
@@ -231,7 +234,7 @@ const Intro = ({ projects, showHeader, hasScrolled }) => {
           </Flex>
           <Body
             initial={{ height: '0px', opacity: 0 }}
-            animate={{ height: '265px', opacity: 1 }}
+            animate={{ height: '368px', opacity: 1 }}
             transition={{
               type: 'spring',
               duration: 0.42,
