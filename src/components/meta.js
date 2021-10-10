@@ -11,8 +11,7 @@ const Meta = () => {
         name="viewport"
         content="width=device-width, initial-scale=1, viewport-fit=cover"
       />
-      <meta name="robots" content="noindex, nofollow" />
-      <link rel="icon" href="/jx-next/favicon.png" />
+      <link rel="icon" href="/favicon.png" />
     </Head>
   )
 }

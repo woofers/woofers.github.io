@@ -23,7 +23,7 @@ const Layout = ({ children, location, ...rest }) => {
           'Montserrat:wght@500',
         ]}
       >
-        <link href="/jx-next/fonts/cantarell/font.css" rel="stylesheet" />
+        <link href="/fonts/cantarell/font.css" rel="stylesheet" />
       </GoogleFonts>
       <Global />
       <AnimateSharedLayout type="crossfade">

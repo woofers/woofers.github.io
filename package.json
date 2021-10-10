@@ -2,7 +2,7 @@
   "name": "jx-next",
   "version": "0.10.0",
   "author": "Jaxson Van Doorn",
-  "homepage": "https://jaxs.onl/jx-next/",
+  "homepage": "https://jaxs.onl/",
   "license": "UNLICENSED",
   "scripts": {
     "clean": "rimraf public/projects",
