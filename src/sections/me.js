@@ -94,21 +94,27 @@ const Wrapper = styled.div`
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 15vh;
-  > div:first-of-type {
+  max-height: 85vh;
+  flex-direction: row-reverse;
+  > div:last-of-type {
     margin-left: 40px;
   }
-  > div:last-of-type {
+  > div:first-of-type {
     margin-left: 30px;
     margin-right: 30px;
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
+    max-height: unset;
     > div {
       margin: 0 !important;
+      height: unset;
+    }
+    > div:first-of-type {
+      flex: 0 1 200px;
     }
     margin: 0;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: flex-start;
   }
 `
@@ -153,6 +159,7 @@ const Intro = ({ projects, showHeader, hasScrolled }) => {
   const isProjects = router?.asPath === '/projects/'
   return (
     <Wrapper>
+      <Avatar />
       <Grid>
         <Container>
           <NavAlign
@@ -268,7 +275,6 @@ const Intro = ({ projects, showHeader, hasScrolled }) => {
           </Body>
         </Container>
       </Grid>
-      <Avatar />
     </Wrapper>
   )
 }

@@ -40,7 +40,6 @@ const Card = styled.a`
   display: inline-flex;
   font-weight: 900;
   padding: 0 ${props => props.$paddingRight} 0 ${props => props.$paddingLeft};
-  height: 48px;
   align-items: center;
   font-family: 'Cabin', sans-serif;
   position: relative;
@@ -66,6 +65,10 @@ const Card = styled.a`
     `
     border: 1px solid #c9c9c9;
   `}
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    font-size: 18px;
+  }
 `
 
 const Big = styled.span`
@@ -132,6 +135,7 @@ const Message = styled(TextArea)`
 `
 
 const SimpleText = styled.p`
+  line-height: 41px;
   margin: 0;
   font-size: 18px;
   color: #233044bd;
@@ -141,6 +145,7 @@ const SimpleText = styled.p`
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
     font-size: 16px;
+    line-height: 30px;
   }
 `
 

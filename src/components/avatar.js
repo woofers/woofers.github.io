@@ -9,6 +9,9 @@ const Wrapper = styled(motion.div)`
   transform: scale(-1, 1);
   max-width: calc(600px / var(--scale-avatar));
   max-height: calc(800px / var(--scale-avatar));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
     --scale-avatar: 1.5;
