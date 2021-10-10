@@ -10,46 +10,44 @@ import {
   Fts360,
   Fts,
 } from 'logos'
+import Tabs from './tabs'
 
-const Wrapper = styled.div`
-  text-align: ${props => props.align};
-  margin-bottom: 12px;
-`
-
-const Badge = styled.div`
-  letter-spacing: 0.3px;
-  height: 48px;
-  line-height: 18.5px;
-  font-size: 21px;
-  border-radius: 5px;
+const Button = styled(MarkdownLink)`
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 700;
+  border-radius: 8px;
+  border: medium none;
+  background: transparent none repeat scroll 0% 0%;
   padding: 10px;
-  background-color: ${props => props.$color};
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  > svg:first-of-type {
-    width: 35px;
-    height: 24px;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
+    transform 0.1s ease 0s, transform 0.1s ease 0s;
+  position: relative;
+  outline: currentcolor none medium;
+  color: #717171;
+  cursor: pointer;
+  &[aria-current='true'] {
+    color: #222222;
   }
-  > svg:nth-of-type(2) {
-    width: 73px;
-    height: 21.5px;
-    transform: scale(0.9);
+  &:hover {
+    background: #f7f7f7 none repeat scroll 0% 0%;
   }
-  font-family: 'Mulish', sans-serif;
-  color: #fff;
-  font-weight: 900;
+  &[aria-current='false']:focus {
+    transform: scale(0.9) !important;
+  }
 `
 
 const Align = p => {
   const { inline, align, children, color, ...rest } = p
-  if (inline) return <MarkdownLink {...rest}>{children}</MarkdownLink>
+  if (inline) return <Button {...rest}>{children}</Button>
   return (
-    <MarkdownLink {...rest} noStyle>
-      <Badge align={p.align} $color={color}>
+    <Button {...rest} noStyle>
         {children}
-      </Badge>
-    </MarkdownLink>
+    </Button>
   )
 }
 
@@ -58,9 +56,7 @@ const ProjectLink = p => {
   if (type === 'github')
     return (
       <Align color="#24292f" {...rest}>
-        {' '}
-        <GitHubIcon />
-        <GitHubText />
+        GitHub
       </Align>
     )
   else if (type === 'game')

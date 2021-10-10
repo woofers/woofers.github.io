@@ -70,6 +70,9 @@ const Card = styled.a`
       theme.breakpoints.small.breakpoint}) {
     --scale-bubble: 1.5;
     font-size: 13px;
+    svg:first-of-type {
+      margin-top: 0;
+    }
   }
 `
 
@@ -151,7 +154,7 @@ const SimpleText = styled.p`
   letter-spacing: -0.35px;
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
-    font-size: 11px;
+    font-size: 12px;
     line-height: 30px;
   }
 `
