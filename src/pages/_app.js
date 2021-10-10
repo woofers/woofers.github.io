@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { ThemeProvider } from '@emotion/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { styled } from 'emotion'
@@ -60,6 +61,22 @@ const App = ({ Component, pageProps: props }) => {
   const path = key(router.asPath)
   const nav = typeof Component.nav === 'boolean' ? Component.nav : true
   const navKey = path === 'home' ? path : 'other'
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const onLoad = () => {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(registrations => {
+          for (let registration of registrations) {
+             registration.unregister()
+          }
+        })
+      }
+    }
+    window.addEventListener('load', onLoad)
+    return () => {
+      window.removeEventListener('load', onLoad)
+    }
+  }, [])
   return (
     <ThemeProvider theme={theme}>
       <AnimatePresence exitBeforeEnter>
