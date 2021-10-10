@@ -13,6 +13,10 @@ const Heading = styled.h2`
   font-size: 30px;
 `
 
+const Spacer = styled.div`
+  height: 40px;
+`
+
 const Post = ({ post }) => {
   const { content, meta } = useMarkdown(post.content, { filters: [summary] })
   const continueReading = 'Continue reading'
@@ -35,6 +39,7 @@ const Post = ({ post }) => {
     </>
   )
 }
+
 
 const Blog = ({ data }) => {
   const getDate = post => post.metadata && post.metadata.date
@@ -60,6 +65,7 @@ const Blog = ({ data }) => {
       {posts.map(post => (
         <Post key={`post-preview-${post.post}`} post={post} />
       ))}
+      <Spacer />
     </Page>
   )
 }
