@@ -111,7 +111,7 @@ const Wrapper = styled.div`
       height: unset;
     }
     > div:first-of-type {
-      flex: 0 1 200px;
+      flex: 0 1 240px;
     }
     margin: 0;
     flex-direction: column;

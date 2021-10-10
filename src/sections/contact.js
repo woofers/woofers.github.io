@@ -33,6 +33,7 @@ const Text = styled.div`
 `
 
 const Card = styled.a`
+  --scale-bubble: 1;
   display: inline-block;
   font-size: 22px;
   color: ${props => props.$color};
@@ -44,20 +45,20 @@ const Card = styled.a`
   font-family: 'Cabin', sans-serif;
   position: relative;
   svg:first-of-type {
-    margin-top: ${props => props.$marginTop || 0};
+    margin-top: calc(${props => props.$marginTop || 0} / var(--scale-bubble));
     display: inline-flex;
     align-self: center;
     position: absolute;
-    width: ${props => props.$width};
-    height: ${props => props.$height};
+    width: calc(${props => props.$width} / var(--scale-bubble));
+    height: calc(${props => props.$height} / var(--scale-bubble));
   }
   svg:nth-of-type(2) {
-    left: calc(${props => props.$width} + ${props => props.$spacing || '10px'});
+    left: calc((${props => props.$width} + ${props => props.$spacing || '10px'}) / var(--scale-bubble));
     display: inline-flex;
     align-self: center;
     position: absolute;
-    width: ${props => props.$width2};
-    height: ${props => props.$height2};
+    width: calc(${props => props.$width2} / var(--scale-bubble));
+    height: calc(${props => props.$height2} / var(--scale-bubble));
   }
   overflow: hidden;
   ${props =>
@@ -67,7 +68,8 @@ const Card = styled.a`
   `}
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
-    font-size: 18px;
+    --scale-bubble: 1.5;
+    font-size: 13px;
   }
 `
 
@@ -78,8 +80,13 @@ const Big = styled.span`
 `
 
 const Spacer = styled.span`
-  width: calc(${props => `${props.$width} + ${props.$width2 || '0px'}`});
+  --scale-spacer: 1;
+  width: calc((${props => `${props.$width} + ${props.$width2 || '0px'}`}) / var(--scale-spacer));
   user-select: none;
+  @media only screen and (max-width: ${({ theme }) =>
+      theme.breakpoints.small.breakpoint}) {
+    --scale-spacer: 1.5;
+  }
 `
 
 const EmailWrapper = styled.div`
@@ -144,7 +151,7 @@ const SimpleText = styled.p`
   letter-spacing: -0.35px;
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.small.breakpoint}) {
-    font-size: 16px;
+    font-size: 11px;
     line-height: 30px;
   }
 `
