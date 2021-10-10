@@ -18,7 +18,7 @@ const Layout = ({ children, location, ...rest }) => {
       <Meta />
       <GoogleFonts
         fonts={[
-          'Cabin:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700',
+          'Cabin:wght@400;700',
           'Mulish:wght@500;900',
           'Montserrat:wght@500',
         ]}
