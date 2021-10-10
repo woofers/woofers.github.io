@@ -74,9 +74,9 @@ const Spacer = styled.span`
 `
 
 
-const Tag = ({ children, ...rest }) => (
-  <Card {...rest}>
-    <Spacer {...rest} aria-hidden>
+const Tag = ({ children, $width, $width2, ...rest }) => (
+  <Card {...rest} $width={$width} $width2={$width2}>
+    <Spacer aria-hidden $width={$width} $width2={$width2}>
       {'\u00A0'}
     </Spacer>
     {children}
@@ -112,8 +112,8 @@ const Contact = () => (
           $paddingLeft="4px"
           $paddingRight="2px"
         >
-          <EarthIcon />
-          {'\u00A0'}real world
+          <EarthIcon aria-hidden />
+          <span aria-hidden>{'\u00A0'}</span>real world
         </Tag>{' '}
         apps and software.
       </SimpleText>
@@ -128,11 +128,12 @@ const Contact = () => (
           $paddingLeft="5px"
           $paddingRight="4px"
         >
-          <LivRentRed />
+          <LivRentRed aria-hidden />
           liv.rent
         </Tag>{' '}
         at{' '}
         <Tag
+          aria-label="Machobear"
           href="https://machobear.ca"
           $color="#1a1a1a"
           $width="110px"
@@ -147,6 +148,7 @@ const Contact = () => (
       <SimpleText>
         Check out my{' '}
         <Tag
+          aria-label="GitHub"
           href="https://github.com/woofers"
           $color="#0f0e0f"
           $width="35px"
@@ -157,8 +159,8 @@ const Contact = () => (
           $paddingLeft="0px"
           $paddingRight="10px"
         >
-          <GitHubIcon />
-          <GitHubText />
+          <GitHubIcon aria-hidden />
+          <GitHubText aria-hidden />
         </Tag>
       </SimpleText>
     </TextContainer>

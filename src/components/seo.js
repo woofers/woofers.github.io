@@ -105,7 +105,7 @@ const SEO = ({ description, lang, meta, title, noIndex }) => {
       <link
         rel="manifest"
         href="/jx-next/manifest.webmanifest"
-        crossorigin="anonymous"
+        crossOrigin="anonymous"
       />
       <link
         rel="apple-touch-icon"
