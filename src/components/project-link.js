@@ -1,6 +1,5 @@
 import { MarkdownLink } from 'link'
 import { styled } from 'emotion'
-import Tabs from './tabs'
 
 const Button = styled(MarkdownLink)`
   text-decoration: none;

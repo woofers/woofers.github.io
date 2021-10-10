@@ -2,7 +2,6 @@ import React from 'react'
 import { styled } from 'emotion'
 import { AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 import Global from './global'
-import Container from './container'
 import GoogleFonts from './google-fonts'
 import Meta from './meta'
 

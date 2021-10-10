@@ -46,7 +46,6 @@ const Container = styled(motion.nav)`
 const Nav = ({ items, wrap, ...rest }) => {
   const router = useRouter()
   const { asPath } = router
-  console.log(rest)
   return (
     <Container {...rest} $wrap={wrap}>
       {items.map(({ href, children, ...props }) => (

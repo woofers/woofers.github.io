@@ -2,10 +2,6 @@ import React from 'react'
 import { styled } from 'emotion'
 import Title from 'components/title'
 
-const Header = styled.h1`
-  display: ${props => (props.icon ? 'inline' : 'block')};
-`
-
 const GameIcon = styled.img`
   user-select: none;
   position: relative;
