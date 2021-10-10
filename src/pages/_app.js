@@ -8,18 +8,6 @@ import Container from 'components/container'
 import BackButton from 'components/back-button'
 import theme from '../themes'
 
-const opacity = {
-  initial: {
-    opacity: 0,
-  },
-  enter: {
-    opacity: 1,
-  },
-  exit: {
-    opacity: 0,
-  },
-}
-
 const variants = {
   initial: {
     opacity: 0,

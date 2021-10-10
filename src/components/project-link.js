@@ -1,15 +1,5 @@
 import { MarkdownLink } from 'link'
 import { styled } from 'emotion'
-import {
-  EarthIcon,
-  EyeIcon,
-  GitHubText,
-  GitHubIcon,
-  Machobear,
-  LivRent,
-  Fts360,
-  Fts,
-} from 'logos'
 import Tabs from './tabs'
 
 const Button = styled(MarkdownLink)`
@@ -46,7 +36,7 @@ const Align = p => {
   if (inline) return <Button {...rest}>{children}</Button>
   return (
     <Button {...rest} noStyle>
-        {children}
+      {children}
     </Button>
   )
 }

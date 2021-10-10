@@ -1,6 +1,5 @@
 import Page from 'components/page'
 import React from 'react'
-import Container from 'components/container'
 import { useMarkdown, Markdown, summary } from 'components/markdown'
 import Title from 'components/title'
 import Link from 'link'
@@ -39,7 +38,6 @@ const Post = ({ post }) => {
     </>
   )
 }
-
 
 const Blog = ({ data }) => {
   const getDate = post => post.metadata && post.metadata.date

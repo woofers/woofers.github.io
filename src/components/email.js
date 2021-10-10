@@ -82,6 +82,7 @@ const Email = () => (
       paddingY="0"
       fontSize="25px"
       letterSpacing="-0.5px"
+      as="h2"
       color="#c9c9c9"
     >
       Reach out

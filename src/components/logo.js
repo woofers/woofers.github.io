@@ -2,6 +2,7 @@ import React from 'react'
 import { styled } from 'emotion'
 import { motion } from 'framer-motion'
 import Link from 'link'
+import { useRouter } from 'next/router'
 
 const StyledLink = styled(Link)`
   --scale-logo: 1;
@@ -61,9 +62,10 @@ const Space = styled.span`
   display: none;
 `
 
-const Logo = ({ id, shift, delay = 0 }) => {
+const Logo = ({ id, shift, delay = 0, shallow }) => {
+  const router = useRouter()
   return (
-    <StyledLink href="/">
+      <StyledLink href="/" shallow={shallow} aria-current={router.asPath === '/' ? 'page' : false}>
       <Translate
         layoutId={id}
         initial={{ x: 0, y: 0, opacity: 0 }}

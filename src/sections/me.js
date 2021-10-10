@@ -3,18 +3,11 @@ import Avatar from 'components/avatar'
 import { AnimatePresence, motion } from 'framer-motion'
 import Text from 'components/text'
 import Title from 'components/title'
-import ShiftCards from 'components/shift-cards'
 import Logo from 'components/logo'
 import Email from 'components/email'
 import { useRouter } from 'next/router'
 import Contact from './contact'
 import Tabs from 'components/tabs'
-
-const SimpleText = styled.p`
-  color: #233044;
-  font-size: 18px;
-  font-family: Cantarell, sans-serif;
-`
 
 const Grid = styled.div`
   display: flex;
@@ -29,7 +22,8 @@ const Grid = styled.div`
 `
 
 const Flex = styled.div`
-  margin-bottom: 50px;
+  margin: 0 0 50px;
+  padding: 0;
   display: flex;
   align-items: flex-end;
   > div {
@@ -44,8 +38,6 @@ const Flex = styled.div`
     margin-bottom: 20px;
   }
 `
-
-const StyledAvatar = styled(Avatar)``
 
 const LogoContainer = styled.div`
   padding-left: 10px;
@@ -71,15 +63,6 @@ const Container = styled.div`
       theme.breakpoints.mini.breakpoint}) {
     padding: 0;
   }
-`
-
-const Box = styled.div`
-  color: #5d5d5d;
-  border: 1px solid #ccc;
-  padding: 10px;
-  font-family: 'Mulish', sans-serif;
-  border-radius: 5px;
-  font-size: 16px;
 `
 
 const EmailContainer = styled(motion.div)`
@@ -199,7 +182,7 @@ const Intro = ({ projects, showHeader, hasScrolled }) => {
               }}
             />
           </NavAlign>
-          <Flex>
+          <Flex as="h1">
             <Hello>
               <Text
                 fontFamily="Cantarell"
@@ -236,7 +219,7 @@ const Intro = ({ projects, showHeader, hasScrolled }) => {
               </Text>
             </Hello>
             <LogoContainer>
-              {!showHeader && <Logo delay={delay} />}
+              {!showHeader && <Logo delay={delay} shallow />}
             </LogoContainer>
           </Flex>
           <Body
@@ -257,11 +240,13 @@ const Intro = ({ projects, showHeader, hasScrolled }) => {
                 transition={{
                   type: 'spring',
                   duration: 0.5,
-                  bounce: 0.3
+                  bounce: 0.3,
                 }}
               >
                 {isProjects ? (
-                  <><Tabs wrap items={projects} /></>
+                  <>
+                    <Tabs wrap items={projects} />
+                  </>
                 ) : (
                   <>
                     <Contact />

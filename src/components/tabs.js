@@ -22,7 +22,7 @@ const Button = styled(Link)`
   outline: currentcolor none medium;
   color: #717171;
   cursor: pointer;
-  &[aria-current='true'] {
+  &[aria-current='page'] {
     color: #222222;
   }
   &:hover {
@@ -37,9 +37,9 @@ const Container = styled(motion.nav)`
   display: flex;
   margin: 10px 0 0;
   margin-left: auto;
-  padding: ${props => props.$wrap ? '0' : '10px 0 0 10px'};
-  height: ${props => props.$wrap ? 'unset' : '60px'};
-  flex-wrap: ${props => props.$wrap ? 'wrap' : 'nowrap'};
+  padding: ${props => (props.$wrap ? '0' : '10px 0 0 10px')};
+  height: ${props => (props.$wrap ? 'unset' : '60px')};
+  flex-wrap: ${props => (props.$wrap ? 'wrap' : 'nowrap')};
   max-width: 613px;
 `
 
@@ -53,7 +53,7 @@ const Nav = ({ items, wrap, ...rest }) => {
         <Button
           href={href}
           key={`link-${href}`}
-          aria-current={href === asPath}
+            aria-current={href === asPath ? 'page' : false}
           {...props}
         >
           {children}

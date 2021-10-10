@@ -1,22 +1,22 @@
 import { styled } from 'emotion'
 
-const Title = styled.h1`
+const Heading = styled.h1`
   --scale-title: 1;
-  display: ${props => props.display};
+  display: ${props => props.$display};
   margin: 0;
-  color: ${props => props.color};
+  color: ${props => props.$color};
   padding: ${props => `${props.paddingY} ${props.paddingX}`};
-  font-weight: ${props => props.fontWeight};
+  font-weight: ${props => props.$fontWeight};
   font-family: 'Mulish', sans-serif;
   text-decoration: none;
-  text-transform: ${props => props.textTransform};
-  transform: ${props => props.transform};
+  text-transform: ${props => props.$textTransform};
+  transform: ${props => props.$transform};
   transition: color 0.3s ease-in-out;
-  width: ${props => props.width};
+  width: ${props => props.$width};
 
-  letter-spacing: calc(${props => props.letterSpacing} / var(--scale-title));
-  font-size: calc(${props => props.fontSize} / var(--scale-title));
-  line-height: calc(${props => props.lineHeight} / var(--scale-title));
+  letter-spacing: calc(${props => props.$letterSpacing} / var(--scale-title));
+  font-size: calc(${props => props.$fontSize} / var(--scale-title));
+  line-height: calc(${props => props.$lineHeight} / var(--scale-title));
 
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
@@ -24,12 +24,44 @@ const Title = styled.h1`
   }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.mobile.breakpoint}) {
-    --scale-title: ${props => props.mobileScale};
+    --scale-title: ${props => props.$mobileScale};
   }
   &[aria-current='page'] {
     color: #27292b;
   }
 `
+
+const Title = ({
+  display,
+  color,
+  lineHeight,
+  fontSize,
+  paddingX,
+  paddingY,
+  transform,
+  width,
+  fontWeight,
+  letterSpacing,
+  textTransform,
+  mobileScale,
+  ...rest
+}) => (
+  <Heading
+    $display={display}
+    $color={color}
+    $lineHeight={lineHeight}
+    $fontSize={fontSize}
+    $paddingX={paddingX}
+    $paddingY={paddingY}
+    $transform={transform}
+    $width={width}
+    $fontWeight={fontWeight}
+    $letterSpacing={letterSpacing}
+    $textTransform={textTransform}
+    $mobileScale={mobileScale}
+    {...rest}
+  />
+)
 
 Title.defaultProps = {
   display: 'block',
@@ -43,7 +75,7 @@ Title.defaultProps = {
   fontWeight: '900',
   letterSpacing: '0.65px',
   textTransform: 'none',
-  mobileScale: 1.5
+  mobileScale: 1.5,
 }
 
 export default Title
