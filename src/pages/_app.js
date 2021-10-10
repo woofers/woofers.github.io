@@ -36,11 +36,16 @@ const Main = styled(motion.div)``
 
 const Header = styled.header`
   margin-top: 30px;
+`
+
+const Nav = styled.nav`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
 `
+
 
 const key = path => {
   if (path === '/') return 'home'
@@ -67,8 +72,10 @@ const App = ({ Component, pageProps: props }) => {
           {nav && (
             <Container>
               <Header>
-                <BackButton />
-                <Logo id="header-logo" />
+                <Nav>
+                  <BackButton />
+                  <Logo id="header-logo" />
+                </Nav>
               </Header>
             </Container>
           )}

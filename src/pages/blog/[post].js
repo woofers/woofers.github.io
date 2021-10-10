@@ -9,7 +9,7 @@ const Post = ({ post }) => {
   const { content, meta } = useMarkdown(post.content)
   return (
     <Page title={meta.title}>
-      <Title>{meta.title}</Title>
+      <Title paddingX="0">{meta.title}</Title>
       <Markdown content={content} />
     </Page>
   )

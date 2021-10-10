@@ -64,7 +64,7 @@ const BackButton = p => {
   const pathname = router?.asPath
   const path = href || back(pathname)
   return (
-    <Button href={path} {...rest}>
+    <Button href={path} {...rest} aria-current="false">
       <svg
         stroke="currentColor"
         fill="currentColor"

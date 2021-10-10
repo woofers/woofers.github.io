@@ -5,7 +5,7 @@ const Heading = styled.h1`
   display: ${props => props.$display};
   margin: 0;
   color: ${props => props.$color};
-  padding: ${props => `${props.paddingY} ${props.paddingX}`};
+  padding: ${props => `${props.$paddingY} ${props.$paddingX}`};
   font-weight: ${props => props.$fontWeight};
   font-family: 'Mulish', sans-serif;
   text-decoration: none;
