@@ -65,7 +65,11 @@ const Space = styled.span`
 const Logo = ({ id, shift, delay = 0, shallow }) => {
   const router = useRouter()
   return (
-      <StyledLink href="/" shallow={shallow} aria-current={router.asPath === '/' ? 'page' : false}>
+    <StyledLink
+      href="/"
+      shallow={shallow}
+      aria-current={router.asPath === '/' ? 'page' : false}
+    >
       <Translate
         layoutId={id}
         initial={{ x: 0, y: 0, opacity: 0 }}

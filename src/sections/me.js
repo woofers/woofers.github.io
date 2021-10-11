@@ -222,6 +222,7 @@ const Intro = ({ projects, showHeader, hasScrolled }) => {
             </LogoContainer>
           </Flex>
           <Body
+            className="slide-in"
             initial={{ height: '0px', opacity: 0 }}
             animate={{ height: '368px', opacity: 1 }}
             transition={{

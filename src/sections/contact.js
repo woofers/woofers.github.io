@@ -1,17 +1,10 @@
 import { styled } from 'emotion'
 
-import {
-  EarthIcon,
-  GitHubText,
-  GitHubIcon,
-  Machobear,
-  LivRentRed,
-} from 'logos'
+import { EarthIcon, GitHubText, GitHubIcon, Machobear, LivRentRed } from 'logos'
 
 const TextContainer = styled.div`
   max-width: 700px;
 `
-
 
 const Card = styled.a`
   --scale-bubble: 1;
@@ -72,7 +65,6 @@ const Spacer = styled.span`
     --scale-spacer: 1.5;
   }
 `
-
 
 const Tag = ({ children, $width, $width2, ...rest }) => (
   <Card {...rest} $width={$width} $width2={$width2}>

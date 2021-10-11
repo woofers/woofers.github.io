@@ -7,8 +7,15 @@ class MyDocument extends Document {
   }
   render() {
     return (
-      <Html lang="en">
-        <Head />
+      <Html lang="en" className="no-js">
+        <Head>
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `document.documentElement.className = 'js'`,
+            }}
+          ></script>
+        </Head>
         <body>
           <Main />
           <NextScript />

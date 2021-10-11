@@ -1,6 +1,17 @@
 import { css, Global as GlobalTag } from 'emotion'
 
 const global = theme => css`
+  .no-js {
+    *[style] {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .slide-in {
+      height: 368px !important;
+    }
+  }
+
   * {
     box-sizing: inherit;
     box-sizing: border-box;

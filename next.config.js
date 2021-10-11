@@ -6,8 +6,7 @@ module.exports = {
   webpack5: true,
   reactStrictMode: true,
   images: {
-    loader: 'imgix',
-    path: 'https://example.com/myaccount/',
+    domains: ['jaxs.onl'],
   },
   webpack(config, { isServer }) {
     config.plugins.push(new ESLintPlugin())

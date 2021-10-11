@@ -1,6 +1,5 @@
 import Page from 'components/page'
 import React from 'react'
-import Container from 'components/container'
 import Title from 'components/title'
 import { useMarkdown, Markdown } from 'components/markdown'
 import { getMarkdownFile, getMarkdownFileNames } from 'data/local'

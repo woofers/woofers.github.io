@@ -52,7 +52,7 @@ const Nav = ({ items, wrap, ...rest }) => {
         <Button
           href={href}
           key={`link-${href}`}
-            aria-current={href === asPath ? 'page' : false}
+          aria-current={href === asPath ? 'page' : false}
           {...props}
         >
           {children}

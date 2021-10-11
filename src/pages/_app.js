@@ -47,7 +47,6 @@ const Nav = styled.nav`
   align-items: flex-end;
 `
 
-
 const key = path => {
   if (path === '/') return 'home'
   if (path === '/projects/') return 'home'
@@ -67,7 +66,7 @@ const App = ({ Component, pageProps: props }) => {
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.getRegistrations().then(registrations => {
           for (let registration of registrations) {
-             registration.unregister()
+            registration.unregister()
           }
         })
       }
