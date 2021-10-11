@@ -14,6 +14,9 @@ const Wrapper = styled(motion.div)`
   max-height: calc(800px / var(--scale-avatar));
   flex-direction: column;
   align-items: center;
+  @media only screen and (max-width: 1335px) {
+    max-width: 480px;
+  }
   @media only screen and (max-width: ${({ theme }) =>
       theme.breakpoints.large.breakpoint}) {
     max-width: 180px;
