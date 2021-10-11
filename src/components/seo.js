@@ -95,7 +95,7 @@ const SEO = ({ description, lang, meta, title, noIndex }) => {
         {tab !== siteMetadata.title ? `${tab} | ${siteMetadata.title}` : tab}
       </title>
       {data.map(({ name, property, content }) => (
-        <link
+        <meta
           key={name ?? property}
           name={name}
           property={property}

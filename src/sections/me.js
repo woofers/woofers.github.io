@@ -77,7 +77,6 @@ const Wrapper = styled.div`
   width: 100%;
   justify-content: space-evenly;
   align-items: center;
-  max-height: 85vh;
   flex-direction: row-reverse;
   > div:last-of-type {
     margin-left: 40px;
