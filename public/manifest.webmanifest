@@ -102,7 +102,7 @@
         }
     ],
     "display": "standalone",
-    "theme_color": "#f27052",
+    "theme_color": "#fff",
     "background_color": "#fff",
     "start_url": "/",
     "short_name": "Jaxson",

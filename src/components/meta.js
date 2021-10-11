@@ -11,6 +11,10 @@ const Meta = () => {
         content="width=device-width, initial-scale=1, viewport-fit=cover"
       />
       <link rel="icon" href="/favicon.png" />
+      <meta name="apple-mobile-web-app-capable" content="yes" />
+      <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+      <meta name="theme-color" content="#fff" />
+      <meta name="msapplication-navbutton-color" content="#fff" />
     </Head>
   )
 }
