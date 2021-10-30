@@ -109,36 +109,38 @@ const Contact = () => (
         </Tag>{' '}
         apps and software.
       </SimpleText>
+      {false && (
+        <SimpleText>
+          Currently working on{' '}
+          <Tag
+            href="https://beta.liv.rent"
+            $color="#fe5f55"
+            $width="40px"
+            $height="28px"
+            $width2="17px * -1"
+            $paddingLeft="5px"
+            $paddingRight="4px"
+          >
+            <LivRentRed aria-hidden />
+            liv.rent
+          </Tag>{' '}
+          at{' '}
+          <Tag
+            aria-label="Machobear"
+            href="https://machobear.ca"
+            $color="#1a1a1a"
+            $width="110px"
+            $height="31px"
+            $paddingLeft="4px"
+            $paddingRight="12px"
+            $marginTop="3px"
+          >
+            <Machobear />
+          </Tag>
+        </SimpleText>
+      )}
       <SimpleText>
-        Currently working on{' '}
-        <Tag
-          href="https://beta.liv.rent"
-          $color="#fe5f55"
-          $width="40px"
-          $height="28px"
-          $width2="17px * -1"
-          $paddingLeft="5px"
-          $paddingRight="4px"
-        >
-          <LivRentRed aria-hidden />
-          liv.rent
-        </Tag>{' '}
-        at{' '}
-        <Tag
-          aria-label="Machobear"
-          href="https://machobear.ca"
-          $color="#1a1a1a"
-          $width="110px"
-          $height="31px"
-          $paddingLeft="4px"
-          $paddingRight="12px"
-          $marginTop="3px"
-        >
-          <Machobear />
-        </Tag>
-      </SimpleText>
-      <SimpleText>
-        Check out my{' '}
+        Check out my{' '} stuff on{' '}
         <Tag
           aria-label="GitHub"
           href="https://github.com/woofers"
