@@ -24,6 +24,7 @@ const Layout = ({ children, location, ...rest }) => {
         ]}
       >
         <link href="/fonts/cantarell/font.css" rel="stylesheet" />
+        <link href="/fonts/albertsans/font.css" rel="stylesheet" />
       </GoogleFonts>
       <Global />
       <AnimateSharedLayout type="crossfade">

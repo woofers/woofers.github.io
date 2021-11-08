@@ -1,4 +1,5 @@
 import NextLink from 'next/link'
+import { Link as StyledAnchor } from 'ruffsponsive'
 import { styled } from 'emotion'
 
 const Anchor = styled.a`
@@ -31,7 +32,7 @@ const BubbleLink = styled(Link)`
  `};
 `
 
-export const MarkdownLink = ({ href, noStyle, ...rest }) => {
+export const MarkdownLink = ({ href, noStyle, children, ...rest }) => {
   const siteUrl = 'https://jaxs.onl'
   const urlNoHttps = siteUrl.replace('https://', '')
   const urlHttp = siteUrl.replace('https://', 'http://')
@@ -41,5 +42,9 @@ export const MarkdownLink = ({ href, noStyle, ...rest }) => {
     .replace(urlHttp, '')
     .replace(plain, '')
   const path = route ?? '/'
-  return <BubbleLink $enable={!noStyle} href={path} {...rest} />
+  return (
+    <NextLink href={path} passHref>
+      {noStyle ? <Anchor {...rest}>{children}</Anchor> : <StyledAnchor {...rest}>{children}</StyledAnchor>}
+    </NextLink>
+  )
 }

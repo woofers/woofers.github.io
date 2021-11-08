@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { getCssText } from 'ruffsponsive'
 
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
@@ -15,6 +16,10 @@ class MyDocument extends Document {
               __html: `document.documentElement.className = 'js'`,
             }}
           ></script>
+          <style
+            id="stitches"
+            dangerouslySetInnerHTML={{ __html: getCssText() }}
+          />
         </Head>
         <body>
           <Main />
