@@ -14,7 +14,7 @@ const Layout = ({ children, outside, color, background }) => {
   return (
     <div css={style}>
       <Global />
-      <GoogleFonts fonts={['Lato:400,700', 'Nunito:300,700']} />
+      <GoogleFonts fonts={['Lato:400,700', 'Nunito:300,400,700']} />
       <Container>
         {children}
       </Container>

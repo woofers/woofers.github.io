@@ -80,11 +80,7 @@ const SplashHeader = ({ children }) => {
         <Nav />
       </Header>
       <div css={container}>
-        <Markdown content={tagline} />
         {children}
-        <footer css={footer}>
-          <Social />
-        </footer>
       </div>
     </div>
   )
