@@ -13,9 +13,10 @@ const side = theme => css`
   justify-content: space-between;
   > div {
     padding: 0 10px 0 0;
-    width: 500px;
+    width: min(500px, 100%);
     &:not(:last-of-type) {
-      margin-right: 125px;
+      margin-right: 80px;
+      margin-bottom: 40px;
     }
   }
   h3 {
@@ -86,6 +87,9 @@ const body = css`
 const link = css`
   font-weight: 700;
   display: inline-block !important;
+  &:after {
+    content: none;
+  }
 `
 
 const help = css`
@@ -94,6 +98,10 @@ const help = css`
   svg {
     margin-top: -2px;
   }
+`
+
+const height = css`
+  height: 80px;
 `
 
 const Projects = p => {
@@ -150,12 +158,14 @@ const IndexPage = () => {
           <p css={body}>Currently my main area of interest and focus is <strong>Front-end React development</strong> and other modern web tooling. <span css={fade}>In my past life I was a Java developer.</span></p>
           <p css={body}>I'm currently working on <External to="https://liv.rent">liv.rent</External> at <External to="https://machobear.ca/">Machobear</External>.  With my team, I develop new features, patch bugs and coordinate releases for both the rental listings and rental management portion of the app.</p>
           <p css={body}>Outside of my day-job, I currently maintain <External to="https://github.com/woofers/react-wavify"><strong>React Wavify</strong></External> <span>(<abbr css={help} title="around 100 thousand downloads on Node Package Manager">~100k <FiDownload title="downloads on NPM" /></abbr>)</span> and many other open source projects. Outside software I enjoy obscure films and spending time with my dog Maxine.</p>
+          <p css={body}>Feel free to reach via at <a css={link} href="mailto:jaxson.vandoorn@gmail.com"><strong>jaxson.vandoorn@gmail.com</strong></a>.  <span css={fade}>(No marketing emails please)</span></p>
           <span css={small}>- Jaxson</span>
         </div>
         <Projects projects={filtered}>
           <h2 css={small}>Projects</h2>
         </Projects>
       </div>
+      <div css={height} aria-hidden></div>
     </Splash>
   )
 }
