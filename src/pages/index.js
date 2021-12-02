@@ -4,6 +4,7 @@ import { FadeLink as Link } from '../components/link'
 import SEO from '../components/seo'
 import { css } from '@emotion/react'
 import { graphql, useStaticQuery } from 'gatsby'
+import { FiDownload } from 'react-icons/fi'
 import { mutateRepoNames } from '../utils/repo'
 import Description from '../components/description'
 import { small, large } from '../styles/text'
@@ -73,6 +74,27 @@ const desc = css`
   transition: height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) 0s, opacity 0.3s;
 `
 
+const fade = css`
+  opacity: 0.5;
+`
+
+const body = css`
+  font-size: 18px;
+  letter-spacing: -0.1px;
+`
+
+const link = css`
+  font-weight: 700;
+  display: inline-block !important;
+`
+
+const help = css`
+  border-bottom: none !important;
+  cursor: help !important;
+  svg {
+    margin-top: -2px;
+  }
+`
 
 const Projects = p => {
   const { projects, children, ...rest } = p
@@ -107,6 +129,8 @@ const Projects = p => {
   )
 }
 
+const External = ({ to, children }) => <Link css={link} target="_blank" rel="noopener noreferrer" to={to}>{children}</Link>
+
 const IndexPage = () => {
   const data = useStaticQuery(graphql`{ ...GitHubProjects }`)
   const { site } = data
@@ -115,16 +139,22 @@ const IndexPage = () => {
   let repos = data.allRepositories.edges
   mutateRepoNames(repos, exclude)
   repos = repos.map(({ node }) => node)
-  const right = repos.filter(repo => !!repo.fullName)
-  const left = right.splice(0, Math.ceil(right.length / 2))
+  const filtered = repos.filter(repo => !!repo.fullName)
   return (
     <Splash>
       <SEO />
       <div css={side}>
-        <Projects projects={left}>
+        <div>
+          <h2 css={small}>Me</h2>
+          <p css={body}>Hi all, I'm <strong>Jaxson</strong>: a twenty-something developer who's trying to make modern software products slightly less broken.</p>
+          <p css={body}>Currently my main area of interest and focus is <strong>Front-end React development</strong> and other modern web tooling. <span css={fade}>In my past life I was a Java developer.</span></p>
+          <p css={body}>I'm currently working on <External to="https://liv.rent">liv.rent</External> at <External to="https://machobear.ca/">Machobear</External>.  With my team, I develop new features, patch bugs and coordinate releases for both the rental listings and rental management portion of the app.</p>
+          <p css={body}>Outside of my day-job, I currently maintain <External to="https://github.com/woofers/react-wavify"><strong>React Wavify</strong></External> <span>(<abbr css={help} title="around 100 thousand downloads on Node Package Manager">~100k <FiDownload title="downloads on NPM" /></abbr>)</span> and many other open source projects. Outside software I enjoy obscure films and spending time with my dog Maxine.</p>
+          <span css={small}>- Jaxson</span>
+        </div>
+        <Projects projects={filtered}>
           <h2 css={small}>Projects</h2>
         </Projects>
-        <Projects projects={right} />
       </div>
     </Splash>
   )

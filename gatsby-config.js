@@ -39,15 +39,6 @@ module.exports = {
         name: 'Stack Overflow',
         link: '//stackoverflow.com/users/9129020/jvandoorn',
       },
-      twitter: {
-        name: 'Twitter',
-        link: '//twitter.com/jaxsonvandoorn',
-        handle: '@jaxsonvandoorn',
-      },
-      linkedin: {
-        name: 'LinkedIn',
-        link: '//www.linkedin.com/in/jaxson-van-doorn/',
-      },
       email: {
         name: 'Email',
         link: 'mailto:jaxson.vandoorn@gmail.com',
@@ -70,6 +61,9 @@ module.exports = {
       ['react-ludum-dare'],
       ['woofers.github.io'],
       ['kangaroo-country'],
+      ['battlesnake'],
+      ['woofers3d'],
+      ['use-eye-dropper'],
       ['chess'],
       ['resume'],
       ['java-formatter'],
@@ -90,7 +84,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-transition-link`,
     `gatsby-plugin-emotion`,
-    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

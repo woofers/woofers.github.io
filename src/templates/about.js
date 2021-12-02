@@ -58,7 +58,6 @@ const AboutTemplate = p => {
             <Avatar size="130px" fallback="iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8+O7tfwAJcQPNEnkugQAAAABJRU5ErkJggg==" />
           </div>
           <div>
-            <Link to={twitter.link} inline={false} icon={FaTwitter}>{twitter.handle}</Link>
             <Link to={github.link} inline={false} icon={FaGithub}>{github.name}</Link>
             <Link to={resume} inline={false} icon={FaScroll}>Resume</Link>
           </div>

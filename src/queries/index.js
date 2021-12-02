@@ -40,7 +40,6 @@ export const nav = graphql`
       siteMetadata {
         nav {
           blog
-          about
         }
       }
     }
@@ -67,15 +66,6 @@ export const social = graphql`
             link
           }
           stackoverflow {
-            name
-            link
-          }
-          twitter {
-            name
-            link
-            handle
-          }
-          linkedin {
             name
             link
           }
