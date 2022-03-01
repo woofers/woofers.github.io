@@ -140,7 +140,7 @@ const Contact = () => (
         </SimpleText>
       )}
       <SimpleText>
-        Check out my{' '} stuff on{' '}
+        Check out my stuff on{' '}
         <Tag
           aria-label="GitHub"
           href="https://github.com/woofers"

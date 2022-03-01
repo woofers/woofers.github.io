@@ -1,46 +1,44 @@
 import React from 'react'
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 import Link from 'link'
 import { useRouter } from 'next/router'
 
-const radius = `
-  display: inline-block;
-  border-radius: 5px;
-`
+const radius = {
+  display: 'inline-block',
+  br: '5px',
+}
 
-const ButtonLink = styled(Link)`
-  > div {
-    width: 87px;
-    ${radius}
-    background: linear-gradient(110deg, #fe7255 10%, #fe5f55);
-    & > div {
-      ${radius}
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: ${props => props.theme.colors.background};
-      height: 100%;
-      font-family: 'Mulish', sans-serif;
-      letter-spacing: 0.3px;
-      line-height: 18.5px;
-      font-size: 16px;
-      font-weight: 900;
-      padding: 10px;
-      color: #5d5d5d;
-      border: 1px solid #ccc;
-      transition: background 0.7s cubic-bezier(0.04, 0.9, 0.48, 1.15) 0s;
-      &:hover {
-        background: rgba(0, 0, 0, 0);
-        color: ${props => props.theme.colors.text.light};
-        border: none;
-        padding: 11px;
-      }
-      > svg {
-        margin-right: 5px;
-      }
-    }
-  }
-`
+const ButtonLink = styled(Link, {
+  '> div': {
+    width: '87px',
+    background: 'linear-gradient(110deg, #fe7255 10%, #fe5f55)',
+    ...radius,
+    '& > div': {
+      ...radius,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      background: '#fff',
+      height: '100%',
+      fontFamily: "'Mulish', sans-serif",
+      letterSpacing: '0.3px',
+      lineHeight: '18.5px',
+      fontSize: '16px',
+      fontWeight: 900,
+      padding: '10px',
+      color: '#5d5d5d',
+      border: '1px solid #ccc',
+      transition: 'background 0.7s cubic-bezier(0.04, 0.9, 0.48, 1.15) 0s',
+      '&:hover': {
+        background: 'rgba(0, 0, 0, 0)',
+        color: '#fff',
+        border: 'none',
+        padding: '11px',
+      },
+      '> svg': { marginRight: '5px' },
+    },
+  },
+})
 
 const Button = ({ children, ...rest }) => (
   <ButtonLink {...rest}>

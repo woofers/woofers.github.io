@@ -2,9 +2,9 @@ import { styled } from 'emotion'
 import Title from 'components/title'
 
 const Wrapper = styled.div`
-  flex-flow: row wrap;
-  display: flex;
-  flex-direction: column;
+  flex-flow: 'row wrap',
+  display: 'flex',
+  flex-direction: 'column'
 `
 
 const LargeText = props => (

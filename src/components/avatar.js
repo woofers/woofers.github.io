@@ -48,7 +48,7 @@ const Avatar = ({ intro = true, show = true, ...rest }) => {
             src="me"
             width="3024px"
             height="4032px"
-            blurDataURL={loader({src:'me', width: 16, quality: 80 })}
+            blurDataURL={loader({ src: 'me', width: 16, quality: 80 })}
             loader={loader}
             quality={80}
             sizes={!mobile ? '1200px' : '180px'}
