@@ -1,144 +1,90 @@
-import { css, Global as GlobalTag } from 'emotion'
+import { globalCss } from 'ruffsponsive'
 
-const global = theme => css`
-  .no-js {
-    *[style] {
-      opacity: 1 !important;
-      transform: none !important;
-    }
+const accent = '#f27052'
+const code = '#2d2833'
 
-    .slide-in {
-      height: 368px !important;
-    }
-  }
+const text = {
+  dark: '#000',
+  light: '#fff',
+  ghost: '#fbd4cb',
+  code: '#aaaaca',
+  comment: '#787890',
+  punctuation: '#8b8bb1',
+  string: '#dd672c',
+  tag: '#fe8c52',
+}
 
-  * {
-    box-sizing: inherit;
-    box-sizing: border-box;
-  }
+const useGlobalStyles = globalCss({
+  '.no-js': {
+    '*[style]': { opacity: '1 !important', transform: 'none !important' },
+    '.slide-in': { height: '368px !important' },
+  },
+  '*': { boxSizing: 'border-box' },
+  body: { margin: '0', padding: '0' },
+  'html,\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6,\n  a,\n  p': {
+    fontFamily: "'Cabin', sans-serif",
+  },
+  p: {
+    margin: '0 0 1.6rem',
+    padding: '0',
+    'img:first-of-type': { marginRight: '1.6rem' },
+    'img:last-of-type': { marginRight: '0px' },
+  },
+  img: { maxWidth: '100%', margin: '0', padding: '0', borderRadius: '25px' },
+  a: { display: 'inline-block', textDecoration: 'none', color: '#000' },
+  ul: {
+    marginLeft: '1.6rem',
+    marginRight: '0',
+    marginTop: '0',
+    paddingBottom: '0',
+    paddingLeft: '0',
+    paddingRight: '0',
+    paddingTop: '0',
+    marginBottom: '1.6rem',
+    listStylePosition: 'outside',
+    listStyleImage: 'none',
+  },
+  li: { paddingLeft: '0', marginBottom: '0.8rem' },
+  pre: {
+    margin: '0',
+    marginBottom: '1.6rem',
+    fontSize: '0.85rem',
+    lineHeight: 1.42,
+    overflow: 'auto',
+    wordWrap: 'normal',
+    padding: '1.6rem',
+    background: code,
+    color: text.code,
+  },
+  "pre[class*='language-']": {
+    background: `${code} !important`,
+    fontSize: '0.95em !important',
+    color: text.code,
+  },
+  blockquote: {
+    padding: '0 0 0 20px',
+    margin: '0 28px 28px 28px',
+    borderLeft: `4px solid ${accent}`,
+    '*:last-of-type': { margin: '0', padding: '0' },
+  },
+  '.hljs-comment': { color: text.comment },
+  '.hljs-bullet': { color: text.punctuation },
+  '.hljs-string': { color: text.string },
+  '.hljs-keyword,\n  .hljs-name,\n  .hljs-link': { color: text.tag },
+  '.hljs-attr': { color: text.code },
+  '.language-yaml': {
+    '.hljs-attr': { color: text.tag },
+    '.hljs-string': { color: text.code },
+  },
+  '::selection': {
+    background: 'rgba(0, 40, 255, 0.3) !important',
+    color: '#314cf0 !important',
+  },
+})
 
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  html,
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6,
-  a,
-  p {
-    font-family: 'Cabin', sans-serif;
-  }
-
-  p {
-    margin: 0 0 1.6rem;
-    padding: 0;
-  }
-
-  img {
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
-    border-radius: 25px;
-  }
-
-  p {
-    img:first-of-type {
-      margin-right: 1.6rem;
-    }
-    img:last-of-type {
-      margin-right: 0px;
-    }
-  }
-
-  a {
-    display: inline-block;
-    text-decoration: none;
-    color: #000;
-  }
-
-  ul {
-    margin-left: 1.6rem;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.6rem;
-    list-style-position: outside;
-    list-style-image: none;
-  }
-
-  li {
-    padding-left: 0;
-    margin-bottom: 0.8rem;
-  }
-
-  pre {
-    margin: 0;
-    margin-bottom: 1.6rem;
-    font-size: 0.85rem;
-    line-height: 1.42;
-    overflow: auto;
-    word-wrap: normal;
-    padding: 1.6rem;
-    background: ${theme.colors.code};
-    color: ${theme.colors.text.light};
-  }
-
-  pre[class*='language-'] {
-    background: ${theme.colors.code} !important;
-    font-size: 0.95em !important;
-    color: ${theme.colors.text.code};
-  }
-
-  blockquote {
-    padding: 0 0 0 20px;
-    margin: 0 28px 28px 28px;
-    border-left: 4px solid ${theme.colors.accent};
-    *:last-of-type {
-      margin: 0;
-      padding: 0;
-    }
-  }
-
-  .hljs-comment {
-    color: ${theme.colors.text.comment};
-  }
-  .hljs-bullet {
-    color: ${theme.colors.text.punctuation};
-  }
-  .hljs-string {
-    color: ${theme.colors.text.string};
-  }
-  .hljs-keyword,
-  .hljs-name,
-  .hljs-link {
-    color: ${theme.colors.text.tag};
-  }
-  .hljs-attr {
-    color: ${theme.colors.text.code};
-  }
-  .language-yaml {
-    .hljs-attr {
-      color: ${theme.colors.text.tag};
-    }
-    .hljs-string {
-      color: ${theme.colors.text.code};
-    }
-  }
-
-  ::selection {
-    background: rgba(0, 40, 255, 0.3) !important;
-    color: #314cf0 !important;
-  }
-`
-
-const Global = () => <GlobalTag styles={global} />
+const Global = () => {
+  useGlobalStyles()
+  return null
+}
 
 export default Global

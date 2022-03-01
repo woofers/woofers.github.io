@@ -1,27 +1,30 @@
 import React from 'react'
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 import Frame from './frame'
 import Pico8 from './pico-8'
 import Widget from '@ludum-dare-badges/react'
 import { Markdown } from 'components/markdown'
 
-const Wrapper = styled.div`
-  ${props =>
-    props.portrait &&
-    `
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(0px, 463px));
-    grid-column-gap: 50px;
-    grid-row-gap: 6px;
-    justify-content: center;
-  `}
-`
+const Wrapper = styled('div', {
+  variants: {
+    orientation: {
+      portrait: {
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(0px, 463px))',
+        gridColumnGap: '50px',
+        gridRowGap: '6px',
+        justifyContent: 'center',
+      },
+      landscape: {},
+    },
+  },
+})
 
 const Game = p => {
   const { portrait, lang, title, src, instruction, ludumDare, placeholder } = p
   const isPico = lang === 'pico'
   return (
-    <Wrapper portrait={portrait && !isPico}>
+    <Wrapper orientation={portrait && !isPico ? 'portrait' : 'landscape'}>
       {isPico ? (
         <Pico8 src={src} placeholder={placeholder} />
       ) : (
