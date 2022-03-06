@@ -1,26 +1,28 @@
 import React from 'react'
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 import Title from 'components/title'
 
-const GameIcon = styled.img`
-  user-select: none;
-  position: relative;
-  bottom: ${props => props.iconSize / 4}px;
-  left: 4px;
-  ${props => props.iconType === 'normal' && `border-radius: 0 !important;`}
-  image-rendering: ${props => props.iconMode};
-  width: ${props => props.iconSize}px;
-  height: ${props => props.iconSize}px;
-  margin: 0;
-`
+const GameIcon = styled('img', {
+  userSelect: 'none',
+  position: 'relative',
+  left: '4px',
+  margin: 0,
+  variants: {
+    iconType: {
+      normal: {
+        borderRadius: '0 !important'
+      }
+    }
+  }
+})
 
-const IconWrapper = styled.span`
-  position: absolute;
-`
+const IconWrapper = styled('span', {
+  position: 'absolute'
+})
 
-const Wrapper = styled.div`
-  padding: 20px 0;
-`
+const Wrapper = styled('div', {
+  padding: '20px 0'
+})
 
 const GameTitle = p => {
   const { children, title, icon, iconMode, iconType, iconSize, ...rest } = p
@@ -35,7 +37,9 @@ const GameTitle = p => {
             src={icon}
             alt=""
             draggable="false"
+            css={{ bottom: `${iconSize / 4}px`, imageRendering: iconMode, width: `${iconSize}px`, height: `${iconSize}px` }}
             iconSize={iconSize}
+            iconMode={iconMode}
             iconType={iconType}
           />
         </IconWrapper>

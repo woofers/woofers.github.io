@@ -4,7 +4,7 @@ import { visit } from 'unist-util-visit'
 import { filter } from 'unist-util-filter'
 import { toGitHubLink } from 'utils/link'
 import { MarkdownLink } from 'link'
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkSlug from 'remark-slug'
@@ -13,11 +13,11 @@ import remarkRehype from 'remark-rehype'
 import rehypeReact from 'rehype-react'
 import remarkFrontmatter from 'remark-frontmatter'
 
-const Wrapper = styled.div`
-  h1:first-of-type {
-    display: none;
+const Wrapper = styled('div', {
+  'h1:first-of-type': {
+    display: 'none'
   }
-`
+})
 
 const noop = item => item => item
 
