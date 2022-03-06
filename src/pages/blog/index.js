@@ -4,17 +4,17 @@ import { useMarkdown, Markdown, summary } from 'components/markdown'
 import Title from 'components/title'
 import Link from 'link'
 import { getMarkdownFiles } from 'data/local'
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 
-const Heading = styled.h2`
-  font-family: Cantarell, sans-serif;
-  color: #fe7255;
-  font-size: 30px;
-`
+const Heading = styled('h2', {
+  fontFamily: 'Cantarell, sans-serif',
+  color: '#fe7255',
+  fontSize: '30px'
+})
 
-const Spacer = styled.div`
-  height: 40px;
-`
+const Spacer = styled('div', {
+  height: '40px'
+})
 
 const Post = ({ post }) => {
   const { content, meta } = useMarkdown(post.content, { filters: [summary] })

@@ -4,24 +4,25 @@ import { useMarkdown, Markdown, removeBadges } from 'components/markdown'
 import ProjectLink from 'components/project-link'
 import { type } from 'utils/repo'
 import Title from 'components/title'
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 
-const Flex = styled.div`
-  padding: 20px 0;
-  @media (min-width: ${({ theme }) => theme.breakpoints.mobile.breakpoint}) {
-    display: flex;
-    justify-content: space-between;
+const Flex = styled('div', {
+  display: 'flex',
+  justifyContent: 'space-between',
+  '@sm': {
+    display: 'block',
+    padding: '20px 0',
   }
-`
+})
 
-const Buttons = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  > a:not(:last-of-type) {
-    margin-right: 15px;
+const Buttons = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'flex-end',
+  '> a:not(:last-of-type)': {
+    marginRight: '15px'
   }
-`
+})
 
 const Project = ({ project, repo }) => {
   const { fullName } = repo
