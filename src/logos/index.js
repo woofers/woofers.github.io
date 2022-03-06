@@ -1,4 +1,4 @@
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 import React from 'react'
 import ship from './ship.png'
 import fts from './dark-fts.png'
@@ -15,19 +15,19 @@ export { ReactComponent as GitHubIcon } from './github.svg'
 export { ReactComponent as GitHubText } from './github-text.svg'
 export { ReactComponent as EarthIcon } from './earth.svg'
 
-const Img = styled.img`
-  width: 80px;
-  height: 80px;
-`
+const Img = styled('img', {
+  width: '80px',
+  height: '80px'
+})
 
-const FtsImg = styled.div`
-  width: 65px;
-  height: 30px;
-  background-image: url(${fts.src});
-  background-size: 148% auto;
-  background-repeat: no-repeat;
-  display: inline-block;
-`
+const FtsImg = styled('div', {
+  width: '65px',
+  height: '30px',
+  backgroundImage: `url(${fts.src})`,
+  backgroundSize: '148% auto',
+  backgroundRepeat: 'no-repeat',
+  display: 'inline-block'
+})
 
 export const AlienExpansion = () => <Img src={ship.src} alt="" />
 

@@ -1,35 +1,27 @@
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 
-const Heading = styled.h1`
-  --scale-title: 1;
-  display: ${props => props.$display};
-  margin: 0;
-  color: ${props => props.$color};
-  padding: ${props => `${props.$paddingY} ${props.$paddingX}`};
-  font-weight: ${props => props.$fontWeight};
-  font-family: 'Mulish', sans-serif;
-  text-decoration: none;
-  text-transform: ${props => props.$textTransform};
-  transform: ${props => props.$transform};
-  transition: color 0.3s ease-in-out;
-  width: ${props => props.$width};
-
-  letter-spacing: calc(${props => props.$letterSpacing} / var(--scale-title));
-  font-size: calc(${props => props.$fontSize} / var(--scale-title));
-  line-height: calc(${props => props.$lineHeight} / var(--scale-title));
-
-  @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoints.large.breakpoint}) {
-    --scale-title: 1.2;
+const Heading = styled('h1', {
+  margin: '0',
+  fontFamily: "'Mulish', sans-serif",
+  textDecoration: 'none',
+  transition: 'color 0.3s ease-in-out',
+  fontSize: '30px',
+  lineHeight: '26.6px',
+  letterSpacing: '0.43px',
+  '@sm': {
+    fontSize: '37.5px',
+    lineHeight: '33px',
+    letterSpacing: '0.54px'
+  },
+  '@xl': {
+    letterSpacing: '0.65px',
+    fontSize: '45px',
+    lineHeight: '40px'
+  },
+  "&[aria-current='page']": {
+    color: '#27292b'
   }
-  @media only screen and (max-width: ${({ theme }) =>
-      theme.breakpoints.mobile.breakpoint}) {
-    --scale-title: ${props => props.$mobileScale};
-  }
-  &[aria-current='page'] {
-    color: #27292b;
-  }
-`
+})
 
 const Title = ({
   display,
@@ -47,18 +39,16 @@ const Title = ({
   ...rest
 }) => (
   <Heading
-    $display={display}
-    $color={color}
-    $lineHeight={lineHeight}
-    $fontSize={fontSize}
-    $paddingX={paddingX}
-    $paddingY={paddingY}
-    $transform={transform}
-    $width={width}
-    $fontWeight={fontWeight}
-    $letterSpacing={letterSpacing}
-    $textTransform={textTransform}
-    $mobileScale={mobileScale}
+    css={{
+  display,
+  color,
+  padding: `${paddingY} ${paddingX}`,
+  fontWeight,
+  textTransform,
+  transform,
+  width
+
+    }}
     {...rest}
   />
 )
@@ -72,10 +62,7 @@ Title.defaultProps = {
   paddingY: '20px',
   transform: 'none',
   width: 'unset',
-  fontWeight: '900',
-  letterSpacing: '0.65px',
-  textTransform: 'none',
-  mobileScale: 1.5,
+  fontWeight: '900'
 }
 
 export default Title

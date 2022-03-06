@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { ThemeProvider } from '@emotion/react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 import { useRouter } from 'next/router'
 import Layout from 'components/layout'
 import Logo from 'components/logo'
@@ -31,21 +31,21 @@ const variants = {
   },
 }
 
-const NavHide = styled(motion.div)``
+const NavHide = styled(motion.div, {})
 
-const Main = styled(motion.div)``
+const Main = styled(motion.div, {})
 
-const Header = styled.header`
-  margin-top: 30px;
-`
+const Header = styled('header', {
+  marginTop: '30px'
+})
 
-const Nav = styled.nav`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-end;
-`
+const Nav = styled('nav', {
+  width: '100%',
+  display: 'flex',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+  alignItems: 'flex-end'
+})
 
 const key = path => {
   if (path === '/') return 'home'
