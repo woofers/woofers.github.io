@@ -1,5 +1,4 @@
 import { useEffect } from 'react'
-import { ThemeProvider } from '@emotion/react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { styled } from 'ruffsponsive'
 import { useRouter } from 'next/router'
@@ -77,7 +76,7 @@ const App = ({ Component, pageProps: props }) => {
     }
   }, [])
   return (
-    <ThemeProvider theme={theme}>
+    <>
       <AnimatePresence exitBeforeEnter>
         <NavHide
           key={navKey}
@@ -110,7 +109,7 @@ const App = ({ Component, pageProps: props }) => {
           </Layout>
         </Main>
       </AnimatePresence>
-    </ThemeProvider>
+    </>
   )
 }
 
