@@ -9,11 +9,11 @@ import { styled } from 'ruffsponsive'
 const Heading = styled('h2', {
   fontFamily: 'Cantarell, sans-serif',
   color: '#fe7255',
-  fontSize: '30px'
+  fontSize: '30px',
 })
 
 const Spacer = styled('div', {
-  height: '40px'
+  height: '40px',
 })
 
 const Post = ({ post }) => {

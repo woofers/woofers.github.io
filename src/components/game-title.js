@@ -10,18 +10,18 @@ const GameIcon = styled('img', {
   variants: {
     iconType: {
       normal: {
-        borderRadius: '0 !important'
-      }
-    }
-  }
+        borderRadius: '0 !important',
+      },
+    },
+  },
 })
 
 const IconWrapper = styled('span', {
-  position: 'absolute'
+  position: 'absolute',
 })
 
 const Wrapper = styled('div', {
-  padding: '20px 0'
+  padding: '20px 0',
 })
 
 const GameTitle = p => {
@@ -37,7 +37,12 @@ const GameTitle = p => {
             src={icon}
             alt=""
             draggable="false"
-            css={{ bottom: `${iconSize / 4}px`, imageRendering: iconMode, width: `${iconSize}px`, height: `${iconSize}px` }}
+            css={{
+              bottom: `${iconSize / 4}px`,
+              imageRendering: iconMode,
+              width: `${iconSize}px`,
+              height: `${iconSize}px`,
+            }}
             iconSize={iconSize}
             iconMode={iconMode}
             iconType={iconType}

@@ -41,30 +41,30 @@ const nav = [
 const Intro = ({ projects, showHeader, hasScrolled }) => {
   return (
     <>
-          <NavAlign
-            initial={{ x: -400, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{
-              type: 'spring',
-              duration: 0.8,
-              delay: delay + 2,
-            }}
-          >
-            <Tabs
-              items={nav}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                type: 'spring',
-                duration: 0.8,
-                delay: delay + 3,
-              }}
-            />
-          </NavAlign>
-          <LogoContainer>
-            {!showHeader && <Logo delay={delay} shallow />}
-          </LogoContainer>
-          <Tabs wrap items={projects} />
+      <NavAlign
+        initial={{ x: -400, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          type: 'spring',
+          duration: 0.8,
+          delay: delay + 2,
+        }}
+      >
+        <Tabs
+          items={nav}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{
+            type: 'spring',
+            duration: 0.8,
+            delay: delay + 3,
+          }}
+        />
+      </NavAlign>
+      <LogoContainer>
+        {!showHeader && <Logo delay={delay} shallow />}
+      </LogoContainer>
+      <Tabs wrap items={projects} />
     </>
   )
 }

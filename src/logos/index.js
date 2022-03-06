@@ -17,7 +17,7 @@ export { ReactComponent as EarthIcon } from './earth.svg'
 
 const Img = styled('img', {
   width: '80px',
-  height: '80px'
+  height: '80px',
 })
 
 const FtsImg = styled('div', {
@@ -26,7 +26,7 @@ const FtsImg = styled('div', {
   backgroundImage: `url(${fts.src})`,
   backgroundSize: '148% auto',
   backgroundRepeat: 'no-repeat',
-  display: 'inline-block'
+  display: 'inline-block',
 })
 
 export const AlienExpansion = () => <Img src={ship.src} alt="" />

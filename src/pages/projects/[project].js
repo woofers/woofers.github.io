@@ -12,7 +12,7 @@ const Flex = styled('div', {
   '@sm': {
     display: 'block',
     padding: '20px 0',
-  }
+  },
 })
 
 const Buttons = styled('div', {
@@ -20,8 +20,8 @@ const Buttons = styled('div', {
   alignItems: 'center',
   justifyContent: 'flex-end',
   '> a:not(:last-of-type)': {
-    marginRight: '15px'
-  }
+    marginRight: '15px',
+  },
 })
 
 const Project = ({ project, repo }) => {

@@ -15,8 +15,8 @@ import remarkFrontmatter from 'remark-frontmatter'
 
 const Wrapper = styled('div', {
   'h1:first-of-type': {
-    display: 'none'
-  }
+    display: 'none',
+  },
 })
 
 const noop = item => item => item

@@ -1,16 +1,16 @@
 import React from 'react'
-import { styled } from 'emotion'
+import { styled } from 'ruffsponsive'
 import { AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 import Global from './global'
 import GoogleFonts from './google-fonts'
 import Meta from './meta'
 
-const Wrapper = styled.div`
-  background: #fff;
-  color: #000;
-`
+const Wrapper = styled('div', {
+  background: '#fff',
+  color: '#000',
+})
 
-const Main = styled.main``
+const Main = styled('main', {})
 
 const Layout = ({ children, location, ...rest }) => {
   return (

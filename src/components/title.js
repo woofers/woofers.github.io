@@ -11,16 +11,16 @@ const Heading = styled('h1', {
   '@sm': {
     fontSize: '37.5px',
     lineHeight: '33px',
-    letterSpacing: '0.54px'
+    letterSpacing: '0.54px',
   },
   '@xl': {
     letterSpacing: '0.65px',
     fontSize: '45px',
-    lineHeight: '40px'
+    lineHeight: '40px',
   },
   "&[aria-current='page']": {
-    color: '#27292b'
-  }
+    color: '#27292b',
+  },
 })
 
 const Title = ({
@@ -40,14 +40,13 @@ const Title = ({
 }) => (
   <Heading
     css={{
-  display,
-  color,
-  padding: `${paddingY} ${paddingX}`,
-  fontWeight,
-  textTransform,
-  transform,
-  width
-
+      display,
+      color,
+      padding: `${paddingY} ${paddingX}`,
+      fontWeight,
+      textTransform,
+      transform,
+      width,
     }}
     {...rest}
   />
@@ -62,7 +61,7 @@ Title.defaultProps = {
   paddingY: '20px',
   transform: 'none',
   width: 'unset',
-  fontWeight: '900'
+  fontWeight: '900',
 }
 
 export default Title

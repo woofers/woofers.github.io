@@ -36,7 +36,7 @@ const NavHide = styled(motion.div, {})
 const Main = styled(motion.div, {})
 
 const Header = styled('header', {
-  marginTop: '30px'
+  marginTop: '30px',
 })
 
 const Nav = styled('nav', {
@@ -44,7 +44,7 @@ const Nav = styled('nav', {
   display: 'flex',
   flexWrap: 'wrap',
   justifyContent: 'space-between',
-  alignItems: 'flex-end'
+  alignItems: 'flex-end',
 })
 
 const key = path => {
