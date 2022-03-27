@@ -1,4 +1,4 @@
-import { styled } from 'ruffsponsive'
+import { styled, Typography } from 'ruffsponsive'
 
 const Heading = styled('h1', {
   margin: '0',
@@ -37,18 +37,7 @@ const Title = ({
   mobileScale,
   ...rest
 }) => (
-  <Heading
-    css={{
-      display,
-      color,
-      padding: `${paddingY} ${paddingX}`,
-      fontWeight,
-      textTransform,
-      transform,
-      width,
-    }}
-    {...rest}
-  />
+  <Typography type="h3" {...rest} />
 )
 
 Title.defaultProps = {

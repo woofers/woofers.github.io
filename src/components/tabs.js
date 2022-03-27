@@ -1,5 +1,5 @@
 import React from 'react'
-import { styled } from 'ruffsponsive'
+import { styled, Typography } from 'ruffsponsive'
 import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 import Link from 'link'
@@ -63,7 +63,9 @@ const Nav = ({ items, wrap, ...rest }) => {
           aria-current={href === asPath ? 'page' : false}
           {...props}
         >
-          {children}
+          <Typography as="span" type="button" noMargin>
+            {children}
+          </Typography>
         </Button>
       ))}
     </Container>

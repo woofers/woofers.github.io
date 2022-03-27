@@ -4,7 +4,7 @@ import { visit } from 'unist-util-visit'
 import { filter } from 'unist-util-filter'
 import { toGitHubLink } from 'utils/link'
 import { MarkdownLink } from 'link'
-import { styled } from 'ruffsponsive'
+import { styled, Typography } from 'ruffsponsive'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkSlug from 'remark-slug'
@@ -17,6 +17,10 @@ const Wrapper = styled('div', {
   'h1:first-of-type': {
     display: 'none',
   },
+})
+
+const List = styled('ul', {
+  listStyleType: 'none'
 })
 
 const noop = item => item => item
@@ -91,6 +95,14 @@ export const useMarkdown = (
       createElement: React.createElement,
       components: {
         pre: CodeBlock,
+        h1: props => <Typography type="h1" {...props} as="h1" />,
+        h2: props => <Typography type="h2" {...props} as="h2" />,
+        h3: props => <Typography type="h3" {...props} as="h3" />,
+        h4: props => <Typography type="h4" {...props} as="h4" />,
+        h5: props => <Typography type="h5" {...props} as="h5" />,
+        h6: props => <Typography type="h6" {...props} as="h6" />,
+        p: props => <Typography type="body1" {...props} as="p" />,
+        li: props => <Typography type="body1" {...props} as="li" />,
         a: ({ href, children }) => (
           <MarkdownLink href={href}>{children}</MarkdownLink>
         ),

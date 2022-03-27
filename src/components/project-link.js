@@ -1,5 +1,5 @@
 import { MarkdownLink } from 'link'
-import { styled } from 'ruffsponsive'
+import { styled, Typography } from 'ruffsponsive'
 
 const Button = styled(MarkdownLink, {
   textDecoration: 'none',
@@ -39,31 +39,31 @@ const ProjectLink = p => {
   if (type === 'github')
     return (
       <Align color="#24292f" {...rest}>
-        GitHub
+        <Typography noMargin as="span" type="button">GitHub</Typography>
       </Align>
     )
   else if (type === 'game')
     return (
       <Align color="#fe9c55" {...rest}>
-        Play
+        <Typography noMargin as="span" type="button">Play</Typography>
       </Align>
     )
   else if (type === 'react')
     return (
       <Align color="#fe9c55" {...rest}>
-        View Demo
+        <Typography noMargin as="span" type="button">View Demo</Typography>
       </Align>
     )
   else if (type === 'resume')
     return (
       <Align color="#fe9c55" {...rest}>
-        View Resume
+        <Typography noMargin as="span" type="button">View Resume</Typography>
       </Align>
     )
   else
     return (
       <Align color="#fe9c55" {...rest}>
-        View Site
+        <Typography noMargin as="span" type="button">View Site</Typography>
       </Align>
     )
 }

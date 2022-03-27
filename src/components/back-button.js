@@ -1,6 +1,6 @@
 import React from 'react'
-import { styled } from 'ruffsponsive'
 import Link from 'link'
+import { styled, Typography } from 'ruffsponsive'
 import { useRouter } from 'next/router'
 
 const radius = {
@@ -42,7 +42,7 @@ const ButtonLink = styled(Link, {
 const Button = ({ children, ...rest }) => (
   <ButtonLink {...rest}>
     <div>
-      <div>{children}</div>
+      <Typography noMargin as="div" type="button">{children}</Typography>
     </div>
   </ButtonLink>
 )

@@ -4,7 +4,7 @@ import { useMarkdown, Markdown, summary } from 'components/markdown'
 import Title from 'components/title'
 import Link from 'link'
 import { getMarkdownFiles } from 'data/local'
-import { styled } from 'ruffsponsive'
+import { styled, Typography } from 'ruffsponsive'
 
 const Heading = styled('h2', {
   color: '#fe7255',
@@ -25,7 +25,7 @@ const Post = ({ post }) => {
   return (
     <>
       <Link href={slug}>
-        <Heading>{title}</Heading>
+        <Typography as="h2" type="h4">{title}</Typography>
       </Link>
       {date && <div>{formatter.format(date)}</div>}
       <div>
@@ -58,7 +58,7 @@ const Blog = ({ data }) => {
     })
   return (
     <Page title="Blog">
-      <Title paddingX="0">Posts</Title>
+      <Typography as="h1" type="h2">Posts</Typography>
       {posts.map(post => (
         <Post key={`post-preview-${post.post}`} post={post} />
       ))}
