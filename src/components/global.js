@@ -23,7 +23,8 @@ const useGlobalStyles = globalCss({
   'body': {
     lineHeight: 1.5,
    '-webkit-font-smoothing': 'antialiased',
-    background: '#e1e5e9'
+    background: '#e1e5e9',
+    color: '$slate800'
   },
   'img, picture, video, canvas, svg': {
     display: 'block',

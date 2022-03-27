@@ -6,7 +6,6 @@ import GoogleFonts from './google-fonts'
 import Meta from './meta'
 
 const Wrapper = styled('div', {
-  background: '#e1e5e9',
   color: '$slate800',
 })
 

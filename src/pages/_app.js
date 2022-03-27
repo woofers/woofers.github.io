@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { styled } from 'ruffsponsive'
+import { ThemeProvider, styled } from 'ruffsponsive'
 import { useRouter } from 'next/router'
 import Layout from 'components/layout'
 import Logo from 'components/logo'
 import Container from 'components/container'
+import Header from 'components/header'
 import BackButton from 'components/back-button'
 import theme from '../themes'
 
@@ -33,10 +34,6 @@ const variants = {
 const NavHide = styled(motion.div, {})
 
 const Main = styled(motion.div, {})
-
-const Header = styled('header', {
-  marginTop: '30px',
-})
 
 const Nav = styled('nav', {
   width: '100%',
@@ -77,6 +74,16 @@ const App = ({ Component, pageProps: props }) => {
   }, [])
   return (
     <>
+      <AnimatePresence exitBeforeEnter>
+        <NavHide
+          key="home"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <Header />
+        </NavHide>
+      </AnimatePresence>
       <AnimatePresence exitBeforeEnter>
         <Main
           key={path}
