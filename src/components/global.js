@@ -22,7 +22,8 @@ const useGlobalStyles = globalCss({
   },
   'body': {
     lineHeight: 1.5,
-    '-webkit-font-smoothing': 'antialiased'
+   '-webkit-font-smoothing': 'antialiased',
+    background: '#e1e5e9'
   },
   'img, picture, video, canvas, svg': {
     display: 'block',
@@ -48,7 +49,7 @@ const useGlobalStyles = globalCss({
     'img:last-of-type': { marginRight: '0px' },
   },
   img: { maxWidth: '100%', margin: '0', padding: '0', borderRadius: '25px' },
-  a: { display: 'inline-block', textDecoration: 'none', color: '#000' },
+  a: { display: 'inline-block', textDecoration: 'none', color: 'inherit' },
   ul: {
     margin: 0,
     listStyleType: 'none',

@@ -4,7 +4,7 @@ import { useMarkdown, Markdown, removeBadges } from 'components/markdown'
 import ProjectLink from 'components/project-link'
 import { type } from 'utils/repo'
 import Title from 'components/title'
-import { styled } from 'ruffsponsive'
+import { styled, Typography } from 'ruffsponsive'
 
 const Flex = styled('div', {
   display: 'flex',

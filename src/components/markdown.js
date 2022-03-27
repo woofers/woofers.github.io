@@ -23,6 +23,10 @@ const List = styled('ul', {
   listStyleType: 'none'
 })
 
+const Dash = styled('span', {
+  mr: '$2'
+})
+
 const noop = item => item => item
 
 const links = (options = {}) => {
@@ -102,7 +106,7 @@ export const useMarkdown = (
         h5: props => <Typography type="h5" {...props} as="h5" />,
         h6: props => <Typography type="h6" {...props} as="h6" />,
         p: props => <Typography type="body1" {...props} as="p" />,
-        li: props => <Typography type="body1" {...props} as="li" />,
+        li: ({ children, ...rest }) => <Typography type="body1" as="li" {...rest}><Dash aria-hidden>-</Dash>{children}</Typography>,
         a: ({ href, children }) => (
           <MarkdownLink href={href}>{children}</MarkdownLink>
         ),

@@ -27,12 +27,12 @@ const Post = ({ post }) => {
       <Link href={slug}>
         <Typography as="h2" type="h4">{title}</Typography>
       </Link>
-      {date && <div>{formatter.format(date)}</div>}
+      {date && <Typography as="div" type="button">{formatter.format(date)}</Typography>}
       <div>
         <Markdown content={content} />
       </div>
       <Link href={slug} aria-label={`${continueReading} ${title}`}>
-        {continueReading} . . .
+        <Typography type="button" as="span">{continueReading} . . .</Typography>
       </Link>
     </>
   )
