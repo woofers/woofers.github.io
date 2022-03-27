@@ -88,8 +88,8 @@ const useGlobalStyles = globalCss({
     '.hljs-string': { color: text.code },
   },
   '::selection': {
-    background: 'rgba(0, 40, 255, 0.3) !important',
-    color: '#314cf0 !important',
+    background: '#ffab7f !important',
+    color: '$slate800 !important',
   },
 })
 

@@ -78,25 +78,6 @@ const App = ({ Component, pageProps: props }) => {
   return (
     <>
       <AnimatePresence exitBeforeEnter>
-        <NavHide
-          key={navKey}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          {nav && (
-            <Container>
-              <Header>
-                <Nav>
-                  <BackButton />
-                  <Logo id="header-logo" />
-                </Nav>
-              </Header>
-            </Container>
-          )}
-        </NavHide>
-      </AnimatePresence>
-      <AnimatePresence exitBeforeEnter>
         <Main
           key={path}
           variants={variants}
