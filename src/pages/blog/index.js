@@ -4,16 +4,7 @@ import { useMarkdown, Markdown, summary } from 'components/markdown'
 import Title from 'components/title'
 import Link from 'link'
 import { getMarkdownFiles } from 'data/local'
-import { styled, Typography } from 'ruffsponsive'
-
-const Heading = styled('h2', {
-  color: '#fe7255',
-  fontSize: '30px',
-})
-
-const Spacer = styled('div', {
-  height: '40px',
-})
+import { styled, Box, Flex, Typography } from 'ruffsponsive'
 
 const Post = ({ post }) => {
   const { content, meta } = useMarkdown(post.content, { filters: [summary] })
@@ -23,18 +14,16 @@ const Post = ({ post }) => {
   const date = new Date(meta.date)
   const formatter = new Intl.DateTimeFormat('en', { dateStyle: 'long' })
   return (
-    <>
+    <Flex direction="column" css={{ gap: '12px 0'}}>
       <Link href={slug}>
         <Typography as="h2" type="h4">{title}</Typography>
       </Link>
-      {date && <Typography as="div" type="button">{formatter.format(date)}</Typography>}
-      <div>
-        <Markdown content={content} />
-      </div>
+      {date && <Typography as="time" datetime={date.toISOString()} type="button">{formatter.format(date)}</Typography>}
+      <Markdown content={content} />
       <Link href={slug} aria-label={`${continueReading} ${title}`}>
         <Typography type="button" as="span">{continueReading} . . .</Typography>
       </Link>
-    </>
+    </Flex>
   )
 }
 
@@ -58,11 +47,14 @@ const Blog = ({ data }) => {
     })
   return (
     <Page title="Blog">
-      <Typography as="h1" type="h2">Posts</Typography>
-      {posts.map(post => (
-        <Post key={`post-preview-${post.post}`} post={post} />
-      ))}
-      <Spacer />
+      <Flex direction="column" css={{ gap: '28px 0', pt: '$6' }}>
+        <Typography as="h1" type="h2" noMargin>Posts</Typography>
+        <Flex direction="column" css={{ gap: '28px 0', pt: '$2' }}>
+          {posts.map(post => (
+            <Post key={`post-preview-${post.post}`} post={post} />
+          ))}
+        </Flex>
+      </Flex>
     </Page>
   )
 }

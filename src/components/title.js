@@ -37,7 +37,7 @@ const Title = ({
   mobileScale,
   ...rest
 }) => (
-  <Typography type="h3" {...rest} />
+  <Typography type="h2" {...rest} />
 )
 
 Title.defaultProps = {
