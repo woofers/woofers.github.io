@@ -2,7 +2,6 @@ import { styled } from 'ruffsponsive'
 
 const Heading = styled('h1', {
   margin: '0',
-  fontFamily: "'Mulish', sans-serif",
   textDecoration: 'none',
   transition: 'color 0.3s ease-in-out',
   fontSize: '30px',

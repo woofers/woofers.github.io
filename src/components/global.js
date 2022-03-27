@@ -15,14 +15,31 @@ const text = {
 }
 
 const useGlobalStyles = globalCss({
+  '*, *::before, *::after': { boxSizing: 'border-box' },
+  '*': { margin: 0, padding: 0 },
+  'html, body': {
+    height: '100%'
+  },
+  'body': {
+    lineHeight: 1.5,
+    '-webkit-font-smoothing': 'antialiased'
+  },
+  'img, picture, video, canvas, svg': {
+    display: 'block',
+    maxWidth: '100%'
+  },
+  'input, button, textarea, select': {
+    font: 'inherit'
+  },
+  'p, h1, h2, h3, h4, h5, h6': {
+    overflowWrap: 'break-word'
+  },
+  '#root, #__next': {
+    isolation: 'isolate'
+  },
   '.no-js': {
     '*[style]': { opacity: '1 !important', transform: 'none !important' },
     '.slide-in': { height: '368px !important' },
-  },
-  '*': { boxSizing: 'border-box' },
-  body: { margin: '0', padding: '0' },
-  'html,\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6,\n  a,\n  p': {
-    fontFamily: "'Cabin', sans-serif",
   },
   p: {
     margin: '0 0 1.6rem',

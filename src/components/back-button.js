@@ -20,7 +20,6 @@ const ButtonLink = styled(Link, {
       justifyContent: 'space-between',
       background: '#fff',
       height: '100%',
-      fontFamily: "'Mulish', sans-serif",
       letterSpacing: '0.3px',
       lineHeight: '18.5px',
       fontSize: '16px',
