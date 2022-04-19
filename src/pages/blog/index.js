@@ -14,14 +14,22 @@ const Post = ({ post }) => {
   const date = new Date(meta.date)
   const formatter = new Intl.DateTimeFormat('en', { dateStyle: 'long' })
   return (
-    <Flex direction="column" css={{ gap: '12px 0'}}>
+    <Flex direction="column" css={{ gap: '12px 0' }}>
       <Link href={slug}>
-        <Typography as="h2" type="h4">{title}</Typography>
+        <Typography as="h2" type="h4">
+          {title}
+        </Typography>
       </Link>
-      {date && <Typography as="time" datetime={date.toISOString()} type="button">{formatter.format(date)}</Typography>}
+      {date && (
+        <Typography as="time" datetime={date.toISOString()} type="button">
+          {formatter.format(date)}
+        </Typography>
+      )}
       <Markdown content={content} />
       <Link href={slug} aria-label={`${continueReading} ${title}`}>
-        <Typography type="button" as="span">{continueReading} . . .</Typography>
+        <Typography type="button" as="span">
+          {continueReading} . . .
+        </Typography>
       </Link>
     </Flex>
   )
@@ -48,7 +56,9 @@ const Blog = ({ data }) => {
   return (
     <Page title="Blog">
       <Flex direction="column" css={{ gap: '28px 0', pt: '$6' }}>
-        <Typography as="h1" type="h2" noMargin>Posts</Typography>
+        <Typography as="h1" type="h2" noMargin>
+          Posts
+        </Typography>
         <Flex direction="column" css={{ gap: '28px 0', pt: '$2' }}>
           {posts.map(post => (
             <Post key={`post-preview-${post.post}`} post={post} />

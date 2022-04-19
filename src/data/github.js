@@ -2,6 +2,7 @@ import { mutateRepoNames } from 'utils/repo'
 import { post } from './http'
 
 const exclude = {
+  link: false,
   'discord-jam-2': 'DOGE: BOIS',
   woofers3d: 'Woofers 3D',
   'ludum-dare-44': 'ALIEN, e x p a n s i o n .',

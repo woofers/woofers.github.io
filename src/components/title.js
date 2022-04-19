@@ -36,9 +36,7 @@ const Title = ({
   textTransform,
   mobileScale,
   ...rest
-}) => (
-  <Typography type="h2" {...rest} />
-)
+}) => <Typography type="h2" {...rest} />
 
 Title.defaultProps = {
   display: 'block',

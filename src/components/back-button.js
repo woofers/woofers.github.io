@@ -42,7 +42,9 @@ const ButtonLink = styled(Link, {
 const Button = ({ children, ...rest }) => (
   <ButtonLink {...rest}>
     <div>
-      <Typography noMargin as="div" type="button">{children}</Typography>
+      <Typography noMargin as="div" type="button">
+        {children}
+      </Typography>
     </div>
   </ButtonLink>
 )

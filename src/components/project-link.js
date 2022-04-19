@@ -39,31 +39,41 @@ const ProjectLink = p => {
   if (type === 'github')
     return (
       <Align color="#24292f" {...rest}>
-        <Typography noMargin as="span" type="button">GitHub</Typography>
+        <Typography noMargin as="span" type="button">
+          GitHub
+        </Typography>
       </Align>
     )
   else if (type === 'game')
     return (
       <Align color="#fe9c55" {...rest}>
-        <Typography noMargin as="span" type="button">Play</Typography>
+        <Typography noMargin as="span" type="button">
+          Play
+        </Typography>
       </Align>
     )
   else if (type === 'react')
     return (
       <Align color="#fe9c55" {...rest}>
-        <Typography noMargin as="span" type="button">View Demo</Typography>
+        <Typography noMargin as="span" type="button">
+          View Demo
+        </Typography>
       </Align>
     )
   else if (type === 'resume')
     return (
       <Align color="#fe9c55" {...rest}>
-        <Typography noMargin as="span" type="button">View Resume</Typography>
+        <Typography noMargin as="span" type="button">
+          View Resume
+        </Typography>
       </Align>
     )
   else
     return (
       <Align color="#fe9c55" {...rest}>
-        <Typography noMargin as="span" type="button">View Site</Typography>
+        <Typography noMargin as="span" type="button">
+          View Site
+        </Typography>
       </Align>
     )
 }
