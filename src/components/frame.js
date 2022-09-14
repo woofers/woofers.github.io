@@ -1,28 +1,28 @@
 import React from 'react'
-import { css } from '@emotion/react'
-import noHighlight from '../styles/no-highlight'
+import { styled } from 'jxsn'
 
-const iframe = css`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`
+const InnerFrame = styled('iframe', {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%'
+})
+
+const Container = styled('div', {
+  textAlign: 'center',
+  margin: '2px 0 23px 0',
+  position: 'relative'
+})
 
 const Frame = p => {
   const { aspectRatio, title, ...rest } = p
-  const container = css`
-    ${noHighlight};
-    text-align: center;
-    margin: 2px 0 23px 0;
-    position: relative;
-    padding-bottom: ${100 / aspectRatio}%;
-  `
   return (
-    <div css={container}>
-      <iframe {...rest} title={title} css={iframe} frameBorder="0" allowFullScreen />
-    </div>
+    <Container
+      css={{ color: 'currentColor', paddingBottom: `${100 / aspectRatio}%` }}
+    >
+      <InnerFrame {...rest} title={title} frameBorder="0" allowFullScreen />
+    </Container>
   )
 }
 

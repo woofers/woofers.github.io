@@ -1,9 +1,6 @@
-import { useEffect } from 'react'
-import { navigate } from 'gatsby'
+// Not used for static export
+// but suppresses warning about
+// static optimization
+const NotFound = () => <></>
 
-export default () => {
-  useEffect(() => {
-    navigate('/', { replace: true })
-  }, [])
-  return null
-}
+export default NotFound

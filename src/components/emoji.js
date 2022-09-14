@@ -1,48 +1,75 @@
 import React from 'react'
-import { css } from '@emotion/react'
+import { styled } from 'jxsn'
 
-const surrogatePair = (high, low) => (high - 0xD800) * 0x400 + low - 0xDC00 + 0x10000
+const Img = styled('img', {
+  display: 'inline-block',
+  borderRadius: 0,
+  marginBottom: 0,
+  verticalAlign: 'top',
+  variants: {
+    size: {
+      small: {
+        width: '14px',
+        height: '14px'
+      },
+      normal: {
+        width: '20px',
+        height: '20px'
+      }
+    }
+  },
+  defaultVariants: {
+    size: 'normal'
+  }
+})
 
-const isPair = value => value > 0xFFFF
+const surrogatePair = (high, low) =>
+  (high - 0xd800) * 0x400 + low - 0xdc00 + 0x10000
+
+const isPair = value => value > 0xffff
 
 const toUnicodeBytes = value => {
   const bytes = []
   const tokens = value.split('')
   const add = el => bytes.push(el.toString(16))
-  for (let i = 0; i < tokens.length; i ++) {
+  for (let i = 0; i < tokens.length; i++) {
     const high = tokens[i].charCodeAt(0)
-    if ((i + 1) >= tokens.length) {
+    if (i + 1 >= tokens.length) {
       break
     }
     const low = tokens[i + 1].charCodeAt(0)
     const pair = surrogatePair(high, low)
     if (!isPair(pair)) {
       add(high)
-    }
-    else {
+    } else {
       add(pair)
-      i ++
+      i++
     }
   }
   return bytes
 }
 
-const img = code => `https://github.githubassets.com/images/icons/emoji/unicode/${code}.png`
-const border = css`
-  border-radius: 0 !important;
-  margin-bottom: 0;
-`
+const img = code =>
+  `https://github.githubassets.com/images/icons/emoji/unicode/${code}.png`
 
 const Emoji = p => {
-  const { emoji, size, children, ...rest } = p
+  const { emoji, ...rest } = p
   const noVs = unescape(escape(emoji).replace('%uFE0F', ''))
-  const name = toUnicodeBytes(noVs).filter(el => el !== '200d').join('-')
-  return <img alt="" css={border} width={size} height={size} src={img(name)} {...rest} />
+  const name = toUnicodeBytes(noVs)
+    .filter(el => el !== '200d')
+    .join('-')
+  return (
+    <Img
+      alt=""
+      src={img(name)}
+      size={{ '@initial': 'small', '@sm': 'normal' }}
+      {...rest}
+    />
+  )
 }
 
 Emoji.defaultProps = {
-  emoji: '👾',
-  size: '20px'
+  emoji: '👾'
 }
 
 export default Emoji

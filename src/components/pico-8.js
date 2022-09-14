@@ -1,38 +1,31 @@
-import React from 'react'
 import P8 from 'react-pico-8'
-import { css, withTheme } from '@emotion/react'
+import { styled } from 'jxsn'
 
-const pico = theme => css`
-  margin: 16px 0;
-  .p8_menu_button {
-    button {
-      background: ${theme.colors.link.pico.normal};
-    }
-    &:hover {
-      button {
-        background: ${theme.colors.link.pico.hover};
-      }
-    }
+const Game = styled(P8, {
+  margin: '16px 0',
+  '.p8_menu_button': {
+    display: 'inline',
+    button: { background: '#696068' },
+    '&:hover': { button: { background: '#9c949b' } }
+  },
+  '.p8_menu_button img': { borderRadius: '0', maxWidth: 'none' },
+  '#p8_container': { '> button': { img: { marginBottom: 'auto' } } },
+  '#p8_playarea > div:last-of-type > div': {
+    ml: 0
+  },
+  '#canvas': {
+    margin: '0 auto',
+    br: '25px'
+  },
+  '#canvas + div': {
+    display: 'inline-block',
+    marginLeft: '0',
+    marginTop: '12.5px'
   }
-  .p8_menu_button img {
-    border-radius: 0;
-    max-width: none;
-  }
-  #p8_container {
-    > button {
-      img {
-       margin-bottom: auto;
-      }
-    }
-  }
-`
+})
 
-const Pico8 = p => (
-  <P8 css={pico} {...p} />
-)
-
-Pico8.defaultProps = {
-  center: true
+const Pico8 = ({ center = true, ...rest }) => {
+  return <Game {...rest} center={center} />
 }
 
-export default withTheme(Pico8)
+export default Pico8

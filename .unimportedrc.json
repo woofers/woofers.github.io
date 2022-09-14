@@ -1,0 +1,13 @@
+{
+  "rootDir": "./src",
+  "aliases": {
+    "components/*": ["./components", "./components/*"],
+    "pages/*": ["./pages", "./pages/*"],
+    "data/*": ["./data", "./data/*"],
+    "hooks/*": ["./hooks", "./hooks/*"],
+    "utils/*": ["./utils", "./utils/*"],
+  },
+  "compilerOptions": {
+    "baseUrl": "./src/."
+  }
+}

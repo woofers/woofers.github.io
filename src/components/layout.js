@@ -1,25 +1,23 @@
 import React from 'react'
+import { styled } from 'jxsn'
 import Global from './global'
-import Container from './container'
-import GoogleFonts from './google-fonts'
-import { css } from '@emotion/react'
+import Meta from './meta'
+import Fonts from './fonts'
 
-const Layout = ({ children, outside, color, background }) => {
-  const style = css`
-    position: relative;
-    min-height: 100vh;
-    background: ${background};
-    color: ${color};
-  `
+const Wrapper = styled('div', {
+  color: '$slate800'
+})
+
+const Main = styled('main', {})
+
+const Layout = ({ children, ...rest }) => {
   return (
-    <div css={style}>
+    <Wrapper {...rest} id="root-layout-wrapper">
+      <Meta />
+      <Fonts />
       <Global />
-      <GoogleFonts fonts={['Lato:400,700', 'Nunito:300,400,700']} />
-      <Container>
-        {children}
-      </Container>
-      {outside}
-    </div>
+      <Main>{children}</Main>
+    </Wrapper>
   )
 }
 

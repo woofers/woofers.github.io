@@ -1,29 +1,12 @@
-// Adapted from https://github.com/nvandoorn/portfolio/blob/master/src/components/container.js
-import React from 'react'
-import { css } from '@emotion/react'
+import { styled } from 'jxsn'
 
-const mq = breakpoints =>
-  Object.values(breakpoints)
-    .map(({ breakpoint, size }) => `
-      @media (min-width: ${breakpoint}) {
-        width: ${size};
-      }
-    `).join('\n')
+const Wrapper = styled('div', {
+  position: 'relative',
+  pb: '24px'
+})
 
-const Container = p => {
-  const style = theme => css`
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 5px 0;
-    width: 93%;
-    max-width: 1200px;
-    position: relative;
-    min-height: 100%;
-    box-sizing: border-box;
-    ${mq(theme.breakpoints)}
-  `
-  return <div css={style}>{p.children}</div>
-}
+const Container = ({ children, ...rest }) => (
+  <Wrapper {...rest}>{children}</Wrapper>
+)
 
 export default Container
