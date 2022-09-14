@@ -62,12 +62,11 @@ const Container = styled('div', {
 
 const Photo = styled('div', {
   background: '#e9eef4',
-  backgroundImage: 'url(/me/jaxson.webp)',
+  backgroundImage: 'url(/me/jaxson-new.webp)',
   backgroundPosition: '100% 50%',
   transition: 'background-image 0.25s ease-in-out',
   backgroundSize: '100%',
   br: '35%',
-  boxShadow: '0.3px -0.4px 0px 2px #dde5ec',
   minWidth: '68px',
   minHeight: '68px',
   width: '68px',
