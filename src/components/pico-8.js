@@ -9,7 +9,7 @@ const Game = styled(P8, {
     '&:hover': { button: { background: '#9c949b' } }
   },
   '.p8_menu_button img': { borderRadius: '0', maxWidth: 'none' },
-  '#p8_container': { '> button': { img: { marginBottom: 'auto' } } },
+  '#p8_container': { '> button': { img: { marginBottom: 'auto' }, div: { br: '25px' } } },
   '#p8_playarea > div:last-of-type > div': {
     ml: 0
   },
