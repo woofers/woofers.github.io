@@ -1,11 +1,9 @@
-import React from 'react'
+import { styled } from 'jxsn'
 
-const Content = p => {
-  const { html, ...rest } = p
-  return (
-    <div {...rest}
-      dangerouslySetInnerHTML={{ __html: html }} />
-  )
-}
+const Element = styled('div', {})
+
+const Content = ({ html, as = 'div', ...rest }) => (
+  <Element {...rest} as={as} dangerouslySetInnerHTML={{ __html: html }} />
+)
 
 export default Content

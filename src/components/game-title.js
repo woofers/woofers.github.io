@@ -1,42 +1,50 @@
 import React from 'react'
-import { css } from '@emotion/react'
+import { styled, Typography, Flex } from 'jxsn'
+
+const GameIcon = styled('img', {
+  userSelect: 'none',
+  position: 'absolute',
+  left: '4px',
+  margin: 0,
+  variants: {
+    iconType: {
+      normal: {
+        borderRadius: '0 !important'
+      }
+    }
+  }
+})
+
+const IconWrapper = styled('div', {
+  position: 'relative',
+  overflow: 'visible'
+})
 
 const GameTitle = p => {
   const { children, title, icon, iconMode, iconType, iconSize, ...rest } = p
-  const wrapper = css`
-    margin: 0 0 15px 0;
-  `
-  const header = css`
-    display: ${icon ? 'inline' : 'block'};
-  `
-  const noRounded = css`
-    border-radius: 0 !important;
-  `
-  const gameIcon = css`
-    user-select: none;
-    position: relative;
-    bottom: ${iconSize / 4}px;
-    left: 4px;
-    ${iconType === 'normal' ? noRounded : ''}
-    image-rendering: ${iconMode};
-    width: ${iconSize}px;
-    height: ${iconSize}px;
-    margin: 0;
-  `
-  const abs = css`
-    position: absolute;
-  `
   return (
-    <div css={wrapper} {...rest}>
-      <h1 css={header}>{title}</h1>
-      {
-        icon &&
-          <span css={abs}>
-            <img css={gameIcon} src={icon} alt="" draggable="false" />
-          </span>
-      }
+    <Flex {...rest} justify="end">
+      <Typography type="h4" as="h1">
+        {title}
+      </Typography>
+      {icon && (
+        <IconWrapper css={{ width: `${iconSize}px` }}>
+          <GameIcon
+            src={icon}
+            alt=""
+            draggable="false"
+            css={{
+              bottom: `${iconSize / 4}px`,
+              imageRendering: iconMode,
+              width: `${iconSize}px`,
+              height: `${iconSize}px`
+            }}
+            iconType={iconType}
+          />
+        </IconWrapper>
+      )}
       {children}
-    </div>
+    </Flex>
   )
 }
 

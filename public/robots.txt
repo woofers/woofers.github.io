@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://jaxs.onl
+
+# Sitemaps
+Sitemap: https://jaxs.onl/sitemap.xml

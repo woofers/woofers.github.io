@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
 # Cleanup
-rm -rf static/projects/ >> /dev/null
+rm -rf public/projects/ >> /dev/null
 
 # Whale
-mkdir -p static/projects/whale/play/game
-cp -r node_modules/whale-dive/dist/. static/projects/whale/play/game
+mkdir -p public/projects/whale/play/game
+cp -r node_modules/whale-dive/dist/. public/projects/whale/play/game
 
 # Fox Hole
-mkdir -p static/projects/fox-hole/play/game
-cp -r node_modules/fox-hole/dist/. static/projects/fox-hole/play/game
+mkdir -p public/projects/fox-hole/play/game
+cp -r node_modules/fox-hole/dist/. public/projects/fox-hole/play/game
 
 # Alien Expansion
-mkdir -p static/projects/ludum-dare-44/play/game
-cp -r node_modules/alien-expansion/dist/. static/projects/ludum-dare-44/play/game
-cp -r node_modules/alien-expansion/favicon.png static/projects/ludum-dare-44/play/game/.
-cp -r node_modules/alien-expansion/placeholder.png static/projects/ludum-dare-44/play/game/.
+mkdir -p public/projects/ludum-dare-44/play/game
+cp -r node_modules/alien-expansion/dist/. public/projects/ludum-dare-44/play/game
+cp -r node_modules/alien-expansion/favicon.png public/projects/ludum-dare-44/play/game/.
+cp -r node_modules/alien-expansion/placeholder.png public/projects/ludum-dare-44/play/game/.
 
 # DOGE
-mkdir -p static/projects/discord-jam-2/play/game
-cp -r node_modules/doge-bois/dist/. static/projects/discord-jam-2/play/game
+mkdir -p public/projects/discord-jam-2/play/game
+cp -r node_modules/doge-bois/dist/. public/projects/discord-jam-2/play/game

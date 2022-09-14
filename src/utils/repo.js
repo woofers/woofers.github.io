@@ -1,21 +1,13 @@
 import { camelCaseToPascalCase } from './case'
 
-export const mutateRepoNames = (repos, exclude) => {
-  const excluded = {}
-  for (const key of exclude) {
-    excluded[key[0]] = key[1]
-  }
+export const mutateRepoNames = (repo, excluded) => {
   const replace = name => {
+    if (typeof excluded[name] === 'boolean') return ''
     if (excluded[name]) return excluded[name]
-    if (excluded.hasOwnProperty(name)) return ''
     return camelCaseToPascalCase(name)
   }
-  for (const edge of repos) {
-    const repo = edge.node
-    repo.fullName = replace(repo.name)
-  }
+  repo.fullName = replace(repo.name)
 }
-
 
 export const type = repo => {
   let labels = repo.topics
