@@ -1,0 +1,44 @@
+name: build
+
+on: [push]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        registry-url: 'https://registry.npmjs.org'
+    - name: Deploy Info
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
+    - name: Install Lib
+      run: yarn --cwd _jxsn install
+    - name: Build Lib
+      run: yarn --cwd _jxsn build
+    - name: Install Prod Lib
+      run: yarn --cwd _jxsn install --prod
+    - name: Install
+      run: yarn install
+    - name: Build
+      run: yarn build
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name: Test
+      run: yarn test
+    - name: Generate Version
+      if: startsWith(github.ref, 'refs/tags/')
+      run: |
+        echo "VERSION=$(./version.sh)" >> $GITHUB_ENV
+    - name: Publish
+      uses: JamesIves/github-pages-deploy-action@4.3.0
+      if: startsWith(github.ref, 'refs/tags/')
+      with:
+        branch: master
+        folder: out
+        commit-message: ${{ env.VERSION }}
