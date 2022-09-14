@@ -1,34 +1,37 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
 
-First, run the development server:
+# [jaxs.onl](https://jaxs.onl)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+[![img](https://github.com/woofers/woofers.github.io/workflows/build/badge.svg)](https://github.com/woofers/woofers.github.io/actions)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+A [Next.js](https://nextjs.org/) based site built using static [Org Mode](https://orgmode.org/) content with [Orga](https://github.com/xiaoxinghu/orgajs).
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Automated deploy to [Github Pages](https://pages.github.com/) is configured using [GitHub Actions](https://github.com/features/actions).
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Goals
 
-## Learn More
+1.  Be easy to update and maintain content.  Ideally with simple [Org Mode](https://orgmode.org/) markup.
+2.  Take full-advantage of wide screen sizes while still scaling to a wide-variety of screen sizes.
+3.  Load quickly; nothing is worse than a *slow* site.
 
-To learn more about Next.js, take a look at the following resources:
+# Usage
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Running Locally
 
-## Deploy on Vercel
+Running locally for development can be done with:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+-   `yarn install` or `npm install` to install the required modules.
+-   `yarn dev` or `npm dev` to host locally in development mode.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Now going to [localhost:3000](http://localhost:3000) will display the site.
+
+
+## Building for Deployment
+
+Building the static site can be done with:
+
+-   `yarn build` or `npm build`.
+
+A `out` folder will be generated with the created bundle.
