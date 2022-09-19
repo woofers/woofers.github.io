@@ -23,7 +23,7 @@ const useGlobalStyles = globalCss({
   body: {
     lineHeight: 1.5,
     '-webkit-font-smoothing': 'antialiased',
-    background: '$white',
+    background: '#f1f5f9',
     color: '$slate700',
     overscrollBehaviorY: 'none'
   },
@@ -51,6 +51,10 @@ const useGlobalStyles = globalCss({
   },
   img: { maxWidth: '100%', margin: '0', padding: '0', borderRadius: '25px' },
   a: { display: 'inline-block', textDecoration: 'none', color: 'inherit' },
+  abbr: {
+    textDecoration: 'none',
+    cursor: 'help'
+  },
   ul: {
     margin: 0,
     listStyleType: 'none',

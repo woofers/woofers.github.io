@@ -30,7 +30,11 @@ const Wrapper = styled('div', {
         bottom: 0
       },
       bottom: {
-        top: 0
+        top: 0,
+        width: '100%',
+        '@sm': {
+          width: '50%'
+        }
       }
     }
   }
@@ -83,7 +87,14 @@ const data = [
     name: 'GitHub',
     link: 'https://github.com/woofers',
     handle: 'woofers',
-    external: true
+    external: true,
+    showText: true
+  },
+  {
+    key: 'resume',
+    name: 'Resume',
+    link: 'https://jaxs.onl/resume/jaxsonvd-resume.pdf',
+    showText: true
   },
   /*
   {
@@ -108,13 +119,9 @@ const data = [
 */
   {
     key: 'email',
-    name: 'Email',
-    link: 'mailto:hey@jaxs.onl'
-  },
-  {
-    key: 'resume',
-    name: 'Resume',
-    link: 'https://jaxs.onl/resume/jaxsonvd-resume.pdf'
+    name: 'hey@jaxs.onl',
+    link: 'mailto:hey@jaxs.onl',
+    showText: true
   }
 ]
 

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import Link from 'next/link'
 import { m as motion, LazyMotion } from 'framer-motion'
 import { styled, VisuallyHidden, Typography } from 'jxsn'
@@ -167,6 +167,10 @@ const TextOverflow = styled('span', {
 })
 
 const Collapsible = ({ items }) => {
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => {
+    setMounted(true)
+  }, [])
   const [expanded, setExpanded] = useState(false)
   const [hover, setHover] = useState(false)
   const open = () => {
@@ -175,7 +179,7 @@ const Collapsible = ({ items }) => {
   }
   const ref = useRef()
   const desktop = useMediaQuery('(min-width: 640px)')
-  const mobile = !desktop
+  const mobile = !desktop || !mounted
   return (
     <LazyMotion features={loadFeatures}>
       <Collapse>

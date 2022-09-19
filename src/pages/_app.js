@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import {
   LazyMotion,
@@ -19,10 +19,10 @@ const width = '1180px'
 const height = '1008px'
 
 const x = `max((100vw - ${width}) / 2, var(---px))`
-const y = scale => `max(((100vh - ${height}) / 2) * ${scale}, 0px)`
+//const y = scale => `max(((100vh - ${height}) / 2) * ${scale}, 0px)`
 
 const homePadding = `max(12vh, 0px) ${x} max(30vh, 54px) ${x}`
-const homeMobilePadding = `54px ${x} 54px ${x}`
+const homeMobilePadding = `0px ${x} 54px ${x}`
 const padding = `max(5vh, 54px) ${x} max(0vh, 0px) ${x}`
 
 const loadFeatures = () =>
@@ -155,25 +155,26 @@ const ContentWrapper = styled(LayoutDiv, {
 })
 
 const Card = styled('div', {
+  borderTop: '1px solid rgb(213 217 223)',
+  borderBottom: '1px solid rgb(213 217 223)',
   position: 'relative',
   zIndex: 5,
-  background: 'rgba(246, 248, 250, 0.8)',
+  background: '#f1f5f9',
   overflowX: 'hidden',
   overflowY: 'auto',
   color: '$gray700',
   width: '100%',
   height: '100%',
   mx: 'auto',
-  br: '12px',
   px: '12px',
   py: '24px',
   $$shadowColor: '206deg 14% 54%',
   $$shadowElevationLow: `-0.5px 0.6px 1px hsl($$shadowColor / 0.19),
     -0.9px 1.1px 1.8px -0.7px hsl($$shadowColor / 0.29),
     -2px 2.4px 4.1px -1.3px hsl($$shadowColor / 0.4)`,
-  boxShadow: '$$shadowElevationLow',
   '@sm': {
-    p: '$7'
+    p: '$7',
+    borderBottom: 'none'
   }
 })
 
@@ -262,7 +263,12 @@ const App = ({ Component, pageProps: props }) => {
   }, [])
   const desktop = useMediaQuery('(min-width: 640px)')
   const ref = useRef()
-  const { scrollY } = useScroll({ contianer: ref })
+  const { scrollY } = useScroll({ container: ref })
+  const y = useTransform(scrollY, value => {
+    const max = 114
+    const scale = Math.min(Math.max(Math.min(value, max) / max, 0), 1)
+    return 20 - scale * 20
+  })
   const opacity = useTransform(scrollY, value => {
     const max = 114
     const scale = Math.min(Math.max(Math.min(value, max) / max, 0), 1)
@@ -271,9 +277,8 @@ const App = ({ Component, pageProps: props }) => {
   return (
     <LazyMotion features={loadFeatures}>
       <Wrapper>
-        <Background />
         <InnerWrapper>
-          <AnimatePresence exitBeforeEnter>
+          <AnimatePresence mode="wait">
             <Layout>
               <ContentWrapper
                 custom={{ isHome: path === 'home', desktop }}
@@ -313,7 +318,7 @@ const App = ({ Component, pageProps: props }) => {
                     </TopWrapper>
                   )}
                 </AnimatePresence>
-                <AnimatePresence exitBeforeEnter>
+                <AnimatePresence mode="wait">
                   {buttons && buttons.length > 0 && (
                     <TopWrapper
                       key="top-links"

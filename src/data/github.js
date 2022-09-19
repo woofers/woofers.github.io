@@ -30,7 +30,8 @@ const exclude = {
   'qmk-indicator': true,
   'quefrency-case': true,
   woofers: true,
-  m3: true
+  m3: true,
+  'raycast-color-picker': true
 }
 
 const repoQuery = `
