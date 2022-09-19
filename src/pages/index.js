@@ -6,6 +6,7 @@ import { getRepos } from 'data/github'
 import Collapsible from 'components/collapsible'
 import { FaNpm } from 'react-icons/fa'
 import { RiStarSLine } from 'react-icons/ri'
+import { MarkdownLink as Link } from 'link'
 
 const formatStars = value => {
   if (!value || value <= 0) return ''
@@ -79,6 +80,9 @@ const Photo = styled('div', {
   }
 })
 
+const Spacer = styled('div', {
+})
+
 const posts = [
   {
     href: '/blog/yaml-github-actions/',
@@ -110,20 +114,44 @@ const Index = ({ repos }) => {
           align={{ '@initial': 'start', '@sm': 'normal' }}
           css={{ flex: '0 0 60px', pl: '$1', pr: '$3', '@sm': { pr: 0 } }}
         >
-          <Typography
-            noMargin
-            type={{ '@initial': 'body2', '@sm': 'button' }}
-            as="span"
-            css={{
-              maxWidth: '152px',
-              display: 'block',
-              opacity: 0.7,
-              pt: '$2',
-              '@sm': { pt: 0, maxWidth: 'unset', display: 'block', opacity: 1 }
-            }}
-          >
-            frontend engineer building compact quality libraries
-          </Typography>
+          <Flex direction="column" css={{ pt: '$2', gap: '12px 0' }}>
+            <Typography
+              noMargin
+              type={{ '@initial': 'body2', '@sm': 'button' }}
+              as="span"
+              css={{
+                maxWidth: '152px',
+                display: 'block',
+                opacity: 0.7,
+                '@sm': {
+                  pt: 0,
+                  maxWidth: 'unset',
+                  display: 'block',
+                  opacity: 1
+                }
+              }}
+            >
+              🛋️ Ergonomic software enthusiast & maker.
+            </Typography>
+            <Typography
+              noMargin
+              type={{ '@initial': 'body2', '@sm': 'button' }}
+              as="span"
+              css={{
+                maxWidth: '152px',
+                display: 'block',
+                opacity: 0.7,
+                '@sm': {
+                  pt: 0,
+                  maxWidth: 'unset',
+                  display: 'block',
+                  opacity: 1
+                }
+              }}
+            >
+              📦 React package deployer.
+            </Typography>
+          </Flex>
           <Flex align="center" css={{ gap: '0px 16px', height: '60px' }}>
             <Name>
               <Typography
@@ -255,24 +283,48 @@ const Index = ({ repos }) => {
               <Typography type="h6" as="span" noMargin>
                 Me
               </Typography>
-              <Typography type="body1" as="span" noMargin>
-                Hey I{`'`}m <span style={{ fontWeight: 600 }}>Jaxson</span> - a
-                twenty-something developer who{`'`}s trying to make modern
-                software products slightly less broken.
-              </Typography>
               <Typography type="body1" as="p" noMargin>
-                Currently my main area of interest and focus is{' '}
-                <span style={{ fontWeight: 600 }}>React development</span> and
-                other modern web tooling.{' '}
-                <span style={{ opacity: 0.5 }}>
-                  In my past life I was a Java developer.
+                I focus on developing ergonomic and humane software, with a
+                specific focus on{' '}
+                <span style={{ fontWeight: '600' }}>
+                  React, Next.js & TypeScript
                 </span>
+                . I{`'`}m also a developer who loves design details and stresses
+                the little stuff. Based in west cost Canada 🇨🇦 <abbr title="Pacific Standard Time">(PST)</abbr> on{' '}
+                <span style={{ fontWeight: '600' }}>Vancouver Island</span>.
+              </Typography>
+              <Spacer aria-hidden />
+              <Typography type="h6" as="span" noMargin>
+                Values
               </Typography>
               <Typography type="body1" as="p" noMargin>
-                I currently maintain a{' '}
-                <span style={{ fontStyle: 'italic' }}>few</span> small libraries
-                and open source projects. Outside software I enjoy obscure films
-                and spending time with my dog Maxine.
+                - Software should treat users as people, not just data points.
+              </Typography>
+              <Typography type="body1" as="p" noMargin>
+                - Help & guide others to do their best work.
+              </Typography>
+              <Typography type="body1" as="p" noMargin>
+                - Build sustainable and malice free business models.
+              </Typography>
+              <Spacer aria-hidden />
+              <Typography type="h6" as="span" noMargin>
+                Now
+              </Typography>
+              <Typography type="body1" as="p" noMargin>
+                - 🔨 Building{' '}
+<span style={{ fontWeight: '600' }}>
+                <Link
+                  href="https://getorbitl.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Orbital
+                </Link>{' '}
+</span>
+                and diving deeper into Swift ecosystem.
+              </Typography>
+              <Typography type="body1" as="p" noMargin>
+                - 🥘 Focusing on my health and eating.
               </Typography>
             </TextWrapper>
           </Container>
@@ -286,13 +338,6 @@ export const getStaticProps = async () => {
   const repos = await getRepos()
   return {
     props: { repos }
-  }
-}
-
-export const getStaticPaths = async () => {
-  return {
-    paths: [{ params: { section: [] } }, { params: { section: ['projects'] } }],
-    fallback: false
   }
 }
 
