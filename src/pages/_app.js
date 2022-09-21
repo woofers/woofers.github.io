@@ -52,17 +52,17 @@ const height = '1008px'
 const x = `max((100vw - ${width}) / 2, var(---px))`
 //const y = scale => `max(((100vh - ${height}) / 2) * ${scale}, 0px)`
 
-const homePadding = `max(12vh, 0px) ${x} max(30vh, 54px) ${x}`
-const homeMobilePadding = `0px ${x} 54px ${x}`
-const padding = `max(5vh, 54px) ${x} max(0vh, 0px) ${x}`
+const homePadding = `max(12vh, 0px) 0px max(30vh, 54px) ${x}`
+const homeMobilePadding = `max(0vh, 0px) 0px max(0vh, 54px) max(0vw, 0px)`
+const padding = `max(5vh, 54px) 0px max(0vh, 0px) ${x}`
 
 const loadFeatures = () =>
   import('components/animation.js').then(res => res.default)
 
 const variantsWrapper = {
-  initial: ({ isHome }) => ({
+  initial: ({ isHome, desktop }) => ({
     top: isHome ? 100 : 0,
-    padding: homePadding
+    padding: !isHome || desktop ? homePadding : homeMobilePadding
   }),
   enter: ({ isHome, desktop }) => ({
     top: 0,
@@ -203,26 +203,47 @@ const Card = styled('div', {
     -0.9px 1.1px 1.8px -0.7px hsl($$shadowColor / 0.29),
     -2px 2.4px 4.1px -1.3px hsl($$shadowColor / 0.4)`,
   '@sm': {
-    borderTop: '1px solid rgb(213 217 223)',
     p: '$7',
-    borderBottom: 'none'
+    borderBottom: 'none',
+    pr: `calc(${x} + $7)`
+  }
+})
+
+const Border = styled('div', {
+  width: '100%',
+  maxWidth: `calc(${width} + 40px)`,
+  left: '50%',
+  transform: 'translateX(-50%)',
+  px: '$$px',
+  zIndex: 30,
+  position: 'absolute',
+  height: '1px',
+  display: 'none',
+  '@sm': {
+    display: 'block'
   },
   variants: {
     border: {
-      top: {
-        borderTop: '1px solid rgb(213 217 223)'
-      },
       none: {
-        borderTop: 'none',
+        dispaly: 'none',
         '@sm': {
-          borderTop: '1px solid rgb(213 217 223)'
+          display: 'block'
         }
+      },
+      top: {
+        display: 'block'
       }
     }
   },
   defaultVariants: {
     border: 'none'
   }
+})
+
+const BorderInner = styled('div', {
+  background: 'rgb(213 217 223)',
+  width: '100%',
+  height: '100%'
 })
 
 const Content = styled(LayoutDiv, {
@@ -244,12 +265,18 @@ const BackWrapper = styled(motion.a, {
 
 const TopWrapper = styled(motion.div, {
   position: 'relative',
-  zIndex: 2
+  zIndex: 2,
+  '> div:first-of-type': {
+    pr: `calc(${x} + 12px)`
+  }
 })
 
 const BottomWrapper = styled(motion.div, {
   position: 'relative',
-  zIndex: 2
+  zIndex: 2,
+  '> div:first-of-type': {
+    pr: `calc(${x} + 12px)`
+  }
 })
 
 const back = path => {
@@ -378,7 +405,10 @@ const App = ({ Component, pageProps: props }) => {
                     </TopWrapper>
                   )}
                 </AnimatePresence>
-                <Card ref={ref} border={path !== 'home' ? 'top' : 'none'}>
+                <Border border={path !== 'home' ? 'top' : 'none'}>
+                  <BorderInner />
+                </Border>
+                <Card ref={ref}>
                   <Content
                     key={path}
                     variants={path !== 'home' ? variants : {}}

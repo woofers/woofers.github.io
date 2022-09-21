@@ -96,17 +96,6 @@ const useGlobalStyles = globalCss({
   '::selection': {
     background: '#ffab7f !important',
     color: '$slate800 !important'
-  },
-  '::-webkit-scrollbar-track': {
-    borderRadius: '4px',
-    backgroundColor: '#bcd2dc'
-  },
-  '::-webkit-scrollbar': {
-    width: '6px'
-  },
-  '::-webkit-scrollbar-thumb': {
-    borderRadius: '4px',
-    backgroundColor: '#7e9cab'
   }
 })
 
