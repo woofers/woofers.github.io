@@ -80,8 +80,7 @@ const Photo = styled('div', {
   }
 })
 
-const Spacer = styled('div', {
-})
+const Spacer = styled('div', {})
 
 const posts = [
   {
@@ -110,11 +109,19 @@ const Index = ({ repos }) => {
       <SEO />
       <Flex direction="column" css={{ gap: '40px 0', height: '100%' }}>
         <Flex
-          justify="between"
           align={{ '@initial': 'start', '@sm': 'normal' }}
-          css={{ flex: '0 0 60px', pl: '$1', pr: '$3', '@sm': { pr: 0 } }}
+          justify={{ '@initial': 'center', '@sm': 'between' }}
+          css={{ flex: '0 0 60px', pl: '$1', pr: '$1', '@sm': { pl: '$1', pr: 0 } }}
         >
-          <Flex direction="column" css={{ pt: '$2', gap: '12px 0' }}>
+          <Flex
+            direction="column"
+            css={{
+              pt: '$2',
+              gap: '12px 0',
+              display: 'none',
+              '@sm': { display: 'flex' }
+            }}
+          >
             <Typography
               noMargin
               type={{ '@initial': 'body2', '@sm': 'button' }}
@@ -290,7 +297,8 @@ const Index = ({ repos }) => {
                   React, Next.js & TypeScript
                 </span>
                 . I{`'`}m also a developer who loves design details and stresses
-                the little stuff. Based in west cost Canada 🇨🇦 <abbr title="Pacific Standard Time">(PST)</abbr> on{' '}
+                the little stuff. Based in west cost Canada 🇨🇦{' '}
+                <abbr title="Pacific Standard Time">(PST)</abbr> on{' '}
                 <span style={{ fontWeight: '600' }}>Vancouver Island</span>.
               </Typography>
               <Spacer aria-hidden />
@@ -312,15 +320,15 @@ const Index = ({ repos }) => {
               </Typography>
               <Typography type="body1" as="p" noMargin>
                 - 🔨 Building{' '}
-<span style={{ fontWeight: '600' }}>
-                <Link
-                  href="https://getorbitl.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Orbital
-                </Link>{' '}
-</span>
+                <span style={{ fontWeight: '600' }}>
+                  <Link
+                    href="https://getorbitl.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Orbital
+                  </Link>{' '}
+                </span>
                 and diving deeper into Swift ecosystem.
               </Typography>
               <Typography type="body1" as="p" noMargin>
