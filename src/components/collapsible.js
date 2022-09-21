@@ -5,6 +5,16 @@ import { styled, VisuallyHidden, Typography } from 'jxsn'
 import useMediaQuery from 'components/use-media-query'
 import Description from './description'
 
+const isIosDevice = () =>
+  typeof window !== 'undefined '&&
+  window.navigator &&
+  window.navigator.platform &&
+  (/iP(ad|hone|od)/.test(window.navigator.platform) ||
+    (window.navigator.platform === 'MacIntel' &&
+      window.navigator.maxTouchPoints > 1))
+
+const isSafari = () => /^((?!chrome|android).)*safari/i.test(typeof window !== 'undefined' ? navigator.userAgent : '')
+
 const loadFeatures = () =>
   import('components/animation.js').then(res => res.default)
 
@@ -169,14 +179,24 @@ const TextOverflow = styled('span', {
 
 const Collapsible = ({ items }) => {
   const [mounted, setMounted] = useState(false)
+  const timeoutRef = useRef()
   useEffect(() => {
     setMounted(true)
+    return () => {
+      const value = timeoutRef.current
+      if (typeof value === 'number') clearTimeout(value)
+    }
   }, [])
   const [expanded, setExpanded] = useState(false)
   const [hover, setHover] = useState(false)
   const open = () => {
     setExpanded(true)
     ref.current?.focus()
+    // Workaround a Safari bug where it needs a scroll update
+    // to recalculate layout properly
+    if (isIosDevice() || isSafari()) {
+      timeoutRef.current = setTimeout(() => ref.current?.scrollIntoView(), 100)
+    }
   }
   const ref = useRef()
   const desktop = useMediaQuery('(min-width: 640px)')
