@@ -35,10 +35,10 @@ const getScale = custom => {
 }
 
 const getColor = custom => {
-  if (custom === 0) return '#e9eef4'
-  if (custom === 1) return '#d0dbe6'
-  if (custom === 2) return '#c8d3df'
-  return '#c8d3df'
+  if (custom === 0) return '#edf0f7'
+  if (custom === 1) return '#d7e0ea'
+  if (custom === 2) return '#d1dae5'
+  return '#d1dae5'
 }
 
 const shift = {

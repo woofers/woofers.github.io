@@ -64,7 +64,7 @@ const useGlobalStyles = globalCss({
   li: { paddingLeft: '0', marginBottom: '0.8rem' },
   pre: {
     margin: '0',
-    marginBottom: '1.6rem',
+    marginBottom: '8px',
     fontSize: '0.85rem',
     lineHeight: 1.42,
     overflow: 'auto',
