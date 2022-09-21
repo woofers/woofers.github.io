@@ -29,6 +29,7 @@ const Fade = styled('div', {
     'linear-gradient(0deg, $$fadeColor 0%, $$fadeMiddle 50%, $$feather 100%)',
   //maskImage: 'linear-gradient(to top, $$fadeColor, $$feather)',
   bottom: '0',
+  right: '20px',
   height: '120px',
   position: 'absolute',
   zIndex: '3',
