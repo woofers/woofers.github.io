@@ -96,7 +96,11 @@ const parseMeta = meta => {
 
 const Block = ({ children, ...props }) => {
   if (children && typeof children === 'object') {
-    if (Array.isArray(children) && children.every(el => typeof el === 'string' && !el.trim())) return null
+    if (
+      Array.isArray(children) &&
+      children.every(el => typeof el === 'string' && !el.trim())
+    )
+      return null
   }
   const count = Children.count(children)
   const isNone = count === 0

@@ -25,7 +25,8 @@ const Fade = styled('div', {
   $$fadeMiddle: 'rgba(241, 245, 249, 0.4)',
   $$fadeColor: 'rgba(241, 245, 249, 1)',
   width: '100%',
-  background: 'linear-gradient(0deg, $$fadeColor 0%, $$fadeMiddle 50%, $$feather 100%)',
+  background:
+    'linear-gradient(0deg, $$fadeColor 0%, $$fadeMiddle 50%, $$feather 100%)',
   //maskImage: 'linear-gradient(to top, $$fadeColor, $$feather)',
   bottom: '0',
   height: '120px',
@@ -33,7 +34,7 @@ const Fade = styled('div', {
   zIndex: '3',
   opacity: '1',
   minHeight: '120px',
-//backdropFilter: 'blur(4px)',
+  //backdropFilter: 'blur(4px)',
   pointerEvents: 'none',
   display: 'none',
   '@sm': {
@@ -185,7 +186,6 @@ const ContentWrapper = styled(LayoutDiv, {
 })
 
 const Card = styled('div', {
-  borderTop: '1px solid rgb(213 217 223)',
   borderBottom: '1px solid rgb(213 217 223)',
   position: 'relative',
   zIndex: 5,
@@ -203,8 +203,25 @@ const Card = styled('div', {
     -0.9px 1.1px 1.8px -0.7px hsl($$shadowColor / 0.29),
     -2px 2.4px 4.1px -1.3px hsl($$shadowColor / 0.4)`,
   '@sm': {
+    borderTop: '1px solid rgb(213 217 223)',
     p: '$7',
     borderBottom: 'none'
+  },
+  variants: {
+    border: {
+      top: {
+        borderTop: '1px solid rgb(213 217 223)'
+      },
+      none: {
+        borderTop: 'none',
+        '@sm': {
+          borderTop: '1px solid rgb(213 217 223)'
+        }
+      }
+    }
+  },
+  defaultVariants: {
+    border: 'none'
   }
 })
 
@@ -361,7 +378,7 @@ const App = ({ Component, pageProps: props }) => {
                     </TopWrapper>
                   )}
                 </AnimatePresence>
-                <Card ref={ref}>
+                <Card ref={ref} border={path !== 'home' ? 'top' : 'none'}>
                   <Content
                     key={path}
                     variants={path !== 'home' ? variants : {}}
@@ -370,10 +387,14 @@ const App = ({ Component, pageProps: props }) => {
                     exit="exit"
                   >
                     <Component {...props} />
-                     {path === 'home' && <Spacer />}
+                    {path === 'home' && <Spacer />}
                   </Content>
                 </Card>
-                {path === 'home' && <Relative><Fade /></Relative>}
+                {path === 'home' && (
+                  <Relative>
+                    <Fade />
+                  </Relative>
+                )}
                 <BottomWrapper>
                   <Footer position="bottom" />
                 </BottomWrapper>
