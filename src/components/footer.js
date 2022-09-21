@@ -31,10 +31,7 @@ const Wrapper = styled('div', {
       },
       bottom: {
         top: 0,
-        width: '100%',
-        '@sm': {
-          width: '50%'
-        }
+        width: '100%'
       }
     }
   }

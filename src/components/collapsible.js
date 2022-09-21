@@ -78,7 +78,7 @@ const variants = {
     opacity: custom < 3 ? 1 : 0,
     zIndex: 100 - custom,
     pointerEvents: 'none',
-    boxShadow: `-0.2px 0.3px 0.6px hsl(206deg 14% 54% / 0.21), -0.5px 0.6px 1.4px -0.9px hsl(206deg 14% 54% / 0.31), -0.7px 0.8px 3.7px -1.5px hsl(206deg 14% 54% / 0.42)`
+    boxShadow: `-0.2px 0.3px 0.6px hsl(206deg 14% 54% / 0.31), -0.5px 0.6px 1.4px -0.9px hsl(206deg 14% 54% / 0.41), -0.7px 0.8px 3.7px -1.5px hsl(206deg 14% 54% / 0.52)`
   }),
   hover: ({ custom, mobile }) => ({
     y: `${custom * 17 - getHeight(mobile) * custom - 4}px`,
