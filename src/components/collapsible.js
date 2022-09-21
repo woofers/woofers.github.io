@@ -94,8 +94,8 @@ const variants = {
     opacity: 1,
     zIndex: 100 - custom,
     pointerEvents: 'all',
-    boxShadow: `-0.2px 0.3px 0.6px hsl(206deg 14% 54% / 0.10), -0.5px 0.6px 1.4px -0.9px hsl(206deg 14% 54% / 0.16), -0.7px 0.8px 3.7px -1.5px hsl(206deg 14% 54% / 0.21)`,
-    boxShadow: 'inset 0px 0px 0px 2px #dde5ec'
+    //boxShadow: `-0.2px 0.3px 0.6px hsl(206deg 14% 54% / 0.10), -0.5px 0.6px 1.4px -0.9px hsl(206deg 14% 54% / 0.16), -0.7px 0.8px 3.7px -1.5px hsl(206deg 14% 54% / 0.21)`,
+    boxShadow: 'inset 0px 0px 0px 1.25px #dde5ec'
   })
 }
 
