@@ -112,7 +112,8 @@ const Container = styled('div', {
 
 const OpenWrapper = styled('div', {
   position: 'relative',
-  width: '100%'
+  width: '100%',
+  willChange: 'margin-bottom'
 })
 
 const ProjectsWrapper = styled('div', {
