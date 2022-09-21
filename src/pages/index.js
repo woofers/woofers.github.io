@@ -107,11 +107,19 @@ const Index = ({ repos }) => {
   return (
     <Page>
       <SEO />
-      <Flex direction="column" css={{ gap: '40px 0', height: '100%' }}>
+      <Flex
+        direction="column"
+        css={{ gap: '20px 0', height: '100%', '@sm': { gap: '40px 0' } }}
+      >
         <Flex
           align={{ '@initial': 'start', '@sm': 'normal' }}
           justify={{ '@initial': 'center', '@sm': 'between' }}
-          css={{ flex: '0 0 60px', pl: '$1', pr: '$1', '@sm': { pl: '$1', pr: 0 } }}
+          css={{
+            flex: '0 0 60px',
+            pl: '$1',
+            pr: '$1',
+            '@sm': { pl: '$1', pr: 0 }
+          }}
         >
           <Flex
             direction="column"
