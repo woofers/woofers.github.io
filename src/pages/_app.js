@@ -62,7 +62,7 @@ const loadFeatures = () =>
 const variantsWrapper = {
   initial: ({ isHome, desktop }) => ({
     top: isHome ? 100 : 0,
-    padding: !isHome || desktop ? homePadding : homeMobilePadding
+    padding: homePadding,
   }),
   enter: ({ isHome, desktop }) => ({
     top: 0,
@@ -209,7 +209,7 @@ const Card = styled('div', {
   }
 })
 
-const Border = styled('div', {
+const Border = styled(motion.div, {
   width: '100%',
   maxWidth: `calc(${width} + 40px)`,
   left: '50%',
@@ -348,6 +348,12 @@ const App = ({ Component, pageProps: props }) => {
     const scale = Math.min(Math.max(Math.min(value, max) / max, 0), 1)
     return scale
   })
+  const opacityBr = useTransform(scrollY, value => {
+    if (path !== 'home') return 1
+    const max = 50
+    const scale = Math.min(Math.max(Math.min(value, max) / max, 0), 1)
+    return scale
+  })
   return (
     <LazyMotion features={loadFeatures}>
       <Wrapper>
@@ -405,7 +411,7 @@ const App = ({ Component, pageProps: props }) => {
                     </TopWrapper>
                   )}
                 </AnimatePresence>
-                <Border border={path !== 'home' ? 'top' : 'none'}>
+                <Border border={path !== 'home' ? 'top' : 'none'} style={{ opacity: opacityBr }}>
                   <BorderInner />
                 </Border>
                 <Card ref={ref}>
