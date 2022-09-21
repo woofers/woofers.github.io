@@ -15,6 +15,36 @@ import useMediaQuery from 'components/use-media-query'
 import { IoMdArrowRoundBack } from 'react-icons/io'
 import 'react-pico-8/styles.css'
 
+const Relative = styled('div', {
+  zIndex: '15',
+  position: 'relative'
+})
+
+const Fade = styled('div', {
+  $$feather: 'rgba(0, 0, 0, 0)',
+  $$fadeMiddle: 'rgba(241, 245, 249, 0.4)',
+  $$fadeColor: 'rgba(241, 245, 249, 1)',
+  width: '100%',
+  background: 'linear-gradient(0deg, $$fadeColor 0%, $$fadeMiddle 50%, $$feather 100%)',
+  //maskImage: 'linear-gradient(to top, $$fadeColor, $$feather)',
+  bottom: '0',
+  height: '120px',
+  position: 'absolute',
+  zIndex: '3',
+  opacity: '1',
+  minHeight: '120px',
+//backdropFilter: 'blur(4px)',
+  pointerEvents: 'none',
+  display: 'none',
+  '@sm': {
+    display: 'block'
+  }
+})
+
+const Spacer = styled('div', {
+  height: '60px'
+})
+
 const width = '1180px'
 const height = '1008px'
 
@@ -340,8 +370,10 @@ const App = ({ Component, pageProps: props }) => {
                     exit="exit"
                   >
                     <Component {...props} />
+                     {path === 'home' && <Spacer />}
                   </Content>
                 </Card>
+                {path === 'home' && <Relative><Fade /></Relative>}
                 <BottomWrapper>
                   <Footer position="bottom" />
                 </BottomWrapper>
