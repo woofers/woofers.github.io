@@ -53,9 +53,9 @@ const height = '1008px'
 const x = `max((100vw - ${width}) / 2, var(---px))`
 //const y = scale => `max(((100vh - ${height}) / 2) * ${scale}, 0px)`
 
-const homePadding = `max(12vh, 0px) 0px max(30vh, 54px) ${x}`
+const homePadding = `max(12vh, 0px) 0px max(30vh, 54px) 0px`
 const homeMobilePadding = `max(0vh, 0px) 0px max(0vh, 54px) max(0vw, 0px)`
-const padding = `max(5vh, 54px) 0px max(0vh, 0px) ${x}`
+const padding = `max(5vh, 54px) 0px max(0vh, 0px) 0px`
 
 const loadFeatures = () =>
   import('components/animation.js').then(res => res.default)
@@ -147,7 +147,19 @@ const Title = styled('div', {
       bottom: {
         top: 0
       }
-    }
+    },
+    width: { half: { width: '50%' } }
+  }
+})
+
+const TextCutoff = styled('span', {
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  display: 'block',
+  maxWidth: '134px',
+  '@sm': {
+    maxWidth: 'none'
   }
 })
 
@@ -206,6 +218,7 @@ const Card = styled('div', {
   '@sm': {
     p: '$7',
     borderBottom: 'none',
+    pl: `calc(${x} + $7)`,
     pr: `calc(${x} + $7)`
   }
 })
@@ -268,6 +281,7 @@ const TopWrapper = styled(motion.div, {
   position: 'relative',
   zIndex: 2,
   '> div:first-of-type': {
+    pl: `calc(${x} + 12px)`,
     pr: `calc(${x} + 12px)`
   }
 })
@@ -276,6 +290,7 @@ const BottomWrapper = styled(motion.div, {
   position: 'relative',
   zIndex: 2,
   '> div:first-of-type': {
+    pl: `calc(${x} + 12px)`,
     pr: `calc(${x} + 12px)`
   }
 })
@@ -388,11 +403,13 @@ const App = ({ Component, pageProps: props }) => {
                       animate="enter"
                       exit="exit"
                     >
-                      <Title position="top">
+                      <Title position="top" width="half">
                         <Flex align="center" css={{ gap: '0 6px' }}>
                           <BackButton />
-                          <Typography noMargin type="h6">
+                          <Typography noMargin type={{ '@initial': 'button', '@sm': 'h6' }}>
+                          <TextCutoff>
                             {title}
+                          </TextCutoff>
                           </Typography>
                         </Flex>
                       </Title>
