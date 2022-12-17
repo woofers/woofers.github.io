@@ -309,7 +309,7 @@ const BackButton = () => {
   const path = router.asPath
   const href = back(path)
   return (
-    <Link href={href} passHref>
+    <Link href={href} passHref legacyBehavior>
       <BackWrapper
         title="Go back"
         aria-label="Home"

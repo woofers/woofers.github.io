@@ -42,7 +42,7 @@ const Home = () => {
       <Header>
         <Image src={image.src} />
         <Typography css={{ px: '$7', pt: '$7', pb: '$5' }} type="h6">
-          Jaxson <Inline css={{ color: '$gray300' }}>Van Doorn</Inline>
+          Jaxson <Inline as="span" css={{ color: '$gray300' }}>Van Doorn</Inline>
         </Typography>
         <Flex css={{ px: '$7', gap: '0 $3', color: '$gray500' }}>
           <Typography type="subtitle1">@jaxsonvandoorn</Typography>
@@ -59,6 +59,22 @@ const Home = () => {
         <Typography css={{ px: '$7', py: '$7' }} type="h3">
           Work
         </Typography>
+        <InfoCard title="Making waves in React" subtitle="A story for the ages">
+          <Typography type="subtitle1">
+            Our story starts when Woofers, the world famous dog,{' '}
+            <Link href="#">ascends from the junk yar</Link> to become one of the
+            worlds{`'`} largest crypto barons. The rest, as they say, is
+            history.
+          </Typography>
+        </InfoCard>
+        <InfoCard title="React Wavify" subtitle="+177 stars, 99k downloads">
+          <Typography type="subtitle1">
+            Our story starts when Woofers, the world famous dog,{' '}
+            <Link href="#">ascends from the junk yar</Link> to become one of the
+            worlds{`'`} largest crypto barons. The rest, as they say, is
+            history.
+          </Typography>
+        </InfoCard>
         <Typography css={{ px: '$7', py: '$7', color: '$gray300' }} type="h3">
           Projects
         </Typography>

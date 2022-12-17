@@ -15,7 +15,7 @@ const Anchor = styled('a', {
 })
 
 const Link = ({ href, as, children, scroll = false, shallow, ...rest }) => (
-  <NextLink href={href} as={as} scroll={scroll} shallow={shallow} passHref>
+  <NextLink href={href} as={as} scroll={scroll} shallow={shallow} passHref legacyBehavior>
     <Anchor {...rest}>{children}</Anchor>
   </NextLink>
 )
@@ -33,7 +33,7 @@ export const MarkdownLink = ({ href, noStyle, children, target, ...rest }) => {
     .replace(plain, '')
   const path = route ?? '/'
   return (
-    <NextLink href={path} passHref>
+    <NextLink href={path} passHref legacyBehavior>
       {noStyle ? (
         <Anchor target={target} {...rest}>
           {children}

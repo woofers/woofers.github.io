@@ -221,7 +221,7 @@ const Collapsible = ({ items }) => {
             >
               <ProjectsWrapper>
                 {items.map((item, index) => (
-                  <Link key={`project-${item.key}`} href={item.href} passHref>
+                  <Link key={`project-${item.key}`} href={item.href} passHref legacyBehavior>
                     <Project
                       ref={index === 0 ? ref : undefined}
                       as={motion.a}

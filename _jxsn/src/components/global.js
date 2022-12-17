@@ -17,9 +17,9 @@ const useGlobalStyles = globalCss({
     margin: 0,
     padding: 0,
     backgroundColor: '$white',
-    color: '$gray900'
+    color: '$gray900',
   },
-  'h1, h2, h3, h4, h5, h6, p': {}
+  'h1, h2, h3, h4, h5, h6, p': {},
 })
 
 const Global = ({ children }) => {
