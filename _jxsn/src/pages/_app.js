@@ -1,16 +1,13 @@
 import { ThemeProvider } from 'components/theme-provider'
 import Global from 'components/global'
-import GoogleFonts from 'components/google-fonts'
+import Head from 'next/head'
 
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider>
-      <GoogleFonts
-        fonts={[
-        ]}
-      >
+      <Head>
         <link href="/fonts/albertsans/font.css" rel="stylesheet" />
-      </GoogleFonts>
+      </Head>
       <Global />
       <Component {...pageProps} />
     </ThemeProvider>

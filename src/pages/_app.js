@@ -22,8 +22,8 @@ const Relative = styled('div', {
 
 const Fade = styled('div', {
   $$feather: 'rgba(0, 0, 0, 0)',
-  $$fadeMiddle: 'rgba(241, 245, 249, 0.4)',
-  $$fadeColor: 'rgba(241, 245, 249, 1)',
+  $$fadeMiddle: 'rgba(9, 11, 16, 0.4)',
+  $$fadeColor: 'rgba(9, 11, 16, 1)',
   width: '100%',
   background:
     'linear-gradient(0deg, $$fadeColor 0%, $$fadeMiddle 50%, $$feather 100%)',
@@ -202,16 +202,16 @@ const Card = styled('div', {
   borderBottom: '1px solid rgb(213 217 223)',
   position: 'relative',
   zIndex: 5,
-  background: '#f1f5f9',
+  background: '#090b10',
   overflowX: 'hidden',
   overflowY: 'auto',
-  color: '$gray700',
+  color: '#bbbed2',
   width: '100%',
   height: '100%',
   mx: 'auto',
   px: '12px',
   py: '24px',
-  $$shadowColor: '206deg 14% 54%',
+  $$shadowColor: '220deg 33% 5%',
   $$shadowElevationLow: `-0.5px 0.6px 1px hsl($$shadowColor / 0.19),
     -0.9px 1.1px 1.8px -0.7px hsl($$shadowColor / 0.29),
     -2px 2.4px 4.1px -1.3px hsl($$shadowColor / 0.4)`,
@@ -255,7 +255,7 @@ const Border = styled(motion.div, {
 })
 
 const BorderInner = styled('div', {
-  background: 'rgb(213 217 223)',
+  background: '#25262e',
   width: '100%',
   height: '100%'
 })
@@ -273,7 +273,7 @@ const BackWrapper = styled(motion.a, {
   height: '38px',
   transition: 'background-color 300ms ease 0s',
   '&:hover': {
-    backgroundColor: 'rgba(55, 65, 81, 0.07)'
+    backgroundColor: '#14171d'
   }
 })
 
@@ -335,23 +335,8 @@ const App = ({ Component, pageProps: props }) => {
   const { buttons, title } = props
   const router = useRouter()
   const path = key(router.asPath)
-  useEffect(() => {
-    if (typeof window === 'undefined') return
-    const onLoad = () => {
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(registrations => {
-          for (let registration of registrations) {
-            registration.unregister()
-          }
-        })
-      }
-    }
-    window.addEventListener('load', onLoad)
-    return () => {
-      window.removeEventListener('load', onLoad)
-    }
-  }, [])
   const desktop = useMediaQuery('(min-width: 640px)')
+  console.log(desktop, path)
   const ref = useRef()
   const { scrollY } = useScroll({ container: ref })
   const y = useTransform(scrollY, value => {

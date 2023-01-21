@@ -2,11 +2,11 @@ import NextLink from 'next/link'
 import { styled } from 'jxsn'
 
 const StyledAnchor = styled('a', {
-  color: '$blue500',
+  color: '#6a7eff',
   transition: 'color 300ms ease 0s',
   textDecoration: 'none',
   '&:hover': {
-    color: '$blue400'
+    color: '#4461ce'
   }
 })
 

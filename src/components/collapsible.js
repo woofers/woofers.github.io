@@ -45,10 +45,10 @@ const getScale = custom => {
 }
 
 const getColor = custom => {
-  if (custom === 0) return '#edf0f7'
-  if (custom === 1) return '#d7e0ea'
-  if (custom === 2) return '#d1dae5'
-  return '#d1dae5'
+  if (custom === 0) return '#0e0f17'
+  if (custom === 1) return '#1c202d'
+  if (custom === 2) return '#222634'
+  return '#222634'
 }
 
 const shift = {
@@ -88,11 +88,11 @@ const variants = {
     opacity: custom < 3 ? 1 : 0,
     zIndex: 100 - custom,
     pointerEvents: 'none',
-    boxShadow: `-0.2px 0.3px 0.6px hsl(206deg 14% 54% / 0.31), -0.5px 0.6px 1.4px -0.9px hsl(206deg 14% 54% / 0.41), -0.7px 0.8px 3.7px -1.5px hsl(206deg 14% 54% / 0.52)`
+    boxShadow: `-0.2px 0.3px 0.6px hsl(218deg 14% 31% / 0.31), -0.5px 0.6px 1.4px -0.9px hsl(218deg 14% 31% / 0.41), -0.7px 0.8px 3.7px -1.5px hsl(218deg 14% 31% / 0.52)`
   }),
   hover: ({ custom, mobile }) => ({
     y: `${custom * 17 - getHeight(mobile) * custom - 4}px`,
-    boxShadow: `-0.5px 0.6px 1px hsl(206deg 14% 54% / 0.19), -0.9px 1.1px 1.8px -0.7px hsl(206deg 14% 54% / 0.29), -2px 2.4px 4.1px -1.3px hsl(206deg 14% 54% / 0.4)`
+    boxShadow: `-0.5px 0.6px 1px hsl(218deg 14% 31% / 0.19), -0.9px 1.1px 1.8px -0.7px hsl(218deg 14% 31% / 0.29), -2px 2.4px 4.1px -1.3px hsl(218deg 14% 31% / 0.4)`
   }),
   open: ({ custom, mobile }) => ({
     y: `${
@@ -104,8 +104,8 @@ const variants = {
     opacity: 1,
     zIndex: 100 - custom,
     pointerEvents: 'all',
-    //boxShadow: `-0.2px 0.3px 0.6px hsl(206deg 14% 54% / 0.10), -0.5px 0.6px 1.4px -0.9px hsl(206deg 14% 54% / 0.16), -0.7px 0.8px 3.7px -1.5px hsl(206deg 14% 54% / 0.21)`,
-    boxShadow: 'inset 0px 0px 0px 1.25px #dde5ec'
+    //boxShadow: `-0.2px 0.3px 0.6px hsl(218deg 14% 31% / 0.10), -0.5px 0.6px 1.4px -0.9px hsl(218deg 14% 31% / 0.16), -0.7px 0.8px 3.7px -1.5px hsl(218deg 14% 31% / 0.21)`,
+    boxShadow: 'inset 0px 0px 0px 1.25px #171b25'
   })
 }
 
@@ -132,7 +132,7 @@ const ProjectsWrapper = styled('div', {
   py: '0',
   display: 'flex',
   flexDirection: 'column',
-  color: '$gray400',
+  color: '#5a5c6b',
   gap: '0'
 })
 

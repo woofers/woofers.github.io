@@ -5,7 +5,7 @@ import Meta from './meta'
 import Fonts from './fonts'
 
 const Wrapper = styled('div', {
-  color: '$slate800'
+  color: '#bbbed2'
 })
 
 const Main = styled('main', {})

@@ -201,7 +201,7 @@ const Index = ({ repos }) => {
                   children: (
                     <Flex justify="between" css={{ width: '100%' }} align="end">
                       <Typography
-                        css={{ whiteSpace: 'nowrap', color: '#6e7783' }}
+                        css={{ whiteSpace: 'nowrap', color: '#858998' }}
                         type={{ '@initial': 'button', '@sm': 'h6' }}
                         as="span"
                         noMargin
@@ -210,7 +210,7 @@ const Index = ({ repos }) => {
                       </Typography>
                       <Flex css={{ gap: '0 4px', height: '16px' }}>
                         {formatStars(project.stars) && (
-                          <Flex css={{ color: '$gray700' }}>
+                          <Flex css={{ color: '#bbbed2' }}>
                             <Typography type="button" as="span" noMargin>
                               {formatStars(project.stars)}
                             </Typography>{' '}
@@ -241,7 +241,7 @@ const Index = ({ repos }) => {
                   children: (
                     <Flex justify="between" css={{ width: '100%' }} align="end">
                       <Typography
-                        css={{ whiteSpace: 'nowrap', color: '#6e7783' }}
+                        css={{ whiteSpace: 'nowrap', color: '#858998' }}
                         type={{ '@initial': 'button', '@sm': 'h6' }}
                         as="span"
                         noMargin
@@ -250,7 +250,7 @@ const Index = ({ repos }) => {
                       </Typography>
                       <Flex css={{ gap: '0 4px', height: '16px' }}>
                         {formatStars(game.stars) && (
-                          <Flex css={{ color: '$gray700' }}>
+                          <Flex css={{ color: '#bbbed2' }}>
                             <Typography type="button" as="span" noMargin>
                               {formatStars(game.stars)}
                             </Typography>{' '}
@@ -321,26 +321,6 @@ const Index = ({ repos }) => {
               </Typography>
               <Typography type="body1" as="p" noMargin>
                 - Build sustainable and malice free business models.
-              </Typography>
-              <Spacer aria-hidden />
-              <Typography type="h6" as="span" noMargin>
-                Now
-              </Typography>
-              <Typography type="body1" as="p" noMargin>
-                - 🔨 Building{' '}
-                <span style={{ fontWeight: '600' }}>
-                  <Link
-                    href="https://getorbitl.app/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Orbital
-                  </Link>{' '}
-                </span>
-                and diving deeper into Swift ecosystem.
-              </Typography>
-              <Typography type="body1" as="p" noMargin>
-                - 🥘 Focusing on my health and eating.
               </Typography>
             </TextWrapper>
           </Container>

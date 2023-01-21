@@ -1,7 +1,7 @@
 import { globalCss } from 'jxsn'
 
 const accent = '#f27052'
-const code = '#2d2833'
+const code = '#111118'
 
 const text = {
   dark: '#000',
@@ -23,8 +23,8 @@ const useGlobalStyles = globalCss({
   body: {
     lineHeight: 1.5,
     '-webkit-font-smoothing': 'antialiased',
-    background: '#f1f5f9',
-    color: '$slate700',
+    background: '#090b10',
+    color: '#bbbed2',
     overscrollBehaviorY: 'none'
   },
   'img, picture, video, canvas, svg': {

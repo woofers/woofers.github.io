@@ -54,7 +54,7 @@ const IconWrapper = styled('div', {
   gap: '0 8px',
   transition: 'background-color 300ms ease 0s',
   '&:hover': {
-    backgroundColor: 'rgba(55, 65, 81, 0.07)'
+    backgroundColor: '#14171d'
   }
 })
 
@@ -62,7 +62,7 @@ const Divider = styled('div', {
   mx: '6px',
   height: '16px',
   width: '1px',
-  backgroundColor: '#b1b9c3'
+  backgroundColor: '#434753'
 })
 
 const Icons = {
