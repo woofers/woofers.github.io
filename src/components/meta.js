@@ -13,8 +13,8 @@ const Meta = () => {
       <link rel="icon" href="/favicon.png" />
       <meta name="apple-mobile-web-app-capable" content="yes" />
       <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-      <meta name="theme-color" content="#f1f5f9" />
-      <meta name="msapplication-navbutton-color" content="#f1f5f9" />
+      <meta name="theme-color" content="#090b10" />
+      <meta name="msapplication-navbutton-color" content="#090b10" />
     </Head>
   )
 }

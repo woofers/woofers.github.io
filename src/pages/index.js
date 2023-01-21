@@ -137,7 +137,7 @@ const Index = ({ repos }) => {
               css={{
                 maxWidth: '152px',
                 display: 'block',
-                opacity: 0.7,
+                color: '#c6c6c7d4',
                 '@sm': {
                   pt: 0,
                   maxWidth: 'unset',
@@ -155,7 +155,7 @@ const Index = ({ repos }) => {
               css={{
                 maxWidth: '152px',
                 display: 'block',
-                opacity: 0.7,
+                color: '#c6c6c7d4',
                 '@sm': {
                   pt: 0,
                   maxWidth: 'unset',
@@ -298,7 +298,7 @@ const Index = ({ repos }) => {
               <Typography type="h6" as="span" noMargin>
                 Me
               </Typography>
-              <Typography type="body1" as="p" noMargin>
+              <Typography type="body1" as="p" noMargin css={{ opacity: 0.83 }}>
                 I focus on developing ergonomic and humane software, with a
                 specific focus on{' '}
                 <span style={{ fontWeight: '600' }}>
@@ -313,13 +313,13 @@ const Index = ({ repos }) => {
               <Typography type="h6" as="span" noMargin>
                 Values
               </Typography>
-              <Typography type="body1" as="p" noMargin>
+              <Typography type="body1" as="p" noMargin css={{ opacity: 0.83 }}>
                 - Software should treat users as people, not just data points.
               </Typography>
-              <Typography type="body1" as="p" noMargin>
+              <Typography type="body1" as="p" noMargin css={{ opacity: 0.83 }}>
                 - Help & guide others to do their best work.
               </Typography>
-              <Typography type="body1" as="p" noMargin>
+              <Typography type="body1" as="p" noMargin css={{ opacity: 0.83 }}>
                 - Build sustainable and malice free business models.
               </Typography>
             </TextWrapper>

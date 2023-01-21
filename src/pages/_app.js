@@ -205,7 +205,7 @@ const Card = styled('div', {
   background: '#090b10',
   overflowX: 'hidden',
   overflowY: 'auto',
-  color: '#bbbed2',
+  color: '#c6c6c7',
   width: '100%',
   height: '100%',
   mx: 'auto',

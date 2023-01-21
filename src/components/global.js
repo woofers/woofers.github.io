@@ -24,7 +24,7 @@ const useGlobalStyles = globalCss({
     lineHeight: 1.5,
     '-webkit-font-smoothing': 'antialiased',
     background: '#090b10',
-    color: '#bbbed2',
+    color: '#c6c6c7',
     overscrollBehaviorY: 'none'
   },
   'img, picture, video, canvas, svg': {
