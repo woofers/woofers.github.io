@@ -102,8 +102,8 @@
         }
     ],
     "display": "standalone",
-    "theme_color": "#f1f5f9",
-    "background_color": "#f1f5f9",
+    "theme_color": "#f4f4f5",
+    "background_color": "#f4f4f5",
     "start_url": "/",
     "short_name": "Jaxson",
     "name": "Jaxson Van Doorn"

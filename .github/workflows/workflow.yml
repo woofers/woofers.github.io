@@ -11,18 +11,12 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '16'
+        node-version: '18'
         registry-url: 'https://registry.npmjs.org'
     - name: Deploy Info
       env:
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: echo "$GITHUB_CONTEXT"
-    - name: Install Lib
-      run: yarn --cwd _jxsn install
-    - name: Build Lib
-      run: yarn --cwd _jxsn build
-    - name: Install Prod Lib
-      run: yarn --cwd _jxsn install --prod
     - name: Install
       run: yarn install
     - name: Build
