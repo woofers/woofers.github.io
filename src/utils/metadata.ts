@@ -9,7 +9,7 @@ const alt = 'Cover image for jaxs.onl'
 
 export const getMetadata = ({
   title,
-  noIndex = true
+  noIndex = false
 }: { title?: string; noIndex?: boolean } = {}) =>
   ({
     title: title ? `${title} | ${name}` : name,
