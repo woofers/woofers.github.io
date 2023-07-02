@@ -29,8 +29,6 @@ const Icons = {
   react: () => <IoMdInformationCircle size="1.22em" />
 } as const
 
-//const Icons: Record<keyof typeof IconsMap, () => JSX.Element> = IconsMap
-
 const dataDefault = [
   {
     key: 'github',
@@ -46,27 +44,6 @@ const dataDefault = [
     link: 'https://jaxs.onl/resume/jaxsonvd-resume.pdf',
     showText: true
   },
-  /*
-  {
-    key: 'stackoverflow',
-    name: 'Stack Overflow',
-    link: 'https://stackoverflow.com/users/9129020/jvandoorn',
-    external: true,
-  },
-  {
-    key: 'twitter',
-    name: 'Twitter',
-    link: 'https://twitter.com/jaxsonvandoorn',
-    handle: '@jaxsonvandoorn',
-    external: true,
-  },
-  {
-    key: 'linkedin',
-    name: 'LinkedIn',
-    link: 'https://www.linkedin.com/in/jaxson-van-doorn/',
-    external: true,
-  },
-*/
   {
     key: 'email',
     name: 'hey@jaxs.onl',
@@ -130,6 +107,7 @@ const Links: React.FC<LinksProps> = ({
                   <Text
                     className="whitespace-nowrap"
                     type="h6"
+                    as="span"
                     fontWeight="medium"
                     font="serif"
                   >
