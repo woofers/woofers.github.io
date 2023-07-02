@@ -91,7 +91,7 @@ const createComponents = (meta: Meta) => {
     pre: (props: React.HTMLProps<HTMLPreElement>) => (
       <pre
         {...props}
-        className="rounded-xl mb-2.5 mt-2 [font-size:0.85rem] [line-height:1.42] bg-[#111118] text-[#aaaaca] [overflow:auto] [overflow-wrap:normal] p-6 [font-size:0.85rem]"
+        className="rounded-xl mb-2.5 mt-2 [line-height:1.42] bg-[#111118] text-[#aaaaca] [overflow:auto] [overflow-wrap:normal] p-6 text-xs sm:text-sm"
       />
     ),
     a: Anchor,
