@@ -94,6 +94,15 @@ h6 {
   margin-top: 12.5px;
 }
 
+::selection {
+  background: #ffab7f !important;
+  color: var(--color-zinc-100) !important;
+}
+
+::-moz-selection {
+  background: #ffab7f !important;
+  color: var(--color-zinc-100) !important;
+}
 
 @layer base {
   :root {
