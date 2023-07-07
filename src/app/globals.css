@@ -100,12 +100,12 @@ input, textarea, button, select, a {
 
 ::selection {
   background: #ffab7f !important;
-  color: var(--color-zinc-100) !important;
+  color: rgb(var(--color-zinc-100) / 0.99) !important;
 }
 
 ::-moz-selection {
   background: #ffab7f !important;
-  color: var(--color-zinc-100) !important;
+  color: rgb(var(--color-zinc-100) / 0.99) !important;
 }
 
 @layer base {

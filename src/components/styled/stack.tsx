@@ -1,7 +1,7 @@
 import Box from './box'
 import { cva, clsx } from 'cva'
 import type { VariantProps } from 'cva'
-import type { BoxProps } from './box'\
+import type { BoxProps } from './box'
 
 const gutter = {
   '0': ['gap-y-0'],
