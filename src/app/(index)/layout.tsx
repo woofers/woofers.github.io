@@ -16,7 +16,7 @@ const MainLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
         as={Link}
         href="/"
       >
-        <Logo className="[mix-blend-mode:difference] [filter:contrast(0.8)] [transform:scale(0.8)] dark-mode:[mix-blend-mode:normal] dark-mode:[filter:none] dark-mode:text-neutral-400/75" />
+        <Logo className="text-[#c7c7c6] dark-mode:text-[#2e2e2e]" />
       </Row>
     </Stack>
   </Box>

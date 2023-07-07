@@ -9,7 +9,7 @@ const gutter = {
   '1.5': ['gap-y-1.5'],
   '2': ['gap-y-2'],
   '4': ['gap-y-4'],
-  '6': ['gap-y-6'],
+  '6': ['gap-y-6']
 } as const
 
 const stack = cva([], {
