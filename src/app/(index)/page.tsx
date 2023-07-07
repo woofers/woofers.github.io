@@ -90,14 +90,14 @@ const Home = async () => {
         <Box className="block md:hidden">
           <img
             className="hidden rounded-xl sm:block"
-            src="/me/jaxson-new.webp"
+            src="/me/jaxson-new-small.webp"
             alt="Photo of Jaxson"
             width={112}
             height={112}
           />
           <img
             className="block rounded-xl sm:hidden"
-            src="/me/jaxson-new.webp"
+            src="/me/jaxson-new-small.webp"
             alt="Photo of Jaxson"
             width={76}
             height={76}
