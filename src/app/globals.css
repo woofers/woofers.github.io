@@ -53,6 +53,10 @@ h6 {
   min-height: 100vh;
 }
 
+input, textarea, button, select, a {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
 .p8_menu_button {
   display: inline !important;
 }
