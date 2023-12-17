@@ -12,9 +12,9 @@ const Logo: React.FC<{ className?: string; header?: boolean }> = ({
       font="serif"
       fontWeight="regular"
       fontStyle="italic"
-      className={clsx(!header && '[font-size:2.4rem]', header && 'text-[#e96b24]')}
+      className={clsx(!header && '[font-size:2.4rem]', header && 'text-[#c96822]')}
     >
-      jaxs.on {header && <Text type="plain" as="span" fontStyle="normal" className="text-[#212121] ml-[-5px]">|</Text>}
+      jaxs.on {header && <Text aria-hidden type="plain" as="span" fontStyle="normal" className="text-[#212121] ml-[-5px]">|</Text>}
     </Text>
     <Text
       type={header ? 'h4' : 'h1'}
@@ -25,7 +25,7 @@ const Logo: React.FC<{ className?: string; header?: boolean }> = ({
         clsx(
           'font-light',
           'lowercase',
-          'text-[#424242]',
+          !header ? 'text-[#424242]' : 'text-[#6c6b6b]',
           header &&
             '[margin-bottom:-14px] [margin-left:65px] sm:[margin-left:45px]',
           !header && '[margin-bottom:-8px] [margin-left:36px] [font-size:1.2rem]'

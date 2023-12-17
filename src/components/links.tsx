@@ -67,6 +67,7 @@ const external = { target: '_blank', rel: 'noopener noreferrer' } as const
 type LinksProps = {
   data?: Entry[]
   children?: React.ReactNode
+  className?: string
 }
 
 const Links: React.FC<LinksProps> = ({
@@ -74,7 +75,7 @@ const Links: React.FC<LinksProps> = ({
   children,
   ...rest
 }) => (
-  <Box {...rest} className="dark-mode:text-neutral-800">
+  <Box {...rest}>
     {children}
     <Row gutter="1" alignItems="center" className="h-9">
       {data.map(meta => {

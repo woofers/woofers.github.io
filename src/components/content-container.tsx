@@ -23,7 +23,7 @@ const ContentContainer: React.FC<LinkProps> = ({ children, data, back }) => (
     )}
     {!!data && (
       <Box position="absolute" className="top-0 right-0">
-        <Links data={data} />
+        <Links data={data} className="dark-mode:text-neutral-800" />
       </Box>
     )}
     {children}

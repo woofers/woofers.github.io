@@ -3,6 +3,7 @@ import { post } from './http'
 import { getPackage } from './npm'
 import { bundleMDX } from 'mdx-bundler'
 import { rehypePlugins, remarkPlugins } from '../../remark'
+import { data as readmeFix } from './fix'
 
 const exclude = {
   link: true,
@@ -158,6 +159,10 @@ export const getRepo = async (name: string) => {
   mutateRepoNames(repo, exclude)
   repo.link = getRepoLink(repo.name)
   if (!repo || !repo.fullName) return null
+
+  if (repo.name === 'use-eye-dropper') {
+    repo.readme.text = readmeFix
+  }
   try {
     const mdx = await bundleMDX({ source: repo.readme.text, mdxOptions })
     repo.code = mdx.code
