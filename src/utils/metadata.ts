@@ -49,7 +49,7 @@ export const getMetadata = ({
       other: []
     },
     manifest: '/manifest.webmanifest',
-    themeColor: '#f4f4f5',
+    themeColor: '#151516',
     metadataBase:
       process.env.NODE_ENV === 'production'
         ? new URL('https://jaxs.onl')

@@ -38,6 +38,7 @@ const exclude = {
 
   'jaxson-site': true,
   'ludum-dare-badges': true,
+  'use-contacts': true,
   groove: true
 } as const
 

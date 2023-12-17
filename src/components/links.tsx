@@ -105,15 +105,11 @@ const Links: React.FC<LinksProps> = ({
               <Row gutter="2" alignItems="center">
                 <Icon aria-hidden />
                 {showText && (
-                  <Text
-                    className="whitespace-nowrap"
-                    type="h6"
-                    as="span"
-                    fontWeight="medium"
-                    font="serif"
+                  <span
+                    className="min-w-0 box-border m-0 [font-family:var(--font-serif)] text-base sm:text-md font-medium whitespace-nowrap"
                   >
                     {meta.name}
-                  </Text>
+                  </span>
                 )}
               </Row>
             </Link>
