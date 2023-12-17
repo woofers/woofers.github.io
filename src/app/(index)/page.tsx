@@ -106,7 +106,7 @@ const Home = async () => {
       </Row>
       <Links />
       <Box>
-        <Row gutter="2" className="flex-wrap gap-y-2">
+        <Row gutter="2" className="hidden flex-wrap gap-y-2 sm:flex">
           <Stack
             gutter="2"
             className="flex-grow px-4 py-5 rounded-xl bg-zinc-900 text-zinc-100 card-style dark-mode:bg-zinc-200 dark:text-neutral-600"
