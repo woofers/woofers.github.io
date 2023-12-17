@@ -74,7 +74,7 @@ const Links: React.FC<LinksProps> = ({
   children,
   ...rest
 }) => (
-  <Box {...rest}>
+  <Box {...rest} className="dark-mode:text-neutral-800">
     {children}
     <Row gutter="1" alignItems="center" className="h-9">
       {data.map(meta => {

@@ -18,7 +18,7 @@ const SectionTitle: React.FC<{
     fontWeight="bold"
     className={clsx(
       margin === 'normal' && 'mt-4 [margin-bottom:0px] sm:mt-10 mb-2',
-      'italic text-neutral-400 text-2xl font-medium dark:text-neutral-500 sm:not-italic sm:font-bold sm:text-4xl sm:text-zinc-900 sm:dark-mode:text-neutral-800'
+      'italic text-neutral-400 text-2xl font-medium dark:text-neutral-500 sm:not-italic sm:font-bold sm:text-4xl sm:text-zinc-900 sm:dark-mode:text-neutral-600'
     )}
   >
     {children}
@@ -87,7 +87,7 @@ const Home = async () => {
         className="[height:66px]"
       >
         <Logo className="ml-3 lg:ml-0" header />
-        <Box className="block md:hidden">
+        <Box className="block grayscale-[20%] md:hidden">
           <img
             className="hidden rounded-xl sm:block"
             src="/me/jaxson-new-small.webp"
@@ -109,7 +109,7 @@ const Home = async () => {
         <Row gutter="2" className="flex-wrap gap-y-2">
           <Stack
             gutter="2"
-            className="flex-grow px-4 py-5 rounded-xl bg-zinc-900 text-zinc-100 dark-mode:bg-zinc-200 dark:text-neutral-800"
+            className="flex-grow px-4 py-5 rounded-xl bg-zinc-900 text-zinc-100 card-style dark-mode:bg-zinc-200 dark:text-neutral-600"
           >
             <Text type="h4" as="span" font="serif" fontWeight="medium">
               🛋️ Ergonomic software enthusiast & maker.
@@ -118,7 +118,7 @@ const Home = async () => {
               📦 React package deployer.
             </Text>
           </Stack>
-          <Box className="[flex:0_0_200px] hidden md:block">
+          <Box className="[flex:0_0_200px] grayscale-[20%] hidden md:block">
             <img
               className="rounded-xl"
               src="/me/jaxson-new.webp"
@@ -142,7 +142,7 @@ const Home = async () => {
           <Stack
             gutter="2"
             inline
-            className="[margin-left:auto] mt-3 px-4 py-5 rounded-xl border border-zinc-900 dark-mode:border-neutral-800"
+            className="[margin-left:auto] mt-3 px-4 py-5 rounded-xl border border-zinc-900 dark-mode:border-neutral-600"
           >
             {[...allPosts]
               .sort(
@@ -182,7 +182,7 @@ const Home = async () => {
         <Stack
           gutter="2"
           inline
-          className="mt-3 px-4 py-4 rounded-xl bg-zinc-900 text-zinc-100 dark-mode:bg-zinc-200 dark:text-neutral-800 w-full lg:[max-width:540px]"
+          className="mt-3 px-4 py-4 rounded-xl bg-zinc-900 text-zinc-100 dark-mode:bg-zinc-200 dark:text-neutral-600 w-full card-style lg:[max-width:540px]"
         >
           {allGames.map(({ fullName, description, link, stars }) => (
             <Link href={toUrl(link)} key={link} className="block">
@@ -206,7 +206,7 @@ const Home = async () => {
         <Stack
           gutter="2"
           inline
-          className="mt-3 px-4 py-4 rounded-xl bg-zinc-900 text-zinc-100 dark-mode:bg-zinc-200 dark:text-neutral-800 w-full lg:[max-width:488px]"
+          className="mt-3 px-4 py-4 rounded-xl bg-zinc-900 text-zinc-100 dark-mode:bg-zinc-200 dark:text-neutral-600 w-full card-style lg:[max-width:488px]"
         >
           {[...allRepos]
             .sort((a, b) => b.downloads - a.downloads)

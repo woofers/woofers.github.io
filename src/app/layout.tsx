@@ -89,7 +89,7 @@ const neueMontreal = localFont({
   display: 'swap'
 })
 
-const isDarkMode = false
+const isDarkMode = true
 
 const RootLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   return (
@@ -104,7 +104,7 @@ const RootLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
       <head />
       <body>
         <div id="__next">
-          <div className="flex min-h-screen flex-col text-zinc-900 bg-zinc-100 dark-mode:text-neutral-800">
+          <div className="flex min-h-screen flex-col text-zinc-900 bg-zinc-100 dark-mode:text-neutral-600 site-background">
             {children}
           </div>
         </div>

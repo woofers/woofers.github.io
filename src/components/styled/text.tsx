@@ -47,7 +47,7 @@ const text = cva([], {
       bold: ['font-bold']
     },
     fontStyle: {
-      normal: [],
+      normal: ['[font-style:normal]'],
       italic: ['italic']
     }
   },
