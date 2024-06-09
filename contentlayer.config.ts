@@ -1,4 +1,4 @@
-import { defineDocumentType, makeSource, type ComputedFields } from 'contentlayer/source-files'
+import { defineDocumentType, makeSource, type ComputedFields } from '@contentlayer/source-files'
 import { rehypePlugins, remarkPlugins } from './remark'
 
 const computedFields: ComputedFields<string> = {

@@ -39,7 +39,8 @@ const exclude = {
   'jaxson-site': true,
   'ludum-dare-badges': true,
   groove: true,
-  'use-contacts': true
+  'use-contacts': true,
+  'next-auth-oauth4webapi': true
 } as const
 
 type ExcludeList = typeof exclude

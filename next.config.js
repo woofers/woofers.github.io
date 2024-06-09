@@ -11,13 +11,7 @@ const nextConfig = {
     appDir: true,
     typedRoutes: true
   },
-  images: { unoptimized: true },
-  webpack: (config, { dev, isServer }) => {
-    if (dev && isServer) {
-      // config.plugins.push(new ForkTsCheckerWebpackPlugin())
-    }
-    return config
-  }
+  images: { unoptimized: true }
 }
 
 module.exports = withContentlayer(nextConfig)
