@@ -4,6 +4,7 @@ import { useMDXComponent } from 'next-contentlayer/hooks'
 import { toUrl } from 'utils'
 import { Text as Typography, Link } from 'components/styled'
 import { clsx } from 'cva'
+import type { MDXComponents } from 'mdx/types'
 
 type InsetProps = { inset?: 'both' | 'left' | 'right' | 'none' }
 
@@ -86,7 +87,6 @@ type Meta = {
 const createComponents = (meta: Meta) => {
   const Img = withCustomImage(meta.project)
   return {
-    Image,
     img: Img,
     pre: (props: React.HTMLProps<HTMLPreElement>) => (
       <pre
@@ -190,7 +190,7 @@ const createComponents = (meta: Meta) => {
       }
       return <Typography type="body1" {...props} as="p" />
     }
-  }
+  } as MDXComponents
 }
 
 type MdxProps = {

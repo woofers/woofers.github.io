@@ -83,7 +83,7 @@ type BoxComponent = <C extends React.ElementType = 'div'>(
 ) => React.ReactElement | null
 
 // eslint-disable-next-line react/display-name
-const Box: BoxComponent = React.forwardRef(
+const Box = (React.forwardRef(
   <C extends React.ElementType = 'div'>(
     {
       className,
@@ -121,7 +121,7 @@ const Box: BoxComponent = React.forwardRef(
       </Component>
     )
   }
-)
+) as BoxComponent)
 
 export default Box
 
