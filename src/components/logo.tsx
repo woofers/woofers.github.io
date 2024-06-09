@@ -10,25 +10,22 @@ const Logo: React.FC<{ className?: string; header?: boolean }> = ({
       type="h1"
       as="span"
       font="serif"
-      fontWeight="regular"
-      fontStyle="italic"
-      className={clsx(!header && '[font-size:2.4rem]', header && 'text-[#c96822]')}
+      fontWeight="bold"
+      className={clsx(!header && '[font-size:2.4rem]')}
     >
-      jaxs.on {header && <Text aria-hidden type="plain" as="span" fontStyle="normal" className="text-[#212121] ml-[-5px]">|</Text>}
+      Jaxson
     </Text>
     <Text
       type={header ? 'h4' : 'h1'}
       as="span"
       font="serif"
-      fontStyle="normal"
+      fontStyle="italic"
       className={
         clsx(
           'font-light',
-          'lowercase',
-          !header ? 'text-[#424242]' : 'text-[#6c6b6b]',
           header &&
-            '[margin-bottom:-14px] [margin-left:65px] sm:[margin-left:45px]',
-          !header && '[margin-bottom:-8px] [margin-left:36px] [font-size:1.2rem]'
+            '[margin-bottom:-14px] [margin-left:52px] sm:[margin-left:31px]',
+          !header && '[margin-bottom:-8px] [margin-left:28px] [font-size:1.2rem]'
         )
       }
     >

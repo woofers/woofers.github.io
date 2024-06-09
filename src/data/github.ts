@@ -38,8 +38,8 @@ const exclude = {
 
   'jaxson-site': true,
   'ludum-dare-badges': true,
-  'use-contacts': true,
-  groove: true
+  groove: true,
+  'use-contacts': true
 } as const
 
 type ExcludeList = typeof exclude

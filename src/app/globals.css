@@ -98,15 +98,6 @@ input, textarea, button, select, a {
   margin-top: 12.5px;
 }
 
-.site-background {
-  background: linear-gradient(117deg, #0E0E0E -22.96%, #171717 -22.95%, #121213 70.91%)
-}
-
-.card-style {
-  border: 1px solid #1A1A1B; 
-  background: linear-gradient(178deg, #1B1B1C -50.68%, #131315 113.73%); 
-}
-
 ::selection {
   background: #ffab7f !important;
   color: rgb(var(--color-zinc-100) / 0.99) !important;
