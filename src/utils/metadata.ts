@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 
 const name = 'Jaxson Van Doorn'
 const ogImage = '/meta-image.png'
@@ -6,6 +6,13 @@ const ogImage = '/meta-image.png'
 const author = name
 const description = 'All-around developer, half-designer and tinkerer.'
 const alt = 'Cover image for jaxs.onl'
+
+export const getViewport = () => ({
+  themeColor: '#f4f4f5',
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover'
+} satisfies Viewport) 
 
 export const getMetadata = ({
   title,
@@ -31,11 +38,6 @@ export const getMetadata = ({
         }
       }
     }),
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      viewportFit: 'cover'
-    },
     icons: {
       icon: [{ url: '/favicon.png' }],
       shortcut: ['/favicon.png'],
@@ -49,7 +51,6 @@ export const getMetadata = ({
       other: []
     },
     manifest: '/manifest.webmanifest',
-    themeColor: '#f4f4f5',
     metadataBase:
       process.env.NODE_ENV === 'production'
         ? new URL('https://jaxs.onl')

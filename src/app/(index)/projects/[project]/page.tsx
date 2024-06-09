@@ -7,6 +7,7 @@ import Subtitle from 'components/subtitle'
 import Title from 'components/title'
 import { getMetadata, getRepoType } from 'utils'
 import ContentContainer from 'components/content-container'
+import { getViewport } from 'utils/metadata'
 
 type ProjectProps = {
   params: {
@@ -26,6 +27,8 @@ export const generateMetadata = async ({
 
   return getMetadata({ title: repo.fullName })
 }
+
+export const generateViewport = ({ params }: ProjectProps) => getViewport()
 
 export const generateStaticParams = async (): Promise<
   ProjectProps['params'][]

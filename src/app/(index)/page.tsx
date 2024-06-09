@@ -6,6 +6,7 @@ import { getRepos, type Repo } from 'data/github'
 import { parseDate, parseAndFormatDate, toUrl, getMetadata } from 'utils'
 import Links from 'components/links'
 import { clsx } from 'cva'
+import { getViewport } from 'utils/metadata'
 
 const SectionTitle: React.FC<{
   children?: React.ReactNode
@@ -26,6 +27,8 @@ const SectionTitle: React.FC<{
 )
 
 export const metadata = getMetadata()
+
+export const viewport = getViewport()
 
 const starsText = (value: number) => {
   const num = formatStars(value, 5)

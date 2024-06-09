@@ -40,7 +40,10 @@ const exclude = {
   'ludum-dare-badges': true,
   groove: true,
   'use-contacts': true,
-  'next-auth-oauth4webapi': true
+  'next-auth-oauth4webapi': true,
+  'next-edge-runtime-redirect-bug': true,
+  'jsx-focus': true,
+  'use-app-badge': true
 } as const
 
 type ExcludeList = typeof exclude

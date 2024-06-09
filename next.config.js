@@ -7,7 +7,6 @@ const nextConfig = {
   swcMinify: true,
   trailingSlash: true,
   experimental: {
-    appDir: true,
     typedRoutes: true
   },
   images: { unoptimized: true }

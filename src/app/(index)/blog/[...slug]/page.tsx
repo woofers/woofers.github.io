@@ -7,6 +7,7 @@ import { getMetadata, parseAndFormatDate } from 'utils'
 import Subtitle from 'components/subtitle'
 import Title from 'components/title'
 import ContentContainer from 'components/content-container'
+import { getViewport } from 'utils/metadata'
 
 type PostProps = {
   params: {
@@ -36,6 +37,8 @@ export const generateMetadata = async ({
 
   return getMetadata({ title: post.title })
 }
+
+export const generateViewport = ({ params }: PostProps) => getViewport()
 
 export const generateStaticParams = async (): Promise<
   PostProps['params'][]
