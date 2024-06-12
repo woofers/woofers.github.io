@@ -20,14 +20,12 @@ const Logo: React.FC<{ className?: string; header?: boolean }> = ({
       as="span"
       font="serif"
       fontStyle="italic"
-      className={
-        clsx(
-          'font-light',
-          header &&
-            '[margin-bottom:-14px] [margin-left:52px] sm:[margin-left:31px]',
-          !header && '[margin-bottom:-8px] [margin-left:28px] [font-size:1.2rem]'
-        )
-      }
+      className={clsx(
+        'font-light',
+        header &&
+          '[margin-bottom:-14px] [margin-left:52px] sm:[margin-left:31px]',
+        !header && '[margin-bottom:-8px] [margin-left:28px] [font-size:1.2rem]'
+      )}
     >
       Van Doorn
     </Text>

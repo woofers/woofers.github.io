@@ -7,23 +7,44 @@ import { parseDate, parseAndFormatDate, toUrl, getMetadata } from 'utils'
 import Links from 'components/links'
 import { clsx } from 'cva'
 import { getViewport } from 'utils/metadata'
+import React from 'react'
+
+const ProjectTitle: React.FC<{ children?: React.ReactNode }> = ({
+  children
+}) => (
+  <span
+    className={clsx(
+      'min-w-0 box-border m-0 font-bold [font-size:32px]',
+      '[transition:transform_0.2s_ease] group-hover:text-[#FBE0A0] group-hover:[transform:translate(20px,0px)]',
+      'group-focus:text-[#FBE0A0] group-focus:[transform:translate(20px,0px)]'
+    )}
+  >
+    {children}
+  </span>
+)
+
+const ProjectText: React.FC<{ children?: React.ReactNode }> = ({
+  children
+}) => (
+  <div
+    className={clsx(
+      'min-w-0 box-border m-0 [font-size:18px] [height:0px] overflow-y-hidden',
+      '[transition:height_0.3s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] group-hover:text-[#FBE0A0] group-hover:[height:25px] ',
+      'group-focus:text-[#FBE0A0] group-focus:[height:25px]'
+    )}
+    tabIndex={-1}
+  >
+    {children}
+  </div>
+)
 
 const SectionTitle: React.FC<{
   children?: React.ReactNode
   margin?: 'none' | 'normal'
 }> = ({ children, margin = 'normal' }) => (
-  <Text
-    type="plain"
-    as="h2"
-    font="serif"
-    fontWeight="bold"
-    className={clsx(
-      margin === 'normal' && 'mt-4 [margin-bottom:0px] sm:mt-10 mb-2',
-      'italic text-neutral-400 text-2xl font-medium dark:text-neutral-500 sm:not-italic sm:font-bold sm:text-4xl sm:text-zinc-900 sm:dark-mode:text-neutral-800'
-    )}
-  >
+  <h2 className="min-w-0 box-border m-0 [font-family:var(--font-serif)] mt-4 [margin-bottom:0px] sm:mt-10 mb-2 text-[#fbd4cb] text-small font-medium sm:not-italic sm:font-bold">
     {children}
-  </Text>
+  </h2>
 )
 
 export const metadata = getMetadata()
@@ -131,6 +152,64 @@ const Home = async () => {
             />
           </Box>
         </Row>
+        <Box display="flex">
+        <Stack gutter="0" className="[flex:1]">
+            <SectionTitle>Projects</SectionTitle>
+            <Stack
+              gutter="2"
+              inline
+              className="text-white mt-3 py-4 rounded-xl w-full lg:[max-width:600px]"
+            >
+              {[...allRepos]
+                .sort((a, b) => b.downloads - a.downloads)
+                .map(({ fullName, description, link, stars, downloads }) => (
+                  <Link href={toUrl(link)} key={link} className="block group">
+                    <Box as="div">
+                      <Box
+                        display="flex"
+                        justifyContent="spaceBetween"
+                        className="gap-x-1"
+                      >
+                        <ProjectTitle>{fullName}</ProjectTitle>
+                        <Text
+                          as="div"
+                          className="[transition:height_0.12s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] opacity-0 group-hover:opacity-100"
+                        >
+                          {formatStars(stars)} Stars -{' '}
+                          {formatDownloads(downloads)} Downloads
+                        </Text>
+                      </Box>
+                      <ProjectText>{description}</ProjectText>
+                    </Box>
+                  </Link>
+                ))}
+            </Stack>
+          </Stack>
+          <Stack gutter="0" className="[flex:0_0_338px]">
+            <SectionTitle>Games</SectionTitle>
+            <Stack
+              gutter="2"
+              inline
+              className="text-white mt-3 py-4 rounded-xl w-full lg:[max-width:600px]"
+            >
+              {allGames.map(({ fullName, description, link, stars }) => (
+                <Link href={toUrl(link)} key={link} className="block group">
+                  <Box as="div">
+                    <Box
+                      display="flex"
+                      justifyContent="spaceBetween"
+                      className="gap-x-1"
+                    >
+                      <ProjectTitle>{fullName}</ProjectTitle>
+                      {starsText(stars)}
+                    </Box>
+                    <ProjectText>{description}</ProjectText>
+                  </Box>
+                </Link>
+              ))}
+            </Stack>
+          </Stack>
+        </Box>
         <Row
           gutter="0"
           justifyContent="end"
@@ -181,59 +260,6 @@ const Home = async () => {
               ))}
           </Stack>
         </Row>
-        <SectionTitle>Games</SectionTitle>
-        <Stack
-          gutter="2"
-          inline
-          className="mt-3 px-4 py-4 rounded-xl bg-zinc-900 text-zinc-100 dark-mode:bg-zinc-200 dark:text-neutral-800 w-full lg:[max-width:540px]"
-        >
-          {allGames.map(({ fullName, description, link, stars }) => (
-            <Link href={toUrl(link)} key={link} className="block">
-              <Box as="div">
-                <Box
-                  display="flex"
-                  justifyContent="spaceBetween"
-                  className="gap-x-1"
-                >
-                  <Text fontWeight="bold" as="span">
-                    {fullName}
-                  </Text>
-                  {starsText(stars)}
-                </Box>
-                <Text as="div">{description}</Text>
-              </Box>
-            </Link>
-          ))}
-        </Stack>
-        <SectionTitle>Projects</SectionTitle>
-        <Stack
-          gutter="2"
-          inline
-          className="mt-3 px-4 py-4 rounded-xl bg-zinc-900 text-zinc-100 dark-mode:bg-zinc-200 dark:text-neutral-800 w-full lg:[max-width:488px]"
-        >
-          {[...allRepos]
-            .sort((a, b) => b.downloads - a.downloads)
-            .map(({ fullName, description, link, stars, downloads }) => (
-              <Link href={toUrl(link)} key={link} className="block">
-                <Box as="div">
-                  <Box
-                    display="flex"
-                    justifyContent="spaceBetween"
-                    className="gap-x-1"
-                  >
-                    <Text fontWeight="bold" as="span">
-                      {fullName}
-                    </Text>
-                    <Text as="div">
-                      {formatStars(stars)} Stars - {formatDownloads(downloads)}{' '}
-                      Downloads
-                    </Text>
-                  </Box>
-                  <Text as="div">{description}</Text>
-                </Box>
-              </Link>
-            ))}
-        </Stack>
       </Box>
     </Stack>
   )

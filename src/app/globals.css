@@ -108,6 +108,10 @@ input, textarea, button, select, a {
   color: rgb(var(--color-zinc-100) / 0.99) !important;
 }
 
+.background {
+  background: linear-gradient(110deg, #f27052 10%, #fd904f);
+}
+
 @layer base {
   :root {
     color-scheme: light;
