@@ -7,7 +7,7 @@ import { parseDate, parseAndFormatDate, toUrl, getMetadata } from 'utils'
 import Links from 'components/links'
 import { clsx } from 'cva'
 import { getViewport } from 'utils/metadata'
-import React from 'react'
+import React, { CSSProperties } from 'react'
 
 const ProjectTitle: React.FC<{ children?: React.ReactNode }> = ({
   children
@@ -23,14 +23,16 @@ const ProjectTitle: React.FC<{ children?: React.ReactNode }> = ({
   </span>
 )
 
-const ProjectText: React.FC<{ children?: React.ReactNode }> = ({
-  children
+const ProjectText: React.FC<{ children?: React.ReactNode, height?: string }> = ({
+  children,
+  height = '25px'
 }) => (
   <div
+    style={{ ['--expand-height' as keyof CSSProperties]: height }}
     className={clsx(
       'min-w-0 box-border m-0 [font-size:18px] [height:0px] overflow-y-hidden',
-      '[transition:height_0.3s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] group-hover:text-[#FBE0A0] group-hover:[height:25px] ',
-      'group-focus:text-[#FBE0A0] group-focus:[height:25px]'
+      '[transition:height_0.3s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] group-hover:text-[#FBE0A0] group-hover:[height:var(--expand-height)] ',
+      'group-focus:text-[#FBE0A0] group-focus:[height:var(--expand-height)]'
     )}
     tabIndex={-1}
   >
@@ -136,24 +138,24 @@ const Home = async () => {
 
 
 
-    <Row justifyContent="spaceBetween" alignItems="center">
-      <Row
-        gutter="10"
-        alignItems="flexStart"
-        className="pt-3"
-      >
-        <Profile />
-        <Box className="flex items-center">
-          <Logo className="pt-[18px] text-[#feece8] ml-3 lg:ml-0" accentClassName="text-[#fbd0c8]" header />
-        </Box>
-      </Row>
+      <Row justifyContent="spaceBetween" alignItems="center">
+        <Row
+          gutter="10"
+          alignItems="flexStart"
+          className="pt-3"
+        >
+          <Profile />
+          <Box className="flex items-center">
+            <Logo className="pt-[18px] text-[#feece8] ml-3 lg:ml-0" accentClassName="text-[#fbd0c8]" header />
+          </Box>
+        </Row>
 
-      <Row
-        gutter="8"
-        justifyContent="flexEnd"
-      >
-        <Links className="text-[#fde6e1]" hoverStyle="hover:[background:rgba(233,95,63,0.3)]" />
-      </Row>
+        <Row
+          gutter="8"
+          justifyContent="flexEnd"
+        >
+          <Links className="text-[#fde6e1]" hoverStyle="hover:[background:rgba(233,95,63,0.3)]" />
+        </Row>
       </Row>
 
       <Box className="ml-[160px]">
@@ -222,56 +224,41 @@ const Home = async () => {
             </Stack>
           </Stack>
         </Box>
-        <Row
-          gutter="0"
-          justifyContent="end"
-          alignItems="center"
-          className="flex-wrap"
-        >
-          <Row gutter="0" justifyContent="center" className="flex-grow">
-            <Box className="px-2.5 pt-4 pb-0 sm:pb-2">
-              <SectionTitle margin="none">Posts</SectionTitle>
-            </Box>
-          </Row>
+        <Stack gutter="5">
+        <SectionTitle>Posts</SectionTitle>
           <Stack
-            gutter="2"
+            gutter="5"
             inline
-            className="text-white [margin-left:auto] mt-3 px-4 py-5 rounded-xl border border-white dark-mode:border-neutral-800"
+            className="text-white "
           >
             {[...allPosts]
               .sort(
                 (a, b) =>
                   parseDate(b.date).getTime() - parseDate(a.date).getTime()
               )
-              .map(({ title, slug, date }) => (
-                <Link href={toUrl(slug)} key={slug}>
-                  <Box
-                    as="span"
-                    display="inlineFlex"
-                    flexDirection="column"
-                    className="sm:flex-row"
-                  >
-                    <Text fontWeight="bold" as="span">
-                      {title}
-                    </Text>
-                    <Text as="span">
-                      <span className="inline sm:hidden">
-                        {'\u00A0'}
-                        {'➢'}
-                        {'\u00A0'}
-                      </span>
-                      <span className="hidden sm:inline">
-                        {'\u00A0'}
-                        {'-'}
-                        {'\u00A0'}
-                      </span>
-                      <span>{parseAndFormatDate(date)}</span>
-                    </Text>
+              .map(({ title, slug, date, description }) => (
+                <Link href={toUrl(slug)} key={slug} className="block group">
+                  <Box as="div">
+                    <Box
+                      display="flex"
+                      justifyContent="spaceBetween"
+                      className="gap-x-1"
+                    >
+                      <ProjectTitle>{title}</ProjectTitle>
+
+                      <Text
+                        as="div"
+                        className="pl-8 [transition:height_0.12s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] opacity-0 group-hover:opacity-100"
+                      >
+                        {parseAndFormatDate(date)}
+                      </Text>
+                    </Box>
+                    <ProjectText height="82px">{description}</ProjectText>
                   </Box>
                 </Link>
               ))}
           </Stack>
-        </Row>
+        </Stack>
 
       </Box>
     </Stack>
