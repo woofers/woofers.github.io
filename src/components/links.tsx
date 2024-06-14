@@ -68,11 +68,13 @@ type LinksProps = {
   data?: Entry[]
   children?: React.ReactNode
   className?: string
+  hoverStyle?: string 
 }
 
 const Links: React.FC<LinksProps> = ({
   data = dataDefault,
   children,
+  hoverStyle = 'hover:bg-zinc-200/75',
   ...rest
 }) => (
   <Box {...rest}>
@@ -98,7 +100,8 @@ const Links: React.FC<LinksProps> = ({
               {...attrs}
               className={clsx(
                 attrs.className,
-                'hover:bg-zinc-200/75 hover:rounded-md'
+                'hover:rounded-md',
+                hoverStyle
               )}
               theme="plain"
             >

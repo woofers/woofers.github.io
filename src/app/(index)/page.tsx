@@ -42,7 +42,7 @@ const SectionTitle: React.FC<{
   children?: React.ReactNode
   margin?: 'none' | 'normal'
 }> = ({ children, margin = 'normal' }) => (
-  <h2 className="min-w-0 box-border m-0 [font-family:var(--font-serif)] mt-4 [margin-bottom:0px] sm:mt-10 mb-2 text-[#fbd4cb] text-small font-medium sm:not-italic sm:font-bold">
+  <h2 className="min-w-0 box-border m-0 mt-4 [margin-bottom:0px] sm:mt-10 mb-2 text-[#fbd4cb] text-xl font-medium">
     {children}
   </h2>
 )
@@ -80,6 +80,7 @@ const transformRepos = (repos: Repo[]) =>
     children: fullName
   }))
 
+// offwhite text #fad3ca
 const Home = async () => {
   const fullRepos = await getRepos()
   const repos = transformRepos(fullRepos)
@@ -110,7 +111,7 @@ const Home = async () => {
         justifyContent="spaceBetween"
         className="[height:66px]"
       >
-        <Logo className="ml-3 lg:ml-0" header />
+        <Logo className="text-white ml-3 lg:ml-0" header />
         <Box className="block md:hidden">
           <img
             className="hidden rounded-xl sm:block"
@@ -128,37 +129,28 @@ const Home = async () => {
           />
         </Box>
       </Row>
-      <Links />
+
+      <Links className="text-[#fde6e1]" hoverStyle="hover:[background:rgba(233,95,63,0.3)]" />
+      <Row gutter="2" className="hidden flex-wrap gap-y-2 sm:flex">
+        <Box className="[flex:0_0_200px] hidden md:block">
+          <img
+            className="rounded-xl"
+            src="/me/jaxson-new.webp"
+            alt="Photo of Jaxson"
+            width={200}
+            height={200}
+          />
+        </Box>
+      </Row>
       <Box>
-        <Row gutter="2" className="hidden flex-wrap gap-y-2 sm:flex">
-          <Stack
-            gutter="2"
-            className="flex-grow px-4 py-5 rounded-xl bg-zinc-900 text-zinc-100 dark-mode:bg-zinc-200 dark:text-neutral-800"
-          >
-            <Text type="h4" as="span" font="serif" fontWeight="medium">
-              🛋️ Ergonomic software enthusiast & maker.
-            </Text>
-            <Text type="h4" as="span" font="serif" fontWeight="medium">
-              📦 React package deployer.
-            </Text>
-          </Stack>
-          <Box className="[flex:0_0_200px] hidden md:block">
-            <img
-              className="rounded-xl"
-              src="/me/jaxson-new.webp"
-              alt="Photo of Jaxson"
-              width={200}
-              height={200}
-            />
-          </Box>
-        </Row>
+
         <Box display="flex">
-        <Stack gutter="0" className="[flex:1]">
+          <Stack gutter="6" className="[flex:1]">
             <SectionTitle>Projects</SectionTitle>
             <Stack
-              gutter="2"
+              gutter="3"
               inline
-              className="text-white mt-3 py-4 rounded-xl w-full lg:[max-width:600px]"
+              className="text-white rounded-xl w-full lg:[max-width:600px]"
             >
               {[...allRepos]
                 .sort((a, b) => b.downloads - a.downloads)
@@ -185,12 +177,12 @@ const Home = async () => {
                 ))}
             </Stack>
           </Stack>
-          <Stack gutter="0" className="[flex:0_0_338px]">
+          <Stack gutter="6" className="[flex:0_0_540px]">
             <SectionTitle>Games</SectionTitle>
             <Stack
-              gutter="2"
+              gutter="3"
               inline
-              className="text-white mt-3 py-4 rounded-xl w-full lg:[max-width:600px]"
+              className="text-white rounded-xl w-full lg:[max-width:600px]"
             >
               {allGames.map(({ fullName, description, link, stars }) => (
                 <Link href={toUrl(link)} key={link} className="block group">
@@ -201,7 +193,13 @@ const Home = async () => {
                       className="gap-x-1"
                     >
                       <ProjectTitle>{fullName}</ProjectTitle>
-                      {starsText(stars)}
+
+                      <Text
+                        as="div"
+                        className="[transition:height_0.12s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] opacity-0 group-hover:opacity-100"
+                      >
+                        {starsText(stars)}
+                      </Text>
                     </Box>
                     <ProjectText>{description}</ProjectText>
                   </Box>
@@ -224,7 +222,7 @@ const Home = async () => {
           <Stack
             gutter="2"
             inline
-            className="[margin-left:auto] mt-3 px-4 py-5 rounded-xl border border-zinc-900 dark-mode:border-neutral-800"
+            className="text-white [margin-left:auto] mt-3 px-4 py-5 rounded-xl border border-white dark-mode:border-neutral-800"
           >
             {[...allPosts]
               .sort(
@@ -260,6 +258,7 @@ const Home = async () => {
               ))}
           </Stack>
         </Row>
+
       </Box>
     </Stack>
   )
