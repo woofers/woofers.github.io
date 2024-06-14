@@ -1,6 +1,7 @@
 import './globals.css'
 import 'react-pico-8/styles.css'
 import localFont from 'next/font/local'
+import { ViewTransitions } from 'next-view-transitions'
 import { clsx } from 'cva'
 
 const eiko = localFont({
@@ -93,23 +94,25 @@ const isDarkMode = false
 
 const RootLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
   return (
-    <html
-      lang="en"
-      className={clsx(
-        isDarkMode ? 'dark' : 'light',
-        eiko.variable,
-        neueMontreal.variable
-      )}
-    >
-      <head />
-      <body>
-        <div id="__next">
-          <div className="flex min-h-screen flex-col text-zinc-900 bg-zinc-100 dark-mode:text-neutral-800">
-            {children}
+    <ViewTransitions>
+      <html
+        lang="en"
+        className={clsx(
+          isDarkMode ? 'dark' : 'light',
+          eiko.variable,
+          neueMontreal.variable
+        )}
+      >
+        <head />
+        <body>
+          <div id="__next">
+            <div className="flex min-h-screen flex-col text-zinc-900 bg-zinc-100 dark-mode:text-neutral-800">
+              {children}
+            </div>
           </div>
-        </div>
-      </body>
-    </html>
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }
 

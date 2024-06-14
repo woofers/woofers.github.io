@@ -112,6 +112,16 @@ input, textarea, button, select, a {
   background: linear-gradient(110deg, #f27052 10%, #fd904f);
 }
 
+.fade-morph {
+  view-transition-name: fade-morph-view;
+}
+
+/*
+.text-morph {
+  view-transition-name: text-morph-view;
+}
+*/
+
 @layer base {
   :root {
     color-scheme: light;

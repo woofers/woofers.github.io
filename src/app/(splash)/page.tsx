@@ -1,6 +1,5 @@
 import { Box, Text, Row, Stack } from 'components/styled'
 import Logo from 'components/logo'
-import Link from 'next/link'
 import { allPosts } from 'content'
 import { getRepos, type Repo } from 'data/github'
 import { parseDate, parseAndFormatDate, toUrl, getMetadata } from 'utils'
@@ -8,6 +7,7 @@ import Links from 'components/links'
 import { clsx } from 'cva'
 import { getViewport } from 'utils/metadata'
 import React, { CSSProperties } from 'react'
+import { Link } from 'next-view-transitions'
 
 const ProjectTitle: React.FC<{ children?: React.ReactNode }> = ({
   children
@@ -171,7 +171,7 @@ const Home = async () => {
               {[...allRepos]
                 .sort((a, b) => b.downloads - a.downloads)
                 .map(({ fullName, description, link, stars, downloads }) => (
-                  <Link href={toUrl(link)} key={link} className="block group">
+                  <Link href={toUrl(link)} key={link} className="block group text-morph">
                     <Box as="div">
                       <Box
                         display="flex"
