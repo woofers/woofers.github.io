@@ -42,9 +42,35 @@ const SectionTitle: React.FC<{
   children?: React.ReactNode
   margin?: 'none' | 'normal'
 }> = ({ children, margin = 'normal' }) => (
-  <h2 className="min-w-0 box-border m-0 mt-4 [margin-bottom:0px] sm:mt-10 mb-2 text-[#fbd4cb] text-xl font-medium">
+  <h2 className="min-w-0 box-border m-0 mt-4 mb-0 [transform-origin:top_left] [transform:scale(0.88)] sm:mt-10 text-[#fbd4cb] text-xl font-medium">
     {children}
   </h2>
+)
+
+const Profile: React.FC<Nothing> = () => (
+  <Box className="block [mix-blend-mode:lighten] opacity-75">
+    <img
+      className="block rounded-full border-2 border-white sm:hidden"
+      src="/me/jaxson-new-small.webp"
+      alt="Photo of Jaxson"
+      width={76}
+      height={76}
+    />
+    <img
+      className="hidden rounded-full border-2 border-white sm:block md:hidden"
+      src="/me/jaxson-new-small.webp"
+      alt="Photo of Jaxson"
+      width={112}
+      height={112}
+    />
+    <img
+      className="[flex:0_0_120px] rounded-full border-2 border-white hidden md:block"
+      src="/me/jaxson-new.webp"
+      alt="Photo of Jaxson"
+      width={120}
+      height={120}
+    />
+  </Box>
 )
 
 export const metadata = getMetadata()
@@ -80,6 +106,8 @@ const transformRepos = (repos: Repo[]) =>
     children: fullName
   }))
 
+
+
 // offwhite text #fad3ca
 const Home = async () => {
   const fullRepos = await getRepos()
@@ -105,47 +133,33 @@ const Home = async () => {
   )
   return (
     <Stack gutter="1.5" className="sm:gap-y-6">
+
+
+
+    <Row justifyContent="spaceBetween" alignItems="center">
       <Row
-        gutter="0"
+        gutter="10"
         alignItems="flexStart"
-        justifyContent="spaceBetween"
-        className="[height:66px]"
+        className="pt-3"
       >
-        <Logo className="text-white ml-3 lg:ml-0" header />
-        <Box className="block md:hidden">
-          <img
-            className="hidden rounded-xl sm:block"
-            src="/me/jaxson-new-small.webp"
-            alt="Photo of Jaxson"
-            width={112}
-            height={112}
-          />
-          <img
-            className="block rounded-xl sm:hidden"
-            src="/me/jaxson-new-small.webp"
-            alt="Photo of Jaxson"
-            width={76}
-            height={76}
-          />
+        <Profile />
+        <Box className="flex items-center">
+          <Logo className="pt-[18px] text-[#feece8] ml-3 lg:ml-0" accentClassName="text-[#fbd0c8]" header />
         </Box>
       </Row>
 
-      <Links className="text-[#fde6e1]" hoverStyle="hover:[background:rgba(233,95,63,0.3)]" />
-      <Row gutter="2" className="hidden flex-wrap gap-y-2 sm:flex">
-        <Box className="[flex:0_0_200px] hidden md:block">
-          <img
-            className="rounded-xl"
-            src="/me/jaxson-new.webp"
-            alt="Photo of Jaxson"
-            width={200}
-            height={200}
-          />
-        </Box>
+      <Row
+        gutter="8"
+        justifyContent="flexEnd"
+      >
+        <Links className="text-[#fde6e1]" hoverStyle="hover:[background:rgba(233,95,63,0.3)]" />
       </Row>
-      <Box>
+      </Row>
+
+      <Box className="ml-[160px]">
 
         <Box display="flex">
-          <Stack gutter="6" className="[flex:1]">
+          <Stack gutter="5" className="[flex:1]">
             <SectionTitle>Projects</SectionTitle>
             <Stack
               gutter="3"
@@ -177,7 +191,7 @@ const Home = async () => {
                 ))}
             </Stack>
           </Stack>
-          <Stack gutter="6" className="[flex:0_0_540px]">
+          <Stack gutter="5" className="[flex:0_0_540px]">
             <SectionTitle>Games</SectionTitle>
             <Stack
               gutter="3"
