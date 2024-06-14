@@ -1,8 +1,9 @@
 import { Text, Stack } from 'components/styled'
 import { clsx } from 'cva'
 
-const Logo: React.FC<{ className?: string; header?: boolean }> = ({
+const Logo: React.FC<{ className?: string; accentClassName?: string; header?: boolean }> = ({
   className,
+  accentClassName,
   header
 }) => (
   <Stack gutter="0" as={header ? 'h1' : 'span'} reverse className={className}>
@@ -24,7 +25,8 @@ const Logo: React.FC<{ className?: string; header?: boolean }> = ({
         'font-light',
         header &&
           '[margin-bottom:-14px] [margin-left:52px] sm:[margin-left:31px]',
-        !header && '[margin-bottom:-8px] [margin-left:28px] [font-size:1.2rem]'
+        !header && '[margin-bottom:-8px] [margin-left:28px] [font-size:1.2rem]',
+        accentClassName
       )}
     >
       Van Doorn
