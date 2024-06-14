@@ -68,7 +68,7 @@ const ProjectsPage = async ({ params }: ProjectProps) => {
 
   return (
     <ContentContainer data={buttons} back="/">
-      <Title>{repo.fullName}</Title>
+      <Title className="text-morph">{repo.fullName}</Title>
       <Subtitle>{repo.description}</Subtitle>
       <Divider />
       {!!repo.code && (

@@ -7,7 +7,7 @@ const SplashLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) =>
     <Stack
       gutter="0"
       flexGrow="grow"
-      className="max-h-screen overflow-y-auto background"
+      className="max-h-screen overflow-y-auto background fade-morph"
     >
       <Container padding="y" container="full">
         {children}

@@ -57,7 +57,7 @@ const PostPage = async ({ params }: PostProps) => {
 
   return (
     <ContentContainer back="/">
-      <Title>{post.title}</Title>
+      <Title className="text-morph">{post.title}</Title>
       {post.date && <Subtitle>{parseAndFormatDate(post.date)}</Subtitle>}
       <Divider />
       <Mdx code={post.body.code} />

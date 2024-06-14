@@ -71,7 +71,7 @@ const ProjectsPlayPage = async ({ params }: ProjectProps) => {
 
   return (
     <ContentContainer data={buttons} back={`/projects/${params.project}`}>
-      <Title>{project.title}</Title>
+      <Title className="text-morph">{project.title}</Title>
       <Subtitle>{project.description}</Subtitle>
       <Divider />
       <Game
