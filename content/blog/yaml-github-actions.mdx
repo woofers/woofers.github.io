@@ -2,7 +2,7 @@
 layout: post
 title: NPM package deployment using YAML GitHub Actions
 date: 2019-08-21
-description:
+description: Recently GitHub announced that GitHub Actions will be moving away from the original HCL syntax in-favour of a YAML format similar to Travis CI and Bitbucket Pipelines. This means that HCL style actions will no longer work after September 30, 2019. It is possible to migrate using a migration script however in-some cases it may be required to reconfigure. This particular issue occurred to me as actions which return a neutral result seem to fail the whole build with the YAML format. 
 ---
 
 Recently [GitHub](http://github.com) announced that [GitHub Actions](https://github.com/features/actions) will be [moving away](https://github.blog/2019-08-08-github-actions-now-supports-ci-cd/) from the original [HCL](https://github.com/hashicorp/hcl) syntax in-favour of a [YAML](https://yaml.org/) format
