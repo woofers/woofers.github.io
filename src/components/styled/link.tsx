@@ -26,7 +26,7 @@ const isNavLink = (props: Props): props is LinkProps =>
 const getClassName = (theme: StyleProps['theme'], className?: string) =>
   clsx(
     (theme ?? 'underline') === 'underline' &&
-      'text-zinc-500 dark-mode:text-neutral-500 underline [text-underline-offset:5px] decoration-transparent decoration-wavy transition-[text-decoration-color] hover:decoration-zinc-500/10 dark-mode:hover:decoration-neutral-500/25',
+      'text-[#fb8556] underline [text-underline-offset:5px] decoration-transparent decoration-wavy transition-[text-decoration-color] hover:decoration-zinc-500/10 dark-mode:hover:decoration-neutral-500/25',
     className
   )
 
