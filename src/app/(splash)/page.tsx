@@ -42,11 +42,11 @@ const ProjectText: React.FC<{ children?: React.ReactNode, height?: string; durat
   </div>
 )
 
-const ProjectTag: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
+const ProjectTag: React.FC<{ children?: React.ReactNode; className?: string }> = ({ children, className }) => (
   <Text
     as="div"
     style={{ ['--expand-time' as keyof CSSProperties]: '0.3s' }}
-    className="[transition:opacity_var(--expand-time)_linear] opacity-0 group-hover:opacity-100"
+    className={clsx("[transition:opacity_var(--expand-time)_linear] opacity-0 group-hover:opacity-100", className)}
   >
     {children}
   </Text>
@@ -198,7 +198,7 @@ const Home = async () => {
       <Box className="ml-[160px]">
 
         <Box display="flex">
-          <Stack gutter="5" className="[flex:1]">
+          <Stack gutter="5" className="[flex:1_1_auto]">
             <SectionTitle>Projects</SectionTitle>
             <Stack
               gutter="3"
@@ -228,7 +228,7 @@ const Home = async () => {
                 ))}
             </Stack>
           </Stack>
-          <Stack gutter="5" className="[flex:0_0_540px]">
+          <Stack gutter="5" className="[flex:0_1_540px]">
             <SectionTitle>Games</SectionTitle>
             <Stack
               gutter="3"
@@ -262,7 +262,7 @@ const Home = async () => {
           <Stack
             gutter="5"
             inline
-            className="text-white "
+            className="text-white"
           >
             {[...allPosts]
               .sort(
@@ -279,12 +279,11 @@ const Home = async () => {
                     >
                       <ProjectTitle>{title}</ProjectTitle>
 
-                      <Text
-                        as="div"
-                        className="pl-8 [transition:height_0.12s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] opacity-0 group-hover:opacity-100"
+                      <ProjectTag
+                        className="pl-8"
                       >
                         {parseAndFormatDate(date)}
-                      </Text>
+                      </ProjectTag>
                     </Box>
                     <ProjectText height="82px" duration={0.48}>{description}</ProjectText>
                   </Box>
