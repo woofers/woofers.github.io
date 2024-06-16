@@ -62,28 +62,53 @@ const SectionTitle: React.FC<{
 )
 
 const Profile: React.FC<Nothing> = () => (
-  <Box className="block [mix-blend-mode:lighten] opacity-75">
-    <img
-      className="block rounded-full border-2 border-white sm:hidden"
-      src="/me/jaxson-new-small.webp"
-      alt="Photo of Jaxson"
-      width={76}
-      height={76}
-    />
-    <img
-      className="hidden rounded-full border-2 border-white sm:block md:hidden"
-      src="/me/jaxson-new-small.webp"
-      alt="Photo of Jaxson"
-      width={112}
-      height={112}
-    />
-    <img
-      className="[flex:0_0_120px] rounded-full border-2 border-white hidden md:block"
-      src="/me/jaxson-new.webp"
-      alt="Photo of Jaxson"
-      width={120}
-      height={120}
-    />
+  <Box className="block relative w-[120px] h-[120px] group" as="button">
+    <Box className="absolute top-0 block [mix-blend-mode:lighten] opacity-75">
+      <img
+        className="block rounded-full border-2 border-white sm:hidden"
+        src="/me/jaxson-new-small.webp"
+        alt="Photo of Jaxson"
+        width={76}
+        height={76}
+      />
+      <img
+        className="hidden rounded-full border-2 border-white sm:block md:hidden"
+        src="/me/jaxson-new-small.webp"
+        alt="Photo of Jaxson"
+        width={112}
+        height={112}
+      />
+      <img
+        className="[flex:0_0_120px] rounded-full border-2 border-white hidden md:block"
+        src="/me/jaxson-new.webp"
+        alt="Photo of Jaxson"
+        width={120}
+        height={120}
+      />
+    </Box>
+    <Box className="absolute top-0 block opacity-0 blur-[2px] [transition:opacity_0.3s_ease-in,filter_0.05s_0.2s_ease-in] group-hover:opacity-100 group-focus:opacity-100 group-hover:blur-none group-focus:blur-none">
+      <img
+        className="block rounded-full border-2 border-white sm:hidden"
+        src="/me/jaxson-new-small.webp"
+        alt="Photo of Jaxson"
+        width={76}
+        height={76}
+      />
+      <img
+        className="hidden rounded-full border-2 border-white sm:block md:hidden"
+        src="/me/jaxson-new-small.webp"
+        alt="Photo of Jaxson"
+        width={112}
+        height={112}
+      />
+      <img
+        className="[flex:0_0_120px] rounded-full border-2 border-white hidden md:block"
+        src="/me/jaxson-new.webp"
+        alt="Photo of Jaxson"
+        width={120}
+        height={120}
+      />
+    </Box>
   </Box>
 )
 
