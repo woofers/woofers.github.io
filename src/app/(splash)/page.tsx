@@ -13,9 +13,10 @@ const ProjectTitle: React.FC<{ children?: React.ReactNode }> = ({
   children
 }) => (
   <span
+    style={{ ['--expand-time' as keyof CSSProperties]: '0.2s' }}
     className={clsx(
       'min-w-0 box-border m-0 font-bold [font-size:32px]',
-      '[transition:transform_0.2s_ease] group-hover:text-[#FBE0A0] group-hover:[transform:translate(20px,0px)]',
+      '[transition:transform_var(--expand-time)_ease] group-hover:text-[#FBE0A0] group-hover:[transform:translate(20px,0px)]',
       'group-focus:text-[#FBE0A0] group-focus:[transform:translate(20px,0px)]'
     )}
   >
@@ -23,21 +24,32 @@ const ProjectTitle: React.FC<{ children?: React.ReactNode }> = ({
   </span>
 )
 
-const ProjectText: React.FC<{ children?: React.ReactNode, height?: string }> = ({
+const ProjectText: React.FC<{ children?: React.ReactNode, height?: string; duration?: number }> = ({
   children,
-  height = '25px'
+  height = '25px',
+  duration = 0.3
 }) => (
   <div
-    style={{ ['--expand-height' as keyof CSSProperties]: height }}
+    style={{ ['--expand-height' as keyof CSSProperties]: height, ['--expand-time' as keyof CSSProperties]: `${duration}s` }}
     className={clsx(
-      'min-w-0 box-border m-0 [font-size:18px] [height:0px] overflow-y-hidden',
-      '[transition:height_0.3s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] group-hover:text-[#FBE0A0] group-hover:[height:var(--expand-height)] ',
-      'group-focus:text-[#FBE0A0] group-focus:[height:var(--expand-height)]'
+      'min-w-0 box-border m-0 [font-size:18px] [height:0px] overflow-y-hidden blur-[1.5px]',
+      '[transition:height_var(--expand-time)_cubic-bezier(0.165,0.84,0.44,0.99)_0s,opacity_var(--expand-time)_ease-out,filter_var(--expand-time)_ease-out] group-hover:text-[#FBE0A0] group-hover:[height:var(--expand-height)] group-hover:blur-none',
+      'group-focus:text-[#FBE0A0] group-focus:[height:var(--expand-height)] group-focus:blur-none'
     )}
     tabIndex={-1}
   >
     {children}
   </div>
+)
+
+const ProjectTag: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
+  <Text
+    as="div"
+    style={{ ['--expand-time' as keyof CSSProperties]: '0.3s' }}
+    className="[transition:opacity_var(--expand-time)_linear] opacity-0 group-hover:opacity-100"
+  >
+    {children}
+  </Text>
 )
 
 const SectionTitle: React.FC<{
@@ -179,13 +191,11 @@ const Home = async () => {
                         className="gap-x-1"
                       >
                         <ProjectTitle>{fullName}</ProjectTitle>
-                        <Text
-                          as="div"
-                          className="[transition:height_0.12s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] opacity-0 group-hover:opacity-100"
+                        <ProjectTag
                         >
                           {formatStars(stars)} Stars -{' '}
                           {formatDownloads(downloads)} Downloads
-                        </Text>
+                        </ProjectTag>
                       </Box>
                       <ProjectText>{description}</ProjectText>
                     </Box>
@@ -210,12 +220,10 @@ const Home = async () => {
                     >
                       <ProjectTitle>{fullName}</ProjectTitle>
 
-                      <Text
-                        as="div"
-                        className="[transition:height_0.12s_cubic-bezier(0.165,0.84,0.44,1)_0s,opacity_0.3s] opacity-0 group-hover:opacity-100"
+                      <ProjectTag
                       >
                         {starsText(stars)}
-                      </Text>
+                      </ProjectTag>
                     </Box>
                     <ProjectText>{description}</ProjectText>
                   </Box>
@@ -225,7 +233,7 @@ const Home = async () => {
           </Stack>
         </Box>
         <Stack gutter="5">
-        <SectionTitle>Posts</SectionTitle>
+          <SectionTitle>Posts</SectionTitle>
           <Stack
             gutter="5"
             inline
@@ -253,7 +261,7 @@ const Home = async () => {
                         {parseAndFormatDate(date)}
                       </Text>
                     </Box>
-                    <ProjectText height="82px">{description}</ProjectText>
+                    <ProjectText height="82px" duration={0.48}>{description}</ProjectText>
                   </Box>
                 </Link>
               ))}

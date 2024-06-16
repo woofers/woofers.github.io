@@ -21,7 +21,7 @@ const SplashLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) =>
         as={Link}
         href="/"
       >
-        <Logo className="text-[#ffb893]" />
+        <Logo className="text-[#ffb793d4]" />
       </Row>
     </Stack>
   </Box>
