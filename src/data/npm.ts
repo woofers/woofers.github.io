@@ -25,6 +25,6 @@ const fromNpm = async ({
 }
 
 export const getPackage = async (name: string) => {
-  //const data = await fromNpm({ name })
-  return 0
+  const data = await fromNpm({ name })
+  return data
 }
