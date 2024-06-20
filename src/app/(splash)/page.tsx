@@ -68,18 +68,11 @@ const Profile: React.FC<Nothing> = () => (
         className="block rounded-full border-2 border-white sm:hidden"
         src="/me/jaxson-new-small.webp"
         alt="Photo of Jaxson"
-        width={76}
-        height={76}
-      />
-      <img
-        className="hidden rounded-full border-2 border-white sm:block md:hidden"
-        src="/me/jaxson-new-small.webp"
-        alt="Photo of Jaxson"
         width={112}
         height={112}
       />
       <img
-        className="[flex:0_0_120px] rounded-full border-2 border-white hidden md:block"
+        className="[flex:0_0_120px] rounded-full border-2 border-white hidden sm:block"
         src="/me/jaxson-new.webp"
         alt="Photo of Jaxson"
         width={120}
@@ -91,18 +84,11 @@ const Profile: React.FC<Nothing> = () => (
         className="block rounded-full border-2 border-white sm:hidden"
         src="/me/jaxson-new-small.webp"
         alt="Photo of Jaxson"
-        width={76}
-        height={76}
-      />
-      <img
-        className="hidden rounded-full border-2 border-white sm:block md:hidden"
-        src="/me/jaxson-new-small.webp"
-        alt="Photo of Jaxson"
         width={112}
         height={112}
       />
       <img
-        className="[flex:0_0_120px] rounded-full border-2 border-white hidden md:block"
+        className="[flex:0_0_120px] rounded-full border-2 border-white hidden sm:block"
         src="/me/jaxson-new.webp"
         alt="Photo of Jaxson"
         width={120}
@@ -175,7 +161,7 @@ const Home = async () => {
 
 
 
-      <Row justifyContent="spaceBetween" alignItems="center" className="px-6 [max-width:unset] mxl:px-3 xl:px-0 xl:[max-width:1120px] 2xl:[max-width:1240px] 3xl:[max-width:1440px]">
+      <Row justifyContent="spaceBetween" alignItems="center" className="flex-col gap-y-6 xmd:gap-y-0 xmd:flex-row px-6 [max-width:unset] mxl:px-3 xl:px-10 xl:[max-width:1186px] 2xl:px-0 2xl:[max-width:1240px] 3xl:[max-width:1440px]">
         <Row
           gutter="10"
           alignItems="flexStart"
@@ -183,7 +169,7 @@ const Home = async () => {
         >
           <Profile />
           <Box className="flex items-center">
-            <Logo className="pt-[18px] text-[#feece8] ml-3 lg:ml-0" accentClassName="text-[#fbd0c8]" header />
+            <Logo className="pt-[18px] text-[#feece8]" accentClassName="text-[#fbd0c8]" header />
           </Box>
         </Row>
 
