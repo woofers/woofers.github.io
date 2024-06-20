@@ -7,9 +7,9 @@ const author = name
 const description = 'All-around developer, half-designer and tinkerer.'
 const alt = 'Cover image for jaxs.onl'
 
-export const getViewport = () =>
+export const getViewport = ({ themeColor = '#f4f4f5' } = {}) =>
   ({
-    themeColor: '#f4f4f5',
+    themeColor,
     width: 'device-width',
     initialScale: 1,
     viewportFit: 'cover'

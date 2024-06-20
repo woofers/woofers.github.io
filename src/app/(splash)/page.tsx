@@ -100,7 +100,7 @@ const Profile: React.FC<Nothing> = () => (
 
 export const metadata = getMetadata()
 
-export const viewport = getViewport()
+export const viewport = getViewport({ themeColor: '#f27052' })
 
 const starsText = (value: number) => {
   const num = formatStars(value, 5)
