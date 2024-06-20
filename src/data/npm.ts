@@ -24,7 +24,19 @@ const fromNpm = async ({
   return { downloads: data }
 }
 
+// npm-stat.com API is down
+// Fetched info manually from npm-stats.org instead
+// Need to remove this once resolved or find alternate API
+const dl = {
+  'react-wavify': 255532,
+  'react-sheet-slide': 11079,
+  'use-eye-dropper': 413332,
+  'react-pico-8': 1526,
+  'react-micron': 588,
+  'react-yat': 538,
+  'react-dialog-polyfill': 25991
+} as Record<string, number>
+
 export const getPackage = async (name: string) => {
-  const data = await fromNpm({ name })
-  return data
+  return { downloads: dl[name] }
 }
