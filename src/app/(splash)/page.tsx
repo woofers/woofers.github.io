@@ -15,8 +15,8 @@ const ProjectTitle: React.FC<{ children?: React.ReactNode }> = ({
   <span
     style={{ ['--expand-time' as keyof CSSProperties]: '0.2s' }}
     className={clsx(
-      'min-w-0 box-border m-0 font-bold [font-size:32px]',
-      '[transition:transform_var(--expand-time)_ease] group-hover:text-[#FBE0A0] group-hover:[transform:translate(20px,0px)]',
+      'min-w-0 box-border m-0 font-bold [font-size:26px]',
+      '[transition:transform_var(--expand-time)_ease] group-hover:text-[#FBE0A0] group-hover:[transform:translate(20px,0px)] mxl:[font-size:32px]',
       'group-focus:text-[#FBE0A0] group-focus:[transform:translate(20px,0px)]'
     )}
   >
@@ -175,7 +175,7 @@ const Home = async () => {
 
 
 
-      <Row justifyContent="spaceBetween" alignItems="center">
+      <Row justifyContent="spaceBetween" alignItems="center" className="px-6 [max-width:unset] mxl:px-3 xl:px-0 xl:[max-width:1120px] 2xl:[max-width:1240px] 3xl:[max-width:1440px]">
         <Row
           gutter="10"
           alignItems="flexStart"
@@ -190,15 +190,16 @@ const Home = async () => {
         <Row
           gutter="8"
           justifyContent="flexEnd"
+          className="flex-grow"
         >
           <Links className="text-[#fde6e1]" hoverStyle="hover:[background:rgba(233,95,63,0.3)]" />
         </Row>
       </Row>
 
-      <Box className="ml-[160px]">
+      <Box className="px-[32px] xl:pl-[160px] xl:pr-0 3xl:px-[160px]">
 
-        <Box display="flex">
-          <Stack gutter="5" className="[flex:1_1_auto]">
+        <Box display="flex" className="flex flex-col xmd:flex-row">
+          <Stack gutter="5" className="xmd:[flex:1_1_auto]">
             <SectionTitle>Projects</SectionTitle>
             <Stack
               gutter="3"
@@ -228,7 +229,7 @@ const Home = async () => {
                 ))}
             </Stack>
           </Stack>
-          <Stack gutter="5" className="[flex:0_1_540px]">
+          <Stack gutter="5" className="xmd:[flex:0_1_480px]">
             <SectionTitle>Games</SectionTitle>
             <Stack
               gutter="3"

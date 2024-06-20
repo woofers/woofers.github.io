@@ -97,9 +97,12 @@ module.exports = {
     screens: {
       'sm': '640px',
       'md': '784px',
+      'xmd': '860px',
       'lg': '1024px',
+      'mxl': '1170px',
       'xl': '1280px',
-      '2xl': '1536px'
+      '2xl': '1536px',
+      '3xl': '1700px'
     },
     colors: getColors(),
     extend: {
