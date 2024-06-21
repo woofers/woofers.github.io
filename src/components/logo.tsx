@@ -1,11 +1,11 @@
 import { Text, Stack } from 'components/styled'
 import { clsx } from 'cva'
 
-const Logo: React.FC<{ className?: string; accentClassName?: string; header?: boolean }> = ({
-  className,
-  accentClassName,
-  header
-}) => (
+const Logo: React.FC<{
+  className?: string
+  accentClassName?: string
+  header?: boolean
+}> = ({ className, accentClassName, header }) => (
   <Stack gutter="0" as={header ? 'h1' : 'span'} reverse className={className}>
     <Text
       type="h1"

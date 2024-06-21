@@ -3,7 +3,6 @@ import { post } from './http'
 import { getPackage } from './npm'
 import { bundleMDX } from 'mdx-bundler'
 import { rehypePlugins, remarkPlugins } from '../../remark'
-import { data as readmeFix } from './fix'
 
 const exclude = {
   link: true,
@@ -35,20 +34,18 @@ const exclude = {
   woofers: true,
   m3: true,
   'raycast-color-picker': true,
-
   'jaxson-site': true,
   'ludum-dare-badges': true,
   groove: true,
   'use-contacts': true,
   'next-auth-oauth4webapi': true,
   'next-edge-runtime-redirect-bug': true,
-  'jsx-focus': true,
-  'use-app-badge': true
+  'jsx-focus': true
 } as const
 
 type ExcludeList = typeof exclude
 
-const repoQuery = `
+const repoQuery = (name: string) => `
 query GetRepo($name: String!) {
   user(login: "woofers") {
     repository(name: $name) {
@@ -70,6 +67,11 @@ query GetRepo($name: String!) {
         }
       }
       readme: object(expression: "HEAD:README.md") {
+        ... on Blob {
+          text
+        }
+      }
+      readmeProject: object(expression: "HEAD:packages/${name}/README.md") {
         ... on Blob {
           text
         }
@@ -141,6 +143,7 @@ export type Repo = {
   topics?: { nodes: { topic: { name: string } }[] }
   readme: { text: string }
   readmeOrg?: { text: string }
+  readmeProject?: { text: string }
   code: string
   downloads: number
 }
@@ -157,24 +160,24 @@ const mdxOptions: MdxOptions = options => {
 
 export const getRepo = async (name: string) => {
   const data = await fromGithub<{ user: { repository: Repo } }>({
-    query: repoQuery,
+    query: repoQuery(name),
     variables: { name }
   })
   const repo = data.user.repository
   mutateRepoNames(repo, exclude)
   repo.link = getRepoLink(repo.name)
   if (!repo || !repo.fullName) return null
-
-  if (repo.name === 'use-eye-dropper') {
-    repo.readme.text = readmeFix
-  }
   try {
-    const mdx = await bundleMDX({ source: repo.readme.text, mdxOptions })
+    const mdx = await bundleMDX({
+      source: repo.readmeProject?.text ?? repo.readme.text,
+      mdxOptions
+    })
     repo.code = mdx.code
   } catch (e) {
     console.log(e, '<<', name)
     repo.code = ''
   }
+  console.log(repo)
   return repo
 }
 

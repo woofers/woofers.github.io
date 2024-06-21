@@ -2,7 +2,9 @@ import Link from 'next/link'
 import { Divider, Box, Stack, Container, Row } from 'components/styled'
 import Logo from 'components/logo'
 
-const SplashLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
+const SplashLayout: React.FC<{ children?: React.ReactNode }> = ({
+  children
+}) => (
   <Box as="main" display="flex" flexGrow="grow">
     <Stack
       gutter="0"

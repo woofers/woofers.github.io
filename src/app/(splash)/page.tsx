@@ -24,13 +24,16 @@ const ProjectTitle: React.FC<{ children?: React.ReactNode }> = ({
   </span>
 )
 
-const ProjectText: React.FC<{ children?: React.ReactNode, height?: string; duration?: number }> = ({
-  children,
-  height = '25px',
-  duration = 0.3
-}) => (
+const ProjectText: React.FC<{
+  children?: React.ReactNode
+  height?: string
+  duration?: number
+}> = ({ children, height = '25px', duration = 0.3 }) => (
   <div
-    style={{ ['--expand-height' as keyof CSSProperties]: height, ['--expand-time' as keyof CSSProperties]: `${duration}s` }}
+    style={{
+      ['--expand-height' as keyof CSSProperties]: height,
+      ['--expand-time' as keyof CSSProperties]: `${duration}s`
+    }}
     className={clsx(
       'min-w-0 box-border m-0 [font-size:18px] [height:0px] overflow-y-hidden blur-[1.5px]',
       '[transition:height_var(--expand-time)_cubic-bezier(0.165,0.84,0.44,0.99)_0s,opacity_var(--expand-time)_ease-out,filter_var(--expand-time)_ease-out] group-hover:text-[#FBE0A0] group-hover:[height:var(--expand-height)] group-hover:blur-none',
@@ -42,15 +45,25 @@ const ProjectText: React.FC<{ children?: React.ReactNode, height?: string; durat
   </div>
 )
 
-const ProjectTag: React.FC<{ children?: React.ReactNode; className?: string }> = ({ children, className }) => (
-  <Text
-    as="div"
-    style={{ ['--expand-time' as keyof CSSProperties]: '0.3s' }}
-    className={clsx("[transition:opacity_var(--expand-time)_linear] opacity-0 group-hover:opacity-100", className)}
-  >
-    {children}
-  </Text>
-)
+const ProjectTag: React.FC<{
+  children?: React.ReactNode
+  className?: string
+  type?: 'star' | 'both'
+}> = ({ children, className, type = 'both' }) =>
+  !!children ? (
+    <Text
+      as="div"
+      style={{ ['--expand-time' as keyof CSSProperties]: '0.3s' }}
+      className={clsx(
+        '[transition:opacity_var(--expand-time)_linear] opacity-0 group-hover:opacity-100',
+        type === 'both' &&
+          'truncate [flex:0_0_96px] max-h-[24px] xmd:[flex:0_1_auto] xmd:[max-height:unset] xmd:[overflow:unset_!important]',
+        className
+      )}
+    >
+      {children}
+    </Text>
+  ) : null
 
 const SectionTitle: React.FC<{
   children?: React.ReactNode
@@ -102,10 +115,21 @@ export const metadata = getMetadata()
 
 export const viewport = getViewport({ themeColor: '#f27052' })
 
-const starsText = (value: number) => {
+const starsText = (
+  value: number,
+  type: 'div' | 'span' = 'div',
+  append = false
+) => {
   const num = formatStars(value, 5)
   if (!num) return null
-  return <Text as="div">{num} Stars</Text>
+  return (
+    <Text
+      className={clsx('hidden', type === 'div' ? 'xmd:block' : 'xmd:inline')}
+      as={type}
+    >
+      {num} Stars {append ? '- ' : ''}
+    </Text>
+  )
 }
 
 const formatStars = (value: number, limit = 0) => {
@@ -130,8 +154,6 @@ const transformRepos = (repos: Repo[]) =>
     href: `/projects/${name}/`,
     children: fullName
   }))
-
-
 
 // offwhite text #fad3ca
 const Home = async () => {
@@ -158,32 +180,31 @@ const Home = async () => {
   )
   return (
     <Stack gutter="1.5" className="sm:gap-y-6">
-
-
-
-      <Row justifyContent="spaceBetween" alignItems="center" className="flex-col gap-y-6 xmd:gap-y-0 xmd:flex-row px-6 [max-width:unset] mxl:px-3 xl:px-10 xl:[max-width:1186px] 2xl:px-0 2xl:[max-width:1240px] 3xl:[max-width:1440px]">
-        <Row
-          gutter="10"
-          alignItems="flexStart"
-          className="pt-3"
-        >
+      <Row
+        justifyContent="spaceBetween"
+        alignItems="center"
+        className="flex-col gap-y-6 xmd:gap-y-0 xmd:flex-row px-6 [max-width:unset] mxl:px-3 xl:px-10 xl:[max-width:1186px] 2xl:px-0 2xl:[max-width:1240px] 3xl:[max-width:1440px]"
+      >
+        <Row gutter="10" alignItems="flexStart" className="pt-3">
           <Profile />
           <Box className="flex items-center">
-            <Logo className="pt-[18px] text-[#feece8]" accentClassName="text-[#fbd0c8]" header />
+            <Logo
+              className="pt-[18px] text-[#feece8]"
+              accentClassName="text-[#fbd0c8]"
+              header
+            />
           </Box>
         </Row>
 
-        <Row
-          gutter="8"
-          justifyContent="flexEnd"
-          className="flex-grow"
-        >
-          <Links className="text-[#fde6e1]" hoverStyle="hover:[background:rgba(233,95,63,0.3)]" />
+        <Row gutter="8" justifyContent="flexEnd" className="flex-grow">
+          <Links
+            className="text-[#fde6e1]"
+            hoverStyle="hover:[background:rgba(233,95,63,0.3)]"
+          />
         </Row>
       </Row>
 
       <Box className="px-[32px] xl:pl-[160px] xl:pr-0 3xl:px-[160px]">
-
         <Box display="flex" className="flex flex-col xmd:flex-row">
           <Stack gutter="5" className="xmd:[flex:1_1_auto]">
             <SectionTitle>Projects</SectionTitle>
@@ -195,7 +216,11 @@ const Home = async () => {
               {[...allRepos]
                 .sort((a, b) => b.downloads - a.downloads)
                 .map(({ fullName, description, link, stars, downloads }) => (
-                  <Link href={toUrl(link)} key={link} className="block group text-morph">
+                  <Link
+                    href={toUrl(link)}
+                    key={link}
+                    className="block group text-morph"
+                  >
                     <Box as="div">
                       <Box
                         display="flex"
@@ -203,9 +228,8 @@ const Home = async () => {
                         className="gap-x-1"
                       >
                         <ProjectTitle>{fullName}</ProjectTitle>
-                        <ProjectTag
-                        >
-                          {formatStars(stars)} Stars -{' '}
+                        <ProjectTag>
+                          {starsText(stars, 'span', true)}
                           {formatDownloads(downloads)} Downloads
                         </ProjectTag>
                       </Box>
@@ -232,10 +256,7 @@ const Home = async () => {
                     >
                       <ProjectTitle>{fullName}</ProjectTitle>
 
-                      <ProjectTag
-                      >
-                        {starsText(stars)}
-                      </ProjectTag>
+                      <ProjectTag>{starsText(stars)}</ProjectTag>
                     </Box>
                     <ProjectText>{description}</ProjectText>
                   </Box>
@@ -246,11 +267,7 @@ const Home = async () => {
         </Box>
         <Stack gutter="5">
           <SectionTitle>Posts</SectionTitle>
-          <Stack
-            gutter="5"
-            inline
-            className="text-white"
-          >
+          <Stack gutter="5" inline className="text-white">
             {[...allPosts]
               .sort(
                 (a, b) =>
@@ -266,19 +283,18 @@ const Home = async () => {
                     >
                       <ProjectTitle>{title}</ProjectTitle>
 
-                      <ProjectTag
-                        className="pl-8"
-                      >
+                      <ProjectTag className="pl-8">
                         {parseAndFormatDate(date)}
                       </ProjectTag>
                     </Box>
-                    <ProjectText height="82px" duration={0.48}>{description}</ProjectText>
+                    <ProjectText height="82px" duration={0.48}>
+                      {description}
+                    </ProjectText>
                   </Box>
                 </Link>
               ))}
           </Stack>
         </Stack>
-
       </Box>
     </Stack>
   )

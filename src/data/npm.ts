@@ -34,7 +34,8 @@ const dl = {
   'react-pico-8': 1526,
   'react-micron': 588,
   'react-yat': 538,
-  'react-dialog-polyfill': 25991
+  'react-dialog-polyfill': 25991,
+  'use-app-badge': 300
 } as Record<string, number>
 
 export const getPackage = async (name: string) => {

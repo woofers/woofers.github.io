@@ -4,7 +4,11 @@ import Logo from 'components/logo'
 
 const MainLayout: React.FC<{ children?: React.ReactNode }> = ({ children }) => (
   <Box as="main" display="flex" flexGrow="grow">
-    <Stack gutter="0" flexGrow="grow" className="max-h-screen overflow-y-auto fade-morph">
+    <Stack
+      gutter="0"
+      flexGrow="grow"
+      className="max-h-screen overflow-y-auto fade-morph"
+    >
       <Container>
         {children}
         <Divider className="mt-8 mb-2" />

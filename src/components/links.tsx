@@ -68,7 +68,7 @@ type LinksProps = {
   data?: Entry[]
   children?: React.ReactNode
   className?: string
-  hoverStyle?: string 
+  hoverStyle?: string
 }
 
 const Links: React.FC<LinksProps> = ({
@@ -98,11 +98,7 @@ const Links: React.FC<LinksProps> = ({
               href={meta.link}
               {...extra}
               {...attrs}
-              className={clsx(
-                attrs.className,
-                'hover:rounded-md',
-                hoverStyle
-              )}
+              className={clsx(attrs.className, 'hover:rounded-md', hoverStyle)}
               theme="plain"
             >
               <Row gutter="2" alignItems="center">
