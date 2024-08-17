@@ -177,7 +177,6 @@ export const getRepo = async (name: string) => {
     console.log(e, '<<', name)
     repo.code = ''
   }
-  console.log(repo)
   return repo
 }
 
