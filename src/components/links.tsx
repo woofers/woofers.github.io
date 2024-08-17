@@ -11,7 +11,6 @@ import { BiEnvelope, BiMailSend } from 'react-icons/bi'
 import { HiOutlineNewspaper } from 'react-icons/hi'
 import { IoMdInformationCircle } from 'react-icons/io'
 import { Divider, Link, Text, Row, Box } from 'components/styled'
-import { toUrl } from 'utils'
 import { clsx } from 'cva'
 
 const Empty: React.FC<Nothing> = () => null
@@ -36,18 +35,6 @@ const dataDefault = [
     link: 'https://github.com/woofers',
     handle: 'woofers',
     external: true,
-    showText: true
-  },
-  {
-    key: 'resume',
-    name: 'Resume',
-    link: 'https://jaxs.onl/resume/jaxsonvd-resume.pdf',
-    showText: true
-  },
-  {
-    key: 'email',
-    name: 'hey@jaxs.onl',
-    link: 'mailto:hey@jaxs.onl',
     showText: true
   }
 ] as Entry[]
