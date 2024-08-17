@@ -91,16 +91,16 @@ module.exports = {
   darkMode: 'class',
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
   future: {
-    hoverOnlyWhenSupported: true,
+    hoverOnlyWhenSupported: true
   },
   theme: {
     screens: {
-      'sm': '640px',
-      'md': '784px',
-      'xmd': '860px',
-      'lg': '1024px',
-      'mxl': '1170px',
-      'xl': '1280px',
+      sm: '640px',
+      md: '784px',
+      xmd: '860px',
+      lg: '1024px',
+      mxl: '1170px',
+      xl: '1280px',
       '2xl': '1536px',
       '3xl': '1700px'
     },
@@ -116,15 +116,15 @@ module.exports = {
           '100%': { transform: 'translate3d(0,0,0)' }
         },
         cmdSlideOut: {
-          '0%': { opacity: "1",  transform: 'scale(1)' },
-          '100%': { opacity: "0", transform: 'scale(0.96)' }
+          '0%': { opacity: '1', transform: 'scale(1)' },
+          '100%': { opacity: '0', transform: 'scale(0.96)' }
         },
         cmdSlideIn: {
-          '0%': { opacity: "0", transform: 'scale(0.96)' },
-          '100%': { opacity: "1",  transform: 'scale(1)' }
+          '0%': { opacity: '0', transform: 'scale(0.96)' },
+          '100%': { opacity: '1', transform: 'scale(1)' }
         },
         topShine: {
-          to: { opacity: "1" }
+          to: { opacity: '1' }
         },
         border: {
           to: { boxShadow: '0 0 0 1px #343434' }
@@ -132,14 +132,14 @@ module.exports = {
         shine: {
           to: {
             ['background-position']: '200% center',
-            opacity: "0"
+            opacity: '0'
           }
         },
         loading: {
-          '0%': { opacity: "0", transform: 'translateX(0)' },
-          '50%': { opacity: "1",  transform: 'translateX(100%)' },
-          '100%': { opacity: "0", transform: 'translateX(0)' }
-        },
+          '0%': { opacity: '0', transform: 'translateX(0)' },
+          '50%': { opacity: '1', transform: 'translateX(100%)' },
+          '100%': { opacity: '0', transform: 'translateX(0)' }
+        }
       },
       animation: {
         slideOut: 'slideOut 200ms cubic-bezier(0.4, 0, 0.2, 1)',
@@ -160,8 +160,8 @@ module.exports = {
     plugin(({ addVariant }) => {
       addVariant('dark-mode', [
         '@media (prefers-color-scheme: dark) { .system & }',
-        '.dark &',
+        '.dark &'
       ])
-    }),
+    })
   ]
 }

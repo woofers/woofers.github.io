@@ -10,9 +10,9 @@
     "dev": "next dev",
     "build": "./dist-games.sh && next build",
     "start": "serve out",
-    "lint": "next lint",
+    "lint": "biome lint --error-on-warnings ./src",
     "deploy": "gh-pages -t -d out",
-    "format": "prettier --write \"./src/**/*.{js,jsx,tsx,ts}\"",
+    "format": "biome format --write",
     "test": "echo 'No tests'"
   },
   "dependencies": {
@@ -25,8 +25,6 @@
     "autoprefixer": "10.4.19",
     "class-variance-authority": "^0.7.0",
     "contentlayer": "^0.3.4",
-    "eslint": "^8.39.0",
-    "eslint-config-next": "^14.2.3",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "next": "^14.2.3",
@@ -49,11 +47,13 @@
     "unist-util-filter": "^4.0.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
     "@contentlayer/core": "0.3.4",
     "@contentlayer/source-files": "0.3.4",
     "@types/lodash.debounce": "^4.0.9",
     "@types/lodash.throttle": "^4.1.9",
     "@types/mdx": "v2.0.4",
+    "@typescript-eslint/eslint-plugin": "^8.1.0",
     "alien-expansion": "^1.2.0",
     "clsx": "^2.1.1",
     "doge-bois": "^1.0.1",
@@ -61,8 +61,7 @@
     "gh-pages": "^6.1.1",
     "http-server": "^14.1.1",
     "mdx-bundler": "9.2.1",
-    "prettier": "^2.8.8",
-    "rimraf": "^5.0.7",
+    "rimraf": "^6.0.1",
     "serve": "^14.2.3",
     "whale-dive": "^1.1.1"
   }

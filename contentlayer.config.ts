@@ -1,24 +1,28 @@
-import { defineDocumentType, makeSource, type ComputedFields } from '@contentlayer/source-files'
+import {
+  defineDocumentType,
+  makeSource,
+  type ComputedFields
+} from '@contentlayer/source-files'
 import { rehypePlugins, remarkPlugins } from './remark'
 
 const computedFields: ComputedFields<string> = {
   slug: {
     type: 'string',
-    resolve: (doc) => {
+    resolve: doc => {
       if (doc.type === 'Project') {
         return `${doc._raw.flattenedPath}/play`
       }
       const path = `/${doc._raw.flattenedPath}`
       return path
-    },
+    }
   },
   slugAsParams: {
     type: 'string',
-    resolve: (doc) => {
+    resolve: doc => {
       const path = doc._raw.flattenedPath.split('/').slice(1).join('/')
       return path
-    },
-  },
+    }
+  }
 }
 
 export const Project = defineDocumentType(() => ({
@@ -28,10 +32,10 @@ export const Project = defineDocumentType(() => ({
   fields: {
     title: {
       type: 'string',
-      required: true,
+      required: true
     },
     description: {
-      type: 'string',
+      type: 'string'
     },
     layout: {
       type: 'string'
@@ -64,9 +68,8 @@ export const Project = defineDocumentType(() => ({
       type: 'string'
     }
   },
-  computedFields,
+  computedFields
 }))
-
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -75,20 +78,20 @@ export const Post = defineDocumentType(() => ({
   fields: {
     title: {
       type: 'string',
-      required: true,
+      required: true
     },
     description: {
-      type: 'string',
+      type: 'string'
     },
     date: {
       type: 'date',
-      required: true,
+      required: true
     },
     layout: {
       type: 'string'
     }
   },
-  computedFields,
+  computedFields
 }))
 
 export default makeSource({

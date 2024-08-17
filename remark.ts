@@ -9,7 +9,6 @@ import path from 'path'
 
 export const removeBadges = () => {
   return (tree: any) => {
-
     return filter(tree, (node: any) => {
       const child = node.children ? node.children[0] : ''
       return !(node.type === 'link' && child && child.type === 'image')
@@ -17,7 +16,10 @@ export const removeBadges = () => {
   }
 }
 
-export const remarkPlugins = [remarkGfm, removeBadges] satisfies MDXOptions["remarkPlugins"]
+export const remarkPlugins = [
+  remarkGfm,
+  removeBadges
+] satisfies MDXOptions['remarkPlugins']
 
 export const rehypePlugins = [
   rehypeSlug,
@@ -27,23 +29,23 @@ export const rehypePlugins = [
       theme: JSON.parse(readFileSync('./themes/dark.json', 'utf-8')),
       onVisitLine(node: any) {
         if (node.children.length === 0) {
-          node.children = [{ type: 'text', value: ' ' }];
+          node.children = [{ type: 'text', value: ' ' }]
         }
       },
       onVisitHighlightedLine(node: any) {
-        node.properties.className.push('line--highlighted');
+        node.properties.className.push('line--highlighted')
       },
       onVisitHighlightedWord(node: any) {
-        node.properties.className = ['word--highlighted'];
-      },
-    },
+        node.properties.className = ['word--highlighted']
+      }
+    }
   ],
   [
     rehypeAutolinkHeadings,
     {
       properties: {
-        className: ['anchor'],
-      },
-    },
+        className: ['anchor']
+      }
+    }
   ]
-] satisfies MDXOptions["rehypePlugins"]
+] satisfies MDXOptions['rehypePlugins']

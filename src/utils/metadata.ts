@@ -13,7 +13,7 @@ export const getViewport = ({ themeColor = '#f4f4f5' } = {}) =>
     width: 'device-width',
     initialScale: 1,
     viewportFit: 'cover'
-  } satisfies Viewport)
+  }) satisfies Viewport
 
 export const getMetadata = ({
   title,
@@ -79,4 +79,4 @@ export const getMetadata = ({
         }
       ]
     }
-  } satisfies Metadata)
+  }) satisfies Metadata
