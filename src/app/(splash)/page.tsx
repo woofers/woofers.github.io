@@ -196,7 +196,11 @@ const Home = async () => {
           </Box>
         </Row>
 
-        <Row gutter="8" justifyContent="flexEnd" className="flex-grow">
+        <Row
+          gutter="8"
+          justifyContent="flexEnd"
+          className="flex-grow [align-self:baseline] xl:[align-self:unset]"
+        >
           <Links
             className="text-[#fde6e1]"
             hoverStyle="hover:[background:rgba(233,95,63,0.3)]"
