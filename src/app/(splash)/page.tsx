@@ -199,7 +199,7 @@ const Home = async () => {
         <Row
           gutter="8"
           justifyContent="flexEnd"
-          className="flex-grow [align-self:baseline] xl:[align-self:unset]"
+          className="flex-grow [align-self:baseline] xmd:[align-self:unset]"
         >
           <Links
             className="text-[#fde6e1]"
