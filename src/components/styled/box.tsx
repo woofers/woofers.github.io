@@ -83,45 +83,40 @@ type BoxComponent = <C extends React.ElementType = 'div'>(
 ) => React.ReactElement | null
 
 // eslint-disable-next-line react/display-name
-const Box = React.forwardRef(
-  <C extends React.ElementType = 'div'>(
-    {
-      className,
-      children,
-      style,
-      as,
-      display,
-      justifyContent,
-      alignItems,
-      flexDirection,
-      flexGrow,
-      position,
-      ...rest
-    }: FullBoxProps<C>,
-    ref?: PolymorphicRef<C>
-  ) => {
-    const Component = as || 'div'
-    return (
-      <Component
-        {...rest}
-        className={clsx(
-          box({
-            display,
-            justifyContent,
-            alignItems,
-            flexDirection,
-            flexGrow,
-            position
-          }),
-          className
-        )}
-        style={style}
-      >
-        {children}
-      </Component>
-    )
-  }
-) as BoxComponent
+const Box = <C extends React.ElementType = 'div'>({
+  className,
+  children,
+  style,
+  as,
+  display,
+  justifyContent,
+  alignItems,
+  flexDirection,
+  flexGrow,
+  position,
+  ...rest
+}: FullBoxProps<C>) => {
+  const Component = as || 'div'
+  return (
+    <Component
+      {...rest}
+      className={clsx(
+        box({
+          display,
+          justifyContent,
+          alignItems,
+          flexDirection,
+          flexGrow,
+          position
+        }),
+        className
+      )}
+      style={style}
+    >
+      {children}
+    </Component>
+  )
+}
 
 export default Box
 
