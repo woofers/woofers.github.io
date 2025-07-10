@@ -40,7 +40,10 @@ const exclude = {
   'use-contacts': true,
   'next-auth-oauth4webapi': true,
   'next-edge-runtime-redirect-bug': true,
-  'jsx-focus': true
+  'jsx-focus': true,
+  'react-rsbuild-streaming-ssr': true,
+  'cover-art': true,
+  'use-intercom': true
 } as const
 
 type ExcludeList = typeof exclude

@@ -1,4 +1,4 @@
 {
-  "recommendations": ["biomejs.biome", "GitHub.codespaces"],
+  "recommendations": ["biomejs.biome", "GitHub.codespaces", "ms-vscode-remote.remote-wsl"],
   "unwantedRecommendations": []
 }
