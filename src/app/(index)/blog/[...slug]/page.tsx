@@ -10,12 +10,12 @@ import ContentContainer from 'components/content-container'
 import { getViewport } from 'utils/metadata'
 
 type PostProps = {
-  params: {
+  params: Promise<{
     slug: string[]
-  }
+  }>
 }
 
-const getPostFromParams = async (params: PostProps['params']) => {
+const getPostFromParams = async (params: Awaited<PostProps['params']>) => {
   const slug = params?.slug?.join('/')
   const post = allPosts.find(post => post.slugAsParams === slug)
 
@@ -29,7 +29,8 @@ const getPostFromParams = async (params: PostProps['params']) => {
 export const generateMetadata = async ({
   params
 }: PostProps): Promise<Metadata> => {
-  const post = await getPostFromParams(params)
+  const data = await params
+  const post = await getPostFromParams(data)
 
   if (!post) {
     return {}
@@ -41,7 +42,7 @@ export const generateMetadata = async ({
 export const generateViewport = ({ params }: PostProps) => getViewport()
 
 export const generateStaticParams = async (): Promise<
-  PostProps['params'][]
+  Awaited<PostProps['params']>[]
 > => {
   return allPosts.map(post => ({
     slug: post.slugAsParams.split('/')
@@ -49,7 +50,8 @@ export const generateStaticParams = async (): Promise<
 }
 
 const PostPage = async ({ params }: PostProps) => {
-  const post = await getPostFromParams(params)
+  const data = await params
+  const post = await getPostFromParams(data)
 
   if (!post) {
     notFound()

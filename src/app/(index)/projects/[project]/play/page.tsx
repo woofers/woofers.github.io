@@ -11,12 +11,14 @@ import { getMetadata } from 'utils'
 import { getViewport } from 'utils/metadata'
 
 type ProjectProps = {
-  params: {
+  params: Promise<{
     project: string
-  }
+  }>
 }
 
-const getProjectFromParams = async (params: ProjectProps['params']) => {
+const getProjectFromParams = async (
+  params: Awaited<ProjectProps['params']>
+) => {
   const slug = params?.project
   const project = allProjects.find(project => project.slugAsParams === slug)
 
@@ -30,7 +32,8 @@ const getProjectFromParams = async (params: ProjectProps['params']) => {
 export const generateMetadata = async ({
   params
 }: ProjectProps): Promise<Metadata> => {
-  const project = await getProjectFromParams(params)
+  const data = await params
+  const project = await getProjectFromParams(data)
 
   if (!project) {
     return {}
@@ -39,10 +42,10 @@ export const generateMetadata = async ({
   return getMetadata({ title: project.title })
 }
 
-export const generateViewport = ({ params }: ProjectProps) => getViewport()
+export const generateViewport = () => getViewport()
 
 export const generateStaticParams = async (): Promise<
-  ProjectProps['params'][]
+  Awaited<ProjectProps['params']>[]
 > => {
   return allProjects.map(project => ({
     project: project.slugAsParams
@@ -50,7 +53,8 @@ export const generateStaticParams = async (): Promise<
 }
 
 const ProjectsPlayPage = async ({ params }: ProjectProps) => {
-  const project = await getProjectFromParams(params)
+  const data = await params
+  const project = await getProjectFromParams(data)
 
   if (!project) {
     notFound()
@@ -70,7 +74,7 @@ const ProjectsPlayPage = async ({ params }: ProjectProps) => {
   ]
 
   return (
-    <ContentContainer data={buttons} back={`/projects/${params.project}`}>
+    <ContentContainer data={buttons} back={`/projects/${data.project}`}>
       <Title className="text-morph">{project.title}</Title>
       <Subtitle>{project.description}</Subtitle>
       <Divider />

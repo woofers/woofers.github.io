@@ -10,15 +10,16 @@ import ContentContainer from 'components/content-container'
 import { getViewport } from 'utils/metadata'
 
 type ProjectProps = {
-  params: {
+  params: Promise<{
     project: string
-  }
+  }>
 }
 
 export const generateMetadata = async ({
   params
 }: ProjectProps): Promise<Metadata> => {
-  const { project } = params
+  const data = await params
+  const { project } = data
   const repo = await getRepo(project)
 
   if (!repo) {
@@ -28,10 +29,10 @@ export const generateMetadata = async ({
   return getMetadata({ title: repo.fullName })
 }
 
-export const generateViewport = ({ params }: ProjectProps) => getViewport()
+export const generateViewport = () => getViewport()
 
 export const generateStaticParams = async (): Promise<
-  ProjectProps['params'][]
+  Awaited<ProjectProps['params']>[]
 > => {
   const repos = await getRepos()
   return repos.map(repo => ({
@@ -40,7 +41,8 @@ export const generateStaticParams = async (): Promise<
 }
 
 const ProjectsPage = async ({ params }: ProjectProps) => {
-  const repo = await getRepo(params.project)
+  const data = await params
+  const repo = await getRepo(data.project)
 
   if (!repo) {
     notFound()
@@ -71,9 +73,7 @@ const ProjectsPage = async ({ params }: ProjectProps) => {
       <Title className="text-morph">{repo.fullName}</Title>
       <Subtitle>{repo.description}</Subtitle>
       <Divider />
-      {!!repo.code && (
-        <Mdx code={repo.code} meta={{ project: params.project }} />
-      )}
+      {!!repo.code && <Mdx code={repo.code} meta={{ project: data.project }} />}
     </ContentContainer>
   )
 }
