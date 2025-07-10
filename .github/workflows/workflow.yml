@@ -16,7 +16,7 @@ jobs:
     - name: use pnpm
       uses: pnpm/action-setup@v4
       with:
-        version: 9.7.1
+        package_json_file: ./package.json
     - name: Install
       run: pnpm install
     - name: Build
