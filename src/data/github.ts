@@ -3,6 +3,7 @@ import { post } from './http'
 import { getPackage } from './npm'
 import { bundleMDX } from 'mdx-bundler'
 import { rehypePlugins, remarkPlugins } from '../../remark'
+import { createCacheFor } from './cache'
 
 const exclude = {
   link: true,
@@ -41,6 +42,7 @@ const exclude = {
   'next-auth-oauth4webapi': true,
   'next-edge-runtime-redirect-bug': true,
   'jsx-focus': true,
+  'react-rsbuild-steaming-ssr': true,
   'react-rsbuild-streaming-ssr': true,
   'cover-art': true,
   'use-intercom': true
@@ -161,7 +163,17 @@ const mdxOptions: MdxOptions = options => {
   return options
 }
 
-export const getRepo = async (name: string) => {
+const { cache, isNotExpired, cacheEnabled } = createCacheFor<Repo>()
+
+export const getRepo = async (name: string): Promise<Repo | null> => {
+  console.log('cacheEnabled', cache)
+  if (cacheEnabled) {
+    const cached = cache.get(name)
+    if (isNotExpired(cached)) {
+      return cached.data
+    }
+  }
+
   const data = await fromGithub<{ user: { repository: Repo } }>({
     query: repoQuery(name),
     variables: { name }
@@ -169,7 +181,7 @@ export const getRepo = async (name: string) => {
   const repo = data.user.repository
   mutateRepoNames(repo, exclude)
   repo.link = getRepoLink(repo.name)
-  if (!repo || !repo.fullName) return null
+  if (!repo || !repo.fullName) return null as never
   try {
     const mdx = await bundleMDX({
       source: repo.readmeProject?.text ?? repo.readme.text,
@@ -180,10 +192,31 @@ export const getRepo = async (name: string) => {
     console.log(e, '<<', name)
     repo.code = ''
   }
+
+  if (cacheEnabled) {
+    cache.set(name, {
+      data: repo,
+      timestamp: Date.now()
+    })
+  }
+
   return repo
 }
 
+const {
+  cache: allReposCache,
+  isNotExpired: isNotExpiredAllRepos,
+  cacheEnabled: cacheEnabledAllRepos
+} = createCacheFor<Repo[]>()
+
 export const getRepos = async () => {
+  if (cacheEnabledAllRepos) {
+    const cached = allReposCache.get('all-repos')
+    if (isNotExpiredAllRepos(cached)) {
+      return cached.data
+    }
+  }
+
   const data = await fromGithub<{
     user: { repositories: { edges: { node: Repo }[] } }
   }>({ query })
@@ -206,6 +239,12 @@ export const getRepos = async () => {
     } catch (e) {
       repo.downloads = 0
     }
+  }
+  if (cacheEnabledAllRepos) {
+    allReposCache.set('all-repos', {
+      data: repos,
+      timestamp: Date.now()
+    })
   }
   return repos
 }

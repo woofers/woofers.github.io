@@ -1,4 +1,5 @@
 import { get } from './http'
+import { createCacheFor } from './cache'
 
 const getNpmDownloads = <T extends string>(
   name: T,
@@ -10,6 +11,9 @@ const getNpmDownloads = <T extends string>(
     { next: { revalidate: 60 } }
   )
 
+type PackageData = { downloads: number }
+const { cache, isNotExpired, cacheEnabled } = createCacheFor<PackageData>()
+
 const fromNpm = async ({
   name,
   start = '2019-01-01',
@@ -19,9 +23,22 @@ const fromNpm = async ({
   start?: string
   end?: string
 }) => {
+  if (cacheEnabled) {
+    const cached = cache.get(name)
+    if (isNotExpired(cached)) {
+      return cached.data
+    }
+  }
   const result = await getNpmDownloads(name, start, end)
   const data = Object.values(result[name]).reduce((a, b) => a + b, 0)
-  return { downloads: data }
+  const toReturn = { downloads: data }
+  if (cacheEnabled) {
+    cache.set(name, {
+      data: toReturn,
+      timestamp: Date.now()
+    })
+  }
+  return toReturn
 }
 
 // npm-stat.com API is down
