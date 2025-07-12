@@ -6,7 +6,7 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
   experimental: {
-    typedRoutes: true
+    typedRoutes: false
   },
   images: { unoptimized: true }
 }
