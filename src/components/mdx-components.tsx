@@ -32,8 +32,9 @@ const CustomImage: React.FC<ImageProps & { project: string } & InsetProps> = ({
       : initialSrc
   const meta =
     initialAlt === 'img' ? { alt: title } : { alt: initialAlt, title }
-  // biome-ignore lint: Alt is set
+
   return (
+    // biome-ignore lint/a11y/useAltText: Alt is set
     <img
       className={clsx(
         'rounded-lg mt-2 mb-4',

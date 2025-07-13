@@ -18,7 +18,10 @@ export const getViewport = ({ themeColor = '#f4f4f5' } = {}) =>
 export const getMetadata = ({
   title,
   noIndex = false
-}: { title?: string; noIndex?: boolean } = {}) =>
+}: {
+  title?: string
+  noIndex?: boolean
+} = {}) =>
   ({
     title: title ? `${title} | ${name}` : name,
     description,

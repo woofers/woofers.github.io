@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.1.1/schema.json",
   "formatter": {
     "enabled": true,
     "formatWithErrors": false,
@@ -9,14 +9,13 @@
     "lineWidth": 80,
     "attributePosition": "auto"
   },
-  "organizeImports": { "enabled": true },
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
     "enabled": true,
     "rules": {
       "recommended": false,
       "a11y": {
         "noAriaUnsupportedElements": "warn",
-        "noBlankTarget": "off",
         "useAltText": "warn",
         "useAriaPropsForRole": "warn",
         "useValidAriaProps": "warn",
@@ -45,14 +44,7 @@
       "attributePosition": "auto"
     }
   },
-  "overrides": [{ "include": ["**/*.ts?(x)"] }],
   "files": {
-    "ignore": [
-      "package.json",
-      "pnpm-lock.yml",
-      "dist/*",
-      "node_modules/*",
-      ".next/*"
-    ]
+    "includes": ["./src/**/*.{ts,tsx,jsx,js,mjs,mts}"]
   }
 }
