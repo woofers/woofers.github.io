@@ -166,7 +166,6 @@ const mdxOptions: MdxOptions = options => {
 const { cache, isNotExpired, cacheEnabled } = createCacheFor<Repo>()
 
 export const getRepo = async (name: string): Promise<Repo | null> => {
-  console.log('cacheEnabled', cache)
   if (cacheEnabled) {
     const cached = cache.get(name)
     if (isNotExpired(cached)) {

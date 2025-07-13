@@ -208,9 +208,9 @@ const Home = async () => {
         </Row>
       </Row>
 
-      <Box className="px-[32px] xl:pl-[160px] xl:pr-0 3xl:px-[160px]">
+      <Box className="px-[28px] xl:pl-[160px] xl:pr-0 3xl:px-[160px]">
         <Box display="flex" className="flex flex-col xmd:flex-row">
-          <Stack gutter="5" className="xmd:[flex:1_1_auto]">
+          <Stack gutter="5" className="xmd:[flex:1_1_auto] xmd:pr-[20px]">
             <SectionTitle>Projects</SectionTitle>
             <Stack
               gutter="3"
@@ -243,7 +243,7 @@ const Home = async () => {
                 ))}
             </Stack>
           </Stack>
-          <Stack gutter="5" className="xmd:[flex:0_1_480px]">
+          <Stack gutter="5" className="xmd:[flex:0_1_460px]">
             <SectionTitle>Games</SectionTitle>
             <Stack
               gutter="3"
