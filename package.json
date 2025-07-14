@@ -18,6 +18,7 @@
 	"dependencies": {
 		"@ludum-dare-badges/react": "^2.1.4",
 		"@radix-ui/react-progress": "^1.1.7",
+		"@tailwindcss/postcss": "^4.1.11",
 		"@tanstack/react-query": "^5.83.0",
 		"@types/node": "^24.0.13",
 		"@types/react": "19.1.8",
@@ -41,8 +42,8 @@
 		"remark-gfm": "^3.0.1",
 		"server-only": "^0.0.1",
 		"shiki": "^0.14.2",
-		"tailwind-merge": "^2.6.0",
-		"tailwindcss": "^3.4.4",
+		"tailwind-merge": "^3.3.1",
+		"tailwindcss": "^4.1.11",
 		"typescript": "^5.8.3",
 		"unist-util-filter": "^5.0.1"
 	},

@@ -5,7 +5,7 @@ import { Box } from 'components/styled'
 type LinkProps = React.ComponentProps<typeof Links> & { back?: string }
 
 const ContentContainer: React.FC<LinkProps> = ({ children, data, back }) => (
-  <article className="flex-grow pt-6 prose dark:prose-invert relative">
+  <article className="flex-grow pt-6 prose relative">
     {!!back && (
       <Box
         className="left-[-14px] top-[-14px] flex justify-end sm:top-[-22px] xl:hidden"

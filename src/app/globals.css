@@ -1,126 +1,162 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-#__next {
-  isolation: isolate;
-  min-height: 100vh;
-}
-
-input, textarea, button, select, a {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-.p8_menu_button {
-  display: inline !important;
-}
-
-.p8_menu_button:hover > button {
-  display: inline;
-  background: #6f666d;
-}
-
-.p8_menu_button > button {
-  background: #a49aa1;
-}
-
-.p8_menu_button img { 
-  border-radius: 0;
-  max-width: none;
-}
-
-#p8_container > button {
-  border-radius: 25px;
-}
-
-#p8_container > button > img {
-  margin-bottom: auto;
-}
-
-#p8_playarea > div:last-of-type > div {
-  margin-left: 0;
-}
-
-#canvas {
-  border-radius: 25px;
-  margin: 0 auto;
-}
-
-#canvas + div {
-  display: inline-block;
-  margin-left: 0;
-  margin-top: 12.5px;
-}
-
-::selection {
-  background: #ffab7f !important;
-  color: rgb(var(--color-zinc-100) / 0.99) !important;
-}
-
-::-moz-selection {
-  background: #ffab7f !important;
-  color: rgb(var(--color-zinc-100) / 0.99) !important;
-}
-
-.background {
-  background: linear-gradient(110deg, #f27052 10%, #fd904f);
-}
-
-.fade-morph {
-  view-transition-name: fade-morph-view;
-}
+@config '../../tailwind.config.js';
 
 /*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility min-h-screen {
+  @supports (min-height: 100svh) {
+    min-height: 100svh;
+  }
+}
+
+@utility max-h-screen {
+  @supports (max-height: 100dvh) {
+    max-height: 100dvh;
+  }
+}
+
+@layer utilities {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  #__next {
+    isolation: isolate;
+    min-height: 100vh;
+  }
+
+  input,
+  textarea,
+  button,
+  select,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .p8_menu_button {
+    display: inline !important;
+  }
+
+  .p8_menu_button:hover > button {
+    display: inline;
+    background: #6f666d;
+  }
+
+  .p8_menu_button > button {
+    background: #a49aa1;
+  }
+
+  .p8_menu_button img {
+    border-radius: 0;
+    max-width: none;
+  }
+
+  #p8_container > button {
+    border-radius: 25px;
+  }
+
+  #p8_container > button > img {
+    margin-bottom: auto;
+  }
+
+  #p8_playarea > div:last-of-type > div {
+    margin-left: 0;
+  }
+
+  #canvas {
+    border-radius: 25px;
+    margin: 0 auto;
+  }
+
+  #canvas + div {
+    display: inline-block;
+    margin-left: 0;
+    margin-top: 12.5px;
+  }
+
+  ::selection {
+    background: #ffab7f !important;
+    color: rgb(var(--color-zinc-100) / 0.99) !important;
+  }
+
+  ::-moz-selection {
+    background: #ffab7f !important;
+    color: rgb(var(--color-zinc-100) / 0.99) !important;
+  }
+
+  .background {
+    background: linear-gradient(110deg, #f27052 10%, #fd904f);
+  }
+
+  .fade-morph {
+    view-transition-name: fade-morph-view;
+  }
+
+  /*
 .text-morph {
   view-transition-name: text-morph-view;
 }
 */
+}
 
 @layer base {
   :root {
@@ -623,22 +659,4 @@ input, textarea, button, select, a {
     --color-rose-50: 28 18 21;
   }
 
-  @media (prefers-color-scheme: dark) {
-    .system {
-      @apply dark
-    }
-  }
-}
-
-@layer utilities {
-  @supports (min-height: 100svh) {
-    .min-h-screen {
-      min-height: 100svh;
-    }
-  }
-  @supports (max-height: 100dvh) {
-    .max-h-screen {
-      max-height: 100dvh;
-    }
-  }
 }
