@@ -76,17 +76,17 @@ const SectionTitle: React.FC<{
 
 const Profile: React.FC<Nothing> = () => (
   <Box className="block relative w-[120px] h-[120px] group" as="button">
-    <Box className="absolute top-0 block [mix-blend-mode:lighten] opacity-75">
+    <Box className="absolute top-0 block [mix-blend-mode:luminosity] opacity-[0.6]">
       <img
         className="block rounded-full border-2 border-white sm:hidden"
-        src="/me/jaxson-new-small.webp"
+        src="/me/jaxson-2025-small.webp"
         alt="Photo of Jaxson"
         width={112}
         height={112}
       />
       <img
         className="[flex:0_0_120px] rounded-full border-2 border-white hidden sm:block"
-        src="/me/jaxson-new.webp"
+        src="/me/jaxson-2025.webp"
         alt="Photo of Jaxson"
         width={120}
         height={120}
@@ -95,14 +95,14 @@ const Profile: React.FC<Nothing> = () => (
     <Box className="absolute top-0 block opacity-0 blur-[2px] [transition:opacity_0.3s_ease-in,filter_0.05s_0.2s_ease-in] group-hover:opacity-100 group-focus:opacity-100 group-hover:blur-none group-focus:blur-none">
       <img
         className="block rounded-full border-2 border-white sm:hidden"
-        src="/me/jaxson-new-small.webp"
+        src="/me/jaxson-2025-small.webp"
         alt="Photo of Jaxson"
         width={112}
         height={112}
       />
       <img
         className="[flex:0_0_120px] rounded-full border-2 border-white hidden sm:block"
-        src="/me/jaxson-new.webp"
+        src="/me/jaxson-2025.webp"
         alt="Photo of Jaxson"
         width={120}
         height={120}
