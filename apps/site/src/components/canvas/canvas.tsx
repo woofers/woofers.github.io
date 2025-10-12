@@ -247,6 +247,7 @@ const spacings = {
 }
 
 export const ModelGrid = React.memo<{
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   components: React.ComponentType<any>[]
   position?: [number, number, number]
 }>(({ components, position = [0, 0, 0] }) => {
@@ -288,6 +289,7 @@ export const ModelGrid = React.memo<{
     </>
   )
 })
+ModelGrid.displayName = 'ModelGrid'
 
 const components = [
   withModel('Crazy Taxi.jpg'),
