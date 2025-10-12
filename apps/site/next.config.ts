@@ -1,7 +1,19 @@
+import {
+  createVanillaExtractPlugin
+} from '@vanilla-extract/next-plugin'
 import type { NextConfig } from 'next'
+import { withContentlayer } from 'next-contentlayer2'
 
-const nextConfig: NextConfig = {
-  transpilePackages: ['@jaxson/components']
-}
+const withVanillaExtract = createVanillaExtractPlugin()
 
-export default nextConfig
+const nextConfig = {
+  output: 'export',
+  reactStrictMode: true,
+  transpilePackages: ['@jaxson/ui', '@jaxson/hooks'],
+  trailingSlash: true,
+  experimental: {
+    viewTransition: true
+  }
+} satisfies NextConfig
+
+export default withContentlayer(withVanillaExtract(nextConfig))

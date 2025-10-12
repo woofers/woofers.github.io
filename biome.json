@@ -1,5 +1,8 @@
 {
   "$schema": "https://biomejs.dev/schemas/biome.json",
+  "files": {
+    "includes": ["**/src/**/*.{tsx,ts,mts,jsx,js,mjs,json,.css.ts}"]
+  },
   "formatter": {
     "enabled": true,
     "indentStyle": "space",

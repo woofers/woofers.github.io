@@ -1,0 +1,39 @@
+{
+  "name": "@jaxson/ui",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./box": "./src/box/index.ts",
+    "./banner": "./src/banner/index.ts",
+    "./icons": "./src/icons/index.ts",
+    "./hidden": "./src/hidden/index.ts",
+    "./theme/global.css": "./src/theme/global.css.ts",
+    "./theme/typography.css": "./src/theme/typography.css.ts",
+    "./typography": "./src/typography/index.ts",
+    "./theme-provider": "./src/theme/index.ts",
+    "./theme": "./src/theme/theme.css.ts",
+    "./header": "./src/header/index.ts",
+    "./text-effects": "./src/text-effects/index.ts"
+  },
+  "peerDependencies": {
+    "@vanilla-extract/css": "^1.17.4",
+    "@vanilla-extract/css-utils": "^0.1.6",
+    "@vanilla-extract/dynamic": "^2.1.5",
+    "@vanilla-extract/sprinkles": "^1.6.5"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.1.2",
+    "@jaxson/tsconfig": "workspace:*",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6"
+  },
+  "dependencies": {
+    "@jaxson/hooks": "workspace:*",
+    "clsx": "^2.1.1",
+    "motion": "^12.23.9",
+    "next-themes": "^0.4.6",
+    "rainbow-sprinkles": "^1.0.0"
+  }
+}

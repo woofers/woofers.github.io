@@ -1,3 +1,9 @@
 packages:
-  - 'apps/*'
-  - 'packages/@jaxson/*'
+  - apps/*
+  - packages/@jaxson/*
+
+onlyBuiltDependencies:
+  - contentlayer2
+  - esbuild
+  - sharp
+  - unrs-resolver
