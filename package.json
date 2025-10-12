@@ -20,7 +20,7 @@
     "sharp": "^0.33.0",
     "sherif": "^1.6.1",
     "tsx": "^4.7.0",
-    "turbo": "^2.5.5",
+    "turbo": "^2.5.8",
     "typescript": "^5.8.3"
   },
   "workspaces": [
