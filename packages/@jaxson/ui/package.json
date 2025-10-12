@@ -26,8 +26,8 @@
   "devDependencies": {
     "@biomejs/biome": "^2.1.2",
     "@jaxson/tsconfig": "workspace:*",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6"
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.1"
   },
   "dependencies": {
     "@jaxson/hooks": "workspace:*",
