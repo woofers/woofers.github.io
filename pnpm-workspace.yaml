@@ -1,3 +1,9 @@
-ignoredBuiltDependencies:
-  - '@tailwindcss/oxide'
+packages:
+  - apps/*
+  - packages/@jaxson/*
+
+onlyBuiltDependencies:
+  - contentlayer2
+  - esbuild
   - sharp
+  - unrs-resolver

@@ -1,50 +1,24 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.1.1/schema.json",
+  "$schema": "https://biomejs.dev/schemas/biome.json",
+  "files": {
+    "includes": ["**/src/**/*.{tsx,ts,mts,jsx,js,mjs,json,.css.ts}"]
+  },
   "formatter": {
     "enabled": true,
-    "formatWithErrors": false,
     "indentStyle": "space",
     "indentWidth": 2,
     "lineEnding": "lf",
-    "lineWidth": 80,
-    "attributePosition": "auto"
+    "lineWidth": 80
   },
-  "assist": { "actions": { "source": { "organizeImports": "on" } } },
   "linter": {
-    "enabled": true,
-    "rules": {
-      "recommended": false,
-      "a11y": {
-        "noAriaUnsupportedElements": "warn",
-        "useAltText": "warn",
-        "useAriaPropsForRole": "warn",
-        "useValidAriaProps": "warn",
-        "useValidAriaValues": "warn"
-      },
-      "correctness": {
-        "noChildrenProp": "error",
-        "useExhaustiveDependencies": "warn",
-        "useHookAtTopLevel": "error",
-        "useJsxKeyInIterable": "error"
-      },
-      "security": { "noDangerouslySetInnerHtmlWithChildren": "error" },
-      "suspicious": { "noCommentText": "error", "noDuplicateJsxProps": "error" }
-    }
+    "enabled": false
   },
   "javascript": {
     "formatter": {
-      "jsxQuoteStyle": "double",
-      "quoteProperties": "asNeeded",
-      "trailingCommas": "none",
-      "semicolons": "asNeeded",
-      "arrowParentheses": "asNeeded",
-      "bracketSpacing": true,
-      "bracketSameLine": false,
       "quoteStyle": "single",
-      "attributePosition": "auto"
+      "semicolons": "asNeeded",
+      "trailingCommas": "none",
+      "arrowParentheses": "asNeeded"
     }
-  },
-  "files": {
-    "includes": ["./src/**/*.{ts,tsx,jsx,js,mjs,mts}"]
   }
 }

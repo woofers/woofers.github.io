@@ -1,39 +1,33 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# macOS settings file 
+.DS_Store
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
+# Contains all your dependencies
+node_modules
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
-
-# production
+# Replace as required with your build location
 /build
 
-# misc
-.DS_Store
-*.pem
+# Deal with environment files
+.env
+.env.*
 
-# debug
+# We'll allow an example .env file which can be copied
+!.env.example
+
+# Coverage directory used by testing tools
+coverage
+
+
+# npm and yarn debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# local env files
-.env*.local
+# next.js
+.next
+.turbo
 
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts
-.contentlayer
-public/projects
-.env
-.env.prod
+# sveltekit
+/.svelte-kit
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
