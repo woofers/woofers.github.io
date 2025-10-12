@@ -29,14 +29,14 @@ export const Box = <T extends React.ElementType = 'div'>(
   } = props
   const { className, style, otherProps } = rainbowSprinkles(rest)
   const mergedStyles = { ...componentStyles, ...style }
-  const Element = as || 'div'
+  const Element = (as || 'div') as 'div'
+  const directProps = {
+    className: clsx(initialClass, className),
+    style: mergedStyles,
+    ref
+  }
   return (
-    <Element
-      className={clsx(initialClass, className)}
-      style={mergedStyles}
-      ref={ref}
-      {...otherProps}
-    >
+    <Element {...(directProps as {})} {...(otherProps as {})}>
       {children}
     </Element>
   )

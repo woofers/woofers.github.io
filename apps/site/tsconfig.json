@@ -9,6 +9,8 @@
     "outDir": "dist",
     "declaration": true,
     "allowImportingTsExtensions": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "plugins": [
       {
         "name": "next"
