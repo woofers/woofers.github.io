@@ -2,8 +2,23 @@ packages:
   - apps/*
   - packages/@jaxson/*
 
+minimumReleaseAge: 4320
+
 onlyBuiltDependencies:
   - contentlayer2
   - esbuild
+  - protobufjs
   - sharp
   - unrs-resolver
+
+overrides:
+  '@eslint/plugin-kit@<0.3.4': '>=0.3.4'
+  estree-util-value-to-estree@<3.3.3: '>=3.3.3'
+  form-data@<2.5.4: '>=2.5.4'
+  jpeg-js@<0.4.0: '>=0.4.0'
+  jpeg-js@<0.4.4: '>=0.4.4'
+  next@>=15.0.0 <=15.4.4: '>=15.4.5'
+  next@>=15.0.0-canary.0 <15.4.7: '>=15.4.7'
+  on-headers@<1.1.0: '>=1.1.0'
+  request: '2.88.2'
+  tough-cookie@<4.1.3: '>=4.1.3'
