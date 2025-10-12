@@ -9,13 +9,13 @@ A [Next.js](https://nextjs.org/) ⚡ based site built using static Markdown cont
 Automated deploy to [Github Pages](https://pages.github.com/) 🚀 is configured using [GitHub Actions](https://github.com/features/actions). ⚙️
 
 
-# 🎯 Goals
+## 🎯 Goals
 
 1.  📝 Be easy to update and maintain content. Ideally with simple Markdown markup.
 2.  📱 Take full-advantage of wide screen sizes while still scaling to a wide-variety of screen sizes.
 3.  ⚡ Load quickly; nothing is worse than a *slow* site.
 
-# 🚀 Usage
+## 🚀 Usage
 
 
 ### 🏠 Running Locally
@@ -36,7 +36,7 @@ Building the static site can be done with:
 
 A `out` folder will be generated with the created bundle.
 
-## 🛠️ Tech Stack
+## 🛠️ Features
 
 - **🎨 Styling**: [Vanilla Extract CSS](https://vanilla-extract.style/) for type-safe CSS-in-JS
 - **🔤 Typography**: [Inter font](https://rsms.me/inter/) with advanced OpenType features including:
