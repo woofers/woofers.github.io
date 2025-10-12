@@ -1,0 +1,175 @@
+{
+  "gamecube": [
+    {
+      "name": "Big Air Freestyle"
+    },
+    {
+      "name": "Crazy Taxi",
+      "standardName": "Crazy Taxi",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Crazy_Taxi/NTSC/GameCube_Crazy Taxi-3569.jpg"
+    },
+    {
+      "name": "Donkey Konga (Game only)",
+      "standardName": "Donkey Konga",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Donkey_Konga/NTSC/GameCube_Donkey Konga-7719.jpg"
+    },
+    {
+      "name": "Donkey Konga 2"
+    },
+    {
+      "name": "Luigi's Mansion",
+      "standardName": "Luigi's Mansion",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Luigi_s_Mansion/NTSC/GameCube_Luigi's Mansion-7687.jpg"
+    },
+    {
+      "name": "Madagascar"
+    },
+    {
+      "name": "Mario Golf Toadstool Tour [Player's Choice]",
+      "standardName": "Mario Golf: Toadstool Tour",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Mario_Golf_Toadstool_Tour/NTSC/GameCube_Mario Golf Toadstool Tour-8285.jpg"
+    },
+    {
+      "name": "Mario Kart Double Dash",
+      "standardName": "Mario Kart: Double Dash!!",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Mario_Kart_Double_Dash!!/NTSC/GameCube_Mario Kart Double Dash!!-7720.jpg"
+    },
+    {
+      "name": "Mario Party 4",
+      "standardName": "Mario Party 4",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Mario_Party_4/NTSC/GameCube_Mario Party 4-18564.jpg"
+    },
+    {
+      "name": "Mario Power Tennis",
+      "standardName": "Mario Power Tennis",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Mario_Power_Tennis/NTSC/GameCube_Mario Power Tennis-1339.jpg"
+    },
+    {
+      "name": "Need for Speed Carbon",
+      "standardName": "Need For Speed: Carbon",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Need_For_Speed_Carbon/NTSC/GameCube_Need For Speed Carbon-2344.jpg"
+    },
+    {
+      "name": "Need for Speed Most Wanted",
+      "standardName": "Need For Speed: Most Wanted",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Need_For_Speed_Most_Wanted/NTSC/GameCube_Need For Speed Most Wanted-1593.jpg"
+    },
+    {
+      "name": "Paper Mario Thousand Year Door [Player's Choice]",
+      "standardName": "Paper Mario: The Thousand Year Door",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Paper_Mario_The_Thousand_Year_Door/NTSC/GameCube_Paper Mario The Thousand Year Door-1595.jpg"
+    },
+    {
+      "name": "Pikmin",
+      "standardName": "Pikmin",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Pikmin/NTSC/GameCube_Pikmin-1965.jpg"
+    },
+    {
+      "name": "Resident Evil",
+      "standardName": "Resident Evil",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Resident_Evil/NTSC/GameCube_Resident Evil-364.jpg"
+    },
+    {
+      "name": "Resident Evil Zero",
+      "standardName": "Resident Evil Zero",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Resident_Evil_Zero/NTSC/GameCube_Resident Evil Zero-365.jpg"
+    },
+    {
+      "name": "Shadow the Hedgehog",
+      "standardName": "Shadow the Hedgehog",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Shadow_the_Hedgehog/NTSC/GameCube_Shadow the Hedgehog-20133.jpg"
+    },
+    {
+      "name": "Sonic Adventure 2 Battle",
+      "standardName": "Sonic Adventure 2 Battle",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Sonic_Adventure_2_Battle/NTSC/GameCube_Sonic Adventure 2 Battle-20629.jpg"
+    },
+    {
+      "name": "Sonic Adventure DX",
+      "standardName": "Sonic Adventure DX Director's Cut",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Sonic_Adventure_DX_Director_s_Cut/NTSC/GameCube_Sonic Adventure DX Director's Cut-3848.jpg"
+    },
+    {
+      "name": "Sonic Heroes",
+      "standardName": "Sonic Heroes",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Sonic_Heroes/NTSC/GameCube_Sonic Heroes-3613.jpg"
+    },
+    {
+      "name": "Spiderman 2",
+      "standardName": "Spider-Man 2",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Spider-Man_2/NTSC/GameCube_Spider-Man 2-17616.jpg"
+    },
+    {
+      "name": "Super Mario Sunshine",
+      "standardName": "Super Mario Sunshine",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Super_Mario_Sunshine/NTSC/GameCube_Super Mario Sunshine-10597.jpg"
+    },
+    {
+      "name": "Super Monkey Ball Adventure",
+      "standardName": "Super Monkey Ball",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Super_Monkey_Ball/NTSC/GameCube_Super Monkey Ball-1562.jpg"
+    },
+    {
+      "name": "Super Smash Bros. Melee",
+      "standardName": "Super Smash Bros. Melee",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Super_Smash_Bros._Melee/NTSC/GameCube_Super Smash Bros. Melee-1887.jpg"
+    },
+    {
+      "name": "Tony Hawk Underground",
+      "standardName": "Tony Hawk's Underground",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Tony_Hawk_s_Underground/NTSC/GameCube_Tony Hawk's Underground-21102.jpg"
+    },
+    {
+      "name": "Wave Race Blue Storm",
+      "standardName": "Wave Race: Blue Storm",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Wave_Race_Blue_Storm/NTSC/GameCube_Wave Race Blue Storm-3179.jpg"
+    },
+    {
+      "name": "Zelda Four Swords Adventures",
+      "standardName": "The Legend of Zelda: Four Swords Adventures",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Legend_of_Zelda_Four_Swords_Adventures,_The/NTSC/GameCube_Legend of Zelda Four Swords Adventures, The-1646.jpg"
+    },
+    {
+      "name": "Zelda Ocarina of Time Master Quest",
+      "standardName": "The Legend of Zelda: Ocarina of Time Master Quest",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Legend_of_Zelda_Ocarina_of_Time_Master_Quest,_The/NTSC/GameCube_Legend of Zelda Ocarina of Time Master Quest, The-1941.jpg"
+    },
+    {
+      "name": "Zelda Wind Waker",
+      "standardName": "The Legend of Zelda: The Wind Waker",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Legend_of_Zelda_The_Wind_Waker,_The/NTSC/GameCube_Legend of Zelda The Wind Waker, The-2316.jpg"
+    },
+    {
+      "name": "Zelda [Collector's Edition]",
+      "standardName": "The Legend of Zelda: Collector's Edition",
+      "format": "ntsc",
+      "img_path": "https://cdn.cartgg.run/images/GameCube/Legend_of_Zelda_Collector_s_Edition,_The/NTSC/GameCube_Legend of Zelda Collector's Edition, The-2279.jpg"
+    }
+  ]
+}

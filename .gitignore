@@ -17,9 +17,6 @@ node_modules
 # Coverage directory used by testing tools
 coverage
 
-# Visual Studio Code configuration
-.vscode/
-
 
 # npm and yarn debug logs
 npm-debug.log*

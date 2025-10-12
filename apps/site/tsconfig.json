@@ -2,12 +2,26 @@
   "exclude": ["node_modules"],
   "extends": "@jaxson/tsconfig/nextjs.json",
   "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "contentlayer/generated": [".contentlayer/generated"]
+    },
     "outDir": "dist",
+    "declaration": true,
+    "allowImportingTsExtensions": true,
     "plugins": [
       {
         "name": "next"
       }
     ]
   },
-  "include": ["src", "next.config.ts", "next-env.d.ts", ".next/types/**/*.ts"]
+  "include": [
+    "src", 
+    "next.config.ts", 
+    "next-env.d.ts", 
+    "remark.ts",
+    ".next/types/**/*.ts",
+    ".contentlayer/generated",
+    "./src/types/**.d.ts"
+  ]
 }
