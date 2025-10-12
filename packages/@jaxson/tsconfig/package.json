@@ -1,0 +1,8 @@
+{
+  "name": "@jaxson/tsconfig",
+  "version": "1.0.0",
+  "main": "tsconfig.json",
+  "license": "MIT",
+  "private": true,
+  "scripts": { "dev": "echo hello"}
+}
