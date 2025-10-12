@@ -29,7 +29,9 @@
   ],
   "resolutions": {
     "@eslint/plugin-kit": ">=0.3.4",
+    "@next/eslint-plugin-next": "16.0.0-canary.2",
     "estree-util-value-to-estree": ">=3.3.3",
+    "next": "16.0.0-canary.2",
     "form-data": ">=2.5.4",
     "jpeg-js": ">=0.4.4",
     "on-headers": ">=1.1.0",

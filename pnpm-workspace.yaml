@@ -3,6 +3,9 @@ packages:
   - packages/@jaxson/*
 
 minimumReleaseAge: 4320
+minimumReleaseAgeExclude:
+  - next
+  - "@next/eslint-plugin-next"
 
 onlyBuiltDependencies:
   - contentlayer2

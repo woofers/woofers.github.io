@@ -3,7 +3,7 @@
 import { Box, type BoxProps } from '@jaxson/ui/box'
 import { Hidden } from '@jaxson/ui/hidden'
 import { TextSlideOnValue } from '@jaxson/ui/text-effects'
-import { Link } from 'next-view-transitions'
+import Link from 'next/link'
 import React, { useState } from 'react'
 
 export const SlideLinkControlled: React.FC<

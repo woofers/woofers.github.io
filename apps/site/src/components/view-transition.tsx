@@ -1,4 +1,4 @@
-import React, { unstable_ViewTransition as ViewTransitionBase } from 'react'
+import React, { ViewTransition as ViewTransitionBase } from 'react'
 
 const noop = (value: string) => value
 
