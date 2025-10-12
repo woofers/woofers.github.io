@@ -4,8 +4,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "./dist-games.sh && next build",
+    "dev": "next dev --webpack",
+    "build": "./dist-games.sh && next build --webpack",
     "start": "node server.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
