@@ -1,23 +1,42 @@
 'use client'
 import { Box } from '@jaxson/ui/box'
-import { Clone, OrbitControls, useGLTF, useTexture } from '@react-three/drei'
+import {
+  Clone,
+  OrbitControls,
+  useAnimations,
+  useGLTF,
+  useTexture
+} from '@react-three/drei'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Gemunu_Libre } from 'next/font/google'
-import React, { Suspense, useMemo, useRef, useState } from 'react'
+import React, {
+  Suspense,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react'
 import * as THREE from 'three'
 import type { GLTF } from 'three-stdlib'
 
 const withBasename = (path: string) => `/gamecube/${path}`
 
-const caseModel = withBasename('data.glb')
+const caseModel = withBasename('gamecube.glb')
+
+type ActionName = 'FullPullOut' | 'PullOut'
+
+type GLTFAction = THREE.AnimationClip & {
+  name: ActionName
+}
 
 type GLTFResult = GLTF & {
   nodes: {
-    Cube: THREE.Mesh
+    Case: THREE.Mesh
   }
   materials: {
-    Material: THREE.MeshStandardMaterial
+    ['Material.001']: THREE.MeshStandardMaterial
   }
+  animations: GLTFAction[]
 }
 
 const cloneMaterial = (
@@ -88,11 +107,12 @@ const MOVEMENT_SPEED = 6 + 2 / 3
 const HEIGHT = 0.2
 
 const useModel = (cover: string) => {
-  const { nodes, materials: mat } = useGLTF(caseModel) as unknown as GLTFResult
-  const material = mat.Material
-  const { geometry } = nodes.Cube
+  const data = useGLTF(caseModel) as unknown as GLTFResult
+  const { nodes, materials: mat, animations } = data
+  const material = mat['Material.001']
+  const { geometry } = nodes.Case
   const texturedMaterial = useSwapTexture(cover, material)
-  return { geometry, material: texturedMaterial }
+  return { geometry, material: texturedMaterial, animations }
 }
 
 const DEFAULT_ROTATION: [number, number, number] = [0, -Math.PI / 2, 0]
@@ -100,7 +120,7 @@ const DEFAULT_ROTATION: [number, number, number] = [0, -Math.PI / 2, 0]
 const useSpinAnimation = (position: [number, number, number]) => {
   const groupRef = useRef<THREE.Group>(null!)
   const stateRef = useRef({ dir: 1, state: 'idle' as State })
-  const [isHovered, setIsHovered] = React.useState(false)
+  const [isHovered, setIsHovered] = useState(false)
   const HEIGHT = 0.6 + (position?.[2] ?? 0)
   const DEPTH = position?.[2] || 0
 
@@ -129,7 +149,6 @@ const useSpinAnimation = (position: [number, number, number]) => {
     } else if (stateRef.current.state === 'move') {
       stateRef.current.state = 'reset'
     } else if (stateRef.current.state === 'reset') {
-      console.log(groupRef.current.position.z)
       groupRef.current.position.z -= MOVEMENT_SPEED * dt
       if (groupRef.current.position.z < DEPTH) {
         stateRef.current.state = 'idle'
@@ -143,12 +162,11 @@ const useSpinAnimation = (position: [number, number, number]) => {
 const useTopAnimation = (position: [number, number, number]) => {
   const groupRef = useRef<THREE.Group>(null!)
   const stateRef = useRef({ dir: 1, state: 'idle' as State })
-  const [isHovered, setIsHovered] = React.useState(false)
+  const [isHovered, setIsHovered] = useState(false)
 
   const HEIGHT = (position?.[0] || 0) - 0.8
 
   useFrame((_state, dt) => {
-    console.log(stateRef.current.state)
     if (stateRef.current.state === 'idle' && !isHovered) {
       return
     }
@@ -158,7 +176,6 @@ const useTopAnimation = (position: [number, number, number]) => {
       }
       if (stateRef.current.state === 'move') {
         groupRef.current.position.x -= MOVEMENT_SPEED * dt
-        console.log(groupRef.current.position.x, HEIGHT)
         if (groupRef.current.position.x < HEIGHT) {
           stateRef.current.state = 'reset'
         }
@@ -177,8 +194,21 @@ const Model: React.FC<
     position?: [number, number, number]
   }
 > = ({ cover, onHover, rotation = DEFAULT_ROTATION, position, ...props }) => {
-  const { geometry, material } = useModel(cover)
+  const { geometry, material, animations } = useModel(cover)
   const { groupRef, setIsHovered } = useSpinAnimation(position ?? [0, 0, 0])
+  const { actions } = useAnimations(animations, groupRef)
+  const animationRef = useRef(false)
+
+  /*
+  useEffect(() => {
+    if (animationRef.current || !groupRef.current) {
+      return
+    }
+    animationRef.current = true
+    console.log(groupRef.current)
+    actions.FullPullOut?.play()
+  }, [actions])
+  */
 
   const handlePointerEnter = () => {
     setIsHovered(true)
@@ -251,6 +281,7 @@ export const ModelGrid = React.memo<{
   components: React.ComponentType<any>[]
   position?: [number, number, number]
 }>(({ components, position = [0, 0, 0] }) => {
+  const positionRef = useRef<[number, number, number][]>([])
   const [hovered, setHovered] = useState<number | null>(null)
   const type = 'topDown'
   const { spacingX, spacingY, spacingZ, gridSize, offsetDistY, offsetDistZ } =
@@ -269,17 +300,27 @@ export const ModelGrid = React.memo<{
   return (
     <>
       {components.map((ModelComponent, index) => {
-        const x = (index % gridSize) * spacingX + position[0]
-        const y =
-          Math.floor(index / gridSize) * spacingY + offsetDistY + position[1]
-        const z =
-          Math.floor(index / gridSize) * spacingZ + offsetDistZ + position[2]
-
         const isHovered = hovered === index
+
+        const positionLocal =
+          positionRef.current[index] ||
+          (() => {
+            const arr = [
+              (index % gridSize) * spacingX + position[0],
+              Math.floor(index / gridSize) * spacingY +
+                offsetDistY +
+                position[1],
+              Math.floor(index / gridSize) * spacingZ +
+                offsetDistZ +
+                position[2]
+            ] as [number, number, number]
+            positionRef.current[index] = arr
+            return arr
+          })()
         return (
           <ModelComponent
             key={index}
-            position={[x, y, z]}
+            position={positionLocal}
             scale={1.2}
             spin={isHovered}
             onHover={(hovered: boolean) => handleHover(index, hovered)}
