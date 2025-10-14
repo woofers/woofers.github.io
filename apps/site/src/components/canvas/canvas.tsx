@@ -114,20 +114,33 @@ const useModel = (cover: string) => {
   return { geometry, material: texturedMaterial, animations }
 }
 
-const DEFAULT_ROTATION: [number, number, number] = [0, -Math.PI / 2, 0]
+type ModelLoaderResults = ReturnType<typeof useModel>
 
-const useSpinAnimation = (position: [number, number, number]) => {
-  const groupRef = useRef<THREE.Group>(null!)
-  const stateRef = useRef({ dir: 1, state: 'idle' as State })
-  const [isHovered, setIsHovered] = useState(false)
+const DEFAULT_ROTATION: [number, number, number] = [0, -Math.PI / 2, 0]
+const DEFAULT_POSITION: [number, number, number] = [0, 0, 0]
+
+type StateMachine = {
+  state: State
+}
+
+const useSpinAnimation = ({
+  position,
+  selected,
+  groupRef
+}: {
+  position: [number, number, number]
+  selected: boolean
+  groupRef: React.RefObject<THREE.Group>
+}) => {
+  const stateRef = useRef<StateMachine>({ state: 'idle' })
   const HEIGHT = 0.6 + (position?.[2] ?? 0)
   const DEPTH = position?.[2] || 0
 
   useFrame((_state, dt) => {
-    if (stateRef.current.state === 'idle' && !isHovered) {
+    if (stateRef.current.state === 'idle' && !selected) {
       return
     }
-    if (isHovered) {
+    if (selected) {
       if (stateRef.current.state === 'idle') {
         stateRef.current.state = 'move'
       }
@@ -155,58 +168,105 @@ const useSpinAnimation = (position: [number, number, number]) => {
     }
   })
 
-  return { groupRef, setIsHovered }
+  return null
 }
 
-const useTopAnimation = (position: [number, number, number]) => {
-  const groupRef = useRef<THREE.Group>(null!)
-  const stateRef = useRef({ dir: 1, state: 'idle' as State })
-  const [isHovered, setIsHovered] = useState(false)
+const isEmpty = (value: unknown) =>
+  !value || typeof value !== 'object' || Object.keys(value).length === 0
 
-  const HEIGHT = (position?.[0] || 0) - 0.8
-
-  useFrame((_state, dt) => {
-    if (stateRef.current.state === 'idle' && !isHovered) {
-      return
-    }
-    if (isHovered) {
-      if (stateRef.current.state === 'idle') {
-        stateRef.current.state = 'move'
-      }
-      if (stateRef.current.state === 'move') {
-        groupRef.current.position.x -= MOVEMENT_SPEED * dt
-        if (groupRef.current.position.x < HEIGHT) {
-          stateRef.current.state = 'reset'
-        }
-      }
-    }
-  })
-
-  return { groupRef, setIsHovered }
+type ModelProps = Omit<GroupProps, 'position'> & {
+  cover: string
+  onHover?: (hovered: boolean) => void
+  rotation?: [number, number, number]
+  position?: [number, number, number]
+  selected?: boolean
 }
 
-const Model: React.FC<
-  Omit<GroupProps, 'position'> & {
-    cover: string
-    onHover?: (hovered: boolean) => void
-    rotation?: [number, number, number]
-    position?: [number, number, number]
-    selected?: boolean
-  }
+const BaseModel: React.FC<
+  GroupProps &
+    Omit<ModelLoaderResults, 'animations'> & {
+      handlePointerEnter?: () => void
+      handlePointerLeave?: () => void
+      sceneRef: React.RefObject<THREE.Group>
+    }
 > = ({
+  handlePointerEnter,
+  handlePointerLeave,
+  geometry,
+  material,
+  sceneRef,
+  ref,
+  ...props
+}) => (
+  <group ref={sceneRef} dispose={null}>
+    <group {...props} name="Scene" dispose={null} scale={1} ref={ref}>
+      <mesh
+        name="Case"
+        castShadow
+        receiveShadow
+        geometry={geometry}
+        material={material}
+        frustumCulled
+        onPointerEnter={handlePointerEnter}
+        onPointerLeave={handlePointerLeave}
+      />
+    </group>
+  </group>
+)
+
+const SpinModel: React.FC<ModelProps> = ({
   cover,
   onHover,
   rotation = DEFAULT_ROTATION,
-  position,
-  selected,
+  position = DEFAULT_POSITION,
+  selected = false,
   ...props
 }) => {
   const sceneRef = useRef<THREE.Group>(null!)
-  const { geometry, material, animations } = useModel(cover)
-  const { groupRef, setIsHovered } = useSpinAnimation(position ?? [0, 0, 0])
-  const { actions, mixer } = useAnimations(animations, sceneRef)
-  const initialized = useRef(false)
+  const groupRef = useRef<THREE.Group>(null!)
+  const { geometry, material } = useModel(cover)
+  useSpinAnimation({
+    position,
+    selected,
+    groupRef
+  })
 
+  const handlePointerEnter = useCallback(() => {
+    onHover?.(true)
+  }, [onHover])
+
+  const handlePointerLeave = useCallback(() => {
+    onHover?.(false)
+  }, [onHover])
+
+  return (
+    <BaseModel
+      {...props}
+      handlePointerEnter={handlePointerEnter}
+      handlePointerLeave={handlePointerLeave}
+      geometry={geometry}
+      material={material}
+      sceneRef={sceneRef}
+      ref={groupRef}
+      position={position}
+      rotation={rotation}
+    />
+  )
+}
+
+const ShelfModel: React.FC<ModelProps> = ({
+  cover,
+  onHover,
+  rotation = DEFAULT_ROTATION,
+  position = DEFAULT_POSITION,
+  selected,
+  ...props
+}) => {
+  const groupRef = useRef<THREE.Group>(null!)
+  const sceneRef = useRef<THREE.Group>(null!)
+  const { geometry, material, animations } = useModel(cover)
+  const { mixer } = useAnimations(animations, sceneRef)
+  const initialized = useRef(false)
   const animsRef = useRef<ReturnType<typeof createAnims>>(null!)
 
   const createAnims = useCallback(() => {
@@ -222,7 +282,7 @@ const Model: React.FC<
   }, [animations, mixer])
 
   const getAnims = useCallback(() => {
-    if (!!animsRef.current && Object.keys(animsRef.current).length > 0)
+    if (!!animsRef.current && !isEmpty(animsRef.current))
       return animsRef.current
     animsRef.current = createAnims()
     return animsRef.current
@@ -241,41 +301,31 @@ const Model: React.FC<
     }
   }, [selected, getAnims])
 
-  const handlePointerEnter = () => {
-    // setIsHovered(true)
+  const handlePointerEnter = useCallback(() => {
     onHover?.(true)
-  }
+  }, [onHover])
 
-  const handlePointerLeave = () => {
-    // setIsHovered(false)
+  const handlePointerLeave = useCallback(() => {
     onHover?.(false)
-  }
+  }, [onHover])
 
   return (
-    <group ref={sceneRef} dispose={null}>
-      <group
-        name="Scene"
-        ref={groupRef}
-        position={position}
-        {...props}
-        dispose={null}
-        rotation={rotation}
-        scale={1}
-      >
-        <mesh
-          name="Case"
-          castShadow
-          receiveShadow
-          geometry={geometry}
-          material={material}
-          frustumCulled={true}
-          onPointerEnter={handlePointerEnter}
-          onPointerLeave={handlePointerLeave}
-        />
-      </group>
-    </group>
+    <BaseModel
+      {...props}
+      handlePointerEnter={handlePointerEnter}
+      handlePointerLeave={handlePointerLeave}
+      geometry={geometry}
+      material={material}
+      sceneRef={sceneRef}
+      ref={groupRef}
+      position={position}
+      rotation={rotation}
+    />
   )
 }
+
+const mode = 'shelf' as 'spin' | 'shelf'
+const Model = mode === 'spin' ? SpinModel : ShelfModel
 
 type WithPreload<T extends {}> = T & { preload: () => void }
 
@@ -293,7 +343,7 @@ const withModel = (game: string) => {
 }
 
 const spacings = {
-  topDown: {
+  spin: {
     spacingX: 2.5,
     spacingY: -3.2,
     spacingZ: 0,
@@ -315,12 +365,11 @@ export const ModelGrid = React.memo<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   components: React.ComponentType<any>[]
   position?: [number, number, number]
-}>(({ components, position = [0, 0, 0] }) => {
+}>(({ components, position = DEFAULT_POSITION }) => {
   const positionRef = useRef<[number, number, number][]>([])
   const [hovered, setHovered] = useState<number | null>(null)
-  const type = 'shelf'
   const { spacingX, spacingY, spacingZ, gridSize, offsetDistY, offsetDistZ } =
-    spacings[type]
+    spacings[mode]
 
   const handleHover = (index: number, wasHovered: boolean) => {
     if (wasHovered) {
