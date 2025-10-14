@@ -1,7 +1,6 @@
 'use client'
 import { Box } from '@jaxson/ui/box'
 import {
-  Clone,
   OrbitControls,
   useAnimations,
   useGLTF,
@@ -192,52 +191,88 @@ const Model: React.FC<
     onHover?: (hovered: boolean) => void
     rotation?: [number, number, number]
     position?: [number, number, number]
+    selected?: boolean
   }
-> = ({ cover, onHover, rotation = DEFAULT_ROTATION, position, ...props }) => {
+> = ({
+  cover,
+  onHover,
+  rotation = DEFAULT_ROTATION,
+  position,
+  selected,
+  ...props
+}) => {
+  const sceneRef = useRef<THREE.Group>(null!)
   const { geometry, material, animations } = useModel(cover)
   const { groupRef, setIsHovered } = useSpinAnimation(position ?? [0, 0, 0])
-  const { actions } = useAnimations(animations, groupRef)
-  const animationRef = useRef(false)
+  const { actions, mixer } = useAnimations(animations, sceneRef)
+  const initialized = useRef(false)
 
-  /*
+  const animsRef = useRef<ReturnType<typeof createAnims>>(null!)
+
+  const createAnims = useCallback(() => {
+    const pullOutAnimation = animations.find(
+      animation => animation.name === 'FullPullOut'
+    ) as unknown as THREE.AnimationClip
+    const animation = mixer.clipAction(pullOutAnimation)
+    animation.timeScale = 0.74
+    animation.loop = THREE.LoopOnce
+    animation.clampWhenFinished = true
+    animation.enabled = true
+    return { pullOut: animation }
+  }, [animations, mixer])
+
+  const getAnims = useCallback(() => {
+    if (!!animsRef.current && Object.keys(animsRef.current).length > 0)
+      return animsRef.current
+    animsRef.current = createAnims()
+    return animsRef.current
+  }, [createAnims])
+
   useEffect(() => {
-    if (animationRef.current || !groupRef.current) {
+    if (!initialized.current) {
+      initialized.current = true
       return
     }
-    animationRef.current = true
-    console.log(groupRef.current)
-    actions.FullPullOut?.play()
-  }, [actions])
-  */
+
+    if (selected) {
+      getAnims().pullOut?.play()
+    } else {
+      getAnims().pullOut?.stop()
+    }
+  }, [selected, getAnims])
 
   const handlePointerEnter = () => {
-    setIsHovered(true)
+    // setIsHovered(true)
     onHover?.(true)
   }
 
   const handlePointerLeave = () => {
-    setIsHovered(false)
+    // setIsHovered(false)
     onHover?.(false)
   }
 
   return (
-    <group
-      ref={groupRef}
-      position={position}
-      {...props}
-      dispose={null}
-      rotation={rotation}
-      scale={1}
-    >
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={geometry}
-        material={material}
-        frustumCulled={true}
-        onPointerEnter={handlePointerEnter}
-        onPointerLeave={handlePointerLeave}
-      />
+    <group ref={sceneRef} dispose={null}>
+      <group
+        name="Scene"
+        ref={groupRef}
+        position={position}
+        {...props}
+        dispose={null}
+        rotation={rotation}
+        scale={1}
+      >
+        <mesh
+          name="Case"
+          castShadow
+          receiveShadow
+          geometry={geometry}
+          material={material}
+          frustumCulled={true}
+          onPointerEnter={handlePointerEnter}
+          onPointerLeave={handlePointerLeave}
+        />
+      </group>
     </group>
   )
 }
@@ -283,7 +318,7 @@ export const ModelGrid = React.memo<{
 }>(({ components, position = [0, 0, 0] }) => {
   const positionRef = useRef<[number, number, number][]>([])
   const [hovered, setHovered] = useState<number | null>(null)
-  const type = 'topDown'
+  const type = 'shelf'
   const { spacingX, spacingY, spacingZ, gridSize, offsetDistY, offsetDistZ } =
     spacings[type]
 
@@ -322,7 +357,7 @@ export const ModelGrid = React.memo<{
             key={index}
             position={positionLocal}
             scale={1.2}
-            spin={isHovered}
+            selected={isHovered}
             onHover={(hovered: boolean) => handleHover(index, hovered)}
           />
         )
