@@ -254,6 +254,16 @@ const SpinModel: React.FC<ModelProps> = ({
   )
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const useCallbackRef = <T extends any[]>(callback: (...args: T) => void) => {
+  const ref = useRef<(...args: T) => void>(null!)
+  useEffect(() => {
+    ref.current = callback
+  }, [callback])
+  const memo = useCallback((...args: T) => ref.current(...args), [ref])
+  return memo
+}
+
 const ShelfModel: React.FC<ModelProps> = ({
   cover,
   onHover,
@@ -266,15 +276,24 @@ const ShelfModel: React.FC<ModelProps> = ({
   const sceneRef = useRef<THREE.Group>(null!)
   const { geometry, material, animations } = useModel(cover)
   const { mixer } = useAnimations(animations, sceneRef)
-  const initialized = useRef(false)
   const animsRef = useRef<ReturnType<typeof createAnims>>(null!)
+  const initialized = useRef<'ready' | 'playing' | 'open' | 'close' | 'idle'>(
+    'idle'
+  )
+  const closingRef = useRef(false)
+  const eventRef = useRef<{
+    clearPlayFinished: () => void
+    clearReverseFinished: () => void
+  }>({
+    clearPlayFinished: () => {},
+    clearReverseFinished: () => {}
+  })
 
   const createAnims = useCallback(() => {
     const pullOutAnimation = animations.find(
       animation => animation.name === 'FullPullOut'
     ) as unknown as THREE.AnimationClip
     const animation = mixer.clipAction(pullOutAnimation)
-    animation.timeScale = 0.74
     animation.loop = THREE.LoopOnce
     animation.clampWhenFinished = true
     animation.enabled = true
@@ -288,26 +307,56 @@ const ShelfModel: React.FC<ModelProps> = ({
     return animsRef.current
   }, [createAnims])
 
-  useEffect(() => {
-    if (!initialized.current) {
-      initialized.current = true
-      return
-    }
+  const playAnimation = useCallback(() => {
+    const anim = getAnims().pullOut
+    if (!anim) return
+    if (closingRef.current) return
 
-    if (selected) {
-      getAnims().pullOut?.play()
-    } else {
-      getAnims().pullOut?.stop()
+    anim.timeScale = 0.74
+    anim.fadeIn(0.1)
+    anim.reset()
+    anim.play()
+
+    const onFinished = () => {
+      closingRef.current = true
+      mixer.removeEventListener('finished', onFinished)
     }
-  }, [selected, getAnims])
+    eventRef.current.clearPlayFinished = () => {
+      mixer.removeEventListener('finished', onFinished)
+    }
+    mixer.addEventListener('finished', onFinished)
+  }, [getAnims, mixer])
+  const playAnimationRef = useCallbackRef(playAnimation)
+
+  const reverseAnimation = useCallback(() => {
+    const anim = getAnims().pullOut
+    if (!anim) return
+
+    anim.timeScale = -0.74
+    anim.fadeIn(0.1)
+    anim.play()
+
+    eventRef.current.clearPlayFinished()
+    const onFinished = () => {
+      closingRef.current = false
+      mixer.removeEventListener('finished', onFinished)
+    }
+    eventRef.current.clearReverseFinished = () => {
+      mixer.removeEventListener('finished', onFinished)
+    }
+    mixer.addEventListener('finished', onFinished)
+  }, [getAnims, mixer])
+  const reverseAnimationRef = useCallbackRef(reverseAnimation)
 
   const handlePointerEnter = useCallback(() => {
     onHover?.(true)
-  }, [onHover])
+    playAnimationRef()
+  }, [onHover, playAnimationRef])
 
   const handlePointerLeave = useCallback(() => {
     onHover?.(false)
-  }, [onHover])
+    reverseAnimationRef()
+  }, [onHover, reverseAnimationRef])
 
   return (
     <BaseModel
@@ -329,6 +378,22 @@ const Model = mode === 'spin' ? SpinModel : ShelfModel
 
 type WithPreload<T extends {}> = T & { preload: () => void }
 
+const toUpperFirst = (str: string) => {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
+
+const camelize = (str: string) => {
+  const base = removeQuotes(str)
+  const v = base
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+      return index === 0 ? word.toLowerCase() : word.toUpperCase()
+    })
+    .replace(/\s+/g, '')
+  return toUpperFirst(v)
+}
+
+const removeQuotes = (str: string) => str.replace(/['"\-\.]/g, '')
+
 const withModel = (game: string) => {
   const gameWithBase = withBasename(game)
   const GameModel: React.FC<
@@ -339,6 +404,8 @@ const withModel = (game: string) => {
     useGLTF.preload(`${caseModel}`)
     useTexture.preload(gameWithBase)
   }
+  const id = game.replace(/\.jpg/g, '')
+  GameModelWithPreload.displayName = `Cover${camelize(id)}`
   return GameModel
 }
 
@@ -363,7 +430,9 @@ const spacings = {
 
 export const ModelGrid = React.memo<{
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  components: React.ComponentType<any>[]
+  components: React.ComponentType<
+    Omit<React.ComponentProps<typeof Model>, 'cover'>
+  >[]
   position?: [number, number, number]
 }>(({ components, position = DEFAULT_POSITION }) => {
   const positionRef = useRef<[number, number, number][]>([])
@@ -380,6 +449,8 @@ export const ModelGrid = React.memo<{
       }
     }
   }
+
+  console.log('hovered', hovered ? components[hovered]?.displayName : 'none')
 
   return (
     <>
